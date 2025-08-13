@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: grey;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+    <stylesheets>
+        <URL value="@/css/home.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane prefHeight="650.0" prefWidth="280.0" style="-fx-background-color: #3D3D3D;">
+         <children>
+            <Button fx:id="bntCliente" layoutX="114.0" layoutY="221.0" mnemonicParsing="false" onAction="#openClientPage" text="CLIENTE" />
+            <Button fx:id="bntInstrutor" layoutX="118.0" layoutY="259.0" mnemonicParsing="false" onAction="#openInstrutoresPage" text="INSTRUTORES" />
+            <Button fx:id="bntAtendentes" layoutX="118.0" layoutY="300.0" mnemonicParsing="false" onAction="#openAtendentesPage" text="ATENDENTES" />
+            <Button fx:id="bntPlanos" layoutX="118.0" layoutY="345.0" mnemonicParsing="false" onAction="#openPlanosPage" text="PLANOS" />
+            <Button fx:id="bntAulas" layoutX="118.0" layoutY="390.0" mnemonicParsing="false" onAction="#openAulasPage" text="AULAS" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
