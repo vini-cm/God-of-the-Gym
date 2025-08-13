@@ -1,3 +1,9 @@
-controller\LoginController.class
-module-info.class
+dal\Conn.class
+model\genericoDAO.class
+model\Usuario.class
 principal\App.class
+controller\LoginController.class
+model\LoginDAO.class
+module-info.class
+util\Alerta.class
+model\UserDAO.class

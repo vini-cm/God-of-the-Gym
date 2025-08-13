@@ -1,7 +1,5 @@
 package principal;
 
-
-
 import controller.LoginController;
 import java.io.File;
 import javafx.application.Application;
@@ -28,6 +26,9 @@ public class App extends Application {
         Stage telaLogin = new Stage();
         LoginController lc = loader.getController();
         lc.setStage(stage);
+        telaLogin.setOnShown(event ->{
+        lc.abrirJanela();
+        });
         Scene scene = new Scene(root);
         telaLogin.setScene(scene);
         scene.getStylesheets().add(getClass().getResource("" + "/css/login.css").toExternalForm());
