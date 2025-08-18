@@ -7,13 +7,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="706.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="5.0" layoutY="6.0" prefHeight="430.0" prefWidth="206.0" style="-fx-background-color: red black; -fx-background-radius: 15;">
+      <AnchorPane layoutX="14.0" layoutY="7.0" prefHeight="636.0" prefWidth="280.0" style="-fx-background-color: red black; -fx-background-radius: 15;">
          <children>
-            <ImageView fitHeight="105.0" fitWidth="112.0" layoutX="48.0" layoutY="23.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
+            <ImageView fitHeight="142.0" fitWidth="166.0" layoutX="69.0" layoutY="25.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
                <image>
                   <Image url="@4207d1ec48f1e16d13a25924997ebfe4fbab081f.png" />
                </image>
@@ -21,34 +21,54 @@
                   <Blend />
                </effect>
             </ImageView>
-            <Button layoutX="7.0" layoutY="156.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="187.0" style="-fx-background-radius: 12; -fx-background-color: #2B2D42;" text="CLIENTES" textFill="#f80000">
+            <Button layoutX="7.0" layoutY="429.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="AULAS" textFill="#ff0505">
                <font>
-                  <Font name="Arial Bold" size="12.0" />
+                  <Font name="System Bold" size="20.0" />
+               </font></Button>
+            <Button layoutX="7.0" layoutY="310.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="ATENDENTES" textFill="RED">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
                </font>
             </Button>
-            <Button layoutX="7.0" layoutY="246.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="187.0" style="-fx-background-radius: 12; -fx-background-color: #2B2D42;" text="ATENDENTES" textFill="RED">
+            <Button layoutX="7.0" layoutY="370.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="PLANOS" textFill="RED">
                <font>
-                  <Font name="Arial Bold" size="12.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button layoutX="7.0" layoutY="293.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="187.0" style="-fx-background-radius: 12; -fx-background-color: #2B2D42;" text="PLANOS" textFill="RED" />
-            <Button layoutX="7.0" layoutY="200.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="187.0" style="-fx-background-radius: 12; -fx-background-color: #2B2D42;" text="INSTRUTORES" textFill="RED">
+            <Button layoutX="7.0" layoutY="250.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="INSTRUTORES" textFill="RED">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button layoutX="7.0" layoutY="338.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="187.0" style="-fx-background-radius: 12; -fx-background-color: #2B2D42;" text="AULAS" textFill="#ff0505" />
+            <Button layoutX="7.0" layoutY="191.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="CLIENTES" textFill="#f80000">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Button>
          </children>
          <effect>
             <DropShadow height="23.93" radius="18.060000000000002" width="50.31" />
          </effect>
       </AnchorPane>
-      <AnchorPane layoutX="211.0" layoutY="9.0" prefHeight="423.0" prefWidth="495.0">
+      <AnchorPane layoutX="356.0" prefHeight="423.0" prefWidth="495.0">
          <effect>
             <DropShadow />
          </effect>
          <children>
-            <AnchorPane layoutX="8.0" layoutY="5.0" prefHeight="412.0" prefWidth="479.0" style="-fx-background-color: gray; -fx-background-radius: 12;" />
+            <AnchorPane layoutX="-52.0" layoutY="8.0" prefHeight="636.0" prefWidth="737.0" style="-fx-background-color: gray; -fx-background-radius: 12;">
+               <children>
+                  <Text layoutX="246.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GOD OF">
+                     <font>
+                        <Font name="Segoe UI Bold" size="65.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="255.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GYM">
+                     <font>
+                        <Font name="Reem Kufi Regular" size="96.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
