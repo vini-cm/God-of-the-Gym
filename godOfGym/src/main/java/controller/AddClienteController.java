@@ -63,8 +63,14 @@ public class AddClienteController {
         if (!tfCPF.getText().isEmpty() && tfCPF.getText() != null && !tfEmail.getText().isEmpty() && tfEmail.getText() != null
                 && !tfNome.getText().isEmpty() && tfNome.getText() != null && !tfSobrenome.getText().isEmpty() && tfSobrenome.getText() != null
                 && !tfSenha.getText().isEmpty() && tfSenha.getText() != null && genero != null) {
-            dao.salvar(tfCPF.getText(),tfNome.getText(),tfSobrenome.getText(),dpNascimento.getValue().toString(),tfSenha.getText(),tfEmail.getText(),genero);
-        } else {
+            user = dao.selecionarUsuario(tfCPF.getText()).get(0);
+            if (user == null){
+            user = new Usuario(tfCPF.getText(), tfNome.getText(),tfSobrenome.getText(),dpNascimento.getValue().toString(),tfSenha.getText(),tfEmail.getText(),genero);
+            dao.salvar(user);}
+            else {
+                Alerta.mostrarErro("ERROR", "ESSE USUARIO JÁ EXISTE!");
+            }
+            } else { 
             Alerta.mostrarErro("ERROR", "Preencha todas as informações!");
         }
     }

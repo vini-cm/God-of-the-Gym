@@ -22,12 +22,12 @@ public class genericoDAO {
     }
     
     public void salvar (String insertsql, Object... parametros) throws SQLException{
-        try (PreparedStatement stmt = conectarConn().prepareStatement(insertsql)) {
-            for ( int i = 0; i < parametros.length; i++){
-                stmt.setObject(i + 1, parametros[i]);
-            }
-            stmt.execute();
+        PreparedStatement stmt = conectarConn().prepareStatement(insertsql);
+        for ( int i = 0; i < parametros.length; i++){
+            stmt.setObject(i + 1, parametros[i]);
         }
+        stmt.execute();
+        stmt.close();
         connection.close();
     }
     
