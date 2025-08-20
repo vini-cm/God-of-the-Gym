@@ -7,7 +7,7 @@ public class Conn {
     private static final String URL = "jdbc:mysql://localhost:3306/godofgym";
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String USER = "root";
-    private static final String SENHA = "";
+    private static final String SENHA = "admin";
 
     public static Connection conectar() {
         try {

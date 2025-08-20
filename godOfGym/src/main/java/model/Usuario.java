@@ -2,7 +2,7 @@ package model;
 
 public class Usuario {
 
-    private int CPF;
+    private String CPF;
     private String nome;
     private String sobrenome;
     private String dataNascimento;
@@ -13,7 +13,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int CPF, String nome, String sobrenome, String dataNascimento, String senha, String email, char genero) {
+    public Usuario(String CPF, String nome, String sobrenome, String dataNascimento, String senha, String email, char genero) {
         this.CPF = CPF;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -23,7 +23,7 @@ public class Usuario {
         this.genero = genero;
     }
 
-    public Usuario(int CPF, String nome, String sobrenome, String dataNascimento, String email, char genero) {
+    public Usuario(String CPF, String nome, String sobrenome, String dataNascimento, String email, char genero) {
         this.CPF = CPF;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -32,11 +32,11 @@ public class Usuario {
         this.genero = genero;
     }
 
-    public int getCPF() {
+    public String getCPF() {
         return CPF;
     }
 
-    public void setCPF(int CPF) {
+    public void setCPF(String CPF) {
         this.CPF = CPF;
     }
 

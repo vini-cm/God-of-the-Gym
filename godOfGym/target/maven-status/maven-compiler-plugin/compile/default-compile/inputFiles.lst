@@ -1,9 +1,16 @@
-C:\Users\aluno\Downloads\God-of-the-Gym-main (2)\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\src\main\java\principal\App.java
-C:\Users\aluno\Downloads\God-of-the-Gym-main (2)\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\src\main\java\util\Alerta.java
-C:\Users\aluno\Downloads\God-of-the-Gym-main (2)\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\src\main\java\model\LoginDAO.java
-C:\Users\aluno\Downloads\God-of-the-Gym-main (2)\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\src\main\java\model\UserDAO.java
-C:\Users\aluno\Downloads\God-of-the-Gym-main (2)\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\src\main\java\module-info.java
-C:\Users\aluno\Downloads\God-of-the-Gym-main (2)\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\src\main\java\dal\Conn.java
-C:\Users\aluno\Downloads\God-of-the-Gym-main (2)\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\src\main\java\model\genericoDAO.java
-C:\Users\aluno\Downloads\God-of-the-Gym-main (2)\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\src\main\java\model\Usuario.java
-C:\Users\aluno\Downloads\God-of-the-Gym-main (2)\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\src\main\java\controller\LoginController.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\module-info.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\controller\PlanosController.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\model\UserDAO.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\principal\App.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\controller\InstrutoresController.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\controller\HomeController.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\dal\Conn.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\model\Usuario.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\controller\LoginController.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\controller\AddClienteController.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\util\Alerta.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\model\LoginDAO.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\controller\AulasController.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\model\genericoDAO.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\controller\AtendentesController.java
+C:\Users\aluno\Downloads\God-of-the-Gym-main\God-of-the-Gym-main\godOfGym\godOfGym\src\main\java\controller\ClientsController.java

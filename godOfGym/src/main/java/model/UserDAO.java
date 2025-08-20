@@ -29,7 +29,7 @@ public class UserDAO extends genericoDAO{
         ResultSet rs = stmt.executeQuery();
         while (rs.next()){
             Usuario user = new Usuario();
-            user.setCPF(rs.getInt("CPF"));
+            user.setCPF(rs.getString("CPF"));
             user.setNome(rs.getString("Nome"));
             user.setSobrenome(rs.getString("Sobrenome"));
             user.setDataNascimento(rs.getString("dataNascimento"));
@@ -54,7 +54,7 @@ public class UserDAO extends genericoDAO{
         ResultSet rs = stmt.executeQuery();
         while (rs.next()){
             Usuario user = new Usuario();
-            user.setCPF(rs.getInt("CPF"));
+            user.setCPF(rs.getString("CPF"));
             user.setNome(rs.getString("Nome"));
             user.setSobrenome(rs.getString("Sobrenome"));
             user.setDataNascimento(rs.getString("dataNascimento"));
