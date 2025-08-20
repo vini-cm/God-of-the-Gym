@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 
 public class UserDAO extends genericoDAO{
     public void salvar(Usuario user) throws SQLException{
-        String insert = "insert int usuarios (CPF, nome, sobrenome, dataNascimento, senha, email, genero) values (?,?,?,?,?,?,?)";
+        String insert = "insert into usuario (CPF, nome, sobrenome, dataNascimento, senha, email, genero) values (?,?,?,?,?,?,?)";
         salvar(insert,user.getCPF(),user.getNome(),user.getSobrenome(),user.getDataNascimento(),user.getSenha(),user.getEmail(),user.getGenero());
     }
     
@@ -46,11 +46,11 @@ public class UserDAO extends genericoDAO{
         return lista;
     }
     
-    public ObservableList<Usuario> selecionarUsuario(int CPF) throws SQLException {
+    public ObservableList<Usuario> selecionarUsuario(String CPF) throws SQLException {
         ObservableList<Usuario> usuario = FXCollections.observableArrayList();
         String sql = "SELECT * from usuario Where CPF = ?";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
-        stmt.setInt(1, CPF);
+        stmt.setString(1, CPF);
         ResultSet rs = stmt.executeQuery();
         while (rs.next()){
             Usuario user = new Usuario();
