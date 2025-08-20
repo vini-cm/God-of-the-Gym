@@ -8,12 +8,12 @@ public class Usuario {
     private String dataNascimento;
     private String senha;
     private String email;
-    private char genero;
+    private String genero;
 
     public Usuario() {
     }
 
-    public Usuario(String CPF, String nome, String sobrenome, String dataNascimento, String senha, String email, char genero) {
+    public Usuario(String CPF, String nome, String sobrenome, String dataNascimento, String senha, String email, String genero) {
         this.CPF = CPF;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -23,7 +23,7 @@ public class Usuario {
         this.genero = genero;
     }
 
-    public Usuario(String CPF, String nome, String sobrenome, String dataNascimento, String email, char genero) {
+    public Usuario(String CPF, String nome, String sobrenome, String dataNascimento, String email, String genero) {
         this.CPF = CPF;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -80,11 +80,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public char getGenero() {
+    public String getGenero() {
         return genero;
     }
 
-    public void setGenero(char genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
 

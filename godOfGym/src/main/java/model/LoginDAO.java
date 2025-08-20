@@ -36,7 +36,7 @@ public class LoginDAO extends genericoDAO {
                 user.setDataNascimento(rs.getString("dataNascimento"));
                 user.setEmail(rs.getString("Email"));
                 user.setSenha(rs.getString("Senha"));
-                user.setGenero(rs.getString("genero").charAt(0));
+                user.setGenero(rs.getString("genero"));
             }
             rs.close();
             stmt.close();
