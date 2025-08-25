@@ -1,4 +1,5 @@
 C:\Users\aluno\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\AtendentesController.java
+C:\Users\aluno\Documents\God-of-the-Gym\godOfGym\src\main\java\model\Cliente.java
 C:\Users\aluno\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\ClientsController.java
 C:\Users\aluno\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\PlanosController.java
 C:\Users\aluno\Documents\God-of-the-Gym\godOfGym\src\main\java\dal\Conn.java
@@ -13,6 +14,7 @@ C:\Users\aluno\Documents\God-of-the-Gym\godOfGym\src\main\java\model\UserDAO.jav
 C:\Users\aluno\Documents\God-of-the-Gym\godOfGym\src\main\java\principal\App.java
 C:\Users\aluno\Documents\God-of-the-Gym\godOfGym\src\main\java\model\PlanosDAO.java
 C:\Users\aluno\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\InstrutoresController.java
+C:\Users\aluno\Documents\God-of-the-Gym\godOfGym\src\main\java\model\ClienteDAO.java
 C:\Users\aluno\Documents\God-of-the-Gym\godOfGym\src\main\java\module-info.java
 C:\Users\aluno\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\LoginController.java
 C:\Users\aluno\Documents\God-of-the-Gym\godOfGym\src\main\java\model\LoginDAO.java

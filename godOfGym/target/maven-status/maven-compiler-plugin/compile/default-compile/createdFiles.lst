@@ -5,9 +5,11 @@ controller\ClientsController.class
 controller\LoginController.class
 model\LoginDAO.class
 module-info.class
+model\Cliente.class
 util\Alerta.class
 controller\InstrutoresController.class
 controller\AtendentesController.class
+model\ClienteDAO.class
 dal\Conn.class
 controller\AddPlanoController.class
 model\genericoDAO.class
