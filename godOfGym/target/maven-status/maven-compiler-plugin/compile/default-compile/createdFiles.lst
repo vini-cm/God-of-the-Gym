@@ -9,8 +9,11 @@ util\Alerta.class
 controller\InstrutoresController.class
 controller\AtendentesController.class
 dal\Conn.class
+controller\AddPlanoController.class
 model\genericoDAO.class
 principal\App.class
+model\Planos.class
+model\PlanosDAO.class
 controller\AulasController.class
 controller\PlanosController.class
 model\UserDAO.class
