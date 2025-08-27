@@ -26,5 +26,3 @@
     Dimitri Schmidt
     Gabriel Mendes Motta 
     Vinícius Nunes Bispo 
-
-ss
