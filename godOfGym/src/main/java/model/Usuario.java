@@ -1,19 +1,22 @@
 package model;
 
 public class Usuario {
-
-    private int CPF;
+    
+    private int idUsuario;
+    private String CPF;
     private String nome;
     private String sobrenome;
     private String dataNascimento;
     private String senha;
     private String email;
-    private char genero;
+    private String genero;
+
 
     public Usuario() {
     }
 
-    public Usuario(int CPF, String nome, String sobrenome, String dataNascimento, String senha, String email, char genero) {
+    public Usuario(int idUsuario, String CPF, String nome, String sobrenome, String dataNascimento, String senha, String email, String genero) {
+        this.idUsuario = idUsuario;
         this.CPF = CPF;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -23,20 +26,23 @@ public class Usuario {
         this.genero = genero;
     }
 
-    public Usuario(int CPF, String nome, String sobrenome, String dataNascimento, String email, char genero) {
+    public Usuario(String CPF, String nome, String sobrenome, String dataNascimento, String senha, String email, String genero) {
         this.CPF = CPF;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.dataNascimento = dataNascimento;
+        this.senha = senha;
         this.email = email;
         this.genero = genero;
     }
+    
+    
 
-    public int getCPF() {
+    public String getCPF() {
         return CPF;
     }
 
-    public void setCPF(int CPF) {
+    public void setCPF(String CPF) {
         this.CPF = CPF;
     }
 
@@ -80,12 +86,22 @@ public class Usuario {
         this.email = email;
     }
 
-    public char getGenero() {
+    public String getGenero() {
         return genero;
     }
 
-    public void setGenero(char genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+    
+    
 
 }

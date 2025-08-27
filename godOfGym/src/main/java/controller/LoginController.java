@@ -2,13 +2,15 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLDataException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -68,6 +70,10 @@ public class LoginController {
             if (listaDados != null){
                 Alerta.mostrarInformacao("Informação", "Seja Bem-Vindo! " + listaDados.get(0) + " acesso liberado!" );
                 System.out.println("deu certo!");
+                if (stageLogin != null){
+                    stageLogin.close();
+                }
+                abrirHomePage();
             } else {
                 Alerta.mostrarErro("Erro", "Usuario e senha invalidos!");
                 System.out.println("informações erradas: " + tfNome.getText() + " " + password.getText());
@@ -93,6 +99,16 @@ public class LoginController {
         verificarBanco();
     }
     
-    
+    public void abrirHomePage() throws IOException{
+      URL url = new File ("src/main/java/view/home.fxml").toURI().toURL();
+      FXMLLoader loader = new FXMLLoader(url);
+      Parent root = loader.load();
+      Stage telaHome = new Stage();
+      HomeController hc = loader.getController();
+      hc.setStage(telaHome);
+      Scene scene = new Scene(root);
+      telaHome.setScene(scene);
+      telaHome.show();
+    }
     
 }

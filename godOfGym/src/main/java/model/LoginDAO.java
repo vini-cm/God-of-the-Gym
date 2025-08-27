@@ -14,14 +14,13 @@ public class LoginDAO extends genericoDAO {
                 conectarConn().close();
             } catch (SQLException e) {
             }
-            return true;
-        } else {
             return false;
         }
+        return true;
     }
 
     public Usuario autenticar(String Nome, String Senha) throws SQLException {
-        String sql = "SELECT * from usuario Where Nome = '?' and Senha = '?'";
+        String sql = "SELECT * from usuarios Where Nome = ? and Senha = ?";
         Usuario user = null;
         Connection conn = conectarConn();
         if (conn != null) {
@@ -31,13 +30,14 @@ public class LoginDAO extends genericoDAO {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 user = new Usuario();
-                user.setCPF(rs.getInt("CPF"));
+                user.setIdUsuario(rs.getInt("IdUsuario"));
+                user.setCPF(rs.getString("CPF"));
                 user.setNome(rs.getString("Nome"));
                 user.setSobrenome(rs.getString("Sobrenome"));
                 user.setDataNascimento(rs.getString("dataNascimento"));
                 user.setEmail(rs.getString("Email"));
                 user.setSenha(rs.getString("Senha"));
-                user.setGenero(rs.getString("genero").charAt(0));
+                user.setGenero(rs.getString("genero"));
             }
             rs.close();
             stmt.close();
