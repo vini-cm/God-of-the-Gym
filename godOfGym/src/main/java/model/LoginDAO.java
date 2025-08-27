@@ -20,7 +20,7 @@ public class LoginDAO extends genericoDAO {
     }
 
     public Usuario autenticar(String Nome, String Senha) throws SQLException {
-        String sql = "SELECT * from usuario Where Nome = ? and Senha = ?";
+        String sql = "SELECT * from usuarios Where Nome = ? and Senha = ?";
         Usuario user = null;
         Connection conn = conectarConn();
         if (conn != null) {
@@ -30,6 +30,7 @@ public class LoginDAO extends genericoDAO {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 user = new Usuario();
+                user.setIdUsuario(rs.getInt("IdUsuario"));
                 user.setCPF(rs.getString("CPF"));
                 user.setNome(rs.getString("Nome"));
                 user.setSobrenome(rs.getString("Sobrenome"));

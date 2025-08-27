@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlanosController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: grey;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.PlanosController">
     <stylesheets>
-        <URL value="@/css/planos.css"/>
+        <URL value="@/css/planos.css" />
     </stylesheets>
+   <children>
+      <AnchorPane layoutX="-4.0" prefHeight="660.0" prefWidth="294.0" style="-fx-background-color: #3D3D3D;" />
+      <Button fx:id="bntAdicionar" layoutX="570.0" layoutY="45.0" mnemonicParsing="false" onAction="#abrirAddPlano" prefHeight="60.0" prefWidth="200.0" text="ADICIONAR PLANO">
+         <font>
+            <Font name="DejaVu Sans Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>

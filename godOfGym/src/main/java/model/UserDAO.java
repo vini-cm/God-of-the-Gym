@@ -8,23 +8,23 @@ import javafx.collections.ObservableList;
 
 public class UserDAO extends genericoDAO{
     public void salvar(Usuario user) throws SQLException{
-        String insert = "insert into usuario (CPF, nome, sobrenome, dataNascimento, senha, email, genero) values (?,?,?,?,?,?,?)";
+        String insert = "insert into usuarios (CPF, nome, sobrenome, dataNascimento, senha, email, genero) values (?,?,?,?,?,?,?)";
         salvar(insert,user.getCPF(),user.getNome(),user.getSobrenome(),user.getDataNascimento(),user.getSenha(),user.getEmail(),user.getGenero());
     }
     
     public void editar (Usuario user) throws SQLException{
-        String update = "UPDATE usuario" + "SET nome = ?, sobrenome = ?, dataNascimento = ?, senha = ?, email = ?, genero = ?" + "WHERE CPF = ?";
+        String update = "UPDATE usuarios" + "SET nome = ?, sobrenome = ?, dataNascimento = ?, senha = ?, email = ?, genero = ?" + "WHERE CPF = ?";
         editar(update, user.getNome(),user.getSobrenome(),user.getDataNascimento(),user.getSenha(),user.getEmail(),user.getGenero(),user.getCPF());
     }
     
-    public void deletar(long CPF) throws SQLException{
-        String delete = "DELETE from usuario where CPF = ?";
+    public void deletar(String CPF) throws SQLException{
+        String delete = "DELETE from usuarios where CPF = ?";
         deletar(delete,CPF);
     }
     
     public ObservableList<Usuario> selecionarUsuarios() throws SQLException {
         ObservableList<Usuario> lista = FXCollections.observableArrayList();
-        String sql = "SELECT * from usuario";
+        String sql = "SELECT * from usuarios";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
         while (rs.next()){
@@ -48,7 +48,7 @@ public class UserDAO extends genericoDAO{
     
     public ObservableList<Usuario> selecionarUsuario(String CPF) throws SQLException {
         ObservableList<Usuario> usuario = FXCollections.observableArrayList();
-        String sql = "SELECT * from usuario Where CPF = ?";
+        String sql = "SELECT * from usuarios Where CPF = ?";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
         stmt.setString(1, CPF);
         ResultSet rs = stmt.executeQuery();
