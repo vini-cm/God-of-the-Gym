@@ -16,7 +16,7 @@
          <children>
             <ImageView fitHeight="142.0" fitWidth="166.0" layoutX="69.0" layoutY="25.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
                <image>
-                  <Image url="@Imagens/Imagem_AvatarPrincipal.png" />
+                  <Image url="@Imagem_AvatarPrincipal.png" />
                </image>
                <effect>
                   <Blend />
@@ -164,7 +164,7 @@
                         </Label>
                         <ImageView fitHeight="168.0" fitWidth="175.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Imagens/Imagem_AvatarPrincipal.png" />
+                              <Image url="@Imagem_AvatarPrincipal.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="204.0" layoutY="60.0" text="Telefone">

@@ -1,4 +1,5 @@
 controller\HomeController.class
+model\Instrutor.class
 controller\AddClienteController.class
 model\Usuario.class
 controller\ClientsController.class
@@ -6,6 +7,7 @@ controller\LoginController.class
 model\LoginDAO.class
 module-info.class
 model\Cliente.class
+model\InstrutorDAO.class
 util\Alerta.class
 controller\InstrutoresController.class
 controller\AtendentesController.class
@@ -18,4 +20,5 @@ model\Planos.class
 model\PlanosDAO.class
 controller\AulasController.class
 controller\PlanosController.class
+controller\AddInstrutorController.class
 model\UserDAO.class

@@ -13,14 +13,14 @@ public class ClienteDAO extends genericoDAO{
         salvar(insert, cliente.getCPF(),cliente.getIdPlano());
     }
     
-    public void editar (Cliente cliente){
+    public void editar (Cliente cliente) throws SQLException{
         String update = "update clientes set cpf = ?, idPlano = ? where idCliente = ?";
-        editar(cliente);
+        editar(update, cliente.getCPF(), cliente.getCPF(),cliente.getIdPlano(),cliente.getIdCliente());
     }
     
     public void deletar(String CPF) throws SQLException{
         String deletar = "delete clientes where cpf = ?";
-        deletar(deletar,CPF);
+        deletar(deletar,CPF,CPF);
     }
     
     public ObservableList<Cliente> selecionarClientes() throws SQLException{

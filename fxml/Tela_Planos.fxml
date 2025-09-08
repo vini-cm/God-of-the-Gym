@@ -16,7 +16,7 @@
          <children>
             <ImageView fitHeight="142.0" fitWidth="166.0" layoutX="69.0" layoutY="25.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
                <image>
-                  <Image url="@Imagens/Imagem_AvatarPrincipal.png" />
+                  <Image url="@Imagem_AvatarPrincipal.png" />
                </image>
                <effect>
                   <Blend />
@@ -67,7 +67,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d90429" height="102.0" layoutX="20.0" layoutY="517.0" stroke="#720015" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="3.0" width="697.0" />
                   <ImageView fitHeight="95.0" fitWidth="98.0" layoutX="28.0" layoutY="521.0">
                      <image>
-                        <Image url="@Imagens/Image_Dinheiro.png" />
+                        <Image url="@Image_Dinheiro.png" />
                      </image>
                      <effect>
                         <DropShadow height="11.0" radius="5.0" width="11.0" />
@@ -78,7 +78,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d90429" height="102.0" layoutX="20.0" layoutY="230.0" stroke="#720015" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="3.0" width="697.0" />
                   <ImageView fitHeight="95.0" fitWidth="98.0" layoutX="28.0" layoutY="375.0">
                      <image>
-                        <Image url="@Imagens/Image_Dinheiro.png" />
+                        <Image url="@Image_Dinheiro.png" />
                      </image>
                      <effect>
                         <DropShadow height="11.0" radius="5.0" width="11.0" />
@@ -86,7 +86,7 @@
                   </ImageView>
                   <ImageView fitHeight="95.0" fitWidth="98.0" layoutX="28.0" layoutY="234.0">
                      <image>
-                        <Image url="@Imagens/Image_Dinheiro.png" />
+                        <Image url="@Image_Dinheiro.png" />
                      </image>
                      <effect>
                         <DropShadow height="11.0" radius="5.0" width="11.0" />

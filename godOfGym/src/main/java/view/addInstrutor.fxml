@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.AddInstrutorController">
+    <stylesheets>
+        <URL value="@/css/addinstrutor.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="tfCPF" layoutX="24.0" layoutY="24.0" promptText="CPF" />
+      <TextField fx:id="tfNome" layoutX="24.0" layoutY="60.0" promptText="Nome" />
+      <TextField fx:id="tfSobrenome" layoutX="24.0" layoutY="93.0" promptText="Sobrenome" />
+      <DatePicker fx:id="dpNascimento" layoutX="24.0" layoutY="129.0" prefHeight="25.0" prefWidth="149.0" promptText="Data Nascimento" />
+      <TextField fx:id="tfSenha" layoutX="24.0" layoutY="166.0" promptText="Senha" />
+      <TextField fx:id="tfEmail" layoutX="24.0" layoutY="204.0" promptText="Email" />
+      <RadioButton fx:id="rdFeminino" layoutX="24.0" layoutY="240.0" mnemonicParsing="false" text="Feminino" />
+      <RadioButton fx:id="rdMasculino" layoutX="111.0" layoutY="240.0" mnemonicParsing="false" text="Masculino" />
+      <TextField fx:id="tfSalario" layoutX="24.0" layoutY="266.0" promptText="Salario" />
+      <TextArea fx:id="taFormacao" layoutX="24.0" layoutY="300.0" prefHeight="70.0" prefWidth="200.0" promptText="Formacao" />
+      <ChoiceBox fx:id="cbAssociado" layoutX="233.0" layoutY="24.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="cbEntrada" layoutX="233.0" layoutY="68.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="cbSaida" layoutX="233.0" layoutY="117.0" prefWidth="150.0" />
+      <Label layoutX="233.0" layoutY="97.0" text="Saida" />
+      <Label layoutX="234.0" layoutY="52.0" text="Entrada" />
+      <Label layoutX="234.0" layoutY="6.0" text="Associado" />
+      <Button fx:id="bntCadastrar" layoutX="234.0" layoutY="166.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="CADASTRAR" />
+   </children>
+</AnchorPane>

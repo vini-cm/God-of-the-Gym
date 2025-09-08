@@ -20,7 +20,7 @@ public class LoginDAO extends genericoDAO {
     }
 
     public Usuario autenticar(String Nome, String Senha) throws SQLException {
-        String sql = "SELECT * from usuarios Where Nome = ? and Senha = ?";
+        String sql = "SELECT * from usuarios Where Nome = ? and Senha = MD5(?)";
         Usuario user = null;
         Connection conn = conectarConn();
         if (conn != null) {

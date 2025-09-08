@@ -17,7 +17,7 @@
          <children>
             <ImageView fitHeight="142.0" fitWidth="166.0" layoutX="69.0" layoutY="25.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
                <image>
-                  <Image url="@Imagens/Imagem_AvatarPrincipal.png" />
+                  <Image url="@Imagem_AvatarPrincipal.png" />
                </image>
                <effect>
                   <Blend />
@@ -62,7 +62,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#686868" height="200.0" layoutX="14.0" layoutY="59.0" stroke="#686868" strokeLineCap="ROUND" strokeType="OUTSIDE" width="709.0" />
                   <ImageView fitHeight="142.0" fitWidth="166.0" layoutX="32.0" layoutY="88.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
                      <image>
-                        <Image url="@Imagens/Imagem_AvatarPrincipal.png" />
+                        <Image url="@Imagem_AvatarPrincipal.png" />
                      </image>
                      <effect>
                         <Blend />

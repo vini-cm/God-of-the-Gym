@@ -16,7 +16,7 @@
          <children>
             <ImageView fitHeight="142.0" fitWidth="166.0" layoutX="69.0" layoutY="25.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
                <image>
-                  <Image url="@4207d1ec48f1e16d13a25924997ebfe4fbab081f.png" />
+                  <Image url="@Imagem_AvatarPrincipal.png" />
                </image>
                <effect>
                   <Blend />
