@@ -75,7 +75,7 @@
                      <children>
                         <AnchorPane layoutX="14.0" layoutY="28.0" prefHeight="136.0" prefWidth="674.0" style="-fx-background-color: #2B2D42; -fx-background-radius: 25;">
                            <children>
-                              <Label layoutX="191.0" layoutY="22.0" text="ADICIONAR INSTRUTOR ?" textFill="#d90429">
+                              <Label layoutX="191.0" layoutY="22.0" text="ADICIONAR ATENDENTE?" textFill="#d90429">
                                  <font>
                                     <Font name="Arial Bold" size="24.0" />
                                  </font>
@@ -95,7 +95,7 @@
                               <TableColumn prefWidth="168.0" text="CPF" />
                           </columns>
                         </TableView>
-                        <Label layoutX="14.0" layoutY="174.0" text="INSTRUTORES" textFill="#d90429">
+                        <Label layoutX="14.0" layoutY="174.0" text="ATENDENTE" textFill="#d90429">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
@@ -104,7 +104,7 @@
                         <Button accessibleRole="IMAGE_VIEW" layoutX="604.0" layoutY="209.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 25; -fx-background-color: #2B2D42;" />
                         <ImageView fitHeight="30.0" fitWidth="35.0" layoutX="639.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@LUPAiCON.png" />
+                              <Image url="@../LUPAiCON.png" />
                            </image>
                         </ImageView>
                      </children>
