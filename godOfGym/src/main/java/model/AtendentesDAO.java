@@ -10,13 +10,13 @@ import javafx.collections.ObservableList;
 public class AtendentesDAO extends genericoDAO{
   
     public void salvar(Atendentes atendente) throws SQLException{
-        String insert = "insert into recepcionista(CPF,salario) values (?,?)";
-        salvar(insert, atendente.getCPF(),atendente.getSalario());
+        String insert = "insert into recepcionista(CPF,salario,Entrada,Saida) values (?,?)";
+        salvar(insert, atendente.getCPF(),atendente.getSalario(), atendente.getEntrada(), atendente.getSaida());
     }
     
     public void editar(Atendentes atendente) throws SQLException{
-        String editar="update recepcionista set salario = ? where CPF = ?";
-        editar(editar, atendente.getCPF(), atendente.getSalario());
+        String editar="update recepcionista set salario = ?, entrada = ?, saida = ? where CPF = ?";
+        editar(editar, atendente.getCPF(), atendente.getSalario(), atendente.getEntrada(), atendente.getSaida());
     }
     
     public void deletar(String CPF) throws SQLException{
@@ -33,6 +33,10 @@ public class AtendentesDAO extends genericoDAO{
             Atendentes atendentes = new Atendentes();
             atendentes.setId(rs.getInt("id"));
             atendentes.setCPF(rs.getString("CPF"));
+            atendentes.setSalario(rs.getFloat("salario"));
+            atendentes.setEntrada(rs.getTime("entrada").toLocalTime());
+            atendentes.setSaida(rs.getTime("saida").toLocalTime());
+            
             
             lista.add(atendentes);
         }   
@@ -41,28 +45,4 @@ public class AtendentesDAO extends genericoDAO{
         conectarConn().close();
         return lista;
     }
-    
-    public ObservableList<Instrutor> selecionarInstrutor(String CPF) throws SQLException{
-        ObservableList<Instrutor> lista = FXCollections.observableArrayList();
-        String sql = "select * from isntrutores where CPF = ?";
-        PreparedStatement stmt = conectarConn().prepareStatement(sql);
-        stmt.setString(1, CPF);
-        ResultSet rs = stmt.executeQuery();
-        while (rs.next()){
-            Instrutor instrutor = new Instrutor();
-            instrutor.setId(rs.getInt("id"));
-            instrutor.setCPF(rs.getString("CPF"));
-            instrutor.setFormacao(rs.getString("formacao"));
-            instrutor.setAssociado(rs.getString("associado"));
-            instrutor.setEntrada(rs.getTime("saida").toLocalTime());
-            instrutor.setSaida(rs.getTime("saida").toLocalTime());
-            
-            lista.add(instrutor);
-        }   
-        rs.close();
-        stmt.close();
-        conectarConn().close();
-        return lista;
-    }
-    
 }

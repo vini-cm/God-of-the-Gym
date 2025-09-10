@@ -59,7 +59,7 @@ public class InstrutorDAO extends genericoDAO{
             instrutor.setCPF(rs.getString("CPF"));
             instrutor.setFormacao(rs.getString("formacao"));
             instrutor.setAssociado(rs.getString("associado"));
-            instrutor.setEntrada(rs.getTime("saida").toLocalTime());
+            instrutor.setEntrada(rs.getTime("entrada").toLocalTime());
             instrutor.setSaida(rs.getTime("saida").toLocalTime());
             
             lista.add(instrutor);

@@ -6,14 +6,19 @@ public class Atendentes {
    private int id;
    private String CPF;
    private float salario;
+   private LocalTime entrada;
+   private LocalTime saida;
+   
 
     public Atendentes() {
     }
 
-    public Atendentes(int id, String CPF, float salario) {
+    public Atendentes(int id, String CPF, float salario, LocalTime entrada, LocalTime saida) {
         this.CPF = CPF;
         this.salario = salario;
         this.id = id;
+        this.entrada = entrada;
+        this.saida = saida;
     }
 
     public int getId() {
@@ -38,5 +43,21 @@ public class Atendentes {
 
     public void setSalario(float salario) {
         this.salario = salario;
+    }
+    
+     public LocalTime getEntrada() {
+        return entrada;
+    }
+
+    public void setEntrada(LocalTime entrada) {
+        this.entrada = entrada;
+    }
+
+    public LocalTime getSaida() {
+        return saida;
+    }
+
+    public void setSaida(LocalTime saida) {
+        this.saida = saida;
     }
 }
