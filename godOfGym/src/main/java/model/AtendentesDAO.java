@@ -21,7 +21,7 @@ public class AtendentesDAO extends genericoDAO{
     
     public void deletar(String CPF) throws SQLException{
         String deletar = "delete recepcionista where CPF = ?";
-        deletar(deletar, CPF, CPF);
+        deletar(deletar, CPF);
     }
     
     public ObservableList<Atendentes> selecionarAtendentes() throws SQLException{
