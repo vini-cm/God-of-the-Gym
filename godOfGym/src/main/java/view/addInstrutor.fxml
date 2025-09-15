@@ -26,11 +26,11 @@
       <TextField fx:id="tfSalario" layoutX="24.0" layoutY="266.0" promptText="Salario" />
       <TextArea fx:id="taFormacao" layoutX="24.0" layoutY="300.0" prefHeight="70.0" prefWidth="200.0" promptText="Formacao" />
       <ChoiceBox fx:id="cbAssociado" layoutX="233.0" layoutY="24.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="cbSaida" layoutX="233.0" layoutY="117.0" prefWidth="150.0" />
       <Label layoutX="233.0" layoutY="97.0" text="Saida" />
       <Label layoutX="234.0" layoutY="52.0" text="Entrada" />
       <Label layoutX="234.0" layoutY="6.0" text="Associado" />
       <Button fx:id="bntCadastrar" layoutX="234.0" layoutY="166.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="CADASTRAR" />
       <TextField fx:id="tfEntrada" layoutX="235.0" layoutY="73.0" />
+      <TextField fx:id="tfSaida" layoutX="234.0" layoutY="117.0" />
    </children>
 </AnchorPane>
