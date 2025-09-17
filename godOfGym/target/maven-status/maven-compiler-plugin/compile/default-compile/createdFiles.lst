@@ -6,7 +6,6 @@ controller\ClientsController.class
 controller\LoginController.class
 model\LoginDAO.class
 module-info.class
-controller\AddInstrutorController$2.class
 model\Cliente.class
 model\InstrutorDAO.class
 util\Alerta.class
@@ -18,7 +17,6 @@ controller\AddPlanoController.class
 model\genericoDAO.class
 principal\App.class
 model\Planos.class
-controller\AddInstrutorController$1.class
 model\PlanosDAO.class
 controller\AulasController.class
 controller\PlanosController.class
