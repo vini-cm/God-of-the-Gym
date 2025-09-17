@@ -26,6 +26,9 @@ public class AddPlanoController  {
    private TextField tfPreco;
    
    @FXML
+   private TextField tfNome;
+   
+   @FXML
    void adicionarPlano (ActionEvent event) throws SQLException{
        if (!tfTipo.getText().isEmpty() && tfTipo.getText() != null && !tfPreco.getText().isEmpty() && tfPreco.getText() != null){
            plano = new Planos(tfTipo.getText(), Float.parseFloat(tfPreco.getText()));
