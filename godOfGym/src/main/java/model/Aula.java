@@ -8,8 +8,10 @@ public class Aula {
     private LocalTime data;
     private String descricao;
     private int vagas;
+
     public Aula() {
     }
+
 
     public Aula(String tipo, LocalTime data, String descricao, int vagas, int idAula) {
         this.tipo = tipo;
@@ -18,43 +20,49 @@ public class Aula {
         this.vagas = vagas;
         this.idAula = idAula;
     }
-    public String getTipo(){
+
+
+    public String getTipo() {
         return tipo;
     }
     
-    public void setTipo(){
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
     
-    public LocalTime getData(){
+
+    public LocalTime getData() {
         return data;
     }
     
-    public void setData(){
+    public void setData(LocalTime data) {
         this.data = data;
     }
-    
-    public String getDescricao(){
+
+
+    public String getDescricao() {
         return descricao;
     }
     
-    public void setDescricao(){
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
     
-    public int getVagas(){
+
+    public int getVagas() {
         return vagas;
     }
     
-    public void setVagas(){
+    public void setVagas(int vagas) {
         this.vagas = vagas;
     }
-    
-    public int getIdAula(){
+
+
+    public int getIdAula() {
         return idAula;
     }
     
-    public void setIdAula(){
+    public void setIdAula(int idAula) {
         this.idAula = idAula;
     }
 }

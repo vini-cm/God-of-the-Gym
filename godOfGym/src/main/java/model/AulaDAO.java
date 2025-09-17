@@ -13,7 +13,7 @@ public class AulaDAO extends genericoDAO{
     }
     
     public void editar (Aula aula) throws SQLException{
-        String update = "update aulas set Data = ?, descricao = ? where idAula = ?";
+        String update = "update aulas set Data = ?, descricao = ?, vagas = ? where idAula = ?";
         editar(update,aula.getData(),aula.getDescricao(), aula.getVagas(), aula.getIdAula());
      }
     
@@ -22,7 +22,7 @@ public class AulaDAO extends genericoDAO{
         deletar(deletar, idAula);
     }
     //Arrumar
-    public ObservableList<Aula> selecionarAula() throws SQLException{
+    public ObservableList<Aula> selecionarAulas() throws SQLException{
         ObservableList<Aula> lista = FXCollections.observableArrayList();
         String sql = "select * from aulas";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
@@ -43,7 +43,7 @@ public class AulaDAO extends genericoDAO{
         return lista;
     }
     
-    public ObservableList<Aula> selecionarAulas(String idAula) throws SQLException{
+    public ObservableList<Aula> selecionarAula(String idAula) throws SQLException{
         ObservableList<Aula> lista = FXCollections.observableArrayList();
         String sql = "select * from aulas where IdAula = ?";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
