@@ -1,74 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.effect.Blend?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: grey;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+    <stylesheets>
+        <URL value="@/css/home.css" />
+    </stylesheets>
    <children>
-      <AnchorPane layoutX="14.0" layoutY="7.0" prefHeight="636.0" prefWidth="280.0" style="-fx-background-color: #D90429; -fx-background-radius: 15;">
+      <AnchorPane prefHeight="650.0" prefWidth="280.0" style="-fx-background-color: #3D3D3D;">
          <children>
-            <ImageView fitHeight="142.0" fitWidth="166.0" layoutX="69.0" layoutY="25.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
-               <image>
-                  <Image url="@../../../../../Imagens/Imagem_AvatarPrincipal.png" />
-               </image>
-               <effect>
-                  <Blend />
-               </effect>
-            </ImageView>
-            <Button fx:id="btnAulas" layoutX="7.0" layoutY="429.0" mnemonicParsing="false" onAction="#openAulasPage" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="AULAS" textFill="#d90429">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font></Button>
-            <Button fx:id="btnAtendentes" layoutX="7.0" layoutY="310.0" mnemonicParsing="false" onAction="#openAtendentesPage" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="ATENDENTES" textFill="#d90429">
-               <font>
-                  <Font name="Arial Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnPlanos" layoutX="7.0" layoutY="370.0" mnemonicParsing="false" onAction="#openPlanosPage" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="PLANOS" textFill="#d90429">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnInstrutores" layoutX="7.0" layoutY="250.0" mnemonicParsing="false" onAction="#openInstrutoresPage" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="INSTRUTORES" textFill="#d90429">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnClientes" layoutX="7.0" layoutY="191.0" mnemonicParsing="false" onAction="#openClientPage" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="CLIENTES" textFill="#d90429">
-               <font>
-                  <Font name="Arial Bold" size="20.0" />
-               </font>
-            </Button>
-         </children>
-         <effect>
-            <DropShadow height="23.93" radius="18.060000000000002" width="50.31" />
-         </effect>
-      </AnchorPane>
-      <AnchorPane layoutX="356.0" prefHeight="423.0" prefWidth="495.0">
-         <effect>
-            <DropShadow />
-         </effect>
-         <children>
-            <AnchorPane layoutX="-52.0" layoutY="8.0" prefHeight="636.0" prefWidth="737.0" style="-fx-background-color: gray; -fx-background-radius: 12;">
-               <children>
-                  <Text fill="#00000033" layoutX="246.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GOD OF" wrappingWidth="244.4482421875">
-                     <font>
-                        <Font name="Segoe UI Bold" size="65.0" />
-                     </font>
-                  </Text>
-                  <Text fill="#00000033" layoutX="255.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GYM">
-                     <font>
-                        <Font name="Reem Kufi Regular" size="96.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
+            <Button fx:id="bntCliente" layoutX="114.0" layoutY="221.0" mnemonicParsing="false" onAction="#openClientPage" text="CLIENTE" />
+            <Button fx:id="bntInstrutor" layoutX="118.0" layoutY="259.0" mnemonicParsing="false" onAction="#openInstrutoresPage" text="INSTRUTORES" />
+            <Button fx:id="bntAtendentes" layoutX="118.0" layoutY="300.0" mnemonicParsing="false" onAction="#openAtendentesPage" text="ATENDENTES" />
+            <Button fx:id="bntPlanos" layoutX="118.0" layoutY="345.0" mnemonicParsing="false" onAction="#openPlanosPage" text="PLANOS" />
+            <Button fx:id="bntAulas" layoutX="118.0" layoutY="390.0" mnemonicParsing="false" onAction="#openAulasPage" text="AULAS" />
          </children>
       </AnchorPane>
    </children>

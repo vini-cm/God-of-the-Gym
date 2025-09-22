@@ -3,6 +3,7 @@ package controller;
 
 import java.sql.SQLException;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -22,6 +23,7 @@ import model.Instrutor;
 import model.InstrutorDAO;
 import model.UserDAO;
 import model.Usuario;
+import util.Alerta;
 
 
 public class AddInstrutorController {
@@ -76,6 +78,8 @@ public class AddInstrutorController {
 
     @FXML
     private TextField tfSaida;
+    
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:mm");
  
     public void setStage(Stage stage) throws SQLException{
      this.stage = stage;
@@ -86,6 +90,8 @@ public class AddInstrutorController {
      for (Usuario u: usuarios){
          associados.add(u.getNome() + " " + u.getSobrenome());
      }
+     associados.set(0, "Academia");
+     
      cbAssociado.getItems().addAll(associados);
      tfEntrada.textProperty().addListener(new ChangeListener<String>(){
          @Override
@@ -108,6 +114,7 @@ public class AddInstrutorController {
             }
          } 
      });
+     
      }
     
      @FXML
@@ -125,15 +132,16 @@ public class AddInstrutorController {
                 !tfSaida.getText().isEmpty() && tfSaida.getText() != null &&
                 !tfSalario.getText().isEmpty() && tfSalario.getText() != null &&
                 !tfSenha.getText().isEmpty() && tfSenha.getText() != null){
-            entrada = LocalTime.parse(tfEntrada.getText());
-            saida = LocalTime.parse(tfSaida.getText());
+            entrada = LocalTime.parse(tfEntrada.getText(), formatter);
+            saida = LocalTime.parse(tfSaida.getText(), formatter);
             if (dao.selecionarInstrutor(tfCPF.getText()).isEmpty()){
-                user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), dpNascimento.getValue().toString(),tfSenha.getText(),tfEmail.getText(),genero);
+                user = new Usuario(tfCPF.getText(), tfNome.getText(),tfSobrenome.getText(),dpNascimento.getValue().toString(),tfSenha.getText(),tfEmail.getText(),genero);
                 instrutor = new Instrutor(tfCPF.getText(),Float.parseFloat(tfSalario.getText()), taFormacao.getText(), cbAssociado.getValue(), entrada, saida);
-                dao.salvar(instrutor);
                 userDAO.salvar(user);
+                dao.salvar(instrutor);
+            } else {
+                Alerta.mostrarErro("ERROR", "ESSE USUARIO JÁ EXISTE!");
             }
-            
             }
     }
      

@@ -27,7 +27,7 @@ public class InstrutorDAO extends genericoDAO{
     
     public ObservableList<Instrutor> selecionarInstrutores() throws SQLException{
         ObservableList<Instrutor> lista = FXCollections.observableArrayList();
-        String sql = "select * from isntrutores";
+        String sql = "select * from instrutores";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
         while (rs.next()){
@@ -49,7 +49,7 @@ public class InstrutorDAO extends genericoDAO{
     
     public ObservableList<Instrutor> selecionarInstrutor(String CPF) throws SQLException{
         ObservableList<Instrutor> lista = FXCollections.observableArrayList();
-        String sql = "select * from isntrutores where CPF = ?";
+        String sql = "select * from instrutores where CPF = ?";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
         stmt.setString(1, CPF);
         ResultSet rs = stmt.executeQuery();
