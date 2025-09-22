@@ -13,13 +13,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClientsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InstrutoresController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="7.0" prefHeight="636.0" prefWidth="280.0" style="-fx-background-color: #D90429; -fx-background-radius: 15;">
          <children>
             <ImageView fitHeight="142.0" fitWidth="166.0" layoutX="69.0" layoutY="25.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
                <image>
-                  <Image url="@../Imagens/Imagem_AvatarPrincipal.png" />
+                  <Image url="@../../../../../Imagens/Imagem_AvatarPrincipal.png" />
                </image>
                <effect>
                   <Blend />
@@ -75,12 +75,12 @@
                      <children>
                         <AnchorPane layoutX="14.0" layoutY="28.0" prefHeight="136.0" prefWidth="674.0" style="-fx-background-color: #2B2D42; -fx-background-radius: 25;">
                            <children>
-                              <Label layoutX="201.0" layoutY="21.0" text="ADICIONAR CLIENTES ?" textFill="#d90429">
+                              <Label layoutX="191.0" layoutY="22.0" text="ADICIONAR INSTRUTOR ?" textFill="#d90429">
                                  <font>
                                     <Font name="Arial Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="btnAdicionar" layoutX="241.0" layoutY="68.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="204.0" style="-fx-background-color: d90429; -fx-background-radius: 25;" text="SIM" textFill="#2b2d42">
+                              <Button fx:id="btnAdicionar" layoutX="241.0" layoutY="68.0" mnemonicParsing="false" onAction="#abrirAddInstrutor" prefHeight="39.0" prefWidth="204.0" style="-fx-background-color: d90429; -fx-background-radius: 25;" text="SIM" textFill="#2b2d42">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
@@ -89,14 +89,13 @@
                         </AnchorPane>
                         <TableView layoutX="14.0" layoutY="264.0" prefHeight="331.0" prefWidth="674.0" style="-fx-background-radius: 15; -fx-background-color: #2B2D42;">
                           <columns>
-                            <TableColumn minWidth="0.0" prefWidth="135.0" text="Nome" />
-                            <TableColumn prefWidth="135.0" text="Sobrenome" />
-                              <TableColumn prefWidth="135.0" text="Telefone" />
-                              <TableColumn prefWidth="135.0" text="CPF" />
-                              <TableColumn prefWidth="135.0" text="Plano" />
+                            <TableColumn minWidth="0.0" prefWidth="168.0" text="Nome" />
+                            <TableColumn prefWidth="168.0" text="Sobrenome" />
+                              <TableColumn prefWidth="168.0" text="Telefone" />
+                              <TableColumn prefWidth="168.0" text="CPF" />
                           </columns>
                         </TableView>
-                        <Label layoutX="14.0" layoutY="175.0" text="CLIENTES" textFill="#d90429">
+                        <Label layoutX="14.0" layoutY="174.0" text="INSTRUTORES" textFill="#d90429">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
@@ -105,7 +104,7 @@
                         <Button accessibleRole="IMAGE_VIEW" layoutX="604.0" layoutY="209.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 25; -fx-background-color: #2B2D42;" />
                         <ImageView fitHeight="30.0" fitWidth="35.0" layoutX="639.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Imagens/LUPAiCON.png" />
+                              <Image url="@LUPAiCON.png" />
                            </image>
                         </ImageView>
                      </children>
