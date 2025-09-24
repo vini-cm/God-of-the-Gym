@@ -40,6 +40,35 @@ LOCK TABLES `alerta` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `aulas`
+--
+
+DROP TABLE IF EXISTS `aulas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `aulas` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `Tipo` varchar(45) NOT NULL,
+  `Data` datetime NOT NULL,
+  `Descricao` varchar(500) NOT NULL,
+  `Vagas` int NOT NULL,
+  `Professor` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Professor` (`Professor`),
+  CONSTRAINT `aulas_ibfk_1` FOREIGN KEY (`Professor`) REFERENCES `instrutores` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `aulas`
+--
+
+LOCK TABLES `aulas` WRITE;
+/*!40000 ALTER TABLE `aulas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aulas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `clientes`
 --
 
@@ -80,7 +109,7 @@ CREATE TABLE `instrutores` (
   `id` int NOT NULL AUTO_INCREMENT,
   `salario` decimal(10,2) DEFAULT NULL,
   `formacao` varchar(250) DEFAULT NULL,
-  `associado` varchar(45) DEFAULT NULL,
+  `associado` varchar(45) DEFAULT 'Academia',
   `entrada` time DEFAULT NULL,
   `saida` time DEFAULT NULL,
   `CPF` varchar(11) DEFAULT NULL,
@@ -167,4 +196,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-08 11:47:31
+-- Dump completed on 2025-09-24 10:35:17

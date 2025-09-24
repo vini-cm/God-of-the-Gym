@@ -15,6 +15,7 @@ controller\AtendentesController.class
 model\ClienteDAO.class
 dal\Conn.class
 controller\AddPlanoController.class
+model\Aula.class
 model\genericoDAO.class
 principal\App.class
 model\Planos.class
