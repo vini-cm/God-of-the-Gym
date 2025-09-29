@@ -1,76 +1,78 @@
 package model;
 
-import java.time.LocalDateTime;
-
-
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Aula {
-    private int id;
+    private int idAula;
     private String tipo;
+    private LocalDate data;
     private String descricao;
+    private LocalTime horario;
     private int vagas;
-    private String data;
-    private int professor;
 
-    public Aula() {
+    public Aula(LocalTime parse, String text, LocalDate parse1, String text1, int parseInt) {
     }
 
-    public Aula(String tipo, String descricao, int vagas, String data, int professor) {
+
+    public Aula(LocalTime horario, String tipo, LocalDate data, String descricao, int vagas, int idAula) {
+        this.horario = horario;
         this.tipo = tipo;
+        this.data = data;
         this.descricao = descricao;
         this.vagas = vagas;
-        this.data = data;
-        this.professor = professor;
+        this.idAula = idAula;
     }
-
-    public int getId() {
-        return id;
+    public LocalTime getHorario() {
+        return horario;
     }
-
-    public void setId(int id) {
-        this.id = id;
+    
+    public void setHorario(LocalTime horario) {
+        this.horario = horario;
     }
 
     public String getTipo() {
         return tipo;
     }
-
+    
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+    
+
+    public LocalDate getData() {
+        return data;
+    }
+    
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
 
     public String getDescricao() {
         return descricao;
     }
-
+    
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+    
 
     public int getVagas() {
         return vagas;
     }
-
+    
     public void setVagas(int vagas) {
         this.vagas = vagas;
     }
 
-    public String getData() {
-        return data;
-    }
 
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public int getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(int professor) {
-        this.professor = professor;
+    public int getIdAula() {
+        return idAula;
     }
     
-    
-    
+    public void setIdAula(int idAula) {
+        this.idAula = idAula;
+    }
 }
