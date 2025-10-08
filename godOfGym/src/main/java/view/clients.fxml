@@ -25,29 +25,32 @@
                   <Blend />
                </effect>
             </ImageView>
-            <Button layoutX="7.0" layoutY="429.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="AULAS" textFill="#d90429">
+            <Button layoutX="7.0" layoutY="429.0" mnemonicParsing="false" onAction="#openAulasPage" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="AULAS" textFill="#d90429">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Button>
-            <Button layoutX="7.0" layoutY="310.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="ATENDENTES" textFill="#d90429">
+            <Button layoutX="7.0" layoutY="310.0" mnemonicParsing="false" onAction="#openAtendentesPage" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="ATENDENTES" textFill="#d90429">
                <font>
                   <Font name="Arial Bold" size="20.0" />
                </font>
             </Button>
-            <Button layoutX="7.0" layoutY="370.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="PLANOS" textFill="#d90429">
+            <Button layoutX="7.0" layoutY="370.0" mnemonicParsing="false" onAction="#openPlanosPage" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="PLANOS" textFill="#d90429">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button layoutX="7.0" layoutY="250.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="INSTRUTORES" textFill="#d90429">
+            <Button layoutX="7.0" layoutY="250.0" mnemonicParsing="false" onAction="#openInstrutoresPage" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="INSTRUTORES" textFill="#d90429">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button layoutX="7.0" layoutY="191.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="CLIENTES" textFill="#d90429">
+            <Button layoutX="7.0" layoutY="191.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="267.0" style="-fx-background-radius: 100; -fx-background-color: #D90429;" text="CLIENTES" textFill="#2b2d42">
                <font>
                   <Font name="Arial Bold" size="20.0" />
                </font>
+               <effect>
+                  <DropShadow height="53.24" radius="27.5875" width="59.11" />
+               </effect>
             </Button>
          </children>
          <effect>
