@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Planos;
@@ -19,24 +20,29 @@ public class AddPlanoController  {
    @FXML
    private Button btnAdicionar;
    
-   @FXML
-   private TextField tfTipo;
+   @FXML 
+   private ChoiceBox<String> cbTipo;
    
    @FXML
    private TextField tfPreco;
    
+   public void setStage(Stage stage){
+       this.stage = stage;
+       cbTipo.getItems().addAll("Semanal","Mensal","Anual");
+   }
+   
    @FXML
    void adicionarPlano (ActionEvent event) throws SQLException{
-       if (!tfTipo.getText().isEmpty() && tfTipo.getText() != null && !tfPreco.getText().isEmpty() && tfPreco.getText() != null){
-           plano = new Planos(tfTipo.getText(), Float.parseFloat(tfPreco.getText()));
+       if (!cbTipo.getValue().isEmpty() && cbTipo.getValue() != null && !tfPreco.getText().isEmpty() && tfPreco.getText() != null){
+           plano = new Planos(cbTipo.getValue(), Float.parseFloat(tfPreco.getText()));
            dao.salvar(plano);
+           if (dao.selecionarPlano(cbTipo.getValue()) != null){
+               Alerta.mostrarConfirmacao("PLANO ADICIONADO", "plano adicionado com sucesso");
+               stage.close();
+           }
        } else { 
             Alerta.mostrarErro("ERROR", "Preencha todas as informações!");
         }
-   }
-           
-   public void setStage(Stage stage){
-       this.stage = stage;
    }
     
 }

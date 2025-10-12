@@ -114,6 +114,9 @@ public class LoginController {
       Scene scene = new Scene(root);
       telaHome.setScene(scene);
       telaHome.show();
+      if (stageLogin != null) {
+        stageLogin.close();
+    }
     }
     
 }

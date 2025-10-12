@@ -11,7 +11,7 @@ public class Cliente {
     private float peso;
     private float altura;
     private float porcentagem;
-    private int imc;
+    private float imc;
     private String experiencia;
     private String medicamentos;
     private String limitacoes;
@@ -19,7 +19,7 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(int idCliente, String CPF, String idPlano, float peso, float altura, float porcentagem, int imc, String experiencia, String medicamentos, String limitacoes) {
+    public Cliente(int idCliente, String CPF, String idPlano, float peso, float altura, float porcentagem, float imc, String experiencia, String medicamentos, String limitacoes) {
         this.idCliente = idCliente;
         this.CPF = CPF;
         this.idPlano = idPlano;
@@ -32,7 +32,7 @@ public class Cliente {
         this.limitacoes = limitacoes;
     }
 
-    public Cliente(String CPF, String idPlano, float peso, float altura, int porcentagem, int imc, String experiencia, String medicamentos, String limitacoes) {
+    public Cliente(String CPF, String idPlano, float peso, float altura, float porcentagem, float imc, String experiencia, String medicamentos, String limitacoes) {
         this.CPF = CPF;
         this.idPlano = idPlano;
         this.peso = peso;
@@ -92,11 +92,11 @@ public class Cliente {
         this.porcentagem = porcentagem;
     }
 
-    public int getImc() {
+    public float getImc() {
         return imc;
     }
 
-    public void setImc(int imc) {
+    public void setImc(float imc) {
         this.imc = imc;
     }
 

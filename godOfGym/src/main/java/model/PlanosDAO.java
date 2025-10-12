@@ -30,7 +30,7 @@ public class PlanosDAO extends genericoDAO{
         ResultSet rs = stmt.executeQuery();
         while (rs.next()){
             Planos plano = new Planos();
-            plano.setIdPlano(rs.getInt("idPlano"));
+            plano.setIdPlano(rs.getInt("id"));
             plano.setTipo(rs.getString("tipo"));
             plano.setPreco(rs.getFloat("preco"));
             
@@ -42,15 +42,15 @@ public class PlanosDAO extends genericoDAO{
         return lista;
     }
     
-    public ObservableList<Planos> selecionarPlano(int id) throws SQLException{
+    public ObservableList<Planos> selecionarPlano(String tipo) throws SQLException{
         ObservableList<Planos> lista = FXCollections.observableArrayList();
-        String sql = "select * from planos where idPlano = ?";
+        String sql = "select * from planos where tipo = ?";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
-        stmt.setString(1, Integer.toString(id));
+        stmt.setString(1, tipo);
         ResultSet rs = stmt.executeQuery();
         while (rs.next()){
             Planos plano = new Planos();
-            plano.setIdPlano(rs.getInt("idPlano"));
+            plano.setIdPlano(rs.getInt("id"));
             plano.setTipo(rs.getString("tipo"));
             plano.setPreco(rs.getFloat("preco"));
             

@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
@@ -17,8 +18,7 @@ import model.Usuario;
 import util.Alerta;
 
 public class AddClienteController {
-Stage stageAddCliente;
-    /*Stage stageAddCliente;
+    Stage stageAddCliente;
     String genero;
     UserDAO dao = new UserDAO();
     Usuario user;
@@ -55,6 +55,32 @@ Stage stageAddCliente;
     
     @FXML
     private ChoiceBox<String> cbPlano;
+    
+     @FXML
+    private CheckBox checkbLimitações;
+
+    @FXML
+    private CheckBox checkbMedicamentos;
+    
+    @FXML
+    private TextField tfAltura;
+    
+    @FXML
+    private TextField tfPeso;
+    
+    @FXML
+    private TextField tfgordura;
+    
+    @FXML
+    private TextField tfTelefone;
+    
+    @FXML
+    private ChoiceBox<String> cbExperiencia;
+    
+    float peso;
+    float altura;
+    float imc;
+    float porcentagem;
 
     public void setStage(Stage stage) throws SQLException {
         this.stageAddCliente = stage;
@@ -63,6 +89,7 @@ Stage stageAddCliente;
         for (int i = 0; i < planos.selecionarPlanos().size();i++){
             cbPlano.getItems().add(planos.selecionarPlanos().get(i).getTipo());
         }
+        cbExperiencia.getItems().addAll("Iniciante","Intermediario","Experiente","Profissional");
     }
 
     @FXML
@@ -74,13 +101,25 @@ Stage stageAddCliente;
         }
         if (!tfCPF.getText().isEmpty() && tfCPF.getText() != null && !tfEmail.getText().isEmpty() && tfEmail.getText() != null
                 && !tfNome.getText().isEmpty() && tfNome.getText() != null && !tfSobrenome.getText().isEmpty() && tfSobrenome.getText() != null
-                && !tfSenha.getText().isEmpty() && tfSenha.getText() != null && genero != null && !cbPlano.getValue().isEmpty() && cbPlano.getValue() != null) {
+                && !tfSenha.getText().isEmpty() && tfSenha.getText() != null && genero != null && 
+                !cbPlano.getValue().isEmpty() && cbPlano.getValue() != null && !tfAltura.getText().isEmpty() && tfAltura.getText() != null &&
+                !tfPeso.getText().isEmpty() && tfPeso.getText() != null && !tfTelefone.getText().isEmpty() && tfTelefone.getText() != null &&
+                !tfgordura.getText().isEmpty() && tfgordura.getText() != null) {
             
             if (dao.selecionarUsuario(tfCPF.getText()).isEmpty()){
-            user = new Usuario(tfCPF.getText(), tfNome.getText(),tfSobrenome.getText(),dpNascimento.getValue().toString(),tfSenha.getText(),tfEmail.getText(),genero);
-            cliente = new Cliente(tfCPF.getText(), cbPlano.getValue());
+                altura = Float.parseFloat(tfAltura.getText());
+                peso = Float.parseFloat(tfPeso.getText());
+                porcentagem = Float.parseFloat(tfgordura.getText());
+                imc = peso/(altura*altura);
+            user = new Usuario(tfCPF.getText(), tfNome.getText(),tfSobrenome.getText(),dpNascimento.getValue().toString(),
+                    tfSenha.getText(),tfEmail.getText(),genero,tfTelefone.getText(), "cliente");
+            cliente = new Cliente(tfCPF.getText(), cbPlano.getValue(),peso,altura,porcentagem,imc,cbExperiencia.getValue()," "," ");
             dao.salvar(user);
             clientedao.salvar(cliente);
+            if (clientedao.selecionarCliente(tfCPF.getText()) != null){
+                Alerta.mostrarConfirmacao("SUCESSO", "PERFIL ADICIONADO COM SUCESSO");
+                stageAddCliente.close();
+            }
             }
             else {
                 Alerta.mostrarErro("ERROR", "ESSE USUARIO JÁ EXISTE!");
@@ -97,9 +136,5 @@ Stage stageAddCliente;
             }
         }
     }
-*/
-    
-    public void setStage(Stage stage) throws SQLException {
-        this.stageAddCliente = stage;
-    }
+
 }

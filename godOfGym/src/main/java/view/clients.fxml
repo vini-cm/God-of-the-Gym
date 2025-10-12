@@ -10,7 +10,10 @@
         <URL value="@/css/clients.css" />
     </stylesheets>
    <children>
-      <AnchorPane prefHeight="650.0" prefWidth="280.0" style="-fx-background-color: #3D3D3D;" />
+      <AnchorPane prefHeight="650.0" prefWidth="280.0" style="-fx-background-color: #3D3D3D;">
+         <children>
+            <Button fx:id="btnHome" layoutX="13.0" layoutY="15.0" mnemonicParsing="false" onAction="#voltarHome" />
+         </children></AnchorPane>
       <Button fx:id="bntAdicionar" layoutX="560.0" layoutY="35.0" mnemonicParsing="false" onAction="#abrirAddCliente" prefHeight="60.0" prefWidth="200.0" text="ADICIONAR CLIENTE">
          <font>
             <Font name="DejaVu Sans Bold" size="14.0" />

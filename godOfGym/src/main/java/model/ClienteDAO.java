@@ -37,7 +37,7 @@ public class ClienteDAO extends genericoDAO{
             cliente.setIdPlano(rs.getString("id_plano"));
             cliente.setAltura(rs.getFloat("altura"));
             cliente.setPeso(rs.getFloat("peso"));
-            cliente.setImc(rs.getInt("imc"));
+            cliente.setImc(rs.getFloat("imc"));
             cliente.setPorcentagem(rs.getFloat("porcentagem_gordura"));
             cliente.setExperiencia(rs.getString("experiencia"));
             cliente.setMedicamentos(rs.getString("medicamentos"));
@@ -64,7 +64,7 @@ public class ClienteDAO extends genericoDAO{
             cliente.setIdPlano(rs.getString("id_plano"));
             cliente.setAltura(rs.getFloat("altura"));
             cliente.setPeso(rs.getFloat("peso"));
-            cliente.setImc(rs.getInt("imc"));
+            cliente.setImc(rs.getFloat("imc"));
             cliente.setPorcentagem(rs.getFloat("porcentagem_gordura"));
             cliente.setExperiencia(rs.getString("experiencia"));
             cliente.setMedicamentos(rs.getString("medicamentos"));

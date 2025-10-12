@@ -23,19 +23,19 @@ public class App extends Application {
         URL url = new File("src/main/java/view/login.fxml").toURI().toURL();
         FXMLLoader loader = new FXMLLoader(url);
         Parent root = loader.load();
-        Stage telaLogin = new Stage();
+        //Stage telaLogin = new Stage();
         LoginController lc = loader.getController();
         lc.setStage(stage);
-        telaLogin.setOnShown(event ->{
+        stage.setOnShown(event ->{
         lc.abrirJanela();
         });
         Scene scene = new Scene(root);
-        telaLogin.setScene(scene);
+        stage.setScene(scene);
         scene.getStylesheets().add(getClass().getResource("" + "/css/login.css").toExternalForm());
         File fileIcon = new File("src/main/resources/imagens/icon.png");
         Image icon = new Image(fileIcon.toURI().toString());
-        telaLogin.getIcons().add(icon);
-        telaLogin.show();
+        stage.getIcons().add(icon);
+        stage.show();
     }
 
     public static void main(String[] args) {

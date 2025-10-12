@@ -24,6 +24,9 @@ public class HomeController  {
       Scene scene = new Scene(root);
       telaAtendentes.setScene(scene);
       telaAtendentes.show();
+      if (HomeStage != null){
+         HomeStage.close();
+      }
     }
 
     @FXML
@@ -37,7 +40,9 @@ public class HomeController  {
       Scene scene = new Scene(root);
       telaAulas.setScene(scene);
       telaAulas.show();
-        
+      if (HomeStage != null){
+         HomeStage.close();
+      }
     }
 
     @FXML
@@ -51,6 +56,9 @@ public class HomeController  {
       Scene scene = new Scene(root);
       telaClients.setScene(scene);
       telaClients.show();
+      if (HomeStage != null){
+         HomeStage.close();
+      }
     }
 
     @FXML
@@ -64,6 +72,9 @@ public class HomeController  {
       Scene scene = new Scene(root);
       telaInstrutores.setScene(scene);
       telaInstrutores.show();
+      if (HomeStage != null){
+         HomeStage.close();
+      }
     }
 
     @FXML
@@ -77,6 +88,9 @@ public class HomeController  {
       Scene scene = new Scene(root);
       telaPlanos.setScene(scene);
       telaPlanos.show();
+      if (HomeStage != null){
+         HomeStage.close();
+      }
     }
     
     public void setStage(Stage stage){
