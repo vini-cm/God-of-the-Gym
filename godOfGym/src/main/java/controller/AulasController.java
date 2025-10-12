@@ -2,12 +2,11 @@ package controller;
 
 import javafx.stage.Stage;
 
-public class AulasController  {
+public class AulasController {
 
-    Stage stageAulas;
-    
+    Stage stageAddCliente;
+
     public void setStage(Stage stage){
-        this.stageAulas = stage;
+        this.stageAddCliente = stage;
     }
-    
 }

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.InstrutoresController">
-    <stylesheets>
-        <URL value="@/styles/instrutores.css" />
-    </stylesheets>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InstrutoresController">
    <children>
-      <Button fx:id="btnAdicionar" layoutX="228.0" layoutY="38.0" mnemonicParsing="false" onAction="#abrirAddInstrutor" text="ADICIONAR INSTRUTOR" />
+      <Button fx:id="btnAdicionar" layoutX="584.0" layoutY="40.0" mnemonicParsing="false" onAction="#abrirAddInstrutor" text="ADICIONAR INSTRUTORES">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

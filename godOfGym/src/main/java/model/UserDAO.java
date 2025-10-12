@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 
 public class UserDAO extends genericoDAO{
     public void salvar(Usuario user) throws SQLException{
+
         String insert = "insert into usuarios (CPF, nome, sobrenome, dataNascimento, senha, email, genero, telefone, tipo) values (?,?,?,?,MD5(?),?,?,?,?)";
         salvar(insert,user.getCPF(),user.getNome(),user.getSobrenome(),user.getDataNascimento(),user.getSenha(),user.getEmail(),user.getGenero(), user.getTelefone(), user.getTipo());
     }
