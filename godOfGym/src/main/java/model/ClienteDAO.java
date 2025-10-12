@@ -9,13 +9,15 @@ import javafx.collections.ObservableList;
 
 public class ClienteDAO extends genericoDAO{
     public void salvar(Cliente cliente) throws SQLException{
-        String insert = "insert into clientes (CPF, idPlano) values (?,?)";
-        salvar(insert, cliente.getCPF(),cliente.getIdPlano());
+        String insert = "insert into clientes (cpf,id_plano,peso,altura,porcentagem_gordura,imc,experiencia,medicamentos,limitacoes) values (?,?,?,?,?,?,?,?,?)";
+        salvar(insert, cliente.getCPF(),cliente.getIdPlano(),cliente.getPeso(), cliente.getAltura(), cliente.getPorcentagem(), cliente.getImc(),
+                cliente.getExperiencia(),cliente.getMedicamentos(),cliente.getLimitacoes());
     }
     
     public void editar (Cliente cliente) throws SQLException{
-        String update = "update clientes set cpf = ?, idPlano = ? where idCliente = ?";
-        editar(update, cliente.getCPF(), cliente.getCPF(),cliente.getIdPlano(),cliente.getIdCliente());
+        String update = "update clientes id_plano =?,peso =?, altura =?, porcentagem_gordura=?,imc =?, experiencia =?,medicamentos =?,limitacoes =? where cpf = ?";
+        editar(update, cliente.getIdPlano(),cliente.getPeso(), cliente.getAltura(), cliente.getPorcentagem(), cliente.getImc(),
+                cliente.getExperiencia(),cliente.getMedicamentos(),cliente.getLimitacoes(), cliente.getCPF());
     }
     
     public void deletar(String CPF) throws SQLException{
@@ -30,11 +32,16 @@ public class ClienteDAO extends genericoDAO{
         ResultSet rs = stmt.executeQuery();
         while (rs.next()){
             Cliente cliente = new Cliente();
-            cliente.setIdCliente(rs.getInt("IdCliente"));
-            cliente.setCPF(rs.getString("CPF"));
-            cliente.setDataAssinatura(rs.getDate("DataAssinatura"));
-            cliente.setIdPlano(rs.getString("IdPlano"));
-            
+            cliente.setIdCliente(rs.getInt("id"));
+            cliente.setCPF(rs.getString("cpf"));
+            cliente.setIdPlano(rs.getString("id_plano"));
+            cliente.setAltura(rs.getFloat("altura"));
+            cliente.setPeso(rs.getFloat("peso"));
+            cliente.setImc(rs.getInt("imc"));
+            cliente.setPorcentagem(rs.getFloat("porcentagem_gordura"));
+            cliente.setExperiencia(rs.getString("experiencia"));
+            cliente.setMedicamentos(rs.getString("medicamentos"));
+            cliente.setLimitacoes(rs.getString("limitacoes"));
             lista.add(cliente);
         }
         
@@ -52,11 +59,16 @@ public class ClienteDAO extends genericoDAO{
         ResultSet rs = stmt.executeQuery();
         while (rs.next()){
             Cliente cliente = new Cliente();
-            cliente.setIdCliente(rs.getInt("IdCliente"));
-            cliente.setCPF(rs.getString("CPF"));
-            cliente.setDataAssinatura(rs.getDate("DataAssinatura"));
-            cliente.setIdPlano(rs.getString("IdPlano"));
-            
+            cliente.setIdCliente(rs.getInt("id"));
+            cliente.setCPF(rs.getString("cpf"));
+            cliente.setIdPlano(rs.getString("id_plano"));
+            cliente.setAltura(rs.getFloat("altura"));
+            cliente.setPeso(rs.getFloat("peso"));
+            cliente.setImc(rs.getInt("imc"));
+            cliente.setPorcentagem(rs.getFloat("porcentagem_gordura"));
+            cliente.setExperiencia(rs.getString("experiencia"));
+            cliente.setMedicamentos(rs.getString("medicamentos"));
+            cliente.setLimitacoes(rs.getString("limitacoes"));
             lista.add(cliente);
         }
         

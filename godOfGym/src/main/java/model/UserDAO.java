@@ -8,13 +8,13 @@ import javafx.collections.ObservableList;
 
 public class UserDAO extends genericoDAO{
     public void salvar(Usuario user) throws SQLException{
-        String insert = "insert into usuarios (CPF, nome, sobrenome, dataNascimento, MD5(senha), email, genero) values (?,?,?,?,?,?,?)";
-        salvar(insert,user.getCPF(),user.getNome(),user.getSobrenome(),user.getDataNascimento(),user.getSenha(),user.getEmail(),user.getGenero());
+        String insert = "insert into usuarios (CPF, nome, sobrenome, dataNascimento, senha, email, genero, telefone, tipo) values (?,?,?,?,MD5(?),?,?,?,?)";
+        salvar(insert,user.getCPF(),user.getNome(),user.getSobrenome(),user.getDataNascimento(),user.getSenha(),user.getEmail(),user.getGenero(), user.getTelefone(), user.getTipo());
     }
     
     public void editar (Usuario user) throws SQLException{
-        String update = "UPDATE usuarios" + "SET nome = ?, sobrenome = ?, dataNascimento = ?, senha = ?, email = ?, genero = ?" + "WHERE CPF = ?";
-        editar(update, user.getNome(),user.getSobrenome(),user.getDataNascimento(),user.getSenha(),user.getEmail(),user.getGenero(),user.getCPF());
+        String update = "UPDATE usuarios" + "SET nome = ?, sobrenome = ?, dataNascimento = ?, senha = ?, email = ?, genero = ?, telefone = ?" + "WHERE CPF = ?";
+        editar(update, user.getNome(),user.getSobrenome(),user.getDataNascimento(),user.getSenha(),user.getEmail(),user.getGenero(),user.getCPF(), user.getTelefone());
     }
     
     public void deletar(String CPF) throws SQLException{
@@ -36,7 +36,8 @@ public class UserDAO extends genericoDAO{
             user.setEmail(rs.getString("Email"));
             user.setSenha(rs.getString("Senha"));
             user.setGenero(rs.getString("genero"));
-            
+            user.setTelefone(rs.getString("telefone"));
+            user.setTipo(rs.getString("tipo"));
             lista.add(user);
         }
         
@@ -61,7 +62,8 @@ public class UserDAO extends genericoDAO{
             user.setEmail(rs.getString("Email"));
             user.setSenha(rs.getString("Senha"));
             user.setGenero(rs.getString("genero"));
-            
+            user.setTelefone(rs.getString("telefone"));
+            user.setTipo(rs.getString("tipo"));
             usuario.add(user);
         }
         

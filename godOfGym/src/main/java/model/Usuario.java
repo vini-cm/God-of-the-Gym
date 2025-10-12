@@ -10,12 +10,14 @@ public class Usuario {
     private String senha;
     private String email;
     private String genero;
+    private String telefone;
+    private String tipo;
 
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String CPF, String nome, String sobrenome, String dataNascimento, String senha, String email, String genero) {
+    public Usuario(int idUsuario, String CPF, String nome, String sobrenome, String dataNascimento, String senha, String email, String genero, String tipo) {
         this.idUsuario = idUsuario;
         this.CPF = CPF;
         this.nome = nome;
@@ -24,9 +26,10 @@ public class Usuario {
         this.senha = senha;
         this.email = email;
         this.genero = genero;
+        this.tipo = tipo;
     }
 
-    public Usuario(String CPF, String nome, String sobrenome, String dataNascimento, String senha, String email, String genero) {
+    public Usuario(String CPF, String nome, String sobrenome, String dataNascimento, String senha, String email, String genero, String telefone,String tipo) {
         this.CPF = CPF;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -34,6 +37,8 @@ public class Usuario {
         this.senha = senha;
         this.email = email;
         this.genero = genero;
+        this.telefone = telefone;
+        this.tipo = tipo;
     }
     
     
@@ -101,7 +106,22 @@ public class Usuario {
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
-    
-    
 
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    
 }

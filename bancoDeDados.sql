@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.43, for Win64 (x86_64)
 --
--- Host: localhost    Database: godofthegym
+-- Host: localhost    Database: godogthegym
 -- ------------------------------------------------------
--- Server version	8.4.4
+-- Server version	8.0.43
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,27 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `alerta`
+-- Table structure for table `atendentes`
 --
 
-DROP TABLE IF EXISTS `alerta`;
+DROP TABLE IF EXISTS `atendentes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `alerta` (
-  `IdAlerta` int NOT NULL AUTO_INCREMENT,
-  `Data` date NOT NULL,
-  `Mensagem` varchar(500) NOT NULL,
-  PRIMARY KEY (`IdAlerta`)
+CREATE TABLE `atendentes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cpf` varchar(11) NOT NULL,
+  `salario` decimal(10,2) DEFAULT NULL,
+  `entrada` time DEFAULT NULL,
+  `saida` time DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cpf` (`cpf`),
+  CONSTRAINT `atendentes_ibfk_1` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `alerta`
+-- Dumping data for table `atendentes`
 --
 
-LOCK TABLES `alerta` WRITE;
-/*!40000 ALTER TABLE `alerta` DISABLE KEYS */;
-/*!40000 ALTER TABLE `alerta` ENABLE KEYS */;
+LOCK TABLES `atendentes` WRITE;
+/*!40000 ALTER TABLE `atendentes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `atendentes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -47,16 +51,22 @@ DROP TABLE IF EXISTS `clientes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `clientes` (
-  `IdCliente` int NOT NULL AUTO_INCREMENT,
-  `CPF` varchar(11) NOT NULL,
-  `DataAssinatura` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `idPlano` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`IdCliente`),
-  UNIQUE KEY `CPF_UNIQUE` (`CPF`),
-  KEY `idPlano` (`idPlano`),
-  CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`idPlano`) REFERENCES `planos` (`Tipo`),
-  CONSTRAINT `fk_cliente_usuario` FOREIGN KEY (`CPF`) REFERENCES `usuarios` (`CPF`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cpf` varchar(11) DEFAULT NULL,
+  `id_plano` varchar(40) DEFAULT NULL,
+  `peso` decimal(3,2) DEFAULT NULL,
+  `altura` float DEFAULT NULL,
+  `porcentagem_gordura` int DEFAULT NULL,
+  `imc` float DEFAULT NULL,
+  `experiencia` varchar(40) DEFAULT NULL,
+  `medicamentos` varchar(250) DEFAULT NULL,
+  `limitacoes` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_plano` (`id_plano`),
+  KEY `cpf` (`cpf`),
+  CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`id_plano`) REFERENCES `planos` (`tipo`),
+  CONSTRAINT `clientes_ibfk_2` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +75,6 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (1,'12345678901','2025-08-25 11:59:43','semanal');
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,11 +92,11 @@ CREATE TABLE `instrutores` (
   `associado` varchar(45) DEFAULT NULL,
   `entrada` time DEFAULT NULL,
   `saida` time DEFAULT NULL,
-  `CPF` varchar(11) DEFAULT NULL,
+  `cpf` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `CPF` (`CPF`),
-  CONSTRAINT `instrutores_ibfk_1` FOREIGN KEY (`CPF`) REFERENCES `usuarios` (`CPF`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `cpf` (`cpf`),
+  CONSTRAINT `instrutores_ibfk_1` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,6 +105,7 @@ CREATE TABLE `instrutores` (
 
 LOCK TABLES `instrutores` WRITE;
 /*!40000 ALTER TABLE `instrutores` DISABLE KEYS */;
+INSERT INTO `instrutores` VALUES (2,1990.00,'EDUCAÇÃO FISICA - FURB','Camila Schmidt','12:00:00','13:00:00','12345678910');
 /*!40000 ALTER TABLE `instrutores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,12 +117,12 @@ DROP TABLE IF EXISTS `planos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `planos` (
-  `IdPlano` int NOT NULL AUTO_INCREMENT,
-  `Tipo` varchar(45) NOT NULL,
-  `Preco` float NOT NULL,
-  PRIMARY KEY (`IdPlano`),
-  UNIQUE KEY `Tipo_UNIQUE` (`Tipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(45) NOT NULL,
+  `preco` float NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `Tipo_UNIQUE` (`tipo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +131,6 @@ CREATE TABLE `planos` (
 
 LOCK TABLES `planos` WRITE;
 /*!40000 ALTER TABLE `planos` DISABLE KEYS */;
-INSERT INTO `planos` VALUES (1,'semanal',50);
 /*!40000 ALTER TABLE `planos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,19 +142,20 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
-  `IdUsuario` int NOT NULL AUTO_INCREMENT,
-  `CPF` varchar(11) NOT NULL,
-  `Nome` varchar(45) NOT NULL,
-  `Sobrenome` varchar(45) NOT NULL,
-  `DataNascimento` datetime NOT NULL,
-  `Email` varchar(60) NOT NULL,
-  `Genero` varchar(45) NOT NULL,
-  `Senha` varchar(45) NOT NULL,
-  `Tipo` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`IdUsuario`),
-  UNIQUE KEY `CPF_UNIQUE` (`CPF`),
-  UNIQUE KEY `Email_UNIQUE` (`Email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cpf` varchar(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `sobrenome` varchar(45) NOT NULL,
+  `datanascimento` datetime NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `genero` varchar(45) NOT NULL,
+  `senha` varchar(45) NOT NULL,
+  `tipo` varchar(45) NOT NULL,
+  `telefone` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `CPF_UNIQUE` (`cpf`),
+  UNIQUE KEY `Email_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,7 +164,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'15004161933','Camila','Schmidt','2006-05-11 00:00:00','camila@gmail.com','f','ea5a486c712a91e48443cd802642223d',NULL),(3,'12345678901','Gabriel','Zimmerman','2006-08-10 00:00:00','gabriel@gmail.com','m','1105',NULL);
+INSERT INTO `usuarios` VALUES (1,'15004161933','Camila','Schmidt','2006-11-05 00:00:00','camila@gmail.com','f','ea5a486c712a91e48443cd802642223d','administrador','47998430987'),(2,'12345678910','Stefanie','Miller','1990-10-31 00:00:00','ster1990@gmail.com','f','af21d0c97db2e27e13572cbf59eb343d','instrutor','4798134678');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -167,4 +177,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-08 11:47:31
+-- Dump completed on 2025-10-12  2:45:54

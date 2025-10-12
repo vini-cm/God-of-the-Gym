@@ -68,8 +68,12 @@ public class LoginController {
         } else {
             autenticar(tfNome.getText(), password.getText());
             if (listaDados != null){
+                if(listaDados.get(2).equals("administrador") || listaDados.equals("atendente")){
                 Alerta.mostrarInformacao("Informação", "Seja Bem-Vindo! " + listaDados.get(0) + " acesso liberado!" );
-                System.out.println("deu certo!");
+                } else {
+                    Alerta.mostrarErro("ERROR", "Você não tem acesso a esse sistema");
+                    System.exit(0);
+                }
                 if (stageLogin != null){
                     stageLogin.close();
                 }
@@ -87,6 +91,7 @@ public class LoginController {
             listaDados = new ArrayList<>();
             listaDados.add(user.getNome());
             listaDados.add(user.getSenha());
+            listaDados.add(user.getTipo());
             return listaDados;
         } else {
             Alerta.mostrarErro("error", "user não adicionado!");

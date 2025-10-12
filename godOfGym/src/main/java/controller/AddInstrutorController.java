@@ -76,6 +76,9 @@ public class AddInstrutorController {
 
     @FXML
     private TextField tfSaida;
+    
+    @FXML
+    private TextField tfTelefone;
  
     public void setStage(Stage stage) throws SQLException{
      this.stage = stage;
@@ -124,14 +127,15 @@ public class AddInstrutorController {
                 !tfEntrada.getText().isEmpty() && tfEntrada.getText() != null &&
                 !tfSaida.getText().isEmpty() && tfSaida.getText() != null &&
                 !tfSalario.getText().isEmpty() && tfSalario.getText() != null &&
-                !tfSenha.getText().isEmpty() && tfSenha.getText() != null){
+                !tfSenha.getText().isEmpty() && tfSenha.getText() != null &&
+                !tfTelefone.getText().isBlank() && tfTelefone.getText() != null){
             entrada = LocalTime.parse(tfEntrada.getText());
             saida = LocalTime.parse(tfSaida.getText());
             if (dao.selecionarInstrutor(tfCPF.getText()).isEmpty()){
-                user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), dpNascimento.getValue().toString(),tfSenha.getText(),tfEmail.getText(),genero);
+                user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), dpNascimento.getValue().toString(),tfSenha.getText(),tfEmail.getText(),genero,tfTelefone.getText(), "instrutor");
                 instrutor = new Instrutor(tfCPF.getText(),Float.parseFloat(tfSalario.getText()), taFormacao.getText(), cbAssociado.getValue(), entrada, saida);
-                dao.salvar(instrutor);
                 userDAO.salvar(user);
+                dao.salvar(instrutor);
             }
             
             }

@@ -20,7 +20,7 @@ public class LoginDAO extends genericoDAO {
     }
 
     public Usuario autenticar(String Nome, String Senha) throws SQLException {
-        String sql = "SELECT * from usuarios Where Nome = ? and Senha = MD5(?)";
+        String sql = "SELECT * from usuarios Where nome = ? and senha = MD5(?)";
         Usuario user = null;
         Connection conn = conectarConn();
         if (conn != null) {
@@ -30,7 +30,7 @@ public class LoginDAO extends genericoDAO {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 user = new Usuario();
-                user.setIdUsuario(rs.getInt("IdUsuario"));
+                user.setIdUsuario(rs.getInt("id"));
                 user.setCPF(rs.getString("CPF"));
                 user.setNome(rs.getString("Nome"));
                 user.setSobrenome(rs.getString("Sobrenome"));
@@ -38,6 +38,8 @@ public class LoginDAO extends genericoDAO {
                 user.setEmail(rs.getString("Email"));
                 user.setSenha(rs.getString("Senha"));
                 user.setGenero(rs.getString("genero"));
+                user.setTelefone(rs.getString("telefone"));
+                user.setTipo(rs.getString("tipo"));
             }
             rs.close();
             stmt.close();

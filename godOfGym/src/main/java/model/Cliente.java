@@ -7,15 +7,41 @@ import java.sql.Date;
 public class Cliente {
     private int idCliente;
     private String CPF;
-    private Date dataAssinatura;
     private String idPlano;
+    private float peso;
+    private float altura;
+    private float porcentagem;
+    private int imc;
+    private String experiencia;
+    private String medicamentos;
+    private String limitacoes;
 
     public Cliente() {
     }
 
-    public Cliente(String CPF, String idPlano) {
+    public Cliente(int idCliente, String CPF, String idPlano, float peso, float altura, float porcentagem, int imc, String experiencia, String medicamentos, String limitacoes) {
+        this.idCliente = idCliente;
         this.CPF = CPF;
         this.idPlano = idPlano;
+        this.peso = peso;
+        this.altura = altura;
+        this.porcentagem = porcentagem;
+        this.imc = imc;
+        this.experiencia = experiencia;
+        this.medicamentos = medicamentos;
+        this.limitacoes = limitacoes;
+    }
+
+    public Cliente(String CPF, String idPlano, float peso, float altura, int porcentagem, int imc, String experiencia, String medicamentos, String limitacoes) {
+        this.CPF = CPF;
+        this.idPlano = idPlano;
+        this.peso = peso;
+        this.altura = altura;
+        this.porcentagem = porcentagem;
+        this.imc = imc;
+        this.experiencia = experiencia;
+        this.medicamentos = medicamentos;
+        this.limitacoes = limitacoes;
     }
 
     public int getIdCliente() {
@@ -34,14 +60,6 @@ public class Cliente {
         this.CPF = CPF;
     }
 
-    public Date getDataAssinatura() {
-        return dataAssinatura;
-    }
-
-    public void setDataAssinatura(Date dataAssinatura) {
-        this.dataAssinatura = dataAssinatura;
-    }
-
     public String getIdPlano() {
         return idPlano;
     }
@@ -49,7 +67,62 @@ public class Cliente {
     public void setIdPlano(String idPlano) {
         this.idPlano = idPlano;
     }
-    
+
+    public float getPeso() {
+        return peso;
+    }
+
+    public void setPeso(float peso) {
+        this.peso = peso;
+    }
+
+    public float getAltura() {
+        return altura;
+    }
+
+    public void setAltura(float altura) {
+        this.altura = altura;
+    }
+
+    public float getPorcentagem() {
+        return porcentagem;
+    }
+
+    public void setPorcentagem(float porcentagem) {
+        this.porcentagem = porcentagem;
+    }
+
+    public int getImc() {
+        return imc;
+    }
+
+    public void setImc(int imc) {
+        this.imc = imc;
+    }
+
+    public String getExperiencia() {
+        return experiencia;
+    }
+
+    public void setExperiencia(String experiencia) {
+        this.experiencia = experiencia;
+    }
+
+    public String getMedicamentos() {
+        return medicamentos;
+    }
+
+    public void setMedicamentos(String medicamentos) {
+        this.medicamentos = medicamentos;
+    }
+
+    public String getLimitacoes() {
+        return limitacoes;
+    }
+
+    public void setLimitacoes(String limitacoes) {
+        this.limitacoes = limitacoes;
+    }
     
     
 }

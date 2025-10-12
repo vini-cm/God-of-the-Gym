@@ -17,8 +17,8 @@ import model.Usuario;
 import util.Alerta;
 
 public class AddClienteController {
-
-    Stage stageAddCliente;
+Stage stageAddCliente;
+    /*Stage stageAddCliente;
     String genero;
     UserDAO dao = new UserDAO();
     Usuario user;
@@ -97,5 +97,9 @@ public class AddClienteController {
             }
         }
     }
-
+*/
+    
+    public void setStage(Stage stage) throws SQLException {
+        this.stageAddCliente = stage;
+    }
 }
