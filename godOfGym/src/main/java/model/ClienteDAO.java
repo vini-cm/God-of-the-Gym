@@ -77,4 +77,28 @@ public class ClienteDAO extends genericoDAO{
         conectarConn().close();
         return lista;
     }
+    public ObservableList<Cliente> selecionarClientesUsuarios() throws SQLException {
+    ObservableList<Cliente> lista = FXCollections.observableArrayList();
+        String sql = "select c.*,u.*" + 
+                "from clientes c" +
+                "INNER JOIN usuarios u On c.CPF = u.CPF" +
+                "where CPF = ?";
+        PreparedStatement stmt = conectarConn().prepareStatement(sql);
+        stmt.setString(1, CPF);
+        ResultSet rs = stmt.executeQuery();
+
+    while (rs.next()) {
+        Usuario usuario = new Usuario();
+        usuario.setNome(rs.getString("nome"));
+        usuario.setSobrenome(rs.getString("sobrenome"));
+        usuario.setEmail(rs.getString("email"));
+
+        Cliente cliente = new Cliente();
+        cliente.setUsuario(usuario);
+        cliente.setIdCliente(rs.getInt("idCliente"));
+        cliente.setCPF(rs.getString("CPF"));
+        cliente.setIdPlano(rs.getString("idPlano"));
+        
+        lista.add(cliente);
+    }
 }
