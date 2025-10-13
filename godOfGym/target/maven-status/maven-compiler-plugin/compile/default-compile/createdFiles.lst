@@ -1,4 +1,6 @@
 controller\HomeController.class
+controller\AddAtendentesController.class
+controller\AddAtendentesController$2.class
 model\Instrutor.class
 controller\AddClienteController.class
 model\Usuario.class
@@ -8,6 +10,7 @@ model\LoginDAO.class
 module-info.class
 controller\AddInstrutorController$2.class
 model\Cliente.class
+model\AtendenteDao.class
 model\InstrutorDAO.class
 util\Alerta.class
 controller\InstrutoresController.class
@@ -16,6 +19,8 @@ model\ClienteDAO.class
 dal\Conn.class
 controller\AddPlanoController.class
 model\genericoDAO.class
+model\Atendentes.class
+controller\AddAtendentesController$1.class
 principal\App.class
 model\Planos.class
 controller\AddInstrutorController$1.class
