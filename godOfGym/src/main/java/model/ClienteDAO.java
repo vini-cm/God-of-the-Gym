@@ -77,7 +77,7 @@ public class ClienteDAO extends genericoDAO{
         conectarConn().close();
         return lista;
     }
-    public ObservableList<Cliente> selecionarClientesUsuarios() throws SQLException {
+    public ObservableList<Cliente> selecionarClientesUsuarios(String CPF) throws SQLException {
     ObservableList<Cliente> lista = FXCollections.observableArrayList();
         String sql = "select c.*,u.*" + 
                 "from clientes c" +
@@ -100,5 +100,7 @@ public class ClienteDAO extends genericoDAO{
         cliente.setIdPlano(rs.getString("idPlano"));
         
         lista.add(cliente);
+    }
+        return lista;
     }
 }
