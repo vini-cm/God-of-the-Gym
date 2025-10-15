@@ -80,7 +80,7 @@ public class AddInstrutorController {
     @FXML
     private TextField tfTelefone;
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:mm");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
 
     public void setStage(Stage stage) throws SQLException {
         this.stage = stage;
@@ -134,16 +134,13 @@ public class AddInstrutorController {
                 && !tfSalario.getText().isEmpty() && tfSalario.getText() != null
                 && !tfSenha.getText().isEmpty() && tfSenha.getText() != null
                 && !tfTelefone.getText().isBlank() && tfTelefone.getText() != null) {
-            entrada = LocalTime.parse(tfEntrada.getText());
-            saida = LocalTime.parse(tfSaida.getText());
+            entrada = LocalTime.parse(tfEntrada.getText(), formatter);
+                saida = LocalTime.parse(tfSaida.getText(), formatter);
             if (dao.selecionarInstrutor(tfCPF.getText()).isEmpty()) {
                 user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), dpNascimento.getValue().toString(), tfSenha.getText(), tfEmail.getText(), genero, tfTelefone.getText(), "instrutor");
-                instrutor = new Instrutor(tfCPF.getText(), Float.parseFloat(tfSalario.getText()), taFormacao.getText(), cbAssociado.getValue(), entrada, saida);
+                instrutor = new Instrutor(tfCPF.getText(), Float.parseFloat(tfSalario.getText()), taFormacao.getText(), cbAssociado.getValue(), entrada, saida, user.getIdUsuario());
                 userDAO.salvar(user);
                 dao.salvar(instrutor);
-
-                entrada = LocalTime.parse(tfEntrada.getText(), formatter);
-                saida = LocalTime.parse(tfSaida.getText(), formatter);
             } else {
                 Alerta.mostrarErro("ERROR", "ESSE USUARIO JÁ EXISTE!");
             }

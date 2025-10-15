@@ -4,8 +4,6 @@ package controller;
 import java.sql.SQLException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.beans.value.ChangeListener;
@@ -17,17 +15,18 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.Atendentes;
-import model.AtendenteDao;
-import model.Atendentes;
+import model.Atendente;
+import model.AtendenteDAO;
 import model.UserDAO;
 import model.Usuario;
 import util.Alerta;
 
-public class AddAtendentesController {
+
+public class AddAtendenteController {
+    
     Stage stage;
-    AtendenteDao dao = new AtendenteDao();
-    Atendentes atendente = new Atendentes();
+    AtendenteDAO dao = new AtendenteDAO();
+    Atendente atendente = new Atendente();
     Usuario user = new Usuario();
     UserDAO userDAO = new UserDAO();
     String genero;
@@ -73,7 +72,7 @@ public class AddAtendentesController {
     @FXML
     private TextField tfTelefone;
     
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:mm");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
     
     public void setStage(Stage stage) throws SQLException {
         this.stage = stage;
@@ -122,7 +121,7 @@ public class AddAtendentesController {
             saida = LocalTime.parse(tfSaida.getText());
             if (dao.selecionarAtendente(tfCPF.getText()).isEmpty()) {
                 user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), dpNascimento.getValue().toString(), tfSenha.getText(), tfEmail.getText(), genero, tfTelefone.getText(), "atendente");
-                atendente = new Atendentes(tfCPF.getText(), Float.parseFloat(tfSalario.getText()), entrada, saida);
+                atendente = new Atendente(user.getIdUsuario(),tfCPF.getText(), Float.parseFloat(tfSalario.getText()), entrada, saida);
                 userDAO.salvar(user);
                 dao.salvar(atendente);
 
@@ -146,4 +145,5 @@ public class AddAtendentesController {
         Matcher matcher = padrao.matcher(hora);
         return matcher.matches();
     }
+    
 }

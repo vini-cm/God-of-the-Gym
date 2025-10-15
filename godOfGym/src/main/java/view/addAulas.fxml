@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="347.0" prefWidth="204.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.AddAulasController">
+    <stylesheets>
+        <URL value="@/css/addaulas.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="tfTipo" layoutX="27.0" layoutY="14.0" promptText="Tipo" />
+      <ChoiceBox fx:id="cbProfessor" layoutX="27.0" layoutY="148.0" prefHeight="25.0" prefWidth="149.0" />
+      <DatePicker fx:id="DataAula" layoutX="27.0" layoutY="188.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="tfHorario" layoutX="28.0" layoutY="231.0" promptText="Hora" />
+      <TextField fx:id="tfVagas" layoutX="28.0" layoutY="271.0" promptText="Vagas" />
+      <Button fx:id="btnAdicionar" layoutX="28.0" layoutY="306.0" mnemonicParsing="false" onAction="#Adicionar" prefHeight="25.0" prefWidth="149.0" text="Adicionar" />
+      <TextArea fx:id="taDescricao" layoutX="27.0" layoutY="48.0" prefHeight="91.0" prefWidth="149.0" promptText="Descrição" />
+   </children>
+</AnchorPane>

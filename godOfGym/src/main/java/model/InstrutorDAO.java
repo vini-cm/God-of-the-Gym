@@ -10,8 +10,9 @@ import javafx.collections.ObservableList;
 public class InstrutorDAO extends genericoDAO{
   
     public void salvar(Instrutor instrutor) throws SQLException{
-        String insert = "insert into instrutores(CPF,salario,formacao,associado,entrada,saida) values (?,?,?,?,?,?)";
-        salvar(insert, instrutor.getCPF(),instrutor.getSalario(),instrutor.getFormacao(),instrutor.getAssociado(),instrutor.getEntrada(),instrutor.getSaida());
+        String insert = "insert into instrutores(CPF,salario,formacao,associado,entrada,saida, id_usuario) values (?,?,?,?,?,?,?)";
+        salvar(insert, instrutor.getCPF(),instrutor.getSalario(),instrutor.getFormacao(),instrutor.getAssociado(),
+                instrutor.getEntrada(),instrutor.getSaida(), instrutor.getId_usuario());
     }
     
     public void editar(Instrutor instrutor) throws SQLException{
@@ -38,6 +39,7 @@ public class InstrutorDAO extends genericoDAO{
             instrutor.setAssociado(rs.getString("associado"));
             instrutor.setEntrada(rs.getTime("saida").toLocalTime());
             instrutor.setSaida(rs.getTime("saida").toLocalTime());
+            instrutor.setId_usuario(rs.getInt("id_usuario"));
             
             lista.add(instrutor);
         }   
@@ -61,6 +63,7 @@ public class InstrutorDAO extends genericoDAO{
             instrutor.setAssociado(rs.getString("associado"));
             instrutor.setEntrada(rs.getTime("entrada").toLocalTime());
             instrutor.setSaida(rs.getTime("saida").toLocalTime());
+            instrutor.setId_usuario(rs.getInt("id_usuario"));
             
             lista.add(instrutor);
         }   

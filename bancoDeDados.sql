@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.43, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
 --
--- Host: localhost    Database: godogthegym
+-- Host: localhost    Database: godofthegym
 -- ------------------------------------------------------
--- Server version	8.0.43
+-- Server version	8.4.4
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,10 +28,13 @@ CREATE TABLE `atendentes` (
   `salario` decimal(10,2) DEFAULT NULL,
   `entrada` time DEFAULT NULL,
   `saida` time DEFAULT NULL,
+  `id_usuario` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `cpf` (`cpf`),
-  CONSTRAINT `atendentes_ibfk_1` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `id_usuario` (`id_usuario`),
+  CONSTRAINT `atendentes_ibfk_1` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`),
+  CONSTRAINT `atendentes_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -56,11 +59,10 @@ CREATE TABLE `aulas` (
   `Data` datetime NOT NULL,
   `Descricao` varchar(500) NOT NULL,
   `Vagas` int NOT NULL,
-  `Professor` int DEFAULT NULL,
+  `Professor` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `Professor` (`Professor`),
-  CONSTRAINT `aulas_ibfk_1` FOREIGN KEY (`Professor`) REFERENCES `instrutores` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `Professor` (`Professor`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,6 +71,7 @@ CREATE TABLE `aulas` (
 
 LOCK TABLES `aulas` WRITE;
 /*!40000 ALTER TABLE `aulas` DISABLE KEYS */;
+INSERT INTO `aulas` VALUES (1,'Pilates','2025-10-15 11:30:00','Aula de pilates',25,'Stefanie Miller');
 /*!40000 ALTER TABLE `aulas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,11 +93,14 @@ CREATE TABLE `clientes` (
   `experiencia` varchar(40) DEFAULT NULL,
   `medicamentos` varchar(250) DEFAULT NULL,
   `limitacoes` varchar(300) DEFAULT NULL,
+  `id_usuario` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_plano` (`id_plano`),
   KEY `cpf` (`cpf`),
+  KEY `id_usuario` (`id_usuario`),
   CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`id_plano`) REFERENCES `planos` (`tipo`),
-  CONSTRAINT `clientes_ibfk_2` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`)
+  CONSTRAINT `clientes_ibfk_2` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`),
+  CONSTRAINT `clientes_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -122,10 +128,13 @@ CREATE TABLE `instrutores` (
   `entrada` time DEFAULT NULL,
   `saida` time DEFAULT NULL,
   `cpf` varchar(11) DEFAULT NULL,
+  `id_usuario` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `cpf` (`cpf`),
-  CONSTRAINT `instrutores_ibfk_1` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `id_usuario` (`id_usuario`),
+  CONSTRAINT `instrutores_ibfk_1` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`),
+  CONSTRAINT `instrutores_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,7 +143,7 @@ CREATE TABLE `instrutores` (
 
 LOCK TABLES `instrutores` WRITE;
 /*!40000 ALTER TABLE `instrutores` DISABLE KEYS */;
-INSERT INTO `instrutores` VALUES (2,1990.00,'EDUCAÇÃO FISICA - FURB','Camila Schmidt','12:00:00','13:00:00','12345678910');
+INSERT INTO `instrutores` VALUES (2,1990.00,'EDUCAÇÃO FISICA - FURB','Camila Schmidt','12:00:00','13:00:00','12345678910',NULL);
 /*!40000 ALTER TABLE `instrutores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,7 +193,7 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `CPF_UNIQUE` (`cpf`),
   UNIQUE KEY `Email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,7 +202,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'15004161933','Camila','Schmidt','2006-11-05 00:00:00','camila@gmail.com','f','ea5a486c712a91e48443cd802642223d','administrador','47998430987'),(2,'12345678910','Stefanie','Miller','1990-10-31 00:00:00','ster1990@gmail.com','f','af21d0c97db2e27e13572cbf59eb343d','instrutor','4798134678');
+INSERT INTO `usuarios` VALUES (1,'15004161933','Camila','Schmidt','2006-11-05 00:00:00','camila@gmail.com','f','ea5a486c712a91e48443cd802642223d','administrador','47998430987'),(2,'12345678910','Stefanie','Miller','1990-10-31 00:00:00','ster1990@gmail.com','f','af21d0c97db2e27e13572cbf59eb343d','instrutor','4798134678'),(7,'45728518345','Gabriel','Schmidtt','2001-07-12 00:00:00','gabisTT@gmail.com','m','7c2c2ebea78329294d49c13a5040d243','instrutor','55476532'),(8,'53476518523','Jonathan','Gabriel','2004-05-31 00:00:00','jojogabis@gmail.com','m','e9510081ac30ffa83f10b68cde1cac07','instrutor','5547853146'),(9,'77376801014','Jonathan','Miller','2001-04-09 00:00:00','jonathan92001@gmail.com','m','ac8d4288af1201afb7160b3221653f10','instrutor','5547324764');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -206,8 +215,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD
--- Dump completed on 2025-10-12  2:45:54
-=======
--- Dump completed on 2025-09-24 10:35:17
->>>>>>> fbc3a2610e333d0decf10e475299b829820cbcd7
+-- Dump completed on 2025-10-15  9:49:32

@@ -113,7 +113,7 @@ public class AddClienteController {
                 imc = peso/(altura*altura);
             user = new Usuario(tfCPF.getText(), tfNome.getText(),tfSobrenome.getText(),dpNascimento.getValue().toString(),
                     tfSenha.getText(),tfEmail.getText(),genero,tfTelefone.getText(), "cliente");
-            cliente = new Cliente(tfCPF.getText(), cbPlano.getValue(),peso,altura,porcentagem,imc,cbExperiencia.getValue()," "," ");
+            cliente = new Cliente(tfCPF.getText(), cbPlano.getValue(),peso,altura,porcentagem,imc,cbExperiencia.getValue()," "," ",user.getIdUsuario());
             dao.salvar(user);
             clientedao.salvar(cliente);
             if (clientedao.selecionarCliente(tfCPF.getText()) != null){

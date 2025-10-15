@@ -19,7 +19,7 @@ public class AtendentesController  {
     Stage stageAtendentes;
     
     @FXML
-   private Button btnHome,btnAddAtendente;
+   private Button btnHome;
     
     public void setStage(Stage stage){
         this.stageAtendentes = stage;
@@ -41,13 +41,14 @@ public class AtendentesController  {
       home.show();
       stageAtendentes.close();
     }
+    
      @FXML
      void abrirAddAtendente(ActionEvent event) throws IOException, SQLException {
       URL url = new File ("src/main/java/view/addAtendente.fxml").toURI().toURL();
       FXMLLoader loader = new FXMLLoader(url);
       Parent root = loader.load();
       Stage telaAddAtendentes = new Stage();
-      AddAtendentesController aic = loader.getController();
+      AddAtendenteController aic = loader.getController();
       aic.setStage(telaAddAtendentes);
       Scene scene = new Scene(root);
       telaAddAtendentes.setScene(scene);

@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="371.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddAtendentesController">
+<AnchorPane id="AnchorPane" prefHeight="371.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddAtendenteController">
    <stylesheets>
       <URL value="@/css/addinstrutor.css" />
    </stylesheets>
