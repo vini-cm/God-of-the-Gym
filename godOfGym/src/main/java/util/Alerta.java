@@ -3,6 +3,7 @@ package util;
 import java.util.Optional;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 
 public class Alerta {
@@ -39,5 +40,28 @@ public class Alerta {
         alerta.setContentText(mensagem);
         return alerta.showAndWait();
     }
-        
+    
+    public static void exibirAlertaErro(String titulo, String mensagem) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null); 
+        alert.setContentText(mensagem);
+        alert.showAndWait();
+    }
+    
+    public static void exibirAlertaSucesso(String titulo, String mensagem) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+        alert.showAndWait();
+    }
+    
+    public static void exibirAlertaInformacao(String titulo, String mensagem) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+        alert.showAndWait();
+    }
 }
