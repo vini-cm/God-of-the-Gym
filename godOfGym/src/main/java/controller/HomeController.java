@@ -47,18 +47,19 @@ public class HomeController  {
 
     @FXML
     void openClientPage(ActionEvent event) throws IOException {
-      URL url = new File ("src/main/java/view/clients.fxml").toURI().toURL();
+      URL url = new File ("src/main/java/view/clientes.fxml").toURI().toURL();
       FXMLLoader loader = new FXMLLoader(url);
       Parent root = loader.load();
-      Stage telaClients = new Stage();
+      Stage telaClientes = new Stage();
       ClientsController cc = loader.getController();
-      cc.setStage(telaClients);
+      cc.setStage(telaClientes);
       Scene scene = new Scene(root);
-      telaClients.setScene(scene);
-      telaClients.show();
+      telaClientes.setScene(scene);
+      telaClientes.show();
       if (HomeStage != null){
          HomeStage.close();
       }
+      
     }
 
     @FXML

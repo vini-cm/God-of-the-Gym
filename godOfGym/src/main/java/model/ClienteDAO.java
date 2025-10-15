@@ -92,6 +92,7 @@ public class ClienteDAO extends genericoDAO{
         usuario.setNome(rs.getString("nome"));
         usuario.setSobrenome(rs.getString("sobrenome"));
         usuario.setEmail(rs.getString("email"));
+        usuario.setTelefone(rs.getString("telefone"));
 
         Cliente cliente = new Cliente();
         cliente.setUsuario(usuario);

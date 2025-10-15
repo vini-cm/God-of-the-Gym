@@ -22,6 +22,7 @@ model\genericoDAO.class
 model\Atendentes.class
 controller\AddAtendentesController$1.class
 principal\App.class
+controller\EditarClientesController.class
 model\Planos.class
 controller\AddInstrutorController$1.class
 model\PlanosDAO.class

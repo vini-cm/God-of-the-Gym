@@ -27,6 +27,8 @@ public class ClientsController {
 
     Stage stageClients;
     Cliente cliente;
+    
+    @FXML
     private ObservableList<Cliente> lista = FXCollections.observableArrayList();
     
     @FXML
@@ -46,9 +48,10 @@ public class ClientsController {
     
     public void setStage(Stage stage){
         this.stageClients = stage;
-        Image image = new Image(getClass().getResourceAsStream("/imagens/voltar.png"));
+        var image = new Image(getClass().getResourceAsStream("src\\main\\java\\Imagens\\Imagem_AvatarPrincipal.png\""));
         ImageView imageView = new ImageView(image);
         btnHome.setGraphic(imageView);
+        System.out.println(btnHome);
     }
     
     @FXML
@@ -78,6 +81,7 @@ public class ClientsController {
       telaAddClientes.show();
     }
     
+    @FXML
     private void carregarClientesTabela() throws SQLException{
         lista.setAll(selecionarClientesUsuario());
         if (!lista.isEmpty()){
@@ -120,9 +124,8 @@ public class ClientsController {
             twCliente.setItems(listaOrdenada);
         }
     }
-    
 
-
+    @FXML
     private Cliente[] selecionarClientesUsuario() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
