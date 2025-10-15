@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700&display=swap');
+
+* {
+    -fx-font-family: "Inter", sans-serif;
+}
+
+#pane {
+    -fx-background-image:url(../imagens/background.png);
+}
+
+.container {
+    -fx-background-color:rgba(0, 0, 0, 0.4);
+    -fx-background-radius:20px;
+}
+
+.btn {
+    -fx-background-color:#cc0033;
+    -fx-background-radius:50px;
+}
