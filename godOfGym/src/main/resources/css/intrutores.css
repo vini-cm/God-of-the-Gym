@@ -1,9 +1,4 @@
-/*
- * Empty Stylesheet file.
- */
-
 .mainFxmlClass {
-    
     /* Define bordas arredondadas e cor de fundo da tabela */
    .table-view {
        -fx-background-color: #2b2d42;      /* fundo da tabela (preto azulado) */

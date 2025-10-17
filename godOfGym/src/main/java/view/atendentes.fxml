@@ -16,5 +16,6 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Button fx:id="btnAddAtendente" layoutX="205.0" layoutY="208.0" mnemonicParsing="false" onAction="#abrirAddAtendente" prefHeight="25.0" prefWidth="165.0" />
    </children>
 </AnchorPane>

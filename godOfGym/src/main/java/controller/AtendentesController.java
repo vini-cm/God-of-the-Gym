@@ -3,6 +3,7 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,17 +25,16 @@ public class AtendentesController  {
     private Button btnAddAtendentes;
 
     @FXML
-    void abrirAddAtendente(ActionEvent event) throws IOException {
+    void abrirAddAtendente(ActionEvent event) throws IOException, SQLException {
       URL url = new File ("src/main/java/view/addAtendente.fxml").toURI().toURL();
       FXMLLoader loader = new FXMLLoader(url);
       Parent root = loader.load();
       Stage adicionar = new Stage();
-      AddAtendenteController ac = loader.getController();
+      AddAtendentesController ac = loader.getController();
       ac.setStage(adicionar);
       Scene scene = new Scene(root);
       adicionar.setScene(scene);
       adicionar.show();
-      stageAtendentes.close();
     }
     
     public void setStage(Stage stage){
@@ -57,5 +57,4 @@ public class AtendentesController  {
       home.show();
       stageAtendentes.close();
     }
-    
 }

@@ -27,9 +27,6 @@ public class InstrutoresController {
     
     public void setStage(Stage stage){
         this.stageInstrutores = stage;
-        Image image = new Image(getClass().getResourceAsStream("/imagens/voltar.png"));
-        ImageView imageView = new ImageView(image);
-        btnHome.setGraphic(imageView);
     }
     
     @FXML
