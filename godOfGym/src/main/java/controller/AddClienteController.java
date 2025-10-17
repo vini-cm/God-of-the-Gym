@@ -1,6 +1,9 @@
 package controller;
 
 import java.sql.SQLException;
+import java.util.function.UnaryOperator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,7 +11,9 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 import model.Cliente;
 import model.ClienteDAO;
@@ -77,6 +82,15 @@ public class AddClienteController {
     @FXML
     private ChoiceBox<String> cbExperiencia;
     
+    @FXML 
+    private TextArea taMedicacoes;
+    
+    @FXML
+    private TextArea taLimitacoes;
+    
+    private Pattern padraoPeso = Pattern.compile("\\d{0,2}(\\.\\d{0,1})?");
+    private Pattern padraoAltura = Pattern.compile("\\d{0,1}(\\.\\d{0,2})?");
+    
     float peso;
     float altura;
     float imc;
@@ -84,12 +98,25 @@ public class AddClienteController {
 
     public void setStage(Stage stage) throws SQLException {
         this.stageAddCliente = stage;
+        aplicarPeso(tfPeso);
+        aplicarAltura(tfAltura);
+        taLimitacoes.setVisible(false);
+        taMedicacoes.setVisible(false);
         rdFeminino.setOnAction(e -> HandleRadioButton(rdFeminino, rdMasculino));
         rdMasculino.setOnAction(e -> HandleRadioButton(rdMasculino, rdFeminino));
         for (int i = 0; i < planos.selecionarPlanos().size();i++){
             cbPlano.getItems().add(planos.selecionarPlanos().get(i).getTipo());
         }
         cbExperiencia.getItems().addAll("Iniciante","Intermediario","Experiente","Profissional");
+        checkbLimitações.setOnAction(e -> {
+            boolean marcado = checkbLimitações.isSelected();
+            taLimitacoes.setVisible(marcado);
+        });
+        
+        checkbMedicamentos.setOnAction(e -> {
+            boolean marcado = checkbMedicamentos.isSelected();
+            taMedicacoes.setVisible(marcado);
+        });
     }
 
     @FXML
@@ -113,7 +140,8 @@ public class AddClienteController {
                 imc = peso/(altura*altura);
             user = new Usuario(tfCPF.getText(), tfNome.getText(),tfSobrenome.getText(),dpNascimento.getValue().toString(),
                     tfSenha.getText(),tfEmail.getText(),genero,tfTelefone.getText(), "cliente");
-            cliente = new Cliente(tfCPF.getText(), cbPlano.getValue(),peso,altura,porcentagem,imc,cbExperiencia.getValue()," "," ");
+            cliente = new Cliente(tfCPF.getText(), cbPlano.getValue(),peso,altura,porcentagem,
+                    imc,cbExperiencia.getValue(),taMedicacoes.getText(),taLimitacoes.getText());
             dao.salvar(user);
             clientedao.salvar(cliente);
             if (clientedao.selecionarCliente(tfCPF.getText()) != null){
@@ -136,5 +164,44 @@ public class AddClienteController {
             }
         }
     }
-
+    
+    private void aplicarPeso(TextField tf){
+        UnaryOperator<TextFormatter.Change> filtro = change -> {
+            String texto = change.getControlNewText();
+            
+            if (texto.isEmpty()){
+                return change;
+            }
+            
+            Matcher matcher = padraoPeso.matcher(texto);
+            if(matcher.matches()){
+                return change;
+            } else {
+                return null;
+            }
+    };
+        tf.setTextFormatter(new TextFormatter<>(filtro));
+    }
+    
+    private void aplicarAltura(TextField tf){
+        UnaryOperator<TextFormatter.Change> filtro = change -> {
+            String texto = change.getControlNewText();
+            
+            if (texto.isEmpty()){
+                return change;
+            }
+            
+            if(texto.length()>3){
+                texto = texto.substring(0, 3);
+            }
+            
+            Matcher matcher = padraoAltura.matcher(texto);
+            if(matcher.matches()){
+                return change;
+            } else {
+                return null;
+            }
+    };
+        tf.setTextFormatter(new TextFormatter<>(filtro));
+    }
 }

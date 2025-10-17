@@ -20,18 +20,16 @@
       <TextField fx:id="tfSobrenome" layoutX="24.0" layoutY="93.0" promptText="Sobrenome" />
       <DatePicker fx:id="dpNascimento" layoutX="24.0" layoutY="129.0" prefHeight="25.0" prefWidth="149.0" promptText="Data Nascimento" />
       <TextField fx:id="tfSenha" layoutX="24.0" layoutY="166.0" promptText="Senha" />
-      <TextField fx:id="tfEmail" layoutX="24.0" layoutY="204.0" promptText="Email" />
-      <RadioButton fx:id="rdFeminino" layoutX="24.0" layoutY="240.0" mnemonicParsing="false" text="Feminino" />
-      <RadioButton fx:id="rdMasculino" layoutX="111.0" layoutY="240.0" mnemonicParsing="false" text="Masculino" />
-      <TextField fx:id="tfSalario" layoutX="24.0" layoutY="266.0" promptText="Salario" />
-      <TextArea fx:id="taFormacao" layoutX="24.0" layoutY="300.0" prefHeight="70.0" prefWidth="200.0" promptText="Formacao" />
-      <ChoiceBox fx:id="cbAssociado" layoutX="233.0" layoutY="24.0" prefWidth="150.0" />
-      <Label layoutX="233.0" layoutY="97.0" text="Saida" />
-      <Label layoutX="234.0" layoutY="52.0" text="Entrada" />
-      <Label layoutX="234.0" layoutY="6.0" text="Associado" />
-      <Button fx:id="bntCadastrar" layoutX="235.0" layoutY="197.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="150.0" text="CADASTRAR" />
-      <TextField fx:id="tfEntrada" layoutX="235.0" layoutY="73.0" />
-      <TextField fx:id="tfSaida" layoutX="234.0" layoutY="117.0" />
-      <TextField fx:id="tfTelefone" layoutX="236.0" layoutY="154.0" promptText="Telefone" />
+      <TextField fx:id="tfEmail" layoutX="24.0" layoutY="227.0" promptText="Email" />
+      <RadioButton fx:id="rdFeminino" layoutX="24.0" layoutY="259.0" mnemonicParsing="false" text="Feminino" />
+      <RadioButton fx:id="rdMasculino" layoutX="111.0" layoutY="259.0" mnemonicParsing="false" text="Masculino" />
+      <TextField fx:id="tfSalario" layoutX="234.0" layoutY="24.0" promptText="Salario" />
+      <TextArea fx:id="taFormacao" layoutX="234.0" layoutY="130.0" prefHeight="135.0" prefWidth="150.0" promptText="Formacao" />
+      <ChoiceBox fx:id="cbAssociado" layoutX="24.0" layoutY="299.0" prefWidth="150.0" />
+      <Label layoutX="24.0" layoutY="282.0" text="Associado" />
+      <Button fx:id="bntCadastrar" layoutX="125.0" layoutY="339.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="150.0" text="CADASTRAR" />
+      <TextField fx:id="tfEntrada" layoutX="234.0" layoutY="60.0" promptText="Entrada" />
+      <TextField fx:id="tfSaida" layoutX="234.0" layoutY="93.0" promptText="Saida" />
+      <TextField fx:id="tfTelefone" layoutX="24.0" layoutY="197.0" promptText="Telefone" />
    </children>
 </AnchorPane>

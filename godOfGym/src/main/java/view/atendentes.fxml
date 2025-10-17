@@ -3,12 +3,18 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.AtendentesController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AtendentesController">
     <stylesheets>
         <URL value="@/css/atendentes.css" />
     </stylesheets>
    <children>
       <Button fx:id="btnHome" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltarHome" />
+      <Button fx:id="btnAddAtendentes" layoutX="185.0" layoutY="39.0" mnemonicParsing="false" onAction="#abrirAddAtendente" text="ADICIONAR ATENDENTES">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

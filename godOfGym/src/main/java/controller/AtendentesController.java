@@ -18,7 +18,24 @@ public class AtendentesController  {
     Stage stageAtendentes;
     
     @FXML
-   private Button btnHome;
+    private Button btnHome;
+    
+    @FXML
+    private Button btnAddAtendentes;
+
+    @FXML
+    void abrirAddAtendente(ActionEvent event) throws IOException {
+      URL url = new File ("src/main/java/view/addAtendente.fxml").toURI().toURL();
+      FXMLLoader loader = new FXMLLoader(url);
+      Parent root = loader.load();
+      Stage adicionar = new Stage();
+      AddAtendenteController ac = loader.getController();
+      ac.setStage(adicionar);
+      Scene scene = new Scene(root);
+      adicionar.setScene(scene);
+      adicionar.show();
+      stageAtendentes.close();
+    }
     
     public void setStage(Stage stage){
         this.stageAtendentes = stage;

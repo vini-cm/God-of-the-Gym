@@ -6,10 +6,11 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="340.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddClienteController">
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddClienteController">
     <stylesheets>
         <URL value="@/css/addcliente.css" />
     </stylesheets>
@@ -22,7 +23,7 @@
       <TextField fx:id="tfEmail" layoutX="14.0" layoutY="194.0" promptText="Email" />
       <RadioButton fx:id="rdFeminino" layoutX="14.0" layoutY="230.0" mnemonicParsing="false" text="Feminino" />
       <RadioButton fx:id="rdMasculino" layoutX="101.0" layoutY="230.0" mnemonicParsing="false" text="Masculino" />
-      <Button fx:id="btnCadastro" layoutX="167.0" layoutY="301.0" mnemonicParsing="false" onAction="#Cadastrar" text="Cadastrar" />
+      <Button fx:id="btnCadastro" layoutX="167.0" layoutY="381.0" mnemonicParsing="false" onAction="#Cadastrar" text="Cadastrar" />
       <ChoiceBox fx:id="cbPlano" layoutX="14.0" layoutY="261.0" prefWidth="150.0" />
       <TextField fx:id="tfTelefone" layoutX="200.0" layoutY="14.0" promptText="Telefone" />
       <TextField fx:id="tfPeso" layoutX="200.0" layoutY="50.0" promptText="Peso" />
@@ -30,6 +31,8 @@
       <TextField fx:id="tfgordura" layoutX="200.0" layoutY="119.0" promptText="Gordura corporal" />
       <ChoiceBox fx:id="cbExperiencia" layoutX="200.0" layoutY="156.0" prefWidth="150.0" />
       <CheckBox fx:id="checkbMedicamentos" layoutX="200.0" layoutY="198.0" mnemonicParsing="false" text="Medicamentos" />
-      <CheckBox fx:id="checkbLimitações" layoutX="200.0" layoutY="230.0" mnemonicParsing="false" text="Medicamentos" />
+      <CheckBox fx:id="checkbLimitações" layoutX="200.0" layoutY="230.0" mnemonicParsing="false" text="Limitações" />
+      <TextArea fx:id="taMedicacoes" layoutX="200.0" layoutY="255.0" prefHeight="52.0" prefWidth="190.0" promptText="Medicações" text=" " />
+      <TextArea fx:id="taLimitacoes" layoutX="200.0" layoutY="313.0" prefHeight="52.0" prefWidth="190.0" promptText="Limitações" text=" " />
    </children>
 </AnchorPane>

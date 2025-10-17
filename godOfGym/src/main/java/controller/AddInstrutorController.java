@@ -115,7 +115,18 @@ public class AddInstrutorController {
                 }
             }
         });
-
+        tfSalario.setVisible(false);
+        taFormacao.setVisible(false);
+        tfEntrada.setVisible(false);
+        tfSaida.setVisible(false);
+        cbAssociado.getSelectionModel().selectedItemProperty().addListener((obs,antigo,novo) ->{
+            if("Academia".equals(novo)){
+                tfSalario.setVisible(true);
+                taFormacao.setVisible(true);
+                tfEntrada.setVisible(true);
+                tfSaida.setVisible(true);
+            }
+        });
     }
 
     @FXML
