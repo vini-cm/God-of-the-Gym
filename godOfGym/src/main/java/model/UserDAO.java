@@ -21,7 +21,7 @@ public class UserDAO extends genericoDAO {
 
     public void deletar(String CPF) throws SQLException {
         String delete = "DELETE from usuarios where CPF = ?";
-        deletar(delete, CPF);
+        deletar(delete,CPF);
     }
 
     public ObservableList<Usuario> selecionarUsuarios() throws SQLException {
@@ -51,13 +51,12 @@ public class UserDAO extends genericoDAO {
     }
 
     public Usuario selecionarUsuario(String CPF) throws SQLException {
-        Usuario user;
         String sql = "SELECT * from usuarios Where CPF = ?";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
         stmt.setString(1, CPF);
-        ResultSet rs = stmt.executeQuery();
+        try(ResultSet rs = stmt.executeQuery()){
         if (rs.next()) {
-            user = new Usuario();
+            Usuario user = new Usuario();
             user.setIdUsuario(rs.getInt("id"));
             user.setCPF(rs.getString("CPF"));
             user.setNome(rs.getString("Nome"));
@@ -68,17 +67,10 @@ public class UserDAO extends genericoDAO {
             user.setGenero(rs.getString("genero"));
             user.setTelefone(rs.getString("telefone"));
             user.setTipo(rs.getString("tipo"));
-
-            rs.close();
-            stmt.close();
-            conectarConn().close();
             return user;
-        } else {
-            rs.close();
-            stmt.close();
-            conectarConn().close();
+        }else {
             return null;
-        }
+        }}
     }
     
     public ObservableList<Usuario> PesquisarUsuariosPorTipo(String tipo) throws SQLException{

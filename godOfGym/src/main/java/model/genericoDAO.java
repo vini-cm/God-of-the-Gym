@@ -42,7 +42,7 @@ public class genericoDAO {
         connection.close();
      }
      
-      protected void deletar (String deletarsql,Object cpf, Object... parametros) throws SQLException{
+     protected void deletar (String deletarsql,Object cpf, Object... parametros) throws SQLException{
         PreparedStatement stmt = conectarConn().prepareStatement(deletarsql);
         for ( int i = 0; i < parametros.length; i++){
             stmt.setObject(i + 1, parametros[i]);

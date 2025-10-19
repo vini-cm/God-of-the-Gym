@@ -4,6 +4,10 @@
     -fx-font-family: "Inter", sans-serif;
 }
 
+.text-field {
+   -fx-text-fill: white;
+}
+
 .table-view {
        -fx-background-color: #2b2d42;      /* fundo da tabela (preto azulado) */
        -fx-background-radius: 10;         /* bordas arredondadas */

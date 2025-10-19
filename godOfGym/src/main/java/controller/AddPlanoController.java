@@ -31,7 +31,7 @@ public class AddPlanoController  {
    
    public void setStage(Stage stage){
        this.stage = stage;
-       cbTipo.getItems().addAll("Semanal","Mensal","Anual");
+       cbTipo.getItems().addAll("Semanal","Mensal","Bimestral","Trimestral","Quadrimestal","Semestral","Anual");
    }
    
    @FXML

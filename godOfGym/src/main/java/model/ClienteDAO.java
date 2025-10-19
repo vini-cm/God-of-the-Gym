@@ -1,4 +1,3 @@
-
 package model;
 
 import java.sql.PreparedStatement;
@@ -7,30 +6,31 @@ import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ClienteDAO extends genericoDAO{
-    public void salvar(Cliente cliente) throws SQLException{
+public class ClienteDAO extends genericoDAO {
+
+    public void salvar(Cliente cliente) throws SQLException {
         String insert = "insert into clientes (cpf,id_plano,peso,altura,porcentagem_gordura,imc,experiencia,medicamentos,limitacoes, id_usuario) values (?,?,?,?,?,?,?,?,?,?)";
-        salvar(insert, cliente.getCPF(),cliente.getIdPlano(),cliente.getPeso(), cliente.getAltura(), cliente.getPorcentagem(), cliente.getImc(),
-                cliente.getExperiencia(),cliente.getMedicamentos(),cliente.getLimitacoes(), cliente.getId_usuario());
+        salvar(insert, cliente.getCPF(), cliente.getIdPlano(), cliente.getPeso(), cliente.getAltura(), cliente.getPorcentagem(), cliente.getImc(),
+                cliente.getExperiencia(), cliente.getMedicamentos(), cliente.getLimitacoes(), cliente.getId_usuario());
     }
-    
-    public void editar (Cliente cliente) throws SQLException{
+
+    public void editar(Cliente cliente) throws SQLException {
         String update = "update clientes id_plano =?,peso =?, altura =?, porcentagem_gordura=?,imc =?, experiencia =?,medicamentos =?,limitacoes =? where cpf = ?";
-        editar(update, cliente.getIdPlano(),cliente.getPeso(), cliente.getAltura(), cliente.getPorcentagem(), cliente.getImc(),
-                cliente.getExperiencia(),cliente.getMedicamentos(),cliente.getLimitacoes(), cliente.getCPF());
+        editar(update, cliente.getIdPlano(), cliente.getPeso(), cliente.getAltura(), cliente.getPorcentagem(), cliente.getImc(),
+                cliente.getExperiencia(), cliente.getMedicamentos(), cliente.getLimitacoes(), cliente.getCPF());
     }
-    
-    public void deletar(String CPF) throws SQLException{
-        String deletar = "delete clientes where cpf = ?";
-        deletar(deletar,CPF,CPF);
+
+    public void deletar(String CPF) throws SQLException {
+        String deletar = "delete from clientes where cpf = ?";
+        deletar(deletar, CPF);
     }
-    
-    public ObservableList<Cliente> selecionarClientes() throws SQLException{
+
+    public ObservableList<Cliente> selecionarClientes() throws SQLException {
         ObservableList<Cliente> lista = FXCollections.observableArrayList();
         String sql = "select * from clientes";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
-        while (rs.next()){
+        while (rs.next()) {
             Cliente cliente = new Cliente();
             cliente.setIdCliente(rs.getInt("id"));
             cliente.setCPF(rs.getString("cpf"));
@@ -45,20 +45,19 @@ public class ClienteDAO extends genericoDAO{
             cliente.setId_usuario(rs.getInt("id_usuario"));
             lista.add(cliente);
         }
-        
+
         rs.close();
         stmt.close();
         conectarConn().close();
         return lista;
     }
-    
-    public ObservableList<Cliente> selecionarCliente(String CPF) throws SQLException{
-        ObservableList<Cliente> lista = FXCollections.observableArrayList();
+
+    public Cliente selecionarCliente(String CPF) throws SQLException {
         String sql = "select * from clientes where CPF = ?";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
         stmt.setString(1, CPF);
         ResultSet rs = stmt.executeQuery();
-        while (rs.next()){
+        if (rs.next()) {
             Cliente cliente = new Cliente();
             cliente.setIdCliente(rs.getInt("id"));
             cliente.setCPF(rs.getString("cpf"));
@@ -71,12 +70,17 @@ public class ClienteDAO extends genericoDAO{
             cliente.setMedicamentos(rs.getString("medicamentos"));
             cliente.setLimitacoes(rs.getString("limitacoes"));
             cliente.setId_usuario(rs.getInt("id_usuario"));
-            lista.add(cliente);
+
+            rs.close();
+            stmt.close();
+            conectarConn().close();
+            return cliente;
+        } else {
+            rs.close();
+            stmt.close();
+            conectarConn().close();
+            return null;
         }
-        
-        rs.close();
-        stmt.close();
-        conectarConn().close();
-        return lista;
+
     }
 }

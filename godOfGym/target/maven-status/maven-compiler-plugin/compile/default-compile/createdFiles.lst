@@ -8,6 +8,7 @@ model\InstrutorDAO.class
 model\ClienteDAO.class
 controller\AddPlanoController.class
 model\AtendenteDAO.class
+controller\PerfilClienteController.class
 model\genericoDAO.class
 model\Atendente.class
 controller\AddInstrutorController$1.class

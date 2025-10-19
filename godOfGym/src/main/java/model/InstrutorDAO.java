@@ -23,7 +23,7 @@ public class InstrutorDAO extends genericoDAO{
     
     public void deletar(String CPF) throws SQLException{
         String deletar = "delete instrutor where CPF = ?";
-        deletar(deletar, CPF, CPF);
+        deletar(deletar,CPF);
     }
     
     public ObservableList<Instrutor> selecionarInstrutores() throws SQLException{

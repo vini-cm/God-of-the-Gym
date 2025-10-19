@@ -19,7 +19,7 @@ public class AtendenteDAO extends genericoDAO {
     }
      public void deletar(String CPF) throws SQLException{
         String deletar = "delete atentendes where cpf = ?";
-        deletar(deletar, CPF, CPF);
+        deletar(deletar,CPF);
     }
      public ObservableList<Atendente> selecionarAtendentes() throws SQLException{
         ObservableList<Atendente> lista = FXCollections.observableArrayList();

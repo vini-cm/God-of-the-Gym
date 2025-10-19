@@ -18,10 +18,10 @@ public class PlanosDAO extends genericoDAO{
         editar(update,plano.getNome(), plano.getTipo(),plano.getPreco(),plano.getIdPlano());
     }
     
-    public void deletar(int id) throws SQLException{
+    /*public void deletar(int id) throws SQLException{
         String delete = "delete from planos where idPlano = ?";
         deletar(delete, id);
-    }
+    }*/
     
     public ObservableList<Planos> selecionarPlanos() throws SQLException{
         ObservableList<Planos> lista = FXCollections.observableArrayList();
