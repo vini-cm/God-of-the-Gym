@@ -14,7 +14,7 @@ C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\model\Planos.ja
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\model\genericoDAO.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\AddInstrutorController.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\model\Instrutor.java
-C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\model\AtendenteDao.java
+C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\model\AtendenteDAO.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\InstrutoresController.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\model\ClienteDAO.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\ClientsController.java
@@ -23,6 +23,5 @@ C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\Plan
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\module-info.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\model\Atendente.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\AulasController.java
-C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\model\Atendentes.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\AddClienteController.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\model\InstrutorDAO.java

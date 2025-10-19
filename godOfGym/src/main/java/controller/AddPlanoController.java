@@ -26,6 +26,9 @@ public class AddPlanoController  {
    @FXML
    private TextField tfPreco;
    
+   @FXML
+    private TextField tfNome;
+   
    public void setStage(Stage stage){
        this.stage = stage;
        cbTipo.getItems().addAll("Semanal","Mensal","Anual");
@@ -33,8 +36,10 @@ public class AddPlanoController  {
    
    @FXML
    void adicionarPlano (ActionEvent event) throws SQLException{
-       if (!cbTipo.getValue().isEmpty() && cbTipo.getValue() != null && !tfPreco.getText().isEmpty() && tfPreco.getText() != null){
-           plano = new Planos(cbTipo.getValue(), Float.parseFloat(tfPreco.getText()));
+       if (!cbTipo.getValue().isEmpty() && cbTipo.getValue() != null && 
+               !tfPreco.getText().isEmpty() && tfPreco.getText() != null &&
+               !tfNome.getText().isEmpty() && tfNome.getText() != null){
+           plano = new Planos(tfNome.getText(),cbTipo.getValue(), Float.parseFloat(tfPreco.getText()));
            dao.salvar(plano);
            if (dao.selecionarPlano(cbTipo.getValue()) != null){
                Alerta.mostrarConfirmacao("PLANO ADICIONADO", "plano adicionado com sucesso");

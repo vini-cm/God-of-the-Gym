@@ -105,7 +105,7 @@ public class AddClienteController {
         rdFeminino.setOnAction(e -> HandleRadioButton(rdFeminino, rdMasculino));
         rdMasculino.setOnAction(e -> HandleRadioButton(rdMasculino, rdFeminino));
         for (int i = 0; i < planos.selecionarPlanos().size();i++){
-            cbPlano.getItems().add(planos.selecionarPlanos().get(i).getTipo());
+            cbPlano.getItems().add(planos.selecionarPlanos().get(i).getNome());
         }
         cbExperiencia.getItems().addAll("Iniciante","Intermediario","Experiente","Profissional");
         checkbLimitações.setOnAction(e -> {
@@ -133,17 +133,24 @@ public class AddClienteController {
                 !tfPeso.getText().isEmpty() && tfPeso.getText() != null && !tfTelefone.getText().isEmpty() && tfTelefone.getText() != null &&
                 !tfgordura.getText().isEmpty() && tfgordura.getText() != null) {
             
-            if (dao.selecionarUsuario(tfCPF.getText()).isEmpty()){
+            if (dao.selecionarUsuario(tfCPF.getText()) == null){
                 altura = Float.parseFloat(tfAltura.getText());
                 peso = Float.parseFloat(tfPeso.getText());
                 porcentagem = Float.parseFloat(tfgordura.getText());
                 imc = peso/(altura*altura);
             user = new Usuario(tfCPF.getText(), tfNome.getText(),tfSobrenome.getText(),dpNascimento.getValue().toString(),
                     tfSenha.getText(),tfEmail.getText(),genero,tfTelefone.getText(), "cliente");
-            cliente = new Cliente(tfCPF.getText(), cbPlano.getValue(),peso,altura,porcentagem,
-                    imc,cbExperiencia.getValue(),taMedicacoes.getText(),taLimitacoes.getText());
             dao.salvar(user);
-            clientedao.salvar(cliente);
+            
+            if (dao.selecionarUsuario(tfCPF.getText()) != null) {
+                    user.setIdUsuario(dao.selecionarUsuario(tfCPF.getText()).getIdUsuario());
+                    cliente = new Cliente(tfCPF.getText(), cbPlano.getValue(),peso,altura,porcentagem,
+                            imc,cbExperiencia.getValue(),taMedicacoes.getText(),taLimitacoes.getText(),user.getIdUsuario());
+                    clientedao.salvar(cliente);
+                } else {
+                    Alerta.mostrarErro("ERROR", "ERRO EM CADASTRAR INSTRUTOR");
+                }
+            
             if (clientedao.selecionarCliente(tfCPF.getText()) != null){
                 Alerta.mostrarConfirmacao("SUCESSO", "PERFIL ADICIONADO COM SUCESSO");
                 stageAddCliente.close();

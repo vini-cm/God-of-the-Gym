@@ -7,21 +7,24 @@ public class Instrutor {
    private String CPF;
    private float salario;
    private String formacao;
-   private String associado;
    private LocalTime entrada;
    private LocalTime saida;
+   private int id_usuario;
 
     public Instrutor() {
     }
 
-    public Instrutor(String CPF, float salario, String formacao, String associado, LocalTime entrada, LocalTime saida) {
+    public Instrutor(String CPF, float salario, String formacao, LocalTime entrada, LocalTime saida, int id_usuario) {
+        this.id = id;
         this.CPF = CPF;
         this.salario = salario;
         this.formacao = formacao;
-        this.associado = associado;
         this.entrada = entrada;
         this.saida = saida;
+        this.id_usuario = id_usuario;
     }
+
+    
 
     public int getId() {
         return id;
@@ -55,14 +58,6 @@ public class Instrutor {
         this.formacao = formacao;
     }
 
-    public String getAssociado() {
-        return associado;
-    }
-
-    public void setAssociado(String associado) {
-        this.associado = associado;
-    }
-
     public LocalTime getEntrada() {
         return entrada;
     }
@@ -78,6 +73,14 @@ public class Instrutor {
     public void setSaida(LocalTime saida) {
         this.saida = saida;
     }
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
    
-   
+    
 }

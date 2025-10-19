@@ -1,11 +1,8 @@
-
 package controller;
 
 import java.sql.SQLException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.beans.value.ChangeListener;
@@ -17,23 +14,23 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.Atendentes;
-import model.AtendenteDao;
-import model.Atendentes;
+import model.Atendente;
+import model.AtendenteDAO;
 import model.UserDAO;
 import model.Usuario;
 import util.Alerta;
 
 public class AddAtendentesController {
+
     Stage stage;
-    AtendenteDao dao = new AtendenteDao();
-    Atendentes atendente = new Atendentes();
+    AtendenteDAO dao = new AtendenteDAO();
+    Atendente atendente = new Atendente();
     Usuario user = new Usuario();
     UserDAO userDAO = new UserDAO();
     String genero;
     LocalTime entrada;
     LocalTime saida;
-    
+
     @FXML
     private Button btnCadastrar;
 
@@ -72,9 +69,9 @@ public class AddAtendentesController {
 
     @FXML
     private TextField tfTelefone;
-    
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:mm");
-    
+
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+
     public void setStage(Stage stage) throws SQLException {
         this.stage = stage;
         rdFeminino.setOnAction(e -> HandleRadioButton(rdFeminino, rdMasculino));
@@ -102,7 +99,8 @@ public class AddAtendentesController {
         });
 
     }
-      @FXML
+
+    @FXML
     void Cadastrar(ActionEvent event) throws SQLException {
         if (rdFeminino.isSelected()) {
             genero = "f";
@@ -118,21 +116,28 @@ public class AddAtendentesController {
                 && !tfSalario.getText().isEmpty() && tfSalario.getText() != null
                 && !tfSenha.getText().isEmpty() && tfSenha.getText() != null
                 && !tfTelefone.getText().isBlank() && tfTelefone.getText() != null) {
-            entrada = LocalTime.parse(tfEntrada.getText());
-            saida = LocalTime.parse(tfSaida.getText());
+            entrada = LocalTime.parse(tfEntrada.getText(), formatter);
+            saida = LocalTime.parse(tfSaida.getText(), formatter);
             if (dao.selecionarAtendente(tfCPF.getText()).isEmpty()) {
-                user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), dpNascimento.getValue().toString(), tfSenha.getText(), tfEmail.getText(), genero, tfTelefone.getText(), "atendente");
-                atendente = new Atendentes(tfCPF.getText(), Float.parseFloat(tfSalario.getText()), entrada, saida);
+                user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), dpNascimento.getValue().toString(),
+                        tfSenha.getText(), tfEmail.getText(), genero, tfTelefone.getText(), "atendente");
                 userDAO.salvar(user);
-                dao.salvar(atendente);
 
-                entrada = LocalTime.parse(tfEntrada.getText(), formatter);
-                saida = LocalTime.parse(tfSaida.getText(), formatter);
+                if (userDAO.selecionarUsuario(tfCPF.getText()) != null) {
+                    user.setIdUsuario(userDAO.selecionarUsuario(tfCPF.getText()).getIdUsuario());
+                    atendente = new Atendente(user.getIdUsuario(), tfCPF.getText(), Float.parseFloat(tfSalario.getText()),
+                        entrada, saida);
+                    dao.salvar(atendente);
+                } else {
+                    Alerta.mostrarErro("ERROR", "ERRO EM CADASTRAR ATENDENTE");
+                }
+
             } else {
                 Alerta.mostrarErro("ERROR", "ESSE USUARIO JÁ EXISTE!");
             }
         }
     }
+
     private void HandleRadioButton(RadioButton select, RadioButton... others) {
         for (RadioButton button : others) {
             if (button != select) {

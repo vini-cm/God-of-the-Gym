@@ -9,13 +9,13 @@ import javafx.collections.ObservableList;
 public class PlanosDAO extends genericoDAO{
     
     public void salvar(Planos plano) throws SQLException{
-        String insert = "insert into planos (tipo,preco) values (?,?)";
-        salvar(insert,plano.getTipo(),plano.getPreco());
+        String insert = "insert into planos (nome,tipo,preco) values (?,?,?)";
+        salvar(insert,plano.getNome(),plano.getTipo(),plano.getPreco());
     }
     
     public void editar(Planos plano) throws SQLException{
-        String update = "update planos" + "set tipo=?, set preco=?" + "where idPlano=?";
-        editar(update, plano.getTipo(),plano.getPreco(),plano.getIdPlano());
+        String update = "update planos" + "set nome=? tipo=?, set preco=?" + "where idPlano=?";
+        editar(update,plano.getNome(), plano.getTipo(),plano.getPreco(),plano.getIdPlano());
     }
     
     public void deletar(int id) throws SQLException{
@@ -31,6 +31,7 @@ public class PlanosDAO extends genericoDAO{
         while (rs.next()){
             Planos plano = new Planos();
             plano.setIdPlano(rs.getInt("id"));
+            plano.setNome(rs.getString("nome"));
             plano.setTipo(rs.getString("tipo"));
             plano.setPreco(rs.getFloat("preco"));
             
@@ -51,6 +52,7 @@ public class PlanosDAO extends genericoDAO{
         while (rs.next()){
             Planos plano = new Planos();
             plano.setIdPlano(rs.getInt("id"));
+            plano.setNome(rs.getString("nome"));
             plano.setTipo(rs.getString("tipo"));
             plano.setPreco(rs.getFloat("preco"));
             

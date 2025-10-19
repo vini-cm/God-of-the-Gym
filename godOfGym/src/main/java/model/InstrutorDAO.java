@@ -10,13 +10,14 @@ import javafx.collections.ObservableList;
 public class InstrutorDAO extends genericoDAO{
   
     public void salvar(Instrutor instrutor) throws SQLException{
-        String insert = "insert into instrutores(CPF,salario,formacao,associado,entrada,saida) values (?,?,?,?,?,?)";
-        salvar(insert, instrutor.getCPF(),instrutor.getSalario(),instrutor.getFormacao(),instrutor.getAssociado(),instrutor.getEntrada(),instrutor.getSaida());
+        String insert = "insert into instrutores(CPF,salario,formacao,entrada,saida, id_usuario) values (?,?,?,?,?,?)";
+        salvar(insert, instrutor.getCPF(),instrutor.getSalario(),instrutor.getFormacao(),
+                instrutor.getEntrada(),instrutor.getSaida(), instrutor.getId_usuario());
     }
     
     public void editar(Instrutor instrutor) throws SQLException{
-        String editar="update instrutor set salario = ?, formacao = ?, associado = ?, entrada = ?, saida = ? where CPF = ?";
-        editar(editar, instrutor.getCPF(), instrutor.getSalario(),instrutor.getFormacao(),instrutor.getAssociado(), 
+        String editar="update instrutor set salario = ?, formacao = ?, entrada = ?, saida = ? where CPF = ?";
+        editar(editar, instrutor.getCPF(), instrutor.getSalario(),instrutor.getFormacao(), 
                 instrutor.getEntrada(), instrutor.getSaida(),instrutor.getCPF());
     }
     
@@ -35,9 +36,9 @@ public class InstrutorDAO extends genericoDAO{
             instrutor.setId(rs.getInt("id"));
             instrutor.setCPF(rs.getString("CPF"));
             instrutor.setFormacao(rs.getString("formacao"));
-            instrutor.setAssociado(rs.getString("associado"));
             instrutor.setEntrada(rs.getTime("saida").toLocalTime());
             instrutor.setSaida(rs.getTime("saida").toLocalTime());
+            instrutor.setId_usuario(rs.getInt("id_usuario"));
             
             lista.add(instrutor);
         }   
@@ -47,27 +48,30 @@ public class InstrutorDAO extends genericoDAO{
         return lista;
     }
     
-    public ObservableList<Instrutor> selecionarInstrutor(String CPF) throws SQLException{
-        ObservableList<Instrutor> lista = FXCollections.observableArrayList();
+    public Instrutor selecionarInstrutor(String CPF) throws SQLException{
         String sql = "select * from instrutores where CPF = ?";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
         stmt.setString(1, CPF);
         ResultSet rs = stmt.executeQuery();
-        while (rs.next()){
+        if (rs.next()){
             Instrutor instrutor = new Instrutor();
             instrutor.setId(rs.getInt("id"));
             instrutor.setCPF(rs.getString("CPF"));
             instrutor.setFormacao(rs.getString("formacao"));
-            instrutor.setAssociado(rs.getString("associado"));
             instrutor.setEntrada(rs.getTime("entrada").toLocalTime());
             instrutor.setSaida(rs.getTime("saida").toLocalTime());
+            instrutor.setId_usuario(rs.getInt("id_usuario"));
             
-            lista.add(instrutor);
-        }   
-        rs.close();
-        stmt.close();
-        conectarConn().close();
-        return lista;
+            rs.close();
+            stmt.close();
+            conectarConn().close();
+            return instrutor;
+        } else {  
+            rs.close();
+            stmt.close();
+            conectarConn().close();
+            return null;
+        }
     }
     
 }

@@ -39,9 +39,6 @@ public class AddInstrutorController {
     private Button bntCadastrar;
 
     @FXML
-    private ChoiceBox<String> cbAssociado;
-
-    @FXML
     private DatePicker dpNascimento;
 
     @FXML
@@ -86,14 +83,6 @@ public class AddInstrutorController {
         this.stage = stage;
         rdFeminino.setOnAction(e -> HandleRadioButton(rdFeminino, rdMasculino));
         rdMasculino.setOnAction(e -> HandleRadioButton(rdMasculino, rdFeminino));
-        List<Usuario> usuarios = new UserDAO().selecionarUsuarios();
-        List<String> associados = new ArrayList<>();
-        for (Usuario u : usuarios) {
-            associados.add(u.getNome() + " " + u.getSobrenome());
-        }
-        associados.set(0, "Academia");
-
-        cbAssociado.getItems().addAll(associados);
         tfEntrada.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -115,18 +104,6 @@ public class AddInstrutorController {
                 }
             }
         });
-        tfSalario.setVisible(false);
-        taFormacao.setVisible(false);
-        tfEntrada.setVisible(false);
-        tfSaida.setVisible(false);
-        cbAssociado.getSelectionModel().selectedItemProperty().addListener((obs,antigo,novo) ->{
-            if("Academia".equals(novo)){
-                tfSalario.setVisible(true);
-                taFormacao.setVisible(true);
-                tfEntrada.setVisible(true);
-                tfSaida.setVisible(true);
-            }
-        });
     }
 
     @FXML
@@ -136,7 +113,7 @@ public class AddInstrutorController {
         } else if (rdMasculino.isSelected()) {
             genero = "m";
         }
-        if (!cbAssociado.getValue().isEmpty() && cbAssociado.getValue() != null && !tfNome.getText().isEmpty() && tfNome.getText() != null
+        if (!tfNome.getText().isEmpty() && tfNome.getText() != null
                 && !tfSobrenome.getText().isEmpty() && tfSobrenome.getText() != null
                 && !tfCPF.getText().isEmpty() && tfCPF.getText() != null
                 && !tfEmail.getText().isEmpty() && tfEmail.getText() != null
@@ -145,16 +122,21 @@ public class AddInstrutorController {
                 && !tfSalario.getText().isEmpty() && tfSalario.getText() != null
                 && !tfSenha.getText().isEmpty() && tfSenha.getText() != null
                 && !tfTelefone.getText().isBlank() && tfTelefone.getText() != null) {
-            entrada = LocalTime.parse(tfEntrada.getText());
-            saida = LocalTime.parse(tfSaida.getText());
-            if (dao.selecionarInstrutor(tfCPF.getText()).isEmpty()) {
-                user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), dpNascimento.getValue().toString(), tfSenha.getText(), tfEmail.getText(), genero, tfTelefone.getText(), "instrutor");
-                instrutor = new Instrutor(tfCPF.getText(), Float.parseFloat(tfSalario.getText()), taFormacao.getText(), cbAssociado.getValue(), entrada, saida);
+            entrada = LocalTime.parse(tfEntrada.getText(),formatter);
+            saida = LocalTime.parse(tfSaida.getText(), formatter);
+            if (dao.selecionarInstrutor(tfCPF.getText()).getCPF() == null) {
+                user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), 
+                        dpNascimento.getValue().toString(), tfSenha.getText(), tfEmail.getText(), genero, tfTelefone.getText(), "instrutor");
                 userDAO.salvar(user);
-                dao.salvar(instrutor);
-
-                entrada = LocalTime.parse(tfEntrada.getText(), formatter);
-                saida = LocalTime.parse(tfSaida.getText(), formatter);
+                
+                if (userDAO.selecionarUsuario(tfCPF.getText()) != null) {
+                    user.setIdUsuario(userDAO.selecionarUsuario(tfCPF.getText()).getIdUsuario());
+                    instrutor = new Instrutor(tfCPF.getText(), Float.parseFloat(tfSalario.getText()), 
+                            taFormacao.getText(), entrada, saida,user.getIdUsuario());
+                    dao.salvar(instrutor);
+                } else {
+                    Alerta.mostrarErro("ERROR", "ERRO EM CADASTRAR INSTRUTOR");
+                }
             } else {
                 Alerta.mostrarErro("ERROR", "ESSE USUARIO JÁ EXISTE!");
             }

@@ -29,30 +29,21 @@
                   </Button>
                </children>
             </AnchorPane>
-            <TableView layoutX="14.0" layoutY="264.0" prefHeight="320.0" prefWidth="665.0" style="-fx-background-radius: 15; -fx-background-color: #2B2D42;" stylesheets="@../../resources/css/clients.css">
+            <TableView fx:id="tabela" layoutX="97.0" layoutY="256.0" prefHeight="320.0" prefWidth="540.0" stylesheets="@../../resources/css/clients.css">
               <columns>
-                <TableColumn minWidth="0.0" prefWidth="135.0" text="Nome" />
-                <TableColumn prefWidth="135.0" text="Sobrenome" />
-                  <TableColumn prefWidth="135.0" text="Telefone" />
-                  <TableColumn prefWidth="135.0" text="CPF" />
-                  <TableColumn prefWidth="135.0" text="Plano" />
+                <TableColumn editable="false" minWidth="0.0" prefWidth="135.0" sortable="false" text="Nome" />
+                <TableColumn editable="false" prefWidth="135.0" sortable="false" text="Sobrenome" />
+                  <TableColumn editable="false" prefWidth="135.0" sortable="false" text="Telefone" />
+                  <TableColumn editable="false" prefWidth="135.0" sortable="false" text="CPF" />
               </columns>
             </TableView>
-            <Label layoutX="14.0" layoutY="175.0" text="CLIENTES" textFill="#d90429">
+            <Label layoutX="14.0" layoutY="181.0" text="CLIENTES" textFill="#d90429">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="14.0" layoutY="208.0" prefHeight="44.0" prefWidth="665.0" style="-fx-background-radius: 15; -fx-background-color: #2B2D42;" />
-            <Button accessibleRole="IMAGE_VIEW" layoutX="604.0" layoutY="209.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 25; -fx-background-color: #2B2D42;">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../resources/imagens/LUPAiCON.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
+            <TextField fx:id="tfPesquisa" layoutX="14.0" layoutY="208.0" prefHeight="44.0" prefWidth="665.0" style="-fx-background-radius: 15; -fx-background-color: #2B2D42;" />
+            <Button accessibleRole="IMAGE_VIEW" layoutX="604.0" layoutY="209.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 25; -fx-background-color: #2B2D42;" />
             <Button fx:id="btnHome" layoutX="4.0" layoutY="1.0" mnemonicParsing="false" onAction="#voltarHome" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 100; -fx-background-color: #666666;" stylesheets="@../Documents/God-of-the-Gym/godOfGym/src/main/java/Documents/God-of-the-Gym/godOfGym/src/main/resources/css/planos.css">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
@@ -62,6 +53,11 @@
                   </ImageView>
                </graphic>
             </Button>
+            <ImageView fitHeight="30.0" fitWidth="35.0" layoutX="639.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/imagens/LUPAiCON.png" />
+               </image>
+            </ImageView>
          </children>
          <effect>
             <DropShadow />

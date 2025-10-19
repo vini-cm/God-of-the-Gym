@@ -1,8 +1,6 @@
 
 package model;
 
-import java.sql.Date;
-
 
 public class Cliente {
     private int idCliente;
@@ -15,12 +13,12 @@ public class Cliente {
     private String experiencia;
     private String medicamentos;
     private String limitacoes;
+    private int id_usuario;
 
     public Cliente() {
     }
 
-    public Cliente(int idCliente, String CPF, String idPlano, float peso, float altura, float porcentagem, float imc, String experiencia, String medicamentos, String limitacoes) {
-        this.idCliente = idCliente;
+    public Cliente(String CPF, String idPlano, float peso, float altura, float porcentagem, float imc, String experiencia, String medicamentos, String limitacoes, int id_usuario) {
         this.CPF = CPF;
         this.idPlano = idPlano;
         this.peso = peso;
@@ -30,19 +28,10 @@ public class Cliente {
         this.experiencia = experiencia;
         this.medicamentos = medicamentos;
         this.limitacoes = limitacoes;
+        this.id_usuario = id_usuario;
     }
 
-    public Cliente(String CPF, String idPlano, float peso, float altura, float porcentagem, float imc, String experiencia, String medicamentos, String limitacoes) {
-        this.CPF = CPF;
-        this.idPlano = idPlano;
-        this.peso = peso;
-        this.altura = altura;
-        this.porcentagem = porcentagem;
-        this.imc = imc;
-        this.experiencia = experiencia;
-        this.medicamentos = medicamentos;
-        this.limitacoes = limitacoes;
-    }
+    
 
     public int getIdCliente() {
         return idCliente;
@@ -123,6 +112,13 @@ public class Cliente {
     public void setLimitacoes(String limitacoes) {
         this.limitacoes = limitacoes;
     }
-    
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
     
 }
