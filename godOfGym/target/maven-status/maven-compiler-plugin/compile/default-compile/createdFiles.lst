@@ -28,5 +28,6 @@ controller\AtendentesController.class
 dal\Conn.class
 controller\AddAtendentesController$1.class
 principal\App.class
+controller\PerfilInstrutorController.class
 model\Planos.class
 controller\AddInstrutorController.class

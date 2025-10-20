@@ -63,7 +63,7 @@ public class HomeController  {
     }
 
     @FXML
-    void openInstrutoresPage(ActionEvent event) throws IOException {
+    void openInstrutoresPage(ActionEvent event) throws IOException, SQLException {
       URL url = new File ("src/main/java/view/instrutores.fxml").toURI().toURL();
       FXMLLoader loader = new FXMLLoader(url);
       Parent root = loader.load();

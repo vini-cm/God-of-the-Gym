@@ -22,7 +22,7 @@ public class InstrutorDAO extends genericoDAO{
     }
     
     public void deletar(String CPF) throws SQLException{
-        String deletar = "delete instrutor where CPF = ?";
+        String deletar = "delete from instrutores where CPF = ?";
         deletar(deletar,CPF);
     }
     
@@ -39,7 +39,7 @@ public class InstrutorDAO extends genericoDAO{
             instrutor.setEntrada(rs.getTime("saida").toLocalTime());
             instrutor.setSaida(rs.getTime("saida").toLocalTime());
             instrutor.setId_usuario(rs.getInt("id_usuario"));
-            
+            instrutor.setSalario(rs.getFloat("salario"));
             lista.add(instrutor);
         }   
         rs.close();
@@ -61,7 +61,7 @@ public class InstrutorDAO extends genericoDAO{
             instrutor.setEntrada(rs.getTime("entrada").toLocalTime());
             instrutor.setSaida(rs.getTime("saida").toLocalTime());
             instrutor.setId_usuario(rs.getInt("id_usuario"));
-            
+            instrutor.setSalario(rs.getFloat("salario"));
             rs.close();
             stmt.close();
             conectarConn().close();

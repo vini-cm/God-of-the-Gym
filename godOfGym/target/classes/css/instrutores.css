@@ -1,7 +1,55 @@
-/*
- * Empty Stylesheet file.
- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700&display=swap');
 
-.mainFxmlClass {
-
+* {
+    -fx-font-family: "Inter", sans-serif;
 }
+
+.text-field {
+   -fx-text-fill: white;
+}
+
+.table-view {
+       -fx-background-color: #2b2d42;      /* fundo da tabela (preto azulado) */
+       -fx-background-radius: 10;         /* bordas arredondadas */
+       -fx-border-radius: 10;
+       -fx-border-color: #2b2d42;         /* mesma cor da borda */
+   }
+
+   /* Estiliza o cabeçalho das colunas */
+   .table-view .column-header-background {
+       -fx-background-color: #2b2d42;    /* fundo do cabeçalho (preto azulado) */
+       -fx-background-radius: 10 10 0 0; /* bordas superiores arredondadas */
+   }
+
+   /* Estiliza cada coluna do cabeçalho */
+   .table-view .column-header {
+       -fx-background-color: transparent;
+   }
+
+   .table-view .label {
+       -fx-text-fill: #d90429;             /* letras vermelhas */
+       -fx-font-weight: bold;
+   }
+
+   /* Cor das linhas da tabela */
+   .table-row-cell {
+       -fx-background-color: #2b2d42;
+       -fx-text-fill: white;
+   }
+
+   .table-row-cell:filled:selected {
+       -fx-background-color: #3a3d5c;    /* cor quando selecionado */
+   }
+
+   /* Remove linhas brancas entre colunas */
+   .table-view .filler {
+       -fx-background-color: #1a1a1a;
+   }
+   
+   .table-view .table-cell{
+       -fx-text-fill: #d90429;
+       -fx-background-color: null;
+       -fx-border-color: #2b2d42;
+   }
+   
+   

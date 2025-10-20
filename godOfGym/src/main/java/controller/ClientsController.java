@@ -85,7 +85,6 @@ public class ClientsController {
     @FXML
     public void carregarTabela() throws SQLException {
         lista.setAll(listarClientes());
-        System.out.println("clientes encontrados:" + lista.size());
         if (!lista.isEmpty()) {
             tabela.getColumns().clear();
             TableColumn<Usuario, String> colunaNome = new TableColumn<>("Nome");
