@@ -160,6 +160,5 @@ public class Usuario {
            telefoneProperty = new SimpleStringProperty(telefone);
        }
        return telefoneProperty;
-    }
-    
+    }  
 }

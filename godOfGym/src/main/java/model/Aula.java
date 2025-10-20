@@ -1,35 +1,54 @@
 package model;
 
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class Aula {
+    private String nome;
     private int idAula;
     private String tipo;
-    private LocalDate data;
+    private LocalDateTime data;
     private String descricao;
-    private LocalTime horario;
     private int vagas;
+    private int id_instrutor;
+    private String nome_instrutor;
 
     public Aula() {
     }
 
 
-    public Aula(LocalTime horario, String tipo, LocalDate data, String descricao, int vagas, int idAula) {
-        this.horario = horario;
+    public Aula( String tipo,int id_instrutor,String nome_instrutor, String nome, LocalDateTime data, String descricao, int vagas, int idAula) {
         this.tipo = tipo;
+        this.nome_instrutor = nome_instrutor;
+        this.id_instrutor = id_instrutor;
         this.data = data;
         this.descricao = descricao;
         this.vagas = vagas;
         this.idAula = idAula;
-    }
-    public LocalTime getHorario() {
-        return horario;
+        this.nome = nome;
     }
     
-    public void setHorario(LocalTime horario) {
-        this.horario = horario;
+    public String getNomeInst(){
+        return nome_instrutor;
+    }
+    
+    public void setNomeInst(){
+        this.nome_instrutor = nome_instrutor;
+    }
+    
+    public int getIdInst(){
+        return id_instrutor;
+    }
+    
+    public void setIdInst(){
+        this.id_instrutor = id_instrutor;
+    }
+    
+    public String getNome(){
+        return nome;
+    }
+    
+    public void setNome(){
+        this.nome = nome;
     }
 
     public String getTipo() {
@@ -41,11 +60,11 @@ public class Aula {
     }
     
 
-    public LocalDate getData() {
+    public LocalDateTime getData() {
         return data;
     }
     
-    public void setData(LocalDate data) {
+    public void setData(LocalDateTime data) {
         this.data = data;
     }
 
@@ -75,4 +94,5 @@ public class Aula {
     public void setIdAula(int idAula) {
         this.idAula = idAula;
     }
+
 }
