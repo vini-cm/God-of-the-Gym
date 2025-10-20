@@ -15,7 +15,7 @@ public class HomeController  {
     Stage HomeStage = new Stage();
     
     @FXML
-    void openAtendentesPage(ActionEvent event) throws IOException {
+    void openAtendentesPage(ActionEvent event) throws IOException, SQLException {
       URL url = new File ("src/main/java/view/atendentes.fxml").toURI().toURL();
       FXMLLoader loader = new FXMLLoader(url);
       Parent root = loader.load();

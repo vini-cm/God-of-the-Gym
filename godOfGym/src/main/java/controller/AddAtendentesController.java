@@ -118,7 +118,7 @@ public class AddAtendentesController {
                 && !tfTelefone.getText().isBlank() && tfTelefone.getText() != null) {
             entrada = LocalTime.parse(tfEntrada.getText(), formatter);
             saida = LocalTime.parse(tfSaida.getText(), formatter);
-            if (dao.selecionarAtendente(tfCPF.getText()).isEmpty()) {
+            if (dao.selecionarAtendente(tfCPF.getText()) == null) {
                 user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), dpNascimento.getValue().toString(),
                         tfSenha.getText(), tfEmail.getText(), genero, tfTelefone.getText(), "atendente");
                 userDAO.salvar(user);
