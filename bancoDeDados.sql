@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.43, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
 --
--- Host: localhost    Database: godogthegym
+-- Host: localhost    Database: godofthegym
 -- ------------------------------------------------------
--- Server version	8.0.43
+-- Server version	8.4.4
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,10 +28,13 @@ CREATE TABLE `atendentes` (
   `salario` decimal(10,2) DEFAULT NULL,
   `entrada` time DEFAULT NULL,
   `saida` time DEFAULT NULL,
+  `id_usuario` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `cpf` (`cpf`),
-  CONSTRAINT `atendentes_ibfk_1` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `id_usuario` (`id_usuario`),
+  CONSTRAINT `atendentes_ibfk_1` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`),
+  CONSTRAINT `atendentes_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +43,7 @@ CREATE TABLE `atendentes` (
 
 LOCK TABLES `atendentes` WRITE;
 /*!40000 ALTER TABLE `atendentes` DISABLE KEYS */;
+INSERT INTO `atendentes` VALUES (1,'03274063053',1789.00,'13:30:00','16:30:00',3);
 /*!40000 ALTER TABLE `atendentes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,20 +86,23 @@ DROP TABLE IF EXISTS `clientes`;
 CREATE TABLE `clientes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `cpf` varchar(11) DEFAULT NULL,
-  `id_plano` varchar(40) DEFAULT NULL,
-  `peso` decimal(3,2) DEFAULT NULL,
-  `altura` float DEFAULT NULL,
+  `peso` double DEFAULT NULL,
+  `altura` double DEFAULT NULL,
   `porcentagem_gordura` int DEFAULT NULL,
   `imc` float DEFAULT NULL,
   `experiencia` varchar(40) DEFAULT NULL,
   `medicamentos` varchar(250) DEFAULT NULL,
   `limitacoes` varchar(300) DEFAULT NULL,
+  `id_usuario` int DEFAULT NULL,
+  `id_plano` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_plano` (`id_plano`),
   KEY `cpf` (`cpf`),
-  CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`id_plano`) REFERENCES `planos` (`tipo`),
-  CONSTRAINT `clientes_ibfk_2` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `id_usuario` (`id_usuario`),
+  KEY `id_plano` (`id_plano`),
+  CONSTRAINT `clientes_ibfk_2` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`),
+  CONSTRAINT `clientes_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`),
+  CONSTRAINT `clientes_ibfk_4` FOREIGN KEY (`id_plano`) REFERENCES `planos` (`nome`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,6 +111,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+INSERT INTO `clientes` VALUES (2,'58846150007',67.8,1.78,34,21.3988,'Iniciante',' ',' ',8,'Gold');
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,13 +126,15 @@ CREATE TABLE `instrutores` (
   `id` int NOT NULL AUTO_INCREMENT,
   `salario` decimal(10,2) DEFAULT NULL,
   `formacao` varchar(250) DEFAULT NULL,
-  `associado` varchar(45) DEFAULT 'Academia',
   `entrada` time DEFAULT NULL,
   `saida` time DEFAULT NULL,
   `cpf` varchar(11) DEFAULT NULL,
+  `id_usuario` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `cpf` (`cpf`),
-  CONSTRAINT `instrutores_ibfk_1` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`)
+  KEY `id_usuario` (`id_usuario`),
+  CONSTRAINT `instrutores_ibfk_1` FOREIGN KEY (`cpf`) REFERENCES `usuarios` (`cpf`),
+  CONSTRAINT `instrutores_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -134,7 +144,7 @@ CREATE TABLE `instrutores` (
 
 LOCK TABLES `instrutores` WRITE;
 /*!40000 ALTER TABLE `instrutores` DISABLE KEYS */;
-INSERT INTO `instrutores` VALUES (2,1990.00,'EDUCAÇÃO FISICA - FURB','Camila Schmidt','12:00:00','13:00:00','12345678910');
+INSERT INTO `instrutores` VALUES (2,1990.00,'EDUCAÇÃO FISICA - FURB','12:00:00','13:00:00','12345678910',NULL);
 /*!40000 ALTER TABLE `instrutores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,9 +159,10 @@ CREATE TABLE `planos` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tipo` varchar(45) NOT NULL,
   `preco` float NOT NULL,
+  `nome` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `Tipo_UNIQUE` (`tipo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `nome_UNIQUE` (`nome`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,6 +171,7 @@ CREATE TABLE `planos` (
 
 LOCK TABLES `planos` WRITE;
 /*!40000 ALTER TABLE `planos` DISABLE KEYS */;
+INSERT INTO `planos` VALUES (1,'Bimestral',450,'Gold');
 /*!40000 ALTER TABLE `planos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,7 +187,7 @@ CREATE TABLE `usuarios` (
   `cpf` varchar(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
   `sobrenome` varchar(45) NOT NULL,
-  `datanascimento` datetime NOT NULL,
+  `datanascimento` date NOT NULL,
   `email` varchar(60) NOT NULL,
   `genero` varchar(45) NOT NULL,
   `senha` varchar(45) NOT NULL,
@@ -184,7 +196,7 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `CPF_UNIQUE` (`cpf`),
   UNIQUE KEY `Email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,7 +205,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'15004161933','Camila','Schmidt','2006-11-05 00:00:00','camila@gmail.com','f','ea5a486c712a91e48443cd802642223d','administrador','47998430987'),(2,'12345678910','Stefanie','Miller','1990-10-31 00:00:00','ster1990@gmail.com','f','af21d0c97db2e27e13572cbf59eb343d','instrutor','4798134678');
+INSERT INTO `usuarios` VALUES (1,'15004161933','Camila','Schmidt','2006-11-05','camila@gmail.com','f','ea5a486c712a91e48443cd802642223d','administrador','47998430987'),(2,'12345678910','Stefanie','Miller','1990-10-31','ster1990@gmail.com','f','af21d0c97db2e27e13572cbf59eb343d','instrutor','4798134678'),(3,'03274063053','Bruno','Mars','1999-03-12','mars@gmail.com','f','f38fef4c0e4988792723c29a0bd3ca98','atendente','49984784224'),(8,'58846150007','Pandora','Padra','1995-04-12','padraPandora@gmail.com','f','372b89b73646c46842b8ab7555923579','cliente','49989417965');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -206,8 +218,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD
--- Dump completed on 2025-10-12  2:45:54
-=======
--- Dump completed on 2025-09-24 10:35:17
->>>>>>> fbc3a2610e333d0decf10e475299b829820cbcd7
+-- Dump completed on 2025-10-20 10:33:30
