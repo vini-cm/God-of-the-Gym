@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="5.0" layoutY="5.0" prefHeight="590.0" prefWidth="690.0" style="-fx-background-radius: 15; -fx-background-color: #666666;">
+         <children>
+            <AnchorPane layoutX="84.0" layoutY="136.0" prefHeight="302.0" prefWidth="488.0" style="-fx-background-color: grey; -fx-background-radius: 15;">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="169.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/imagens/luva-de-boxe.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lbNome" layoutX="172.0" layoutY="14.0" text="Nome">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbEntrada" layoutX="171.0" layoutY="85.0" text="00:00">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbSaida" layoutX="250.0" layoutY="85.0" text="00:00">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="238.0" layoutY="84.0" text="-">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbEntrada1" layoutX="171.0" layoutY="49.0" text="00/00/0000">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbNome1" layoutX="172.0" layoutY="119.0" text="Tipo">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbNome11" layoutX="172.0" layoutY="157.0" text="Vagas:">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbNome12" layoutX="172.0" layoutY="197.0" text="Professor">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbNome111" layoutX="264.0" layoutY="159.0" text="00">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Button fx:id="btnEditar" layoutX="138.0" layoutY="446.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="175.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="EDITAR" textFill="#d90429">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Button fx:id="bntAulas" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#VoltarAulas" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 100; -fx-background-color: #666666;" stylesheets="@../Documents/God-of-the-Gym/godOfGym/src/main/java/Documents/God-of-the-Gym/godOfGym/src/main/resources/css/planos.css">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/imagens/SetaVermelha%20.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnExcluir" layoutX="351.0" layoutY="451.0" mnemonicParsing="false" onAction="#excluirInstrutor" prefHeight="35.0" prefWidth="175.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="EXCLUIR" textFill="#d90429">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
