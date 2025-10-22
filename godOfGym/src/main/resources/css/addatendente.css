@@ -1,0 +1,19 @@
+/* Arredondar os cantos do DatePicker */
+.date-picker {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-font-weight: bold;
+}
+
+/* Estilizar o campo de texto (o que aparece na tela) */
+.text-field {
+    -fx-font-weight: bold;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+/* Estilizar o botão de calendário */
+.date-picker .arrow-button {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
