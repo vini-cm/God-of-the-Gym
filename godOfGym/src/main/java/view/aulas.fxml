@@ -2,13 +2,69 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.AulasController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: grey;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AulasController">
     <stylesheets>
         <URL value="@/css/aulas.css" />
     </stylesheets>
    <children>
-      <Button fx:id="btnHome" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltarHome" />
+      <AnchorPane layoutX="5.0" layoutY="5.0" prefHeight="590.0" prefWidth="690.0" style="-fx-background-color: #666666; -fx-background-radius: 15;">
+         <children>
+            <Button fx:id="btnHome" mnemonicParsing="false" onAction="#voltarHome" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 100; -fx-background-color: #666666;" stylesheets="@../Documents/God-of-the-Gym/godOfGym/src/main/java/Documents/God-of-the-Gym/godOfGym/src/main/resources/css/planos.css">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/imagens/SetaVermelha%20.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="21.0" layoutY="178.0" text="AULAS" textFill="#d90429">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="13.0" layoutY="35.0" prefHeight="136.0" prefWidth="665.0" style="-fx-background-color: #2B2D42; -fx-background-radius: 25;">
+               <children>
+                  <Label layoutX="191.0" layoutY="21.0" text="ADICIONAR AULAS ?" textFill="#d90429">
+                     <font>
+                        <Font name="Arial Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="231.0" layoutY="68.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="204.0" style="-fx-background-color: d90429; -fx-background-radius: 25;" text="SIM" textFill="#2b2d42">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <TextField layoutX="13.0" layoutY="210.0" prefHeight="44.0" prefWidth="665.0" style="-fx-background-radius: 15; -fx-background-color: #2B2D42;" styleClass="text-field" stylesheets="@../../resources/css/clients.css" />
+            <Button accessibleRole="IMAGE_VIEW" layoutX="622.0" layoutY="213.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 25; -fx-background-color: #2B2D42;">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/imagens/LUPAiCON.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TableView layoutX="77.0" layoutY="256.0" prefHeight="320.0" prefWidth="540.0" stylesheets="@../../resources/css/clients.css">
+               <columns>
+                  <TableColumn editable="false" minWidth="0.0" prefWidth="135.0" sortable="false" text="Nome" />
+                  <TableColumn editable="false" prefWidth="135.0" sortable="false" text="Tipo" />
+                  <TableColumn editable="false" prefWidth="135.0" sortable="false" text="Vagas" />
+                  <TableColumn editable="false" prefWidth="135.0" sortable="false" text="Professor" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -18,7 +18,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.Atendente;
-import model.AtendenteDAO;
+import model.AtendenteDao;
 import model.Instrutor;
 import model.UserDAO;
 import model.Usuario;
@@ -28,7 +28,7 @@ public class PerfilAtendentesController  {
   
     Stage stage;
     Usuario user;
-    AtendenteDAO dao = new AtendenteDAO();
+    AtendenteDao dao = new AtendenteDao();
     UserDAO userDAO = new UserDAO();
 
     @FXML

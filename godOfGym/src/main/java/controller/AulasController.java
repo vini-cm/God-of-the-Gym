@@ -22,9 +22,7 @@ public class AulasController {
     
     public void setStage(Stage stage){
         this.stageAula = stage;
-        Image image = new Image(getClass().getResourceAsStream("/imagens/voltar.png"));
-        ImageView imageView = new ImageView(image);
-        btnHome.setGraphic(imageView);
+       
     }
     
     @FXML
