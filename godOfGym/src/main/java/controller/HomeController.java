@@ -10,9 +10,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Usuario;
 
 public class HomeController  {
     Stage HomeStage = new Stage();
+    private Usuario user;
     
     @FXML
     void openAtendentesPage(ActionEvent event) throws IOException, SQLException {
@@ -37,7 +39,7 @@ public class HomeController  {
       Parent root = loader.load();
       Stage telaAulas = new Stage();
       AulasController ac = loader.getController();
-      ac.setStage(telaAulas);
+      ac.setStage(telaAulas, user);
       Scene scene = new Scene(root);
       telaAulas.setScene(scene);
       telaAulas.show();
