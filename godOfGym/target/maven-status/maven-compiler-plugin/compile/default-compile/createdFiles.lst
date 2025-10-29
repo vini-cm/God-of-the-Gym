@@ -4,10 +4,10 @@ model\Instrutor.class
 controller\AddClienteController.class
 controller\ClientsController.class
 model\Cliente.class
+model\AtendenteDao.class
 model\InstrutorDAO.class
 model\ClienteDAO.class
 controller\AddPlanoController.class
-model\AtendenteDAO.class
 controller\PerfilClienteController.class
 model\genericoDAO.class
 model\Atendente.class
