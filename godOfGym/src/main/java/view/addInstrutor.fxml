@@ -7,13 +7,17 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="344.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddInstrutorController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="450.0" style="-fx-background-color: #666666;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddInstrutorController">
     <stylesheets>
         <URL value="@/css/addinstrutor.css" />
     </stylesheets>
    <children>
-      <TextField fx:id="tfCPF" layoutX="24.0" layoutY="24.0" promptText="CPF" />
+      <TextField fx:id="tfCPF" layoutX="24.0" layoutY="24.0" promptText="CPF" style="-fx-background-radius: 10;">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></TextField>
       <TextField fx:id="tfNome" layoutX="24.0" layoutY="60.0" promptText="Nome" />
       <TextField fx:id="tfSobrenome" layoutX="24.0" layoutY="93.0" promptText="Sobrenome" />
       <DatePicker fx:id="dpNascimento" layoutX="24.0" layoutY="129.0" prefHeight="25.0" prefWidth="149.0" promptText="Data Nascimento" />
@@ -23,7 +27,7 @@
       <RadioButton fx:id="rdMasculino" layoutX="111.0" layoutY="259.0" mnemonicParsing="false" text="Masculino" />
       <TextField fx:id="tfSalario" layoutX="234.0" layoutY="24.0" promptText="Salario" />
       <TextArea fx:id="taFormacao" layoutX="234.0" layoutY="130.0" prefHeight="135.0" prefWidth="150.0" promptText="Formacao" />
-      <Button fx:id="bntCadastrar" layoutX="131.0" layoutY="285.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="150.0" text="CADASTRAR" />
+      <Button fx:id="bntCadastrar" layoutX="129.0" layoutY="331.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="150.0" text="CADASTRAR" />
       <TextField fx:id="tfEntrada" layoutX="234.0" layoutY="60.0" promptText="Entrada" />
       <TextField fx:id="tfSaida" layoutX="234.0" layoutY="93.0" promptText="Saida" />
       <TextField fx:id="tfTelefone" layoutX="24.0" layoutY="197.0" promptText="Telefone" />
