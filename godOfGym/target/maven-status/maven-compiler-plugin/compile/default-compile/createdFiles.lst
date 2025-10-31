@@ -1,4 +1,5 @@
 controller\HomeController.class
+controller\AddAulaController.class
 controller\AddAtendentesController$2.class
 model\Instrutor.class
 controller\AddClienteController.class

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700&display=swap');
+
+* {
+    -fx-font-family: "Inter", sans-serif;
+}
+
+.button {
+    -fx-background-color:#d90429;
+    -fx-background-radius:10px;
+    -fx-text-fill:#2b2d42;
+}
+
+.anchorPane{
+    -fx-background-color:#2b2d42;
+}
+
+.textField {
+    -fx-background-radius:10px;
+    -fx-background-color: #2b2d42;
+    -fx-border-color: #d90429;
+    -fx-border-width: 3px;
+    -fx-text-fill: #d90429;
+    -fx-prompt-text-fill: #d90429;
+    -fx-border-radius:10px;
+    -fx-control-inner-background:#2b2d42;
+}
+
+.choice-box{
+    -fx-background-radius:10px;
+    -fx-background-color: #2b2d42;
+    -fx-border-color: #d90429;
+    -fx-border-width: 3px;
+    -fx-border-radius:10px;
+    -fx-text-fill: #d90429;
+}
+
+ .label {
+    -fx-text-fill: #d90429;
+}
+
+.choice-box .context-menu {
+    -fx-background-color: #2b2d42;
+    -fx-background-radius:10px;
+    -fx-border-color: #d90429;
+    -fx-border-width: 3px;
+    -fx-border-radius:10px;
+}

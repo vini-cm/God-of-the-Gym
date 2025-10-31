@@ -39,7 +39,7 @@
                         <Font name="Arial Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Button layoutX="231.0" layoutY="68.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="204.0" style="-fx-background-color: d90429; -fx-background-radius: 25;" text="SIM" textFill="#2b2d42">
+                  <Button fx:id="btnAddAula" layoutX="231.0" layoutY="68.0" mnemonicParsing="false" onAction="#adiconarAula" prefHeight="39.0" prefWidth="204.0" style="-fx-background-color: d90429; -fx-background-radius: 25;" text="SIM" textFill="#2b2d42">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

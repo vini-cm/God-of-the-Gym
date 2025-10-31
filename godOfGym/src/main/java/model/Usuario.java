@@ -125,41 +125,11 @@ public class Usuario {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
-    private transient StringProperty nomeProperty;
-    
-    public StringProperty nomeProperty(){
-        if (nomeProperty == null){
-            nomeProperty = new SimpleStringProperty(nome);
-        }
-        return nomeProperty;
+
+    @Override
+    public String toString() {
+        return  nome + " " + sobrenome;
     }
     
-    private transient StringProperty sobrenomeProperty;
-    
-    public StringProperty sobrenomeProperty(){
-       if (sobrenomeProperty == null){
-           sobrenomeProperty = new SimpleStringProperty(sobrenome);
-       }
-       return sobrenomeProperty;
-    }
-    
-    private transient StringProperty cpfProperty;
-    
-    public StringProperty cpfProperty(){
-       if (cpfProperty == null){
-           cpfProperty = new SimpleStringProperty(CPF);
-       }
-       return cpfProperty;
-    }
-    
-    private transient StringProperty telefoneProperty;
-    
-    public StringProperty telefoneProperty(){
-       if (telefoneProperty == null){
-           telefoneProperty = new SimpleStringProperty(telefone);
-       }
-       return telefoneProperty;
-    }
     
 }
