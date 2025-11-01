@@ -124,8 +124,7 @@ public class AddAtendentesController {
                 userDAO.salvar(user);
 
                 if (userDAO.selecionarUsuario(tfCPF.getText()) != null) {
-                    user.setIdUsuario(userDAO.selecionarUsuario(tfCPF.getText()).getIdUsuario());
-                    atendente = new Atendente(user.getIdUsuario(), tfCPF.getText(), Float.parseFloat(tfSalario.getText()),
+                    atendente = new Atendente(tfCPF.getText(), Float.parseFloat(tfSalario.getText()),
                         entrada, saida);
                     dao.salvar(atendente);
                 } else {

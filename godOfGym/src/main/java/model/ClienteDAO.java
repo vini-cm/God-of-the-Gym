@@ -9,9 +9,9 @@ import javafx.collections.ObservableList;
 public class ClienteDAO extends genericoDAO {
 
     public void salvar(Cliente cliente) throws SQLException {
-        String insert = "insert into clientes (cpf,id_plano,peso,altura,porcentagem_gordura,imc,experiencia,medicamentos,limitacoes, id_usuario) values (?,?,?,?,?,?,?,?,?,?)";
+        String insert = "insert into clientes (cpf,id_plano,peso,altura,porcentagem_gordura,imc,experiencia,medicamentos,limitacoes) values (?,?,?,?,?,?,?,?,?)";
         salvar(insert, cliente.getCPF(), cliente.getIdPlano(), cliente.getPeso(), cliente.getAltura(), cliente.getPorcentagem(), cliente.getImc(),
-                cliente.getExperiencia(), cliente.getMedicamentos(), cliente.getLimitacoes(), cliente.getId_usuario());
+                cliente.getExperiencia(), cliente.getMedicamentos(), cliente.getLimitacoes());
     }
 
     public void editar(Cliente cliente) throws SQLException {
@@ -42,7 +42,6 @@ public class ClienteDAO extends genericoDAO {
             cliente.setExperiencia(rs.getString("experiencia"));
             cliente.setMedicamentos(rs.getString("medicamentos"));
             cliente.setLimitacoes(rs.getString("limitacoes"));
-            cliente.setId_usuario(rs.getInt("id_usuario"));
             lista.add(cliente);
         }
 
@@ -69,7 +68,6 @@ public class ClienteDAO extends genericoDAO {
             cliente.setExperiencia(rs.getString("experiencia"));
             cliente.setMedicamentos(rs.getString("medicamentos"));
             cliente.setLimitacoes(rs.getString("limitacoes"));
-            cliente.setId_usuario(rs.getInt("id_usuario"));
 
             rs.close();
             stmt.close();

@@ -1,11 +1,7 @@
 package model;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 public class Usuario {
     
-    private int idUsuario;
     private String CPF;
     private String nome;
     private String sobrenome;
@@ -18,18 +14,6 @@ public class Usuario {
 
 
     public Usuario() {
-    }
-
-    public Usuario(int idUsuario, String CPF, String nome, String sobrenome, String dataNascimento, String senha, String email, String genero, String tipo) {
-        this.idUsuario = idUsuario;
-        this.CPF = CPF;
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.dataNascimento = dataNascimento;
-        this.senha = senha;
-        this.email = email;
-        this.genero = genero;
-        this.tipo = tipo;
     }
 
     public Usuario(String CPF, String nome, String sobrenome, String dataNascimento, String senha, String email, String genero, String telefone,String tipo) {
@@ -100,14 +84,6 @@ public class Usuario {
 
     public void setGenero(String genero) {
         this.genero = genero;
-    }
-
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
     }
 
     public String getTelefone() {

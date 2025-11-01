@@ -143,9 +143,8 @@ public class AddClienteController {
             dao.salvar(user);
             
             if (dao.selecionarUsuario(tfCPF.getText()) != null) {
-                    user.setIdUsuario(dao.selecionarUsuario(tfCPF.getText()).getIdUsuario());
                     cliente = new Cliente(tfCPF.getText(), cbPlano.getValue(),peso,altura,porcentagem,
-                            imc,cbExperiencia.getValue(),taMedicacoes.getText(),taLimitacoes.getText(),user.getIdUsuario());
+                            imc,cbExperiencia.getValue(),taMedicacoes.getText(),taLimitacoes.getText());
                     clientedao.salvar(cliente);
                 } else {
                     Alerta.mostrarErro("ERROR", "ERRO EM CADASTRAR INSTRUTOR");

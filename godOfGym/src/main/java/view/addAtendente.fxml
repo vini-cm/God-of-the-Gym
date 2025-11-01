@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="450.0" style="-fx-background-color: #666666;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddAtendentesController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="450.0" styleClass="anchorPane" stylesheets="@../../resources/css/formulario.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddAtendentesController">
    <children>
       <TextField fx:id="tfCPF" layoutX="24.0" layoutY="111.0" promptText="CPF" style="-fx-background-radius: 10;">
          <font>
@@ -31,11 +31,11 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <RadioButton fx:id="rdFeminino" layoutX="21.0" layoutY="282.0" mnemonicParsing="false" text="Feminino">
+      <RadioButton fx:id="rdFeminino" layoutX="21.0" layoutY="282.0" mnemonicParsing="false" styleClass="label" text="Feminino">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></RadioButton>
-      <RadioButton fx:id="rdMasculino" layoutX="116.0" layoutY="282.0" mnemonicParsing="false" text="Masculino">
+      <RadioButton fx:id="rdMasculino" layoutX="116.0" layoutY="282.0" mnemonicParsing="false" styleClass="label" stylesheets="@../../resources/css/formulario.css" text="Masculino">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></RadioButton>
@@ -51,7 +51,7 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Button fx:id="btnCadastrar" layoutX="247.0" layoutY="240.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 20;" text="CADASTRAR" textFill="#d90429">
+      <Button fx:id="btnCadastrar" layoutX="247.0" layoutY="240.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="180.0" stylesheets="@../../resources/css/formulario.css" text="CADASTRAR" textFill="#d90429">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font></Button>

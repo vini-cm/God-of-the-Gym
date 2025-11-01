@@ -9,8 +9,8 @@ import javafx.collections.ObservableList;
 public class AtendenteDao extends genericoDAO {
 
     public void salvar(Atendente atendente) throws SQLException {
-        String insert = "insert into atendentes(cpf, salario, entrada, saida, id_usuario) values(?,?,?,?,?)";
-        salvar(insert, atendente.getCPF(), atendente.getSalario(), atendente.getEntrada(), atendente.getSaida(), atendente.getId_usuario());
+        String insert = "insert into atendentes(cpf, salario, entrada, saida) values(?,?,?,?)";
+        salvar(insert, atendente.getCPF(), atendente.getSalario(), atendente.getEntrada(), atendente.getSaida());
     }
 
     public void editar(Atendente atendente) throws SQLException {
@@ -36,7 +36,6 @@ public class AtendenteDao extends genericoDAO {
             atendente.setEntrada(rs.getTime("saida").toLocalTime());
             atendente.setSaida(rs.getTime("saida").toLocalTime());
             atendente.setSalario(rs.getFloat("salario"));
-            atendente.setId_usuario(rs.getInt("id_usuario"));
             lista.add(atendente);
         }
         rs.close();
@@ -57,7 +56,6 @@ public class AtendenteDao extends genericoDAO {
                 atendente.setEntrada(rs.getTime("entrada").toLocalTime());
                 atendente.setSaida(rs.getTime("saida").toLocalTime());
                 atendente.setSalario(rs.getFloat("salario"));
-                atendente.setId_usuario(rs.getInt("id_usuario"));
                 return atendente;
             } else {
                 return null;

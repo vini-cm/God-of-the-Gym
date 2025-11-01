@@ -31,7 +31,6 @@ public class UserDAO extends genericoDAO {
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             Usuario user = new Usuario();
-            user.setIdUsuario(rs.getInt("id"));
             user.setCPF(rs.getString("CPF"));
             user.setNome(rs.getString("Nome"));
             user.setSobrenome(rs.getString("Sobrenome"));
@@ -57,7 +56,6 @@ public class UserDAO extends genericoDAO {
         try(ResultSet rs = stmt.executeQuery()){
         if (rs.next()) {
             Usuario user = new Usuario();
-            user.setIdUsuario(rs.getInt("id"));
             user.setCPF(rs.getString("CPF"));
             user.setNome(rs.getString("Nome"));
             user.setSobrenome(rs.getString("Sobrenome"));
@@ -81,7 +79,6 @@ public class UserDAO extends genericoDAO {
         ResultSet rs = stmt.executeQuery();
         while (rs.next()){
             Usuario user = new Usuario();
-            user.setIdUsuario(rs.getInt("id"));
             user.setCPF(rs.getString("CPF"));
             user.setNome(rs.getString("Nome"));
             user.setSobrenome(rs.getString("Sobrenome"));
