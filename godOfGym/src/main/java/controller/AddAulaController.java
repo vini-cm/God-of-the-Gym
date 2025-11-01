@@ -2,6 +2,7 @@
 package controller;
 
 import java.sql.SQLException;
+import java.time.LocalTime;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -17,6 +18,8 @@ public class AddAulaController  {
 
     Stage stage;
     UserDAO uDao = new UserDAO();
+    LocalTime entrada;
+    LocalTime saida;
     
     @FXML
     private Button btnCadastrar;
@@ -50,4 +53,6 @@ public class AddAulaController  {
         ObservableList<Usuario> instrutores = uDao.PesquisarUsuariosPorTipo("instrutor");
         cbProfessor.setItems(instrutores);
     }
+    
+    
 }

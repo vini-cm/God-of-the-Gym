@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class AtendenteDao extends genericoDAO {
+public class AtendenteDAO extends genericoDAO {
 
     public void salvar(Atendente atendente) throws SQLException {
         String insert = "insert into atendentes(cpf, salario, entrada, saida) values(?,?,?,?)";
