@@ -31,7 +31,7 @@ public class HomeController  {
     }
 
     @FXML
-    void openAulasPage(ActionEvent event) throws IOException { 
+    void openAulasPage(ActionEvent event) throws IOException, SQLException { 
       URL url = new File ("src/main/java/view/aulas.fxml").toURI().toURL();
       FXMLLoader loader = new FXMLLoader(url);
       Parent root = loader.load();

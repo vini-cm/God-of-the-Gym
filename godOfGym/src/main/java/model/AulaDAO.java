@@ -4,7 +4,9 @@ package model;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -12,13 +14,15 @@ import javafx.collections.ObservableList;
 public class AulaDAO extends genericoDAO {
     
     public void salvar(Aula aula) throws SQLException{
-        String insert = "insert into aulas (nome,tipo,descricao,vagas,professor,data) values (?,?,?,?,?,?)";
-        salvar(insert, aula.getNome(), aula.getTipo(),aula.getDescricao(),aula.getVagas(),aula.getProfessor(),aula.getData());
+        String insert = "insert into aulas (nome,tipo,descricao,vagas,cpf_professor,data,comeco,fim) values (?,?,?,?,?,?,?,?)";
+        salvar(insert, aula.getNome(), aula.getTipo(),aula.getDescricao(),aula.getVagas(),aula.getProfessor(),
+                aula.getData(),aula.getComeco(),aula.getFim());
     }
     
     public void editar(Aula aula) throws SQLException{
-        String update = "update aulas" + "set nome=? tipo=?, descricao=?, vagas =?, professor=?,data=?" + "where id=?";
-        editar(update,aula.getNome(), aula.getTipo(),aula.getDescricao(),aula.getVagas(),aula.getProfessor(),aula.getData(), aula.getId());
+        String update = "update aulas" + "set nome=? tipo=?, descricao=?, vagas =?, cpf_professor=?,data=?,comeco=?,fim=?" + "where id=?";
+        editar(update,aula.getNome(), aula.getTipo(),aula.getDescricao(),aula.getVagas(),aula.getProfessor(),
+                aula.getData(),aula.getComeco(),aula.getFim(), aula.getId());
     }
     
     public void deletar(int id) throws SQLException{
@@ -39,7 +43,9 @@ public class AulaDAO extends genericoDAO {
             aula.setDescricao(rs.getString("Descricao"));
             aula.setProfessor(rs.getString("cpf_professor"));
             aula.setVagas(rs.getInt("Vagas"));
-            aula.setData(LocalDateTime.parse(rs.getString("data")));
+            aula.setData(LocalDate.parse(rs.getString("data")));
+            aula.setComeco(LocalTime.parse(rs.getString("comeco")));
+            aula.setFim(LocalTime.parse(rs.getString("fim")));
             lista.add(aula);
         }
         rs.close();
@@ -48,9 +54,10 @@ public class AulaDAO extends genericoDAO {
         return lista;
     }
     
-    public Aula selecionarAula() throws SQLException{
-        String sql = "select * from aulas";
+    public Aula selecionarAula(String nome) throws SQLException{
+        String sql = "select * from aulas where nome=?";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
+        stmt.setString(1, nome);
         try(ResultSet rs = stmt.executeQuery()){
         if (rs.next()){
             Aula aula = new Aula();
@@ -60,7 +67,9 @@ public class AulaDAO extends genericoDAO {
             aula.setDescricao(rs.getString("Descricao"));
             aula.setProfessor(rs.getString("cpf_professor"));
             aula.setVagas(rs.getInt("Vagas"));
-            aula.setData(LocalDateTime.parse(rs.getString("data")));
+            aula.setData(LocalDate.parse(rs.getString("data")));
+            aula.setComeco(LocalTime.parse(rs.getString("comeco")));
+            aula.setFim(LocalTime.parse(rs.getString("fim")));
             return aula;
         } else {
         return null; }

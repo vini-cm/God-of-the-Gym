@@ -46,7 +46,7 @@
                   </Button>
                </children>
             </AnchorPane>
-            <TextField layoutX="13.0" layoutY="210.0" prefHeight="44.0" prefWidth="665.0" style="-fx-background-radius: 15; -fx-background-color: #2B2D42;" styleClass="text-field" stylesheets="@../../resources/css/clients.css" />
+            <TextField fx:id="tfPesquisa" layoutX="13.0" layoutY="210.0" prefHeight="44.0" prefWidth="665.0" style="-fx-background-radius: 15; -fx-background-color: #2B2D42;" styleClass="text-field" stylesheets="@../../resources/css/clients.css" />
             <Button accessibleRole="IMAGE_VIEW" layoutX="622.0" layoutY="213.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 25; -fx-background-color: #2B2D42;">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
@@ -56,12 +56,12 @@
                   </ImageView>
                </graphic>
             </Button>
-            <TableView layoutX="77.0" layoutY="256.0" prefHeight="320.0" prefWidth="540.0" stylesheets="@../../resources/css/clients.css">
+            <TableView fx:id="tabela" layoutX="77.0" layoutY="256.0" prefHeight="320.0" prefWidth="540.0" stylesheets="@../../resources/css/clients.css">
                <columns>
                   <TableColumn editable="false" minWidth="0.0" prefWidth="135.0" sortable="false" text="Nome" />
                   <TableColumn editable="false" prefWidth="135.0" sortable="false" text="Tipo" />
-                  <TableColumn editable="false" prefWidth="135.0" sortable="false" text="Vagas" />
                   <TableColumn editable="false" prefWidth="135.0" sortable="false" text="Professor" />
+                  <TableColumn editable="false" prefWidth="135.0" sortable="false" text="Data" />
                </columns>
             </TableView>
          </children>

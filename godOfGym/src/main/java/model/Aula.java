@@ -1,7 +1,8 @@
 
 package model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Aula {
     private int id;
@@ -10,18 +11,22 @@ public class Aula {
     private String tipo;
     private String professor;
     private int vagas;
-    private LocalDateTime data;
+    private LocalDate data;
+    private LocalTime comeco;
+    private LocalTime fim;
 
     public Aula() {
     }
 
-    public Aula(String nome, String descricao, String tipo, String professor, int vagas, LocalDateTime data) {
+    public Aula(String nome, String descricao, String tipo, String professor, int vagas, LocalDate data, LocalTime comeco, LocalTime fim) {
         this.nome = nome;
         this.descricao = descricao;
         this.tipo = tipo;
         this.professor = professor;
         this.vagas = vagas;
         this.data = data;
+        this.comeco = comeco;
+        this.fim = fim;
     }
 
     public int getId() {
@@ -72,12 +77,28 @@ public class Aula {
         this.vagas = vagas;
     }
 
-    public LocalDateTime getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(LocalDateTime data) {
+    public void setData(LocalDate data) {
         this.data = data;
+    }
+
+    public LocalTime getComeco() {
+        return comeco;
+    }
+
+    public void setComeco(LocalTime comeco) {
+        this.comeco = comeco;
+    }
+
+    public LocalTime getFim() {
+        return fim;
+    }
+
+    public void setFim(LocalTime fim) {
+        this.fim = fim;
     }
     
     

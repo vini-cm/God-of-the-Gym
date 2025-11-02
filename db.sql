@@ -55,17 +55,17 @@ DROP TABLE IF EXISTS `aulas`;
 CREATE TABLE `aulas` (
   `id` int NOT NULL AUTO_INCREMENT,
   `Tipo` varchar(45) NOT NULL,
-  `Data` datetime NOT NULL,
+  `comeco` time DEFAULT NULL,
+  `fim` time DEFAULT NULL,
   `Descricao` varchar(500) NOT NULL,
   `Vagas` int NOT NULL,
-  `Professor` int DEFAULT NULL,
-  `Id_Professor` int DEFAULT NULL,
+  `cpf_professor` varchar(11) DEFAULT NULL,
+  `nome` varchar(45) DEFAULT NULL,
+  `data` date DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `Id_Professor` (`Id_Professor`),
-  KEY `Professor` (`Professor`),
-  CONSTRAINT `aulas_ibfk_1` FOREIGN KEY (`Professor`) REFERENCES `instrutores` (`id`),
-  CONSTRAINT `aulas_ibfk_2` FOREIGN KEY (`Id_Professor`) REFERENCES `instrutores` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `cpf_professor` (`cpf_professor`),
+  CONSTRAINT `aulas_ibfk_1` FOREIGN KEY (`cpf_professor`) REFERENCES `instrutores` (`cpf`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,6 +74,7 @@ CREATE TABLE `aulas` (
 
 LOCK TABLES `aulas` WRITE;
 /*!40000 ALTER TABLE `aulas` DISABLE KEYS */;
+INSERT INTO `aulas` VALUES (3,'Pilates','09:30:00','10:30:00','PILATES REALIZADO NO CHÃO COM APENAS O PESO DO CORPO',15,'12345678910','Pilates de Solo','2025-11-25'),(4,'Yoga','12:30:00','13:40:00','HATHA YOGA POSTURAS ASANAS E RESPIRAÇÃO PRANAYAMA',12,'44522009909','Hatha Yoga','2025-11-03');
 /*!40000 ALTER TABLE `aulas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,4 +215,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-11-01 19:17:27
+-- Dump completed on 2025-11-02 20:54:41
