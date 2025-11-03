@@ -15,7 +15,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Atendente;
-import model.AtendenteDAO;
+import model.AtendenteDao;
 import model.UserDAO;
 import model.Usuario;
 import util.Alerta;
@@ -23,7 +23,7 @@ import util.Alerta;
 public class AddAtendentesController {
 
     Stage stage;
-    AtendenteDAO dao = new AtendenteDAO();
+    AtendenteDao dao = new AtendenteDao();
     Atendente atendente = new Atendente();
     Usuario user = new Usuario();
     UserDAO userDAO = new UserDAO();
