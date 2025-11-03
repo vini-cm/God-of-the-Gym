@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" stylesheets="@../../resources/css/perfil.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.PerfilAulaController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" stylesheets="@../../resources/css/perfil.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PerfilAulaController">
    <children>
       <AnchorPane layoutX="319.0" layoutY="98.0" prefHeight="374.0" prefWidth="343.0" styleClass="container" stylesheets="@../../resources/css/perfil.css">
          <effect>
@@ -20,18 +19,18 @@
             </DropShadow>
          </effect>
          <children>
-            <Label layoutX="45.0" layoutY="24.0" text="TIPO:" />
-            <Label fx:id="lbTipo" layoutX="80.0" layoutY="24.0" text="TIPO" />
-            <Label layoutX="45.0" layoutY="74.0" text="PROFESSOR:" />
-            <Label fx:id="lbProfessor" layoutX="118.0" layoutY="74.0" text="PROFESSOR" />
-            <Label fx:id="lbDescricao" layoutX="45.0" layoutY="115.0" maxHeight="109.0" maxWidth="284.0" text="DESCRICAO" />
-            <Label layoutX="45.0" layoutY="230.0" text="VAGAS:" />
-            <Label fx:id="lbVagas" layoutX="92.0" layoutY="230.0" text="00" />
-            <Label layoutX="45.0" layoutY="255.0" text="DATA:" />
-            <Label fx:id="lbData" layoutX="85.0" layoutY="255.0" text="data" />
-            <Label fx:id="lbHorario" layoutX="208.0" layoutY="255.0" text="Label" />
-            <Button fx:id="btnExcluir" layoutX="54.0" layoutY="308.0" mnemonicParsing="false" onAction="#excluirAula" text="EXCLUIR" />
-            <Button fx:id="btnEditar" layoutX="222.0" layoutY="308.0" mnemonicParsing="false" onAction="#editarAula" text="EDITAR" />
+            <Label layoutX="45.0" layoutY="25.0" prefHeight="20.0" prefWidth="49.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="TIPO:" />
+            <Label fx:id="lbTipo" layoutX="96.0" layoutY="25.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="TIPO" />
+            <Label layoutX="43.0" layoutY="60.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="PROFESSOR:" />
+            <Label fx:id="lbProfessor" layoutX="158.0" layoutY="60.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="PROFESSOR" />
+            <Label fx:id="lbDescricao" layoutX="45.0" layoutY="95.0" maxHeight="109.0" maxWidth="284.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="DESCRICAO" wrapText="true" />
+            <Label layoutX="45.0" layoutY="230.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="VAGAS:" />
+            <Label fx:id="lbVagas" layoutX="121.0" layoutY="230.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="00" />
+            <Label layoutX="45.0" layoutY="260.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="DATA:" />
+            <Label fx:id="lbData" layoutX="103.0" layoutY="260.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="data" />
+            <Label fx:id="lbHorario" layoutX="237.0" layoutY="260.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="Label" />
+            <Button fx:id="btnExcluir" layoutX="54.0" layoutY="308.0" mnemonicParsing="false" onAction="#excluirAula" styleClass="btn" stylesheets="@../../resources/css/perfil.css" text="EXCLUIR" />
+            <Button fx:id="btnEditar" layoutX="222.0" layoutY="308.0" mnemonicParsing="false" onAction="#editarAula" styleClass="btn" stylesheets="@../../resources/css/perfil.css" text="EDITAR" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="502.0" fitWidth="320.0" layoutX="52.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
@@ -42,7 +41,10 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <Label fx:id="lbNome" layoutX="365.0" layoutY="77.0" text="NOME" />
+      <Label fx:id="lbNome" layoutX="360.0" layoutY="67.0" styleClass="titulo" stylesheets="@../../resources/css/formulario.css" text="NOME">
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX" height="5.0" offsetX="1.0" radius="2.0" width="5.0" />
+         </effect></Label>
       <Button fx:id="btnVoltar" layoutX="8.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltarAulas" styleClass="voltar" stylesheets="@../../resources/css/perfil.css">
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">

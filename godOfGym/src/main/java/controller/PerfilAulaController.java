@@ -64,7 +64,7 @@ public class PerfilAulaController {
     
     public void ajustarTela() throws SQLException{
         instrutor = dao.selecionarUsuario(aula.getProfessor());
-        lbNome.setText(aula.getNome());
+        lbNome.setText(aula.getNome().toUpperCase());
         lbTipo.setText(aula.getTipo());
         lbDescricao.setText(aula.getDescricao());
         lbProfessor.setText(instrutor.getNome());

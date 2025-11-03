@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700&display=swap');
+
+* {
+    -fx-font-family: "Inter", sans-serif;
+}
+
 AnchorPane {
     -fx-background-color: grey;
 }
@@ -10,5 +16,20 @@ AnchorPane {
 .voltar{
     -fx-background-color: grey;
     -fx-background-radius:100px;
+}
+
+.titulo{
+    -fx-font-size:25px;
+}
+
+.texto{
+    -fx-font-size:18px;
+}
+
+.btn {
+    -fx-background-color: #3a3d5c;
+    -fx-background-radius:15px;
+    -fx-text-fill:#d90429;
+    -fx-font-size:18px;
 }
 
