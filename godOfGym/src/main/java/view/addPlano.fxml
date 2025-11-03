@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="220.0" style="-fx-background-color: #666666;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPlanoController">
-    <stylesheets>
-        <URL value="@/css/addplano.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="230.0" style="-fx-background-color: #2B2d42;" styleClass="mainFxmlClass" stylesheets="@../../resources/css/formulario.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPlanoController">
    <children>
-      <TextField fx:id="tfPreco" layoutX="11.0" layoutY="99.0" promptText="Preço" style="-fx-background-radius: 10;">
+      <TextField fx:id="tfPreco" layoutX="11.0" layoutY="99.0" promptText="Preço" style="-fx-background-radius: 10;" styleClass="textField">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <Button fx:id="btnAdicionar" layoutX="20.0" layoutY="141.0" mnemonicParsing="false" onAction="#adicionarPlano" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #2d2b42; -fx-background-radius: 20;" text="Adicionar" textFill="#d90429">
+      <Button fx:id="btnAdicionar" layoutX="20.0" layoutY="141.0" mnemonicParsing="false" onAction="#adicionarPlano" prefHeight="40.0" prefWidth="180.0" style="-fx-background-radius: 20;" stylesheets="@../../resources/css/formulario.css" text="Adicionar" textFill="#d90429">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font></Button>
-      <ChoiceBox fx:id="cbTipo" layoutX="11.0" layoutY="56.0" prefHeight="31.0" prefWidth="199.0" style="-fx-background-radius: 10;" />
-      <TextField fx:id="tfNome" layoutX="11.0" layoutY="14.0" promptText="Nome" style="-fx-background-radius: 10;">
+      <ChoiceBox fx:id="cbTipo" layoutX="11.0" layoutY="58.0" prefHeight="31.0" prefWidth="199.0" style="-fx-background-radius: 10;" />
+      <TextField fx:id="tfNome" layoutX="11.0" layoutY="14.0" promptText="Nome" style="-fx-background-radius: 10;" styleClass="textField">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
