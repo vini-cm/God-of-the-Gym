@@ -20,9 +20,10 @@ public class AulaDAO extends genericoDAO {
     }
     
     public void editar(Aula aula) throws SQLException{
-        String update = "update aulas" + "set nome=? tipo=?, descricao=?, vagas =?, cpf_professor=?,data=?,comeco=?,fim=?" + "where id=?";
-        editar(update,aula.getNome(), aula.getTipo(),aula.getDescricao(),aula.getVagas(),aula.getProfessor(),
-                aula.getData(),aula.getComeco(),aula.getFim(), aula.getId());
+        String update = "update aulas set nome=+'"+aula.getNome()+"', tipo='"+aula.getTipo()+
+                "', descricao='"+aula.getDescricao()+"', vagas ="+aula.getVagas()+", cpf_professor='"+aula.getProfessor()+
+                "',data='"+aula.getData().toString()+"',comeco='"+aula.getComeco().toString()+"',fim='"+aula.getFim().toString()+"' where id=?";
+        editar(update,aula.getId());
     }
     
     public void deletar(int id) throws SQLException{

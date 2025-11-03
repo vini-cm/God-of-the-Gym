@@ -6,17 +6,21 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.Aula;
+import model.AulaDAO;
 import model.UserDAO;
 import model.Usuario;
+import util.Alerta;
 
 
 public class PerfilAulaController {
@@ -25,6 +29,7 @@ public class PerfilAulaController {
     Aula aula;
     Usuario instrutor;
     UserDAO dao = new UserDAO();
+    AulaDAO aDao = new AulaDAO();
     
     @FXML
     private Button btnEditar;
@@ -74,13 +79,36 @@ public class PerfilAulaController {
     }
 
     @FXML
-    void editarAula(ActionEvent event) {
-
+    void editarAula(ActionEvent event) throws IOException, SQLException {
+      URL url = new File ("src/main/java/view/editarAula.fxml").toURI().toURL();
+      FXMLLoader loader = new FXMLLoader(url);
+      Parent root = loader.load();
+      Stage aulas = new Stage();
+      EditarAulaController eac = loader.getController();
+      eac.setStage(aulas,aula);
+      Scene scene = new Scene(root);
+      aulas.setScene(scene);
+      aulas.show();
+      stage.close();
     }
 
     @FXML
-    void excluirAula(ActionEvent event) {
-
+    void excluirAula(ActionEvent event) throws SQLException, IOException {
+        Optional<ButtonType> resultado = Alerta.mostrarConfirmacao("EXCLUSÃO", 
+               "VOCE DESEJA EXCLUIR AULA " + aula.getNome() + "?");
+       if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+            aDao.deletar(aula.getId());
+            URL url = new File("src/main/java/view/aulas.fxml").toURI().toURL();
+            FXMLLoader loader = new FXMLLoader(url);
+            Parent root = loader.load();
+            Stage aula = new Stage();
+            AulasController ac = loader.getController();
+            ac.setStage(aula);
+            Scene scene = new Scene(root);
+            aula.setScene(scene);
+            aula.show();
+            stage.close();
+        }
     }
     
     @FXML
@@ -96,5 +124,6 @@ public class PerfilAulaController {
       aulas.show();
       stage.close();
     }
+    
     
 }
