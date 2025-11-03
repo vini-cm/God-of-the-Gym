@@ -5,7 +5,6 @@ import java.time.LocalTime;
 
 public class Atendente {
    private int id;
-   private int id_usuario;
    private String CPF;
    private float salario;
    private LocalTime entrada;
@@ -14,8 +13,7 @@ public class Atendente {
    public Atendente(){
    }
 
-    public Atendente(int id_usuario, String CPF, float salario, LocalTime entrada, LocalTime saida) {
-        this.id_usuario = id_usuario;
+    public Atendente(String CPF, float salario, LocalTime entrada, LocalTime saida) {
         this.CPF = CPF;
         this.salario = salario;
         this.entrada = entrada;
@@ -63,14 +61,5 @@ public class Atendente {
     public void setSaida(LocalTime saida) {
         this.saida = saida;
     }
-
-    public int getId_usuario() {
-        return id_usuario;
-    }
-
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
-    }
-    
     
 }

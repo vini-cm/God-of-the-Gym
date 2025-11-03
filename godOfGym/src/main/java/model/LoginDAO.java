@@ -30,7 +30,6 @@ public class LoginDAO extends genericoDAO {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 user = new Usuario();
-                user.setIdUsuario(rs.getInt("id"));
                 user.setCPF(rs.getString("CPF"));
                 user.setNome(rs.getString("Nome"));
                 user.setSobrenome(rs.getString("Sobrenome"));

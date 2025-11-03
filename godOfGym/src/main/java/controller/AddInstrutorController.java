@@ -3,8 +3,6 @@ package controller;
 import java.sql.SQLException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.beans.value.ChangeListener;
@@ -12,7 +10,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -124,15 +121,14 @@ public class AddInstrutorController {
                 && !tfTelefone.getText().isBlank() && tfTelefone.getText() != null) {
             entrada = LocalTime.parse(tfEntrada.getText(),formatter);
             saida = LocalTime.parse(tfSaida.getText(), formatter);
-            if (dao.selecionarInstrutor(tfCPF.getText()).getCPF() == null) {
+            if (dao.selecionarInstrutor(tfCPF.getText()) == null) {
                 user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), 
                         dpNascimento.getValue().toString(), tfSenha.getText(), tfEmail.getText(), genero, tfTelefone.getText(), "instrutor");
                 userDAO.salvar(user);
                 
                 if (userDAO.selecionarUsuario(tfCPF.getText()) != null) {
-                    user.setIdUsuario(userDAO.selecionarUsuario(tfCPF.getText()).getIdUsuario());
                     instrutor = new Instrutor(tfCPF.getText(), Float.parseFloat(tfSalario.getText()), 
-                            taFormacao.getText(), entrada, saida,user.getIdUsuario());
+                            taFormacao.getText(), entrada, saida);
                     dao.salvar(instrutor);
                 } else {
                     Alerta.mostrarErro("ERROR", "ERRO EM CADASTRAR INSTRUTOR");

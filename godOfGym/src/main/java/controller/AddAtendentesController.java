@@ -15,7 +15,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Atendente;
-import model.AtendenteDao;
+import model.AtendenteDAO;
 import model.UserDAO;
 import model.Usuario;
 import util.Alerta;
@@ -23,7 +23,7 @@ import util.Alerta;
 public class AddAtendentesController {
 
     Stage stage;
-    AtendenteDao dao = new AtendenteDao();
+    AtendenteDAO dao = new AtendenteDAO();
     Atendente atendente = new Atendente();
     Usuario user = new Usuario();
     UserDAO userDAO = new UserDAO();
@@ -124,8 +124,7 @@ public class AddAtendentesController {
                 userDAO.salvar(user);
 
                 if (userDAO.selecionarUsuario(tfCPF.getText()) != null) {
-                    user.setIdUsuario(userDAO.selecionarUsuario(tfCPF.getText()).getIdUsuario());
-                    atendente = new Atendente(user.getIdUsuario(), tfCPF.getText(), Float.parseFloat(tfSalario.getText()),
+                    atendente = new Atendente(tfCPF.getText(), Float.parseFloat(tfSalario.getText()),
                         entrada, saida);
                     dao.salvar(atendente);
                 } else {

@@ -10,9 +10,9 @@ import javafx.collections.ObservableList;
 public class InstrutorDAO extends genericoDAO{
   
     public void salvar(Instrutor instrutor) throws SQLException{
-        String insert = "insert into instrutores(CPF,salario,formacao,entrada,saida, id_usuario) values (?,?,?,?,?,?)";
+        String insert = "insert into instrutores(CPF,salario,formacao,entrada,saida) values (?,?,?,?,?)";
         salvar(insert, instrutor.getCPF(),instrutor.getSalario(),instrutor.getFormacao(),
-                instrutor.getEntrada(),instrutor.getSaida(), instrutor.getId_usuario());
+                instrutor.getEntrada(),instrutor.getSaida());
     }
     
     public void editar(Instrutor instrutor) throws SQLException{
@@ -38,7 +38,6 @@ public class InstrutorDAO extends genericoDAO{
             instrutor.setFormacao(rs.getString("formacao"));
             instrutor.setEntrada(rs.getTime("saida").toLocalTime());
             instrutor.setSaida(rs.getTime("saida").toLocalTime());
-            instrutor.setId_usuario(rs.getInt("id_usuario"));
             instrutor.setSalario(rs.getFloat("salario"));
             lista.add(instrutor);
         }   
@@ -60,7 +59,6 @@ public class InstrutorDAO extends genericoDAO{
             instrutor.setFormacao(rs.getString("formacao"));
             instrutor.setEntrada(rs.getTime("entrada").toLocalTime());
             instrutor.setSaida(rs.getTime("saida").toLocalTime());
-            instrutor.setId_usuario(rs.getInt("id_usuario"));
             instrutor.setSalario(rs.getFloat("salario"));
             rs.close();
             stmt.close();
