@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="324.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditarAulaController">
+   <children>
+      <Label layoutX="75.0" layoutY="24.0" text="O QUE VOCE DESEJA EDITAR?">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="cNome" layoutX="26.0" layoutY="51.0" mnemonicParsing="false" text="Nome" />
+      <CheckBox fx:id="cbTipo" layoutX="26.0" layoutY="87.0" mnemonicParsing="false" text="Tipo" />
+      <CheckBox fx:id="cProfessor" layoutX="26.0" layoutY="126.0" mnemonicParsing="false" text="Professor" />
+      <CheckBox fx:id="cbDescricao" layoutX="25.0" layoutY="167.0" mnemonicParsing="false" text="Descricao" />
+      <CheckBox fx:id="cbHorario" layoutX="25.0" layoutY="208.0" mnemonicParsing="false" text="Horario" />
+      <CheckBox fx:id="cbData" layoutX="25.0" layoutY="247.0" mnemonicParsing="false" text="Data" />
+      <Button fx:id="btnEditar" layoutX="175.0" layoutY="279.0" mnemonicParsing="false" onAction="#editarAula" text="EDITAR">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tfNome" layoutX="135.0" layoutY="47.0" promptText="Nome" visible="false" />
+      <TextField fx:id="tfTipo" layoutX="135.0" layoutY="83.0" promptText="Tipo" visible="false" />
+      <ChoiceBox fx:id="cbProfessor" layoutX="134.0" layoutY="122.0" prefWidth="150.0" visible="false" />
+      <TextArea fx:id="taDescrisao" layoutX="134.0" layoutY="157.0" prefHeight="37.0" prefWidth="202.0" visible="false" />
+      <TextField fx:id="tfComeco" layoutX="135.0" layoutY="204.0" prefHeight="25.0" prefWidth="80.0" promptText="Inicio" visible="false" />
+      <TextField fx:id="tfFinal" layoutX="222.0" layoutY="204.0" prefHeight="25.0" prefWidth="80.0" promptText="Final" visible="false" />
+      <DatePicker fx:id="dpData" layoutX="135.0" layoutY="243.0" visible="false" />
+   </children>
+</AnchorPane>

@@ -13,6 +13,7 @@ model\Aula.class
 controller\PerfilClienteController.class
 model\AulaDAO.class
 model\genericoDAO.class
+util\Visibilidade.class
 model\Atendente.class
 controller\AddAulaController$1.class
 controller\AddInstrutorController$1.class
@@ -29,6 +30,7 @@ model\LoginDAO.class
 module-info.class
 controller\AddInstrutorController$2.class
 util\Alerta.class
+controller\EditarAulaController.class
 controller\InstrutoresController.class
 controller\AtendentesController.class
 dal\Conn.class
