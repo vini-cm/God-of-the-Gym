@@ -29,6 +29,7 @@ public class PerfilClienteController {
     Usuario user;
     ClienteDAO dao = new ClienteDAO();
     UserDAO userDAO = new UserDAO();
+    Cliente c;
     
     @FXML
     private Button btnEditar;
@@ -73,6 +74,9 @@ public class PerfilClienteController {
     private Label lbTelefone;
     
     @FXML
+    private Label lbEmail;
+    
+    @FXML
     Button btnClientes;
     
     @FXML
@@ -92,16 +96,18 @@ public class PerfilClienteController {
     public void setStage(Stage stage, Usuario user) throws SQLException {
         this.stage = stage;
         this.user = user;
+        c = dao.selecionarCliente(user.getCPF());
         configurarTela();
     }
     
     public void configurarTela() throws SQLException{
-        Cliente c = dao.selecionarCliente(user.getCPF());
         lbNome.setText(user.getNome() + " " + user.getSobrenome());
         lbCPF.setText(user.getCPF());
         lbTelefone.setText(user.getTelefone());
         lbPlano.setText(c.getIdPlano());
         lbAltura.setText(String.valueOf(c.getAltura()));
+        lbIMC.setText(String.valueOf(c.getImc()));
+        lbEmail.setText(user.getEmail());
         if (user.getGenero().equals("f")){
             lbGenero.setText("feminino");
         } else {
@@ -151,5 +157,19 @@ public class PerfilClienteController {
             cliente.show();
             stage.close();
         }
+    }
+    
+    @FXML
+    void editarCliente(ActionEvent event) throws IOException, SQLException {
+        URL url = new File("src/main/java/view/editarCliente.fxml").toURI().toURL();
+        FXMLLoader loader = new FXMLLoader(url);
+        Parent root = loader.load();
+        Stage cliente = new Stage();
+        EditarClienteController ecc = loader.getController();
+        ecc.setStage(cliente, c);
+        Scene scene = new Scene(root);
+        cliente.setScene(scene);
+        cliente.show();
+        stage.close();
     }
 }

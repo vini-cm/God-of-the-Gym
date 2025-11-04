@@ -50,15 +50,6 @@ public class Visibilidade {
         });
     }
      
-     public static void visibilidadeRadio(CheckBox cb, RadioButton rb){
-        cb.setOnAction(e -> {
-            if(cb.isSelected()){
-                rb.setVisible(true);
-            } else {
-                rb.setVisible(false);
-            }
-        });
-    }
      
      public static void visibilidadeHorario(CheckBox cb, TextField comeco, TextField fim){
          cb.setOnAction(e -> {
@@ -70,5 +61,17 @@ public class Visibilidade {
                 fim.setVisible(false);
             }
         });
+     }
+     
+     public static void visibilidadeGenero(CheckBox cb, RadioButton rf,RadioButton rm){
+         cb.setOnAction(e -> {
+             if(cb.isSelected()){
+                 rf.setVisible(true);
+                 rf.setVisible(true);
+             } else {
+                 rf.setVisible(false);
+                 rf.setVisible(false);
+             }
+         });
      }
 }

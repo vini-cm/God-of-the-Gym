@@ -1,6 +1,7 @@
 controller\HomeController.class
 controller\AddAulaController.class
 controller\AddAtendentesController$2.class
+controller\EditarClienteController.class
 model\Instrutor.class
 controller\AddClienteController.class
 controller\ClientsController.class

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditarClienteController">
+   <children>
+      <Label layoutX="182.0" layoutY="14.0" text="O QUE VOCÊ DESEJA EDITAR?">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="cNome" layoutX="28.0" layoutY="48.0" mnemonicParsing="false" text="Nome" />
+      <CheckBox fx:id="cSobrenome" layoutX="93.0" layoutY="48.0" mnemonicParsing="false" text="Sobrenome" />
+      <CheckBox fx:id="cNascimento" layoutX="28.0" layoutY="80.0" mnemonicParsing="false" text="Data de Nascimento" />
+      <CheckBox fx:id="cSenha" layoutX="28.0" layoutY="110.0" mnemonicParsing="false" text="Senha" />
+      <CheckBox fx:id="cEmail" layoutX="28.0" layoutY="140.0" mnemonicParsing="false" text="Email" />
+      <CheckBox fx:id="cGenero" layoutX="28.0" layoutY="170.0" mnemonicParsing="false" text="Genero" />
+      <CheckBox fx:id="cPlano" layoutX="28.0" layoutY="200.0" mnemonicParsing="false" text="Plano" />
+      <CheckBox fx:id="cTelefone" layoutX="28.0" layoutY="232.0" mnemonicParsing="false" text="Telefone" />
+      <CheckBox fx:id="cPeso" layoutX="28.0" layoutY="265.0" mnemonicParsing="false" text="Peso" />
+      <CheckBox fx:id="cAltura" layoutX="28.0" layoutY="297.0" mnemonicParsing="false" text="Altura" />
+      <CheckBox fx:id="cGordura" layoutX="28.0" layoutY="324.0" mnemonicParsing="false" text="Gordura Corporal" />
+      <CheckBox fx:id="cMedicamentos" layoutX="191.0" layoutY="48.0" mnemonicParsing="false" text="Medicamentos" />
+      <CheckBox fx:id="cLimitacões" layoutX="191.0" layoutY="80.0" mnemonicParsing="false" text="Limitaçoẽs" />
+      <Button fx:id="btnEditar" layoutX="264.0" layoutY="355.0" mnemonicParsing="false" onAction="#editarCliente" text="EDITAR">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tfNome" layoutX="301.0" layoutY="44.0" promptText="Nome" visible="false" />
+      <TextField fx:id="tfSobrenome" layoutX="301.0" layoutY="76.0" promptText="Sobrenome" visible="false" />
+      <DatePicker fx:id="dpNascimento" layoutX="301.0" layoutY="106.0" prefHeight="25.0" prefWidth="149.0" visible="false" />
+      <PasswordField fx:id="pfSenha" layoutX="301.0" layoutY="136.0" promptText="Senha" visible="false" />
+      <TextField fx:id="tfEmail" layoutX="301.0" layoutY="166.0" promptText="Email" visible="false" />
+      <RadioButton fx:id="rFemino" layoutX="301.0" layoutY="200.0" mnemonicParsing="false" text="feminino" visible="false" />
+      <RadioButton fx:id="rMasculino" layoutX="376.0" layoutY="200.0" mnemonicParsing="false" text="masculino" visible="false" />
+      <ChoiceBox fx:id="cbPlano" layoutX="301.0" layoutY="224.0" prefWidth="150.0" visible="false" />
+      <TextField fx:id="tfTelefone" layoutX="302.0" layoutY="261.0" promptText="Telefone" visible="false" />
+      <TextField fx:id="tfPeso" layoutX="302.0" layoutY="293.0" promptText="Peso" visible="false" />
+      <TextField fx:id="tfAltura" layoutX="459.0" layoutY="44.0" promptText="Altura" visible="false" />
+      <TextField fx:id="tfGordura" layoutX="459.0" layoutY="76.0" promptText="Gordura Corporal" visible="false" />
+      <TextArea fx:id="taMedicamentos" layoutX="459.0" layoutY="109.0" prefHeight="80.0" prefWidth="150.0" promptText="Medicamentos" visible="false" wrapText="true" />
+      <TextArea fx:id="taLimitacoes" layoutX="459.0" layoutY="197.0" prefHeight="91.0" prefWidth="150.0" promptText="Limitações" visible="false" />
+   </children>
+</AnchorPane>
