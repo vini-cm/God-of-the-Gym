@@ -27,9 +27,9 @@ AnchorPane {
 }
 
 .btn {
-    -fx-background-color: #3a3d5c;
+    -fx-background-color:#d90429;
     -fx-background-radius:15px;
-    -fx-text-fill:#d90429;
+    -fx-text-fill:#2b2d42;
     -fx-font-size:18px;
 }
 

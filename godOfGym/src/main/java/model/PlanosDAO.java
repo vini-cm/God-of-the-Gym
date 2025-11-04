@@ -14,13 +14,14 @@ public class PlanosDAO extends genericoDAO{
     }
     
     public void editar(Planos plano) throws SQLException{
-        String update = "update planos" + "set nome=? tipo=?, preco=?" + "where idPlano=?";
-        editar(update,plano.getNome(), plano.getTipo(),plano.getPreco(),plano.getIdPlano());
+        String update = "update planos set nome=" + plano.getNome()+ ",tipo="+plano.getTipo()+
+                ", preco="+ plano.getPreco() + "where idPlano=?";
+        editar(update,plano.getIdPlano());
     }
     
     public void deletar(String nome) throws SQLException{
-        String delete = "delete from planos where nome = ?";
-        deletar(delete, nome);
+        String delete = "delete from planos where nome =?";
+        deletar(delete,nome);
     }
     
     public ObservableList<Planos> selecionarPlanos() throws SQLException{

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" stylesheets="@../../resources/css/perfil.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.PerfilPlanoController">
+   <children>
+      <AnchorPane layoutX="329.0" layoutY="108.0" prefHeight="204.0" prefWidth="343.0" styleClass="container" stylesheets="@../../resources/css/perfil.css">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" />
+         </effect>
+         <children>
+            <Label layoutX="51.0" layoutY="53.0" prefHeight="20.0" prefWidth="49.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="TIPO:" />
+            <Label fx:id="lbTipo" layoutX="102.0" layoutY="53.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="TIPO" />
+            <Button fx:id="btnExcluir" layoutX="51.0" layoutY="125.0" mnemonicParsing="false" onAction="#excluirPlano" styleClass="btn" stylesheets="@../../resources/css/perfil.css" text="EXCLUIR" />
+            <Button fx:id="btnEditar" layoutX="219.0" layoutY="125.0" mnemonicParsing="false" onAction="#editarPlano" styleClass="btn" stylesheets="@../../resources/css/perfil.css" text="EDITAR" />
+            <Label layoutX="51.0" layoutY="76.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="VALOR:" />
+            <Label fx:id="lbValor" layoutX="123.0" layoutY="76.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="VALOR" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="502.0" fitWidth="320.0" layoutX="62.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/imagens/perfilPlanos.png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <Label fx:id="lbNome" layoutX="370.0" layoutY="77.0" maxWidth="240.0" prefHeight="30.0" styleClass="titulo" stylesheets="@../../resources/css/formulario.css" text="NOME" wrapText="true">
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX" height="5.0" offsetX="1.0" radius="2.0" width="5.0" />
+         </effect>
+      </Label>
+      <Button fx:id="btnVoltar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltarPlanos" styleClass="voltar" stylesheets="@../../resources/css/perfil.css">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/imagens/voltar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="lbSubstituir" layoutX="370.0" layoutY="329.0" prefHeight="59.0" prefWidth="297.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="VOCÊ DESEJA SUBSTITUIR POR QUAL PLANO?" textAlignment="CENTER" visible="false" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="cbPlanos" layoutX="444.0" layoutY="398.0" prefWidth="150.0" visible="false" />
+      <Button fx:id="btnSubstituir" layoutX="453.0" layoutY="443.0" mnemonicParsing="false" onAction="#substituirPlanos" styleClass="btn" stylesheets="@../../resources/css/perfil.css" text="SUBSTITUIR" visible="false" />
+   </children>
+</AnchorPane>

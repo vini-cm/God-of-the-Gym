@@ -1,4 +1,5 @@
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\AddAtendentesController.java
+C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\PerfilPlanoController.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\model\PlanosDAO.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\AtendentesController.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\AddAulaController.java
@@ -16,6 +17,7 @@ C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\AddP
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\util\Visibilidade.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\HomeController.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\model\Planos.java
+C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\EditarPlanoController.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\model\genericoDAO.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\controller\AddInstrutorController.java
 C:\Users\Usuario\Documents\God-of-the-Gym\godOfGym\src\main\java\model\Instrutor.java

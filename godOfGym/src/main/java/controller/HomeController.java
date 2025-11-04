@@ -79,7 +79,7 @@ public class HomeController  {
     }
 
     @FXML
-    void openPlanosPage(ActionEvent event) throws IOException {
+    void openPlanosPage(ActionEvent event) throws IOException, SQLException {
       URL url = new File ("src/main/java/view/planos.fxml").toURI().toURL();
       FXMLLoader loader = new FXMLLoader(url);
       Parent root = loader.load();
