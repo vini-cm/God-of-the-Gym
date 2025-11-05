@@ -96,8 +96,8 @@ public class PerfilPlanoController {
     
     @FXML
     void substituirPlanos(ActionEvent event) throws SQLException, IOException {
-        Optional<ButtonType> resultado = Alerta.mostrarConfirmacao("EXCLUSÃO", 
-               "VOCE DESEJA EXCLUIR SUBSTITUIR POR:"+cbPlanos.getValue().getNome().toUpperCase()+"?");
+        Optional<ButtonType> resultado = Alerta.mostrarConfirmacao("SUBSTITUIÇÃO", 
+               "VOCE DESEJA SUBSTITUIR POR:"+cbPlanos.getValue().getNome().toUpperCase()+"?");
        if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
             dao.atualizarPlano(cbPlanos.getValue().getIdPlano());
             URL url = new File("src/main/java/view/planos.fxml").toURI().toURL();
