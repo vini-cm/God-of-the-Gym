@@ -24,6 +24,11 @@ public class PlanosDAO extends genericoDAO{
         deletar(delete,nome);
     }
     
+    public void atualizarPlano(int id) throws SQLException{
+        String update = "update clientes set id_plano=? where id_plano is null";
+        editar(update, id);
+    }
+    
     public ObservableList<Planos> selecionarPlanos() throws SQLException{
         ObservableList<Planos> lista = FXCollections.observableArrayList();
         String sql = "select * from planos";
@@ -44,10 +49,28 @@ public class PlanosDAO extends genericoDAO{
         return lista;
     }
     
-    public Planos selecionarPlano(String tipo) throws SQLException{
-        String sql = "select * from planos where tipo = ?";
+    public Planos selecionarPlano(String nome) throws SQLException{
+        String sql = "select * from planos where nome = ?";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
-        stmt.setString(1, tipo);
+        stmt.setString(1, nome);
+        try(ResultSet rs = stmt.executeQuery()){
+        if (rs.next()){
+            Planos plano = new Planos();
+            plano.setIdPlano(rs.getInt("id"));
+            plano.setNome(rs.getString("nome"));
+            plano.setTipo(rs.getString("tipo"));
+            plano.setPreco(rs.getFloat("preco"));
+            
+            return plano;
+        } else {
+        return null;}
+        }
+    }
+    
+    public Planos selecionarPlanoPorId(int id) throws SQLException{
+        String sql = "select * from planos where id = ?";
+        PreparedStatement stmt = conectarConn().prepareStatement(sql);
+        stmt.setInt(1, id);
         try(ResultSet rs = stmt.executeQuery()){
         if (rs.next()){
             Planos plano = new Planos();

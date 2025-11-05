@@ -41,7 +41,7 @@ public class AddPlanoController  {
                !tfNome.getText().isEmpty() && tfNome.getText() != null){
            plano = new Planos(tfNome.getText(),cbTipo.getValue(), Float.parseFloat(tfPreco.getText()));
            dao.salvar(plano);
-           if (dao.selecionarPlano(cbTipo.getValue()) != null){
+           if (dao.selecionarPlano(tfNome.getText()) != null){
                Alerta.mostrarConfirmacao("PLANO ADICIONADO", "plano adicionado com sucesso");
                stage.close();
            }

@@ -17,6 +17,7 @@ import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 import model.Cliente;
 import model.ClienteDAO;
+import model.Planos;
 import model.PlanosDAO;
 import model.UserDAO;
 import model.Usuario;
@@ -59,7 +60,7 @@ public class AddClienteController {
     private TextField tfSobrenome;
     
     @FXML
-    private ChoiceBox<String> cbPlano;
+    private ChoiceBox<Planos> cbPlano;
     
      @FXML
     private CheckBox checkbLimitações;
@@ -104,9 +105,7 @@ public class AddClienteController {
         taMedicacoes.setVisible(false);
         rdFeminino.setOnAction(e -> HandleRadioButton(rdFeminino, rdMasculino));
         rdMasculino.setOnAction(e -> HandleRadioButton(rdMasculino, rdFeminino));
-        for (int i = 0; i < planos.selecionarPlanos().size();i++){
-            cbPlano.getItems().add(planos.selecionarPlanos().get(i).getNome());
-        }
+        cbPlano.setItems(planos.selecionarPlanos());
         cbExperiencia.getItems().addAll("Iniciante","Intermediario","Experiente","Profissional");
         checkbLimitações.setOnAction(e -> {
             boolean marcado = checkbLimitações.isSelected();
@@ -129,7 +128,7 @@ public class AddClienteController {
         if (!tfCPF.getText().isEmpty() && tfCPF.getText() != null && !tfEmail.getText().isEmpty() && tfEmail.getText() != null
                 && !tfNome.getText().isEmpty() && tfNome.getText() != null && !tfSobrenome.getText().isEmpty() && tfSobrenome.getText() != null
                 && !tfSenha.getText().isEmpty() && tfSenha.getText() != null && genero != null && 
-                !cbPlano.getValue().isEmpty() && cbPlano.getValue() != null && !tfAltura.getText().isEmpty() && tfAltura.getText() != null &&
+                !cbPlano.getValue().equals(null) && cbPlano.getValue() != null && !tfAltura.getText().isEmpty() && tfAltura.getText() != null &&
                 !tfPeso.getText().isEmpty() && tfPeso.getText() != null && !tfTelefone.getText().isEmpty() && tfTelefone.getText() != null &&
                 !tfgordura.getText().isEmpty() && tfgordura.getText() != null) {
             
@@ -143,7 +142,7 @@ public class AddClienteController {
             dao.salvar(user);
             
             if (dao.selecionarUsuario(tfCPF.getText()) != null) {
-                    cliente = new Cliente(tfCPF.getText(), cbPlano.getValue(),peso,altura,porcentagem,
+                    cliente = new Cliente(tfCPF.getText(), cbPlano.getValue().getIdPlano(),peso,altura,porcentagem,
                             imc,cbExperiencia.getValue(),taMedicacoes.getText(),taLimitacoes.getText());
                     clientedao.salvar(cliente);
                 } else {

@@ -5,7 +5,7 @@ package model;
 public class Cliente {
     private int idCliente;
     private String CPF;
-    private String idPlano;
+    private int idPlano;
     private float peso;
     private float altura;
     private float porcentagem;
@@ -17,7 +17,7 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String CPF, String idPlano, float peso, float altura, float porcentagem, float imc, String experiencia, String medicamentos, String limitacoes) {
+    public Cliente(String CPF, int idPlano, float peso, float altura, float porcentagem, float imc, String experiencia, String medicamentos, String limitacoes) {
         this.CPF = CPF;
         this.idPlano = idPlano;
         this.peso = peso;
@@ -47,11 +47,11 @@ public class Cliente {
         this.CPF = CPF;
     }
 
-    public String getIdPlano() {
+    public int getIdPlano() {
         return idPlano;
     }
 
-    public void setIdPlano(String idPlano) {
+    public void setIdPlano(int idPlano) {
         this.idPlano = idPlano;
     }
 

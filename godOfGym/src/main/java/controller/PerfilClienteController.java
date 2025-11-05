@@ -18,6 +18,8 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.Cliente;
 import model.ClienteDAO;
+import model.Planos;
+import model.PlanosDAO;
 import model.UserDAO;
 import model.Usuario;
 import util.Alerta;
@@ -29,6 +31,7 @@ public class PerfilClienteController {
     Usuario user;
     ClienteDAO dao = new ClienteDAO();
     UserDAO userDAO = new UserDAO();
+    PlanosDAO planosDAO = new PlanosDAO();
     Cliente c;
     
     @FXML
@@ -101,10 +104,11 @@ public class PerfilClienteController {
     }
     
     public void configurarTela() throws SQLException{
+        Planos plano = planosDAO.selecionarPlanoPorId(c.getIdPlano());
         lbNome.setText(user.getNome() + " " + user.getSobrenome());
         lbCPF.setText(user.getCPF());
         lbTelefone.setText(user.getTelefone());
-        lbPlano.setText(c.getIdPlano());
+        lbPlano.setText(plano.getNome());
         lbAltura.setText(String.valueOf(c.getAltura()));
         lbIMC.setText(String.valueOf(c.getImc()));
         lbEmail.setText(user.getEmail());

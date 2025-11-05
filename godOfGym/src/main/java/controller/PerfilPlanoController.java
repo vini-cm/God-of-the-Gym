@@ -75,19 +75,23 @@ public class PerfilPlanoController {
     void excluirPlano(ActionEvent event) throws SQLException {
         ObservableList<Planos> lista = dao.selecionarPlanos();
         lista.remove(plano);
-        cbPlanos.setItems(lista);
-        lbSubstituir.setVisible(true);
-        cbPlanos.setVisible(true);
-        btnSubstituir.setVisible(true);
+         Optional<ButtonType> resultado = Alerta.mostrarConfirmacao("EXCLUSÃO", 
+               "VOCE DESEJA EXCLUIR PLANO " + plano.getNome().toUpperCase() + "?");
+         if(resultado.isPresent() && resultado.get() == ButtonType.OK){
+           dao.deletar(plano.getNome());
+           cbPlanos.setItems(lista);
+           lbSubstituir.setVisible(true);
+           cbPlanos.setVisible(true);
+           btnSubstituir.setVisible(true);
+         }
     }
     
     @FXML
     void substituirPlanos(ActionEvent event) throws SQLException, IOException {
         Optional<ButtonType> resultado = Alerta.mostrarConfirmacao("EXCLUSÃO", 
-               "VOCE DESEJA EXCLUIR PLANOS " + plano.getNome().toUpperCase() + 
-               "E SUBSTITUIR POR:"+cbPlanos.getValue().getNome().toUpperCase()+"?");
+               "VOCE DESEJA EXCLUIR SUBSTITUIR POR:"+cbPlanos.getValue().getNome().toUpperCase()+"?");
        if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
-            //dao.deletar(plano,cbPlanos.getValue().getIdPlano());
+            dao.atualizarPlano(cbPlanos.getValue().getIdPlano());
             URL url = new File("src/main/java/view/planos.fxml").toURI().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             Parent root = loader.load();
@@ -97,7 +101,7 @@ public class PerfilPlanoController {
             Scene scene = new Scene(root);
             planos.setScene(scene);
             planos.show();
-            stage.close();
+            stage.close();  
         }
     }
 

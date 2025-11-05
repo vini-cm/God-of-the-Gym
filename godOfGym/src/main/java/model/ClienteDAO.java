@@ -34,7 +34,7 @@ public class ClienteDAO extends genericoDAO {
             Cliente cliente = new Cliente();
             cliente.setIdCliente(rs.getInt("id"));
             cliente.setCPF(rs.getString("cpf"));
-            cliente.setIdPlano(rs.getString("id_plano"));
+            cliente.setIdPlano(rs.getInt("id_plano"));
             cliente.setAltura(rs.getFloat("altura"));
             cliente.setPeso(rs.getFloat("peso"));
             cliente.setImc(rs.getFloat("imc"));
@@ -60,7 +60,7 @@ public class ClienteDAO extends genericoDAO {
             Cliente cliente = new Cliente();
             cliente.setIdCliente(rs.getInt("id"));
             cliente.setCPF(rs.getString("cpf"));
-            cliente.setIdPlano(rs.getString("id_plano"));
+            cliente.setIdPlano(rs.getInt("id_plano"));
             cliente.setAltura(rs.getFloat("altura"));
             cliente.setPeso(rs.getFloat("peso"));
             cliente.setImc(rs.getFloat("imc"));
