@@ -5,7 +5,7 @@
 * \[ ] alterar instrutores
 * \[x] alterar planos
 * \[ ] alterar atendentes
-* \[ ] por icone e titulo nas telas
+* \[x] por icone e titulo nas telas
 * \[ ] alterar os formularios e perfis para o novo estilo
 * \[ ] terminar css dos formularios
 * \[ ] fazer o css dos instrutores o geral para todas as paginas de listagem
