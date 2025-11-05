@@ -5,14 +5,14 @@
 * \[ ] alterar instrutores
 * \[x] alterar planos
 * \[ ] alterar atendentes
-* \[ ] por icone e titulo nas telas
+* \[x] por icone e titulo nas telas
 * \[ ] alterar os formularios e perfis para o novo estilo
 * \[ ] terminar css dos formularios
 * \[ ] fazer o css dos instrutores o geral para todas as paginas de listagem
-* \[ ] estilixar alertas
+* \[ ] estilizar alertas
 * \[ ] mudar o css de quando algo é digitado errado
 * \[ ] fazer as coisas pararem de diminuir quando o mouse clica
-* \[ ] impor limite de cararctere ns textfield e textarea
+* \[ ] impor limite de cararctere no textfield e textarea
 * \[ ] formatar textfield para telefone, email, cpf e salario
 * \[ ] recarregar tabela quando algo é adicionado
 * \[ ] fechar formulario e gerar aviso quando algo é cadastrado
