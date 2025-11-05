@@ -22,7 +22,10 @@ public class InstrutorDAO extends genericoDAO{
     }
     
     public void deletar(String CPF) throws SQLException{
-        String deletar = "delete from instrutores where CPF = ?";
+        String deletar = "DELETE Instrutores.*, Aula.*\n" +
+"   FROM Instrutores\n" +
+"        INNER JOIN Aula ON Instrutores.cpf = Aula.cpf_professor \n" +
+"  WHERE (Instrutor.cpf)=?";
         deletar(deletar,CPF);
     }
     

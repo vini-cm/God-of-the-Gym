@@ -66,6 +66,11 @@ public class AulasController {
     }
     
     @FXML
+    void deletarAula(ActionEvent event) throws IOException,SQLException{
+        
+    }
+    
+    @FXML
     void adiconarAula(ActionEvent event) throws IOException, SQLException {
       URL url = new File ("src/main/java/view/addAula.fxml").toURI().toURL();
       FXMLLoader loader = new FXMLLoader(url);

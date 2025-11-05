@@ -140,7 +140,6 @@ public class AtendentesController  {
         stageAtendentes.close();
     }
     
-    @FXML
     void voltarHome(ActionEvent event) throws IOException{
       URL url = new File ("src/main/java/view/home.fxml").toURI().toURL();
       FXMLLoader loader = new FXMLLoader(url);
