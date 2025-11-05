@@ -22,6 +22,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Aula;
 import model.AulaDAO;
@@ -61,6 +62,10 @@ public class AulasController {
       hc.setStage(home);
       Scene scene = new Scene(root);
       home.setScene(scene);
+      home.setTitle("Tela Home");
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      home.getIcons().add(icon);
       home.show();
       stageAula.close();
     }
@@ -75,6 +80,10 @@ public class AulasController {
       aa.setStage(adicionar);
       Scene scene = new Scene(root);
       adicionar.setScene(scene);
+      adicionar.setTitle("Tela Adicionar Aulas");
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      adicionar.getIcons().add(icon);
       adicionar.show();
     }
     
@@ -151,6 +160,10 @@ public class AulasController {
         pac.setStage(telaAula, aula);
         Scene scene = new Scene(root);
         telaAula.setScene(scene);
+        telaAula.setTitle("Perfil da Aula");
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        telaAula.getIcons().add(icon);
         telaAula.show();
         stageAula.close();
     }

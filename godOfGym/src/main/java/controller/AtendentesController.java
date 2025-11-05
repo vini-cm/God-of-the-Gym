@@ -21,6 +21,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.UserDAO;
 import model.Usuario;
@@ -52,6 +53,10 @@ public class AtendentesController  {
       ac.setStage(adicionar);
       Scene scene = new Scene(root);
       adicionar.setScene(scene);
+      adicionar.setTitle("Tela Adicionar Atendentes");
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      adicionar.getIcons().add(icon);
       adicionar.show();
     }
     
@@ -136,6 +141,10 @@ public class AtendentesController  {
         pac.setStage(telaPerfil, user);
         Scene scene = new Scene(root);
         telaPerfil.setScene(scene);
+        telaPerfil.setTitle("Perfil Controller");
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        telaPerfil.getIcons().add(icon);
         telaPerfil.show();
         stageAtendentes.close();
     }
@@ -150,6 +159,10 @@ public class AtendentesController  {
       hc.setStage(home);
       Scene scene = new Scene(root);
       home.setScene(scene);
+      home.setTitle("Tela Home");
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      home.getIcons().add(icon);
       home.show();
       stageAtendentes.close();
     }

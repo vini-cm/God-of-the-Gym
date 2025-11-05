@@ -1,9 +1,14 @@
 package util;
 
+import java.io.File;
 import java.util.Optional;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+
 
 public class Alerta {
   private static Scene cenaAlerta;
@@ -20,7 +25,7 @@ public class Alerta {
     }
    
    public static void mostrarErro(String titulo, String mensagem){
-        mostrarAlerta(Alert.AlertType.ERROR, titulo, mensagem);
+       mostrarAlerta(Alert.AlertType.ERROR, titulo, mensagem);
     }
     
     public static void mostrarInformacao(String titulo, String mensagem){

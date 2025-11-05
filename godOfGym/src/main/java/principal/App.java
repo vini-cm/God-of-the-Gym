@@ -37,7 +37,6 @@ public class App extends Application {
         stage.getIcons().add(icon);
         stage.show();
     }
-
     public static void main(String[] args) {
         launch();
     }

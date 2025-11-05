@@ -21,6 +21,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Cliente;
 import model.UserDAO;
@@ -61,6 +62,10 @@ public class ClientsController {
         hc.setStage(home);
         Scene scene = new Scene(root);
         home.setScene(scene);
+        home.setTitle("Tela Home");
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        home.getIcons().add(icon);
         home.show();
         stageClients.close();
     }
@@ -75,6 +80,10 @@ public class ClientsController {
         acc.setStage(telaAddClientes);
         Scene scene = new Scene(root);
         telaAddClientes.setScene(scene);
+        telaAddClientes.setTitle("Tela Adicionar Clientes");
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        telaAddClientes.getIcons().add(icon);
         telaAddClientes.show();
     }
 
@@ -153,6 +162,10 @@ public class ClientsController {
         pcc.setStage(telaPerfil, user);
         Scene scene = new Scene(root);
         telaPerfil.setScene(scene);
+        telaPerfil.setTitle("Tela Perfil Clientes");
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        telaPerfil.getIcons().add(icon);
         telaPerfil.show();
         stageClients.close();
     }

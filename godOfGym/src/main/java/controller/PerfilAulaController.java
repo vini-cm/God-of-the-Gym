@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Aula;
 import model.AulaDAO;
@@ -88,6 +89,10 @@ public class PerfilAulaController {
       eac.setStage(aulas,aula);
       Scene scene = new Scene(root);
       aulas.setScene(scene);
+      aulas.setTitle("Tela Editar Aulas");
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      aulas.getIcons().add(icon);
       aulas.show();
       stage.close();
     }
@@ -106,6 +111,10 @@ public class PerfilAulaController {
             ac.setStage(aula);
             Scene scene = new Scene(root);
             aula.setScene(scene);
+            aula.setTitle("Tela Excluir Aulas");
+            File fileIcon = new File("src/main/resources/imagens/icon.png");
+            Image icon = new Image(fileIcon.toURI().toString());
+            aula.getIcons().add(icon);
             aula.show();
             stage.close();
         }
@@ -122,6 +131,10 @@ public class PerfilAulaController {
       Scene scene = new Scene(root);
       aulas.setScene(scene);
       aulas.show();
+      aulas.setTitle("Tela Aulas");
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      aulas.getIcons().add(icon);
       stage.close();
     }
     

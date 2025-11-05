@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Cliente;
 import model.ClienteDAO;
@@ -85,6 +86,10 @@ public class PerfilClienteController {
         cc.setStage(cliente);
         Scene scene = new Scene(root);
         cliente.setScene(scene);
+        cliente.setTitle("Tela Clientes");
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        cliente.getIcons().add(icon);
         cliente.show();
         stage.close();
     }
@@ -148,6 +153,10 @@ public class PerfilClienteController {
             cc.setStage(cliente);
             Scene scene = new Scene(root);
             cliente.setScene(scene);
+            cliente.setTitle("Tela Excluir Cliente");
+            File fileIcon = new File("src/main/resources/imagens/icon.png");
+            Image icon = new Image(fileIcon.toURI().toString());
+            cliente.getIcons().add(icon);
             cliente.show();
             stage.close();
         }

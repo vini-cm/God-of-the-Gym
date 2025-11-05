@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class PlanosController{
@@ -36,6 +37,10 @@ Stage stagePlanos;
       hc.setStage(home);
       Scene scene = new Scene(root);
       home.setScene(scene);
+      home.setTitle("Tela Home");
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      home.getIcons().add(icon);
       home.show();
       stagePlanos.close();
     }
@@ -50,6 +55,10 @@ Stage stagePlanos;
       acc.setStage(telaAddPlano);
       Scene scene = new Scene(root);
       telaAddPlano.setScene(scene);
+      telaAddPlano.setTitle("Tela Adicionar Planos");
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      telaAddPlano.getIcons().add(icon);
       telaAddPlano.show();
     }
 

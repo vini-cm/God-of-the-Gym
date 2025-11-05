@@ -22,6 +22,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.UserDAO;
 import model.Usuario;
@@ -58,6 +59,10 @@ public class InstrutoresController {
       hc.setStage(home);
       Scene scene = new Scene(root);
       home.setScene(scene);
+      home.setTitle("Tela Home");
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      home.getIcons().add(icon);
       home.show();
       stageInstrutores.close();
     }
@@ -72,6 +77,10 @@ public class InstrutoresController {
       aic.setStage(telaAddInstrutor);
       Scene scene = new Scene(root);
       telaAddInstrutor.setScene(scene);
+      telaAddInstrutor.setTitle("Tela Adicionar Instrutores");
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      telaAddInstrutor.getIcons().add(icon);
       telaAddInstrutor.show();
     }
     
@@ -150,6 +159,10 @@ public class InstrutoresController {
         pic.setStage(telaPerfil, user);
         Scene scene = new Scene(root);
         telaPerfil.setScene(scene);
+        telaPerfil.setTitle("Tela Perfil do Instrutor");
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        telaPerfil.getIcons().add(icon);
         telaPerfil.show();
         stageInstrutores.close();
     }

@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Atendente;
 import model.AtendenteDao;
@@ -79,6 +80,10 @@ public class PerfilAtendentesController  {
             ac.setStage(atendente);
             Scene scene = new Scene(root);
             atendente.setScene(scene);
+            atendente.setTitle("Tela Excluir Instrutores");
+            File fileIcon = new File("src/main/resources/imagens/icon.png");
+            Image icon = new Image(fileIcon.toURI().toString());
+            atendente.getIcons().add(icon);
             atendente.show();
             stage.close();
         }
@@ -94,6 +99,10 @@ public class PerfilAtendentesController  {
         ic.setStage(instrutor);
         Scene scene = new Scene(root);
         instrutor.setScene(scene);
+        instrutor.setTitle("Tela Instrutores");
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        instrutor.getIcons().add(icon);
         instrutor.show();
         stage.close();
     }
