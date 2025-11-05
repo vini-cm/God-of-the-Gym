@@ -28,6 +28,7 @@ public class PerfilAtendentesController  {
   
     Stage stage;
     Usuario user;
+    Atendente atendente;
     AtendenteDAO dao = new AtendenteDAO();
     UserDAO userDAO = new UserDAO();
 
@@ -98,14 +99,27 @@ public class PerfilAtendentesController  {
         stage.close();
     }
     
+    @FXML
+    void editarAtendente(ActionEvent event) throws IOException {
+        URL url = new File("src/main/java/view/editarAtendente.fxml").toURI().toURL();
+        FXMLLoader loader = new FXMLLoader(url);
+        Parent root = loader.load();
+        Stage editar = new Stage();
+        EditarAtendenteController ic = loader.getController();
+        ic.setStage(editar,atendente);
+        Scene scene = new Scene(root);
+        editar.setScene(scene);
+        editar.show();
+    }
+    
     public void setStage(Stage stage, Usuario user) throws SQLException {
         this.stage = stage;
         this.user = user;
+        this.atendente = dao.selecionarAtendente(user.getCPF());
         configurarTela();
     }
     
     public void configurarTela() throws SQLException{
-        Atendente a = dao.selecionarAtendente(user.getCPF());
         lbNome.setText(user.getNome() + " " + user.getSobrenome());
         lbCPF.setText(user.getCPF());
         lbTelefone.setText(user.getTelefone());
@@ -115,9 +129,9 @@ public class PerfilAtendentesController  {
         } else {
             lbGenero.setText("masculino");
         }
-        lbEntrada.setText(String.valueOf(a.getEntrada()));
-        lbSaida.setText(String.valueOf(a.getSaida()));
-        lbSalario.setText(String.valueOf(a.getSalario()));
+        lbEntrada.setText(String.valueOf(atendente.getEntrada()));
+        lbSaida.setText(String.valueOf(atendente.getSaida()));
+        lbSalario.setText(String.valueOf(atendente.getSalario()));
         
     }
     

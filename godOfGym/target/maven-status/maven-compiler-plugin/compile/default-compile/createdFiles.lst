@@ -21,6 +21,7 @@ controller\AddAulaController$1.class
 controller\AddInstrutorController$1.class
 model\PlanosDAO.class
 controller\AulasController.class
+controller\EditarAtendenteController.class
 controller\PlanosController.class
 model\UserDAO.class
 controller\AddAtendentesController.class

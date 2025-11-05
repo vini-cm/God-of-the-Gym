@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: grey;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.PerfilAtendentesController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: grey;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PerfilAtendentesController">
     <stylesheets>
         <URL value="@/css/perfil.css" />
     </stylesheets>
@@ -79,7 +79,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnEditar" layoutX="149.0" layoutY="411.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="175.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="EDITAR" textFill="#d90429">
+            <Button fx:id="btnEditar" layoutX="149.0" layoutY="411.0" mnemonicParsing="false" onAction="#editarAtendente" prefHeight="35.0" prefWidth="175.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="EDITAR" textFill="#d90429">
                <font>
                   <Font name="Arial Bold" size="20.0" />
                </font>
