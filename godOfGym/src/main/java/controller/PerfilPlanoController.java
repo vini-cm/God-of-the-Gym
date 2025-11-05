@@ -67,8 +67,16 @@ public class PerfilPlanoController {
     }
     
     @FXML
-    void editarPlano(ActionEvent event) {
-        
+    void editarPlano(ActionEvent event) throws IOException {
+      URL url = new File ("src/main/java/view/editarPlano.fxml").toURI().toURL();
+      FXMLLoader loader = new FXMLLoader(url);
+      Parent root = loader.load();
+      Stage planos = new Stage();
+      EditarPlanoController pc = loader.getController();
+      pc.setStage(planos,plano);
+      Scene scene = new Scene(root);
+      planos.setScene(scene);
+      planos.show();
     }
 
     @FXML

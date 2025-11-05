@@ -14,8 +14,8 @@ public class PlanosDAO extends genericoDAO{
     }
     
     public void editar(Planos plano) throws SQLException{
-        String update = "update planos set nome=" + plano.getNome()+ ",tipo="+plano.getTipo()+
-                ", preco="+ plano.getPreco() + "where idPlano=?";
+        String update = "update planos set nome='" + plano.getNome()+ "',tipo='"+plano.getTipo()+
+                "', preco="+ plano.getPreco() + "where id=?";
         editar(update,plano.getIdPlano());
     }
     

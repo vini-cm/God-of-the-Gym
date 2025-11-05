@@ -2,7 +2,7 @@
 * \[ ] corrigir deletar instrutores porque eles estão na tabela aulas (default null)
 * \[ ] alterar clientes
 * \[ ] alterar instrutores
-* \[ ] alterar planos
+* \[x] alterar planos
 * \[ ] alterar atendentes
 * \[ ] por icone e titulo nas telas
 * \[ ] alterar os formularios e perfis para o novo estilo
