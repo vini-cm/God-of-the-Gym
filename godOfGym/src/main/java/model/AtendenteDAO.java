@@ -14,8 +14,8 @@ public class AtendenteDAO extends genericoDAO {
     }
 
     public void editar(Atendente atendente) throws SQLException {
-        String editar = "update atendentes set salario =" + atendente.getSalario() + ", entrada = " + atendente.getEntrada()
-                + ", saida = " + atendente.getSaida() + " where cpf = ?";
+        String editar = "update atendentes set salario =" + atendente.getSalario() + ", entrada = '" + atendente.getEntrada()
+                + "', saida = '" + atendente.getSaida() + "' where cpf = ?";
         editar(editar, atendente.getCPF());
     }
 

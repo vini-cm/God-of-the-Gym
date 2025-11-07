@@ -16,7 +16,7 @@ public class UserDAO extends genericoDAO {
 
     public void editar(Usuario user) throws SQLException {
         String update = "UPDATE usuarios SET nome ='" + user.getNome() + "', sobrenome = '" + user.getSobrenome() +
-                "', dataNascimento = " + user.getDataNascimento() + ", senha = '" + user.getSenha() + 
+                "', dataNascimento = '" + user.getDataNascimento().toString() + "', senha = '" + user.getSenha() + 
                 "', email = '" + user.getEmail() + "', genero = '" + user.getGenero() + "', telefone = '" + user.getTelefone() + "' WHERE CPF = ?";
         editar(update, user.getCPF());
     }
@@ -36,7 +36,7 @@ public class UserDAO extends genericoDAO {
             user.setCPF(rs.getString("CPF"));
             user.setNome(rs.getString("Nome"));
             user.setSobrenome(rs.getString("Sobrenome"));
-            user.setDataNascimento(rs.getString("dataNascimento"));
+            user.setDataNascimento(rs.getDate("dataNascimento"));
             user.setEmail(rs.getString("Email"));
             user.setSenha(rs.getString("Senha"));
             user.setGenero(rs.getString("genero"));
@@ -61,7 +61,7 @@ public class UserDAO extends genericoDAO {
             user.setCPF(rs.getString("CPF"));
             user.setNome(rs.getString("Nome"));
             user.setSobrenome(rs.getString("Sobrenome"));
-            user.setDataNascimento(rs.getString("dataNascimento"));
+            user.setDataNascimento(rs.getDate("dataNascimento"));
             user.setEmail(rs.getString("Email"));
             user.setSenha(rs.getString("Senha"));
             user.setGenero(rs.getString("genero"));
@@ -84,7 +84,7 @@ public class UserDAO extends genericoDAO {
             user.setCPF(rs.getString("CPF"));
             user.setNome(rs.getString("Nome"));
             user.setSobrenome(rs.getString("Sobrenome"));
-            user.setDataNascimento(rs.getString("dataNascimento"));
+            user.setDataNascimento(rs.getDate("dataNascimento"));
             user.setEmail(rs.getString("Email"));
             user.setSenha(rs.getString("Senha"));
             user.setGenero(rs.getString("genero"));

@@ -4,6 +4,7 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
@@ -140,8 +141,8 @@ public class PerfilAtendentesController  {
         
     }
     
-    public int calcularIdade(String nascimento){
-        LocalDate aniversario = LocalDate.parse(nascimento);
+    public int calcularIdade(Date nascimento){
+        LocalDate aniversario = nascimento.toLocalDate();
         LocalDate hoje = LocalDate.now();
         return Period.between(aniversario, hoje).getYears();
     }

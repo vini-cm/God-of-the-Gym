@@ -1,6 +1,7 @@
 
 package controller;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalTime;
 import java.util.regex.Matcher;
@@ -146,7 +147,7 @@ public class EditarAtendenteController {
             atendente.setSalario(Float.valueOf(tfSalario.getText()));
         }
         if(cNascimento.isSelected()){
-            user.setDataNascimento(dpNascimento.getValue().toString());
+            user.setDataNascimento(Date.valueOf(dpNascimento.getValue()));
         }
         if(cHorario.isSelected()){
             atendente.setEntrada(LocalTime.parse(tfInicio.getText()));

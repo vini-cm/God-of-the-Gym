@@ -33,7 +33,7 @@ public class LoginDAO extends genericoDAO {
                 user.setCPF(rs.getString("CPF"));
                 user.setNome(rs.getString("Nome"));
                 user.setSobrenome(rs.getString("Sobrenome"));
-                user.setDataNascimento(rs.getString("dataNascimento"));
+                user.setDataNascimento(rs.getDate("dataNascimento"));
                 user.setEmail(rs.getString("Email"));
                 user.setSenha(rs.getString("Senha"));
                 user.setGenero(rs.getString("genero"));

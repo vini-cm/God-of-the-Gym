@@ -16,9 +16,9 @@ public class InstrutorDAO extends genericoDAO{
     }
     
     public void editar(Instrutor instrutor) throws SQLException{
-        String editar="update instrutor set salario = ?, formacao = ?, entrada = ?, saida = ? where CPF = ?";
-        editar(editar, instrutor.getCPF(), instrutor.getSalario(),instrutor.getFormacao(), 
-                instrutor.getEntrada(), instrutor.getSaida(),instrutor.getCPF());
+        String editar="update instrutores set salario = "+ instrutor.getSalario() +", formacao = "+ instrutor.getFormacao() +
+                ", entrada = "+ instrutor.getEntrada().toString() +", saida = "+ instrutor.getSaida().toString() +" where CPF = ?";
+        editar(editar,instrutor.getCPF());
     }
     
     public void deletar(String CPF) throws SQLException{

@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -122,8 +123,9 @@ public class AddInstrutorController {
             entrada = LocalTime.parse(tfEntrada.getText(),formatter);
             saida = LocalTime.parse(tfSaida.getText(), formatter);
             if (dao.selecionarInstrutor(tfCPF.getText()) == null) {
+                Date nascimento = Date.valueOf(dpNascimento.getValue());
                 user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), 
-                        dpNascimento.getValue().toString(), tfSenha.getText(), tfEmail.getText(), genero, tfTelefone.getText(), "instrutor");
+                        nascimento, tfSenha.getText(), tfEmail.getText(), genero, tfTelefone.getText(), "instrutor");
                 userDAO.salvar(user);
                 
                 if (userDAO.selecionarUsuario(tfCPF.getText()) != null) {

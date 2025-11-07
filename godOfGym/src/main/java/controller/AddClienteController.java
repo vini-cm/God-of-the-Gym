@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.function.UnaryOperator;
 import java.util.regex.Matcher;
@@ -133,11 +134,12 @@ public class AddClienteController {
                 !tfgordura.getText().isEmpty() && tfgordura.getText() != null) {
             
             if (dao.selecionarUsuario(tfCPF.getText()) == null){
+                Date nascimento = Date.valueOf(dpNascimento.getValue());
                 altura = Float.parseFloat(tfAltura.getText());
                 peso = Float.parseFloat(tfPeso.getText());
                 porcentagem = Float.parseFloat(tfgordura.getText());
                 imc = peso/(altura*altura);
-            user = new Usuario(tfCPF.getText(), tfNome.getText(),tfSobrenome.getText(),dpNascimento.getValue().toString(),
+            user = new Usuario(tfCPF.getText(), tfNome.getText(),tfSobrenome.getText(),nascimento,
                     tfSenha.getText(),tfEmail.getText(),genero,tfTelefone.getText(), "cliente");
             dao.salvar(user);
             

@@ -1,11 +1,13 @@
 package model;
 
+import java.sql.Date;
+
 public class Usuario {
     
     private String CPF;
     private String nome;
     private String sobrenome;
-    private String dataNascimento;
+    private Date dataNascimento;
     private String senha;
     private String email;
     private String genero;
@@ -16,7 +18,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String CPF, String nome, String sobrenome, String dataNascimento, String senha, String email, String genero, String telefone,String tipo) {
+    public Usuario(String CPF, String nome, String sobrenome, Date dataNascimento, String senha, String email, String genero, String telefone,String tipo) {
         this.CPF = CPF;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -54,11 +56,11 @@ public class Usuario {
         this.sobrenome = sobrenome;
     }
 
-    public String getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
