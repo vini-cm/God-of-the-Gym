@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import model.AulaDAO;
 import model.Instrutor;
 import model.InstrutorDAO;
 import model.UserDAO;
@@ -30,6 +31,7 @@ public class PerfilInstrutorController {
     Usuario user;
     InstrutorDAO dao = new InstrutorDAO();
     UserDAO userDAO = new UserDAO();
+    AulaDAO aulaDAO = new AulaDAO();
 
     @FXML
     private Button btnInstrutor;
@@ -53,9 +55,6 @@ public class PerfilInstrutorController {
     private Label lbNome;
 
     @FXML
-    private Label lbSaida;
-
-    @FXML
     private Label lbTelefone;
     
     @FXML
@@ -66,12 +65,19 @@ public class PerfilInstrutorController {
     
     @FXML
     private Label lbSalario;
+    
+    @FXML
+    private Label lbEmail;
+    
+    @FXML
+    private Label lbHorario;
 
     @FXML
     void excluirInstrutor(ActionEvent event) throws SQLException, IOException {
         Optional<ButtonType> resultado = Alerta.mostrarConfirmacao("EXCLUSÃO", 
                "VOCE DESEJA EXCLUIR O INSTRUTOR " + user.getNome() + "?");
        if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+            aulaDAO.deletarAulaPorProfessor(user.getCPF());
             dao.deletar(user.getCPF());
             userDAO.deletar(user.getCPF());
             URL url = new File("src/main/java/view/Instrutores.fxml").toURI().toURL();
@@ -101,6 +107,11 @@ public class PerfilInstrutorController {
         stage.close();
     }
     
+     @FXML
+    void editarInstrutor(ActionEvent event) {
+
+    }
+    
     public void setStage(Stage stage, Usuario user) throws SQLException {
         this.stage = stage;
         this.user = user;
@@ -112,15 +123,17 @@ public class PerfilInstrutorController {
         lbNome.setText(user.getNome() + " " + user.getSobrenome());
         lbCPF.setText(user.getCPF());
         lbTelefone.setText(user.getTelefone());
+        lbEmail.setText(user.getEmail());
         lbIdade.setText((String.valueOf(calcularIdade(user.getDataNascimento()))));
         if (user.getGenero().equals("f")){
             lbGenero.setText("feminino");
         } else {
             lbGenero.setText("masculino");
         }
-        lbEntrada.setText(String.valueOf(i.getEntrada()));
-        lbSaida.setText(String.valueOf(i.getSaida()));
-        lbFormacao.setText(i.getFormacao());
+        lbHorario.setText(i.getEntrada().toString() + " - " + i.getSaida().toString());
+        lbFormacao.setOnMouseClicked(e -> {
+            Alerta.mostrarInformacao("Formação", i.getFormacao());
+        });
         lbSalario.setText(String.valueOf(i.getSalario()));
         
     }

@@ -31,6 +31,11 @@ public class AulaDAO extends genericoDAO {
         deletar(delete, id);
     }
     
+    public void deletarAulaPorProfessor(String cpf) throws SQLException{
+        String delete = "delete from aulas where cpf_professor=?";
+        deletar(delete,cpf);
+    }
+    
     public ObservableList<Aula> selecionarAulas() throws SQLException{
         ObservableList<Aula> lista = FXCollections.observableArrayList();
         String sql = "select * from aulas";
