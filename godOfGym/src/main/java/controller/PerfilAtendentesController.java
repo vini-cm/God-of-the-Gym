@@ -19,7 +19,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.Atendente;
 import model.AtendenteDAO;
-import model.Instrutor;
 import model.UserDAO;
 import model.Usuario;
 import util.Alerta;
@@ -64,9 +63,15 @@ public class PerfilAtendentesController  {
     
     @FXML
     private Label lbSalario;
+    
+    @FXML
+    private Label lbEmail;
+    
+    @FXML
+    private Label lbHorario;
 
     @FXML
-    void excluirInstrutor(ActionEvent event) throws SQLException, IOException {
+    void excluirAtendente(ActionEvent event) throws SQLException, IOException {
         Optional<ButtonType> resultado = Alerta.mostrarConfirmacao("EXCLUSÃO", 
                "VOCE DESEJA EXCLUIR ATENDENTE " + user.getNome() + "?");
        if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
@@ -86,21 +91,21 @@ public class PerfilAtendentesController  {
     }
     
     @FXML
-    void voltarInstrutor(ActionEvent event) throws SQLException, IOException {
-        URL url = new File("src/main/java/view/Instrutores.fxml").toURI().toURL();
+    void voltarAtendente(ActionEvent event) throws SQLException, IOException {
+        URL url = new File("src/main/java/view/atendentes.fxml").toURI().toURL();
         FXMLLoader loader = new FXMLLoader(url);
         Parent root = loader.load();
-        Stage instrutor = new Stage();
-        InstrutoresController ic = loader.getController();
-        ic.setStage(instrutor);
+        Stage atendentes = new Stage();
+        AtendentesController ac = loader.getController();
+        ac.setStage(atendentes);
         Scene scene = new Scene(root);
-        instrutor.setScene(scene);
-        instrutor.show();
+        atendentes.setScene(scene);
+        atendentes.show();
         stage.close();
     }
     
     @FXML
-    void editarAtendente(ActionEvent event) throws IOException {
+    void editarAtendente(ActionEvent event) throws IOException, SQLException {
         URL url = new File("src/main/java/view/editarAtendente.fxml").toURI().toURL();
         FXMLLoader loader = new FXMLLoader(url);
         Parent root = loader.load();
@@ -123,14 +128,14 @@ public class PerfilAtendentesController  {
         lbNome.setText(user.getNome() + " " + user.getSobrenome());
         lbCPF.setText(user.getCPF());
         lbTelefone.setText(user.getTelefone());
+        lbEmail.setText(user.getEmail());
         lbIdade.setText((String.valueOf(calcularIdade(user.getDataNascimento()))));
         if (user.getGenero().equals("f")){
             lbGenero.setText("feminino");
         } else {
             lbGenero.setText("masculino");
         }
-        lbEntrada.setText(String.valueOf(atendente.getEntrada()));
-        lbSaida.setText(String.valueOf(atendente.getSaida()));
+        lbHorario.setText(atendente.getEntrada().toString() + " - " + atendente.getSaida().toString());
         lbSalario.setText(String.valueOf(atendente.getSalario()));
         
     }

@@ -67,10 +67,10 @@ public class Visibilidade {
          cb.setOnAction(e -> {
              if(cb.isSelected()){
                  rf.setVisible(true);
-                 rf.setVisible(true);
+                 rm.setVisible(true);
              } else {
                  rf.setVisible(false);
-                 rf.setVisible(false);
+                 rm.setVisible(false);
              }
          });
      }

@@ -1,98 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: grey;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PerfilAtendentesController">
-    <stylesheets>
-        <URL value="@/css/perfil.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" stylesheets="@../../resources/css/perfil.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PerfilAtendentesController">
    <children>
-      <AnchorPane layoutX="5.0" layoutY="5.0" prefHeight="590.0" prefWidth="690.0" style="-fx-background-color: #666666; -fx-background-radius: 15;">
+      <AnchorPane layoutX="327.0" layoutY="132.0" prefHeight="253.0" prefWidth="343.0" styleClass="container" stylesheets="@../../resources/css/perfil.css">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" />
+         </effect>
          <children>
-            <AnchorPane layoutX="78.0" layoutY="112.0" prefHeight="285.0" prefWidth="535.0" style="-fx-background-color: grey; -fx-background-radius: 25;">
-               <children>
-                  <Label fx:id="lbNome" layoutX="190.0" layoutY="19.0" text="Nome">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lbTelefone" layoutX="190.0" layoutY="55.0" text="Telefone">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lbCPF" layoutX="190.0" layoutY="91.0" text="CPF">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="150.0" fitWidth="169.0" layoutX="14.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../resources/imagens/avatar.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="lbEntrada" layoutX="191.0" layoutY="215.0" text="00:00">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="258.0" layoutY="215.0" text="-">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lbSaida" layoutX="269.0" layoutY="215.0" text="00:00">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lbGenero" layoutX="190.0" layoutY="124.0" text="GENERO">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lbIdade" layoutX="188.0" layoutY="154.0" text="IDADE">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lbSalario" layoutX="188.0" layoutY="187.0" text="SALARIO">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <Button fx:id="btnInstrutor" layoutX="4.0" layoutY="1.0" mnemonicParsing="false" onAction="#voltarInstrutor" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 100; -fx-background-color: #666666;" stylesheets="@../Documents/God-of-the-Gym/godOfGym/src/main/java/Documents/God-of-the-Gym/godOfGym/src/main/resources/css/planos.css">
-               <graphic>
-                  <ImageView fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../resources/imagens/SetaVermelha%20.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="btnEditar" layoutX="149.0" layoutY="411.0" mnemonicParsing="false" onAction="#editarAtendente" prefHeight="35.0" prefWidth="175.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="EDITAR" textFill="#d90429">
-               <font>
-                  <Font name="Arial Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnExcluir" layoutX="379.0" layoutY="411.0" mnemonicParsing="false" onAction="#excluirInstrutor" prefHeight="35.0" prefWidth="175.0" style="-fx-background-radius: 100; -fx-background-color: #2B2D42;" text="EXCLUIR" textFill="#d90429">
-               <font>
-                  <Font name="Arial Bold" size="20.0" />
-               </font>
-            </Button>
+            <Button fx:id="btnExcluir" layoutX="51.0" layoutY="197.0" mnemonicParsing="false" onAction="#excluirAtendente" styleClass="btn" stylesheets="@../../resources/css/perfil.css" text="EXCLUIR" />
+            <Button fx:id="btnEditar" layoutX="219.0" layoutY="197.0" mnemonicParsing="false" onAction="#editarAtendente" styleClass="btn" stylesheets="@../../resources/css/perfil.css" text="EDITAR" />
+            <Label layoutX="45.0" layoutY="14.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="CPF:" />
+            <Label layoutX="45.0" layoutY="39.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="EMAIL:" />
+            <Label layoutX="45.0" layoutY="64.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="TELEFONE:" />
+            <Label layoutX="45.0" layoutY="89.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="IDADE:" />
+            <Label layoutX="45.0" layoutY="115.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="GENERO:" />
+            <Label fx:id="lbCPF" layoutX="88.0" layoutY="14.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="CPF" />
+            <Label fx:id="lbEmail" layoutX="114.0" layoutY="39.0" maxWidth="220.0" prefHeight="23.0" prefWidth="220.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="EMAIL" wrapText="true" />
+            <Label fx:id="lbTelefone" layoutX="147.0" layoutY="64.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="TELEFONE:" />
+            <Label fx:id="lbIdade" layoutX="108.0" layoutY="89.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="IDADE" />
+            <Label fx:id="lbGenero" layoutX="131.0" layoutY="115.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="GENERO" />
+            <Label layoutX="45.0" layoutY="140.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="HORARIO:" />
+            <Label fx:id="lbHorario" layoutX="138.0" layoutY="140.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="HORARIO" />
+            <Label layoutX="45.0" layoutY="165.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="SALARIO:" />
+            <Label fx:id="lbSalario" layoutX="133.0" layoutY="165.0" styleClass="texto" stylesheets="@../../resources/css/perfil.css" text="SALARIO" />
          </children>
+      </AnchorPane>
+      <ImageView fitHeight="502.0" fitWidth="320.0" layoutX="63.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/imagens/perfilAtendente.png" />
+         </image>
          <effect>
             <DropShadow />
          </effect>
-      </AnchorPane>
+      </ImageView>
+      <Label fx:id="lbNome" layoutX="368.0" layoutY="101.0" maxWidth="297.0" prefHeight="30.0" prefWidth="297.0" styleClass="titulo" stylesheets="@../../resources/css/formulario.css" text="NOME" wrapText="true">
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX" height="5.0" offsetX="1.0" radius="2.0" width="5.0" />
+         </effect>
+      </Label>
+      <Button fx:id="btnVoltar" layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltarAtendente" styleClass="voltar" stylesheets="@../../resources/css/perfil.css">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/imagens/voltar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

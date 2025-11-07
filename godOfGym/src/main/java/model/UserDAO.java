@@ -15,8 +15,10 @@ public class UserDAO extends genericoDAO {
     }
 
     public void editar(Usuario user) throws SQLException {
-        String update = "UPDATE usuarios" + "SET nome = ?, sobrenome = ?, dataNascimento = ?, senha = ?, email = ?, genero = ?, telefone = ?" + "WHERE CPF = ?";
-        editar(update, user.getNome(), user.getSobrenome(), user.getDataNascimento(), user.getSenha(), user.getEmail(), user.getGenero(), user.getCPF(), user.getTelefone());
+        String update = "UPDATE usuarios SET nome ='" + user.getNome() + "', sobrenome = '" + user.getSobrenome() +
+                "', dataNascimento = " + user.getDataNascimento() + ", senha = '" + user.getSenha() + 
+                "', email = '" + user.getEmail() + "', genero = '" + user.getGenero() + "', telefone = '" + user.getTelefone() + "' WHERE CPF = ?";
+        editar(update, user.getCPF());
     }
 
     public void deletar(String CPF) throws SQLException {
