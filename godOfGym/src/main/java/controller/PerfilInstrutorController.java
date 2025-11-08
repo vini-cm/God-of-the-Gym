@@ -30,6 +30,7 @@ public class PerfilInstrutorController {
     
     Stage stage;
     Usuario user;
+    Instrutor instrutor;
     InstrutorDAO dao = new InstrutorDAO();
     UserDAO userDAO = new UserDAO();
     AulaDAO aulaDAO = new AulaDAO();
@@ -109,18 +110,27 @@ public class PerfilInstrutorController {
     }
     
      @FXML
-    void editarInstrutor(ActionEvent event) {
-
+    void editarInstrutor(ActionEvent event) throws IOException, SQLException {
+        URL url = new File("src/main/java/view/editarInstrutor.fxml").toURI().toURL();
+        FXMLLoader loader = new FXMLLoader(url);
+        Parent root = loader.load();
+        Stage editar = new Stage();
+        EditarInstrutorController eic = loader.getController();
+        eic.setStage(editar, instrutor);
+        Scene scene = new Scene(root);
+        editar.setScene(scene);
+        editar.show();
+        stage.close();
     }
     
     public void setStage(Stage stage, Usuario user) throws SQLException {
         this.stage = stage;
         this.user = user;
+        this.instrutor = dao.selecionarInstrutor(user.getCPF());
         configurarTela();
     }
     
     public void configurarTela() throws SQLException{
-        Instrutor i = dao.selecionarInstrutor(user.getCPF());
         lbNome.setText(user.getNome() + " " + user.getSobrenome());
         lbCPF.setText(user.getCPF());
         lbTelefone.setText(user.getTelefone());
@@ -131,11 +141,11 @@ public class PerfilInstrutorController {
         } else {
             lbGenero.setText("masculino");
         }
-        lbHorario.setText(i.getEntrada().toString() + " - " + i.getSaida().toString());
+        lbHorario.setText(instrutor.getEntrada().toString() + " - " + instrutor.getSaida().toString());
         lbFormacao.setOnMouseClicked(e -> {
-            Alerta.mostrarInformacao("Formação", i.getFormacao());
+            Alerta.mostrarInformacao("Formação", instrutor.getFormacao());
         });
-        lbSalario.setText(String.valueOf(i.getSalario()));
+        lbSalario.setText(String.valueOf(instrutor.getSalario()));
         
     }
     

@@ -29,6 +29,7 @@ controller\AddAtendentesController.class
 controller\EditarAtendenteController$2.class
 model\Usuario.class
 controller\AddAulaController$2.class
+controller\EditarInstrutorController.class
 controller\LoginController.class
 controller\PerfilAulaController.class
 model\LoginDAO.class
