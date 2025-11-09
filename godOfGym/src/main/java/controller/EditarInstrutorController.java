@@ -1,7 +1,9 @@
 
 package controller;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.beans.value.ChangeListener;
@@ -28,8 +30,9 @@ public class EditarInstrutorController  {
     Stage stage;
     InstrutorDAO dao = new InstrutorDAO();
     UserDAO uDAO = new UserDAO();
-    Instrutor i;
-    Usuario u;
+    Instrutor instrutor;
+    Usuario user;
+    String genero;
 
     @FXML
     private Button btnEditar;
@@ -102,8 +105,8 @@ public class EditarInstrutorController  {
     
     public void setStage(Stage stage, Instrutor i) throws SQLException{
         this.stage = stage;
-        this.i = i;
-        this.u = uDAO.selecionarUsuario(i.getCPF());
+        this.instrutor = i;
+        this.user = uDAO.selecionarUsuario(i.getCPF());
         configuracaoVisibilidade();
         
         rFeminino.setOnAction(e -> HandleRadioButton(rFeminino, rMasculino));
@@ -132,8 +135,64 @@ public class EditarInstrutorController  {
     }
 
     @FXML
-    void editarInstrutor(ActionEvent event) {
-
+    void editarInstrutor(ActionEvent event) throws SQLException {
+        if(cNome.isSelected()){
+            campos(tfNome.getText(), "nome");
+        }
+        if(cSobrenome.isSelected()){
+            campos(tfSobrenome.getText(), "sobrenome");
+        }
+        if(cSenha.isSelected()){
+            campos(pfSenha.getText(), "senha");
+        }
+        if(cEmail.isSelected()){
+            campos(tfEmail.getText(), "email");
+        }
+        if(cFormacao.isSelected()){
+            campos(taFormacao.getText(),"formacao");
+        }
+        if(cTelefone.isSelected()){
+            campos(tfTelefone.getText(), "telefone");
+        }
+        if(cSalario.isSelected()){
+            instrutor.setSalario(Float.valueOf(tfSalario.getText()));
+        }
+        if(cNascimento.isSelected()){
+            user.setDataNascimento(Date.valueOf(dpNascimento.getValue()));
+        }
+        if(cHorario.isSelected()){
+            instrutor.setEntrada(LocalTime.parse(tfInicio.getText()));
+            instrutor.setSaida(LocalTime.parse(tfFinal.getText()));
+        }
+        if(cGenero.isSelected()){
+            user.setGenero(genero);
+        }
+        
+        uDAO.editar(user);
+        dao.editar(instrutor);
+    }
+    
+    void campos(String valor, String tipo){
+        switch (tipo) {
+            case "nome":
+                user.setNome(valor);
+                break;
+            case "sobrenome":
+                user.setSobrenome(valor);
+                break;
+            case "senha":
+                user.setSenha(valor);
+                break;
+            case "email":
+                user.setEmail(valor);
+                break;
+            case "telefone":
+                user.setTelefone(valor);
+                break;
+            case "formacao":
+                instrutor.setFormacao(valor);
+                break;
+        }
     }
     
     public void configuracaoVisibilidade(){
