@@ -15,9 +15,11 @@ public class ClienteDAO extends genericoDAO {
     }
 
     public void editar(Cliente cliente) throws SQLException {
-        String update = "update clientes id_plano =?,peso =?, altura =?, porcentagem_gordura=?,imc =?, experiencia =?,medicamentos =?,limitacoes =? where cpf = ?";
-        editar(update, cliente.getIdPlano(), cliente.getPeso(), cliente.getAltura(), cliente.getPorcentagem(), cliente.getImc(),
-                cliente.getExperiencia(), cliente.getMedicamentos(), cliente.getLimitacoes(), cliente.getCPF());
+        String update = "update clientes set id_plano =" + cliente.getIdPlano() +",peso =" +  cliente.getPeso() +
+                ", altura =" + cliente.getAltura() +", porcentagem_gordura=" + cliente.getPorcentagem() 
+                +",imc =" + cliente.getImc() +", experiencia ='" + cliente.getExperiencia() +
+                "',medicamentos ='" + cliente.getMedicamentos() +"',limitacoes ='" + cliente.getLimitacoes() +"' where cpf = ?";
+        editar(update, cliente.getCPF());
     }
 
     public void deletar(String CPF) throws SQLException {

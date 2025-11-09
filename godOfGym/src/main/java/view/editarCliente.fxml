@@ -42,7 +42,7 @@
       <DatePicker fx:id="dpNascimento" layoutX="301.0" layoutY="106.0" prefHeight="25.0" prefWidth="149.0" visible="false" />
       <PasswordField fx:id="pfSenha" layoutX="301.0" layoutY="136.0" promptText="Senha" visible="false" />
       <TextField fx:id="tfEmail" layoutX="301.0" layoutY="166.0" promptText="Email" visible="false" />
-      <RadioButton fx:id="rFemino" layoutX="301.0" layoutY="200.0" mnemonicParsing="false" text="feminino" visible="false" />
+      <RadioButton fx:id="rFeminino" layoutX="301.0" layoutY="200.0" mnemonicParsing="false" text="feminino" visible="false" />
       <RadioButton fx:id="rMasculino" layoutX="376.0" layoutY="200.0" mnemonicParsing="false" text="masculino" visible="false" />
       <ChoiceBox fx:id="cbPlano" layoutX="301.0" layoutY="224.0" prefWidth="150.0" visible="false" />
       <TextField fx:id="tfTelefone" layoutX="302.0" layoutY="261.0" promptText="Telefone" visible="false" />
@@ -51,5 +51,7 @@
       <TextField fx:id="tfGordura" layoutX="459.0" layoutY="76.0" promptText="Gordura Corporal" visible="false" />
       <TextArea fx:id="taMedicamentos" layoutX="459.0" layoutY="109.0" prefHeight="80.0" prefWidth="150.0" promptText="Medicamentos" visible="false" wrapText="true" />
       <TextArea fx:id="taLimitacoes" layoutX="459.0" layoutY="197.0" prefHeight="91.0" prefWidth="150.0" promptText="Limitações" visible="false" />
+      <CheckBox fx:id="cExperiencia" layoutX="193.0" layoutY="110.0" mnemonicParsing="false" text="Experiencia" />
+      <ChoiceBox fx:id="cbExperiencia" layoutX="459.0" layoutY="312.0" prefWidth="150.0" visible="false" />
    </children>
 </AnchorPane>

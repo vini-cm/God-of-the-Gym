@@ -21,11 +21,13 @@ controller\AddAulaController$1.class
 controller\AddInstrutorController$1.class
 controller\EditarAtendenteController$1.class
 model\PlanosDAO.class
+controller\EditarInstrutorController$2.class
 controller\AulasController.class
 controller\EditarAtendenteController.class
 controller\PlanosController.class
 model\UserDAO.class
 controller\AddAtendentesController.class
+controller\EditarInstrutorController$1.class
 controller\EditarAtendenteController$2.class
 model\Usuario.class
 controller\AddAulaController$2.class

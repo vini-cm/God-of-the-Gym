@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +14,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Cliente;
+import model.ClienteDAO;
 import model.Planos;
+import model.PlanosDAO;
 import model.UserDAO;
 import model.Usuario;
 import util.Visibilidade;
@@ -25,6 +28,9 @@ public class EditarClienteController {
     Cliente cliente;
     Usuario user;
     UserDAO uDAO = new UserDAO();
+    ClienteDAO cDAO = new ClienteDAO();
+    PlanosDAO pDAO = new PlanosDAO();
+    String genero;
     
     @FXML
     private Button btnEditar;
@@ -34,6 +40,9 @@ public class EditarClienteController {
 
     @FXML
     private CheckBox cEmail;
+    
+    @FXML
+    private CheckBox cExperiencia;
 
     @FXML
     private CheckBox cGenero;
@@ -70,6 +79,9 @@ public class EditarClienteController {
 
     @FXML
     private ChoiceBox<Planos> cbPlano;
+    
+    @FXML
+    private ChoiceBox<String> cbExperiencia;
 
     @FXML
     private DatePicker dpNascimento;
@@ -78,7 +90,7 @@ public class EditarClienteController {
     private PasswordField pfSenha;
 
     @FXML
-    private RadioButton rFemino;
+    private RadioButton rFeminino;
 
     @FXML
     private RadioButton rMasculino;
@@ -115,20 +127,118 @@ public class EditarClienteController {
         this.cliente = cliente;
         user = uDAO.selecionarUsuario(cliente.getCPF());
         configurarVisibilidade();
+        cbExperiencia.getItems().addAll("Iniciante","Intermediario","Experiente","Profissional");
+        rFeminino.setOnAction(e -> HandleRadioButton(rFeminino, rMasculino));
+        rMasculino.setOnAction(e -> HandleRadioButton(rMasculino, rFeminino));
+        cbPlano.setItems(pDAO.selecionarPlanos());
+        
+    }
+    
+    @FXML
+    void editarCliente(ActionEvent event) throws SQLException {
+        if (rFeminino.isSelected()) {
+            genero = "f";
+        } else if (rMasculino.isSelected()) {
+            genero = "m";
+        }
+        
+        if(cNome.isSelected()){
+            campos(tfNome.getText(), "nome");
+        }
+        if(cSobrenome.isSelected()){
+            campos(tfSobrenome.getText(), "sobrenome");
+        }
+        if(cSenha.isSelected()){
+            campos(pfSenha.getText(), "senha");
+        }
+        if(cEmail.isSelected()){
+            campos(tfEmail.getText(), "email");
+        }
+        if(cTelefone.isSelected()){
+            campos(tfTelefone.getText(), "telefone");
+        }
+        if(cMedicamentos.isSelected()){
+            campos(taMedicamentos.getText(),"medicamentos");
+        }
+        if(cLimitacões.isSelected()){
+            campos(taLimitacoes.getText(),"limitacoes");
+        }
+        if(cNascimento.isSelected()){
+            user.setDataNascimento(Date.valueOf(dpNascimento.getValue()));
+        }
+        if(cGenero.isSelected()){
+            user.setGenero(genero);
+        }
+        if(cPeso.isSelected()){
+            cliente.setPeso(Float.valueOf(tfPeso.getText()));
+        }
+        if(cAltura.isSelected()){
+            cliente.setAltura(Float.valueOf(tfAltura.getText()));
+        }
+        if(cGordura.isSelected()){
+            cliente.setPorcentagem(Float.valueOf(tfGordura.getText()));
+        }
+        if(cPlano.isSelected()) {
+            cliente.setIdPlano(cbPlano.getValue().getIdPlano());
+        }
+        if(cExperiencia.isSelected()){
+            cliente.setExperiencia(cbExperiencia.getValue());
+        }
+        
+        uDAO.editar(user);
+        cDAO.editar(cliente);
+    }
+    
+    void campos(String valor, String tipo){
+        switch (tipo) {
+            case "nome":
+                user.setNome(valor);
+                break;
+            case "sobrenome":
+                user.setSobrenome(valor);
+                break;
+            case "senha":
+                user.setSenha(valor);
+                break;
+            case "email":
+                user.setEmail(valor);
+                break;
+            case "telefone":
+                user.setTelefone(valor);
+                break;
+            case "medicamentos":
+                cliente.setMedicamentos(valor);
+                break;
+            case "limitacoes":
+                cliente.setLimitacoes(valor);
+                break;
+        }
     }
     
     public void configurarVisibilidade(){
         Visibilidade.visibilidadeTexto(cNome, tfNome);
         Visibilidade.visibilidadeTexto(cSobrenome, tfSobrenome);
+        Visibilidade.visibilidadeTexto(cSenha, pfSenha);
+        Visibilidade.visibilidadeGenero(cGenero, rFeminino, rMasculino);
         Visibilidade.visibilidadeTexto(cEmail, tfEmail);
         Visibilidade.visibilidadeTexto(cTelefone, tfTelefone);
+        Visibilidade.visibilidadeDatePicker(cNascimento, dpNascimento);
         Visibilidade.visibilidadeTexto(cPeso, tfPeso);
         Visibilidade.visibilidadeTexto(cAltura, tfAltura);
+        Visibilidade.visibilidadeTexto(cGordura, tfGordura);
+        Visibilidade.visibilidadeTextArea(cMedicamentos, taMedicamentos);
+        Visibilidade.visibilidadeTextArea(cLimitacões, taLimitacoes);
+        Visibilidade.visibilidadeChoiceBox(cPlano, cbPlano);
+        Visibilidade.visibilidadeChoiceBox(cExperiencia, cbExperiencia);
+    }
+    
+    private void HandleRadioButton(RadioButton select, RadioButton... others) {
+        for (RadioButton button : others) {
+            if (button != select) {
+                button.setSelected(false);
+            }
+        }
     }
 
-    @FXML
-    void editarCliente(ActionEvent event) {
-        
-    }
 
  }   
