@@ -8,6 +8,8 @@
     -fx-background-color:#d90429;
     -fx-background-radius:10px;
     -fx-text-fill:#2b2d42;
+    -fx-font-size: 20px;
+    
 }
 
 .anchorPane{
@@ -15,7 +17,7 @@
 }
 
 .textField {
-    -fx-background-radius:10px;
+    -fx-background-radius:20px;
     -fx-background-color: #2b2d42;
     -fx-border-color: #d90429;
     -fx-border-width: 3px;
@@ -23,6 +25,18 @@
     -fx-prompt-text-fill: #d90429;
     -fx-border-radius:10px;
     -fx-control-inner-background:#2b2d42;
+    -fx-font-size: 15px;
+}
+.textArea {
+    -fx-background-radius:20px;
+    -fx-background-color: #2b2d42;
+    -fx-border-color: #d90429;
+    -fx-border-width: 3px;
+    -fx-text-fill: #d90429;
+    -fx-prompt-text-fill: #d90429;
+    -fx-border-radius:10px;
+    -fx-control-inner-background:#2b2d42;
+    -fx-font-size: 15px;
 }
 
 .choice-box{
