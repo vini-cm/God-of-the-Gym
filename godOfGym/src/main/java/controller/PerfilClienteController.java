@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Cliente;
 import model.ClienteDAO;
@@ -89,10 +90,14 @@ public class PerfilClienteController {
         FXMLLoader loader = new FXMLLoader(url);
         Parent root = loader.load();
         Stage cliente = new Stage();
-        ClientsController cc = loader.getController();
+        ClientesController cc = loader.getController();
         cc.setStage(cliente);
         Scene scene = new Scene(root);
         cliente.setScene(scene);
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        cliente.getIcons().add(icon);
+        cliente.setTitle("CLIENTES");
         cliente.show();
         stage.close();
     }
@@ -155,9 +160,13 @@ public class PerfilClienteController {
             FXMLLoader loader = new FXMLLoader(url);
             Parent root = loader.load();
             Stage cliente = new Stage();
-            ClientsController cc = loader.getController();
+            ClientesController cc = loader.getController();
             cc.setStage(cliente);
             Scene scene = new Scene(root);
+            File fileIcon = new File("src/main/resources/imagens/icon.png");
+            Image icon = new Image(fileIcon.toURI().toString());
+            cliente.getIcons().add(icon);
+            cliente.setTitle("adicionar atendente");
             cliente.setScene(scene);
             cliente.show();
             stage.close();
@@ -174,6 +183,10 @@ public class PerfilClienteController {
         ecc.setStage(cliente, c);
         Scene scene = new Scene(root);
         cliente.setScene(scene);
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        cliente.getIcons().add(icon);
+        cliente.setTitle("EDITAR CLIENTE");
         cliente.show();
         stage.close();
     }

@@ -21,6 +21,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Aula;
 import model.AulaDAO;
@@ -60,6 +61,10 @@ public class AulasController {
       hc.setStage(home);
       Scene scene = new Scene(root);
       home.setScene(scene);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      home.getIcons().add(icon);
+      home.setTitle("HOME PAGE");
       home.show();
       stageAula.close();
     }
@@ -127,7 +132,7 @@ public class AulasController {
                         try {
                             acessarAula(aulaSelecionada);
                         } catch (IOException | SQLException ex) {
-                            Logger.getLogger(ClientsController.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(ClientesController.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                 });
@@ -150,6 +155,10 @@ public class AulasController {
         pac.setStage(telaAula, aula);
         Scene scene = new Scene(root);
         telaAula.setScene(scene);
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        telaAula.getIcons().add(icon);
+        telaAula.setTitle("adicionar atendente");
         telaAula.show();
         stageAula.close();
     }

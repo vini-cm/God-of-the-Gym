@@ -21,6 +21,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Planos;
 import model.PlanosDAO;
@@ -59,6 +60,10 @@ public class PlanosController{
       hc.setStage(home);
       Scene scene = new Scene(root);
       home.setScene(scene);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      home.getIcons().add(icon);
+      home.setTitle("HOME PAGE");
       home.show();
       stagePlanos.close();
     }
@@ -72,6 +77,10 @@ public class PlanosController{
       AddPlanoController acc = loader.getController();
       acc.setStage(telaAddPlano);
       Scene scene = new Scene(root);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      telaAddPlano.getIcons().add(icon);
+      telaAddPlano.setTitle("ADICIONAR PLANO");
       telaAddPlano.setScene(scene);
       telaAddPlano.show();
     }
@@ -120,7 +129,7 @@ public class PlanosController{
                         try {
                             acessarPlano(planoSelecionado);
                         } catch (IOException | SQLException ex) {
-                            Logger.getLogger(ClientsController.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(ClientesController.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                 });
@@ -143,6 +152,10 @@ public class PlanosController{
         ppc.setStage(tela, plano);
         Scene scene = new Scene(root);
         tela.setScene(scene);
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        tela.getIcons().add(icon);
+        tela.setTitle("PERFIL PLANO");
         tela.show();
         stagePlanos.close();
     }  

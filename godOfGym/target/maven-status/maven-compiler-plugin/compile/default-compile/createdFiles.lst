@@ -5,7 +5,6 @@ controller\AddAtendentesController$2.class
 controller\EditarClienteController.class
 model\Instrutor.class
 controller\AddClienteController.class
-controller\ClientsController.class
 model\Cliente.class
 model\InstrutorDAO.class
 model\ClienteDAO.class
@@ -17,6 +16,7 @@ model\AulaDAO.class
 model\genericoDAO.class
 util\Visibilidade.class
 model\Atendente.class
+controller\ClientesController.class
 controller\AddAulaController$1.class
 controller\AddInstrutorController$1.class
 controller\EditarAtendenteController$1.class

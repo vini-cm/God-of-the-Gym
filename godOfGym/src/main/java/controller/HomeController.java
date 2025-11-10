@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class HomeController  {
@@ -24,6 +25,10 @@ public class HomeController  {
       ac.setStage(telaAtendentes);
       Scene scene = new Scene(root);
       telaAtendentes.setScene(scene);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      telaAtendentes.getIcons().add(icon);
+      telaAtendentes.setTitle("ATENDENTES");
       telaAtendentes.show();
       if (HomeStage != null){
          HomeStage.close();
@@ -40,6 +45,10 @@ public class HomeController  {
       ac.setStage(telaAulas);
       Scene scene = new Scene(root);
       telaAulas.setScene(scene);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      telaAulas.getIcons().add(icon);
+      telaAulas.setTitle("AULAS");
       telaAulas.show();
       if (HomeStage != null){
          HomeStage.close();
@@ -52,10 +61,14 @@ public class HomeController  {
       FXMLLoader loader = new FXMLLoader(url);
       Parent root = loader.load();
       Stage telaClients = new Stage();
-      ClientsController cc = loader.getController();
+      ClientesController cc = loader.getController();
       cc.setStage(telaClients);
       Scene scene = new Scene(root);
       telaClients.setScene(scene);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      telaClients.getIcons().add(icon);
+      telaClients.setTitle("CLIENTES");
       telaClients.show();
       if (HomeStage != null){
          HomeStage.close();
@@ -72,6 +85,10 @@ public class HomeController  {
       ic.setStage(telaInstrutores);
       Scene scene = new Scene(root);
       telaInstrutores.setScene(scene);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      telaInstrutores.getIcons().add(icon);
+      telaInstrutores.setTitle("INSTRUTORES");
       telaInstrutores.show();
       if (HomeStage != null){
          HomeStage.close();
@@ -88,6 +105,10 @@ public class HomeController  {
       pc.setStage(telaPlanos);
       Scene scene = new Scene(root);
       telaPlanos.setScene(scene);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      telaPlanos.getIcons().add(icon);
+      telaPlanos.setTitle("PLANOS");
       telaPlanos.show();
       if (HomeStage != null){
          HomeStage.close();

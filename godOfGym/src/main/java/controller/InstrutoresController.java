@@ -22,6 +22,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.UserDAO;
 import model.Usuario;
@@ -58,6 +59,10 @@ public class InstrutoresController {
       hc.setStage(home);
       Scene scene = new Scene(root);
       home.setScene(scene);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      home.getIcons().add(icon);
+      home.setTitle("HOME PAGE");
       home.show();
       stageInstrutores.close();
     }
@@ -72,6 +77,10 @@ public class InstrutoresController {
       aic.setStage(telaAddInstrutor);
       Scene scene = new Scene(root);
       telaAddInstrutor.setScene(scene);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      telaAddInstrutor.getIcons().add(icon);
+      telaAddInstrutor.setTitle("ADICIONAR INSTRUTOR");
       telaAddInstrutor.show();
     }
     
@@ -127,7 +136,7 @@ public class InstrutoresController {
                         try {
                             acessarPerfil(usuarioSelecionado);
                         } catch (IOException | SQLException ex) {
-                            Logger.getLogger(ClientsController.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(ClientesController.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                 });
@@ -150,6 +159,10 @@ public class InstrutoresController {
         pic.setStage(telaPerfil, user);
         Scene scene = new Scene(root);
         telaPerfil.setScene(scene);
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        telaPerfil.getIcons().add(icon);
+        telaPerfil.setTitle("PERFIL INSTRUTOR");
         telaPerfil.show();
         stageInstrutores.close();
     }

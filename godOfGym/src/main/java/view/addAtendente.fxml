@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -22,7 +21,7 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <DatePicker fx:id="dpNascimento" layoutX="13.0" layoutY="153.0" prefHeight="31.0" prefWidth="199.0" promptText="Data Nascimento" style="-fx-background-radius: 10;" stylesheets="@../../resources/css/addatendente.css" />
+      <DatePicker fx:id="dpNascimento" layoutX="13.0" layoutY="153.0" prefHeight="31.0" prefWidth="211.0" promptText="Data Nascimento" style="-fx-background-radius: 10;" stylesheets="@../../resources/css/addatendente.css" />
       <TextField fx:id="tfSenha" layoutX="13.0" layoutY="197.0" promptText="Senha" style="-fx-background-radius: 10;" styleClass="textField">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -31,11 +30,7 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-<<<<<<< HEAD
-      <RadioButton fx:id="rdFeminino" layoutX="21.0" layoutY="282.0" mnemonicParsing="false" text="Feminino">
-=======
       <RadioButton fx:id="rdFeminino" layoutX="10.0" layoutY="282.0" mnemonicParsing="false" styleClass="label" text="Feminino">
->>>>>>> b99807ef5013c48b2ecee6c4f9e78e0d5d339976
          <font>
             <Font name="System Bold" size="14.0" />
          </font></RadioButton>
@@ -47,30 +42,21 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <Label layoutX="236.0" layoutY="121.0" text="Saida">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font></Label>
-      <Label layoutX="236.0" layoutY="35.0" text="Entrada">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font></Label>
       <Button fx:id="btnCadastrar" layoutX="242.0" layoutY="240.0" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="180.0" style="-fx-background-radius: 20;" stylesheets="@../../resources/css/formulario.css" text="CADASTRAR" textFill="#d90429">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font></Button>
-      <TextField fx:id="tfEntrada" layoutX="234.0" layoutY="68.0" style="-fx-background-radius: 10;" styleClass="textField">
+      <TextField fx:id="tfEntrada" layoutX="234.0" layoutY="25.0" prefHeight="35.0" prefWidth="100.0" promptText="Inicio" style="-fx-background-radius: 10;" styleClass="textField">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <TextField fx:id="tfSaida" layoutX="234.0" layoutY="153.0" style="-fx-background-radius: 10;" styleClass="textField">
+      <TextField fx:id="tfSaida" layoutX="340.0" layoutY="25.0" prefHeight="35.0" prefWidth="100.0" promptText="Fim" style="-fx-background-radius: 10;" styleClass="textField">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <TextField fx:id="tfTelefone" layoutX="234.0" layoutY="198.0" promptText="Telefone" style="-fx-background-radius: 10;" styleClass="textField">
+      <TextField fx:id="tfTelefone" layoutX="235.0" layoutY="68.0" promptText="Telefone" style="-fx-background-radius: 10;" styleClass="textField">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
    </children>
-
 </AnchorPane>

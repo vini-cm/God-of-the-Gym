@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Planos;
 import model.PlanosDAO;
@@ -76,6 +77,10 @@ public class PerfilPlanoController {
       pc.setStage(planos,plano);
       Scene scene = new Scene(root);
       planos.setScene(scene);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      planos.getIcons().add(icon);
+      planos.setTitle("EDITAR PLANO");
       planos.show();
     }
 
@@ -108,6 +113,10 @@ public class PerfilPlanoController {
             pc.setStage(planos);
             Scene scene = new Scene(root);
             planos.setScene(scene);
+            File fileIcon = new File("src/main/resources/imagens/icon.png");
+            Image icon = new Image(fileIcon.toURI().toString());
+            planos.getIcons().add(icon);
+            planos.setTitle("PLANOS");
             planos.show();
             stage.close();  
         }
@@ -123,6 +132,10 @@ public class PerfilPlanoController {
       pc.setStage(planos);
       Scene scene = new Scene(root);
       planos.setScene(scene);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      planos.getIcons().add(icon);
+      planos.setTitle("PLANOS");
       planos.show();
       stage.close();
     }

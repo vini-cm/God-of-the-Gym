@@ -38,3 +38,7 @@
        -fx-background-color: #1a1a1a;
    }
 }
+.button {
+    -fx-font-size: 18px;
+    
+}

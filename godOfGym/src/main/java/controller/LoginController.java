@@ -113,6 +113,10 @@ public class LoginController {
       hc.setStage(telaHome);
       Scene scene = new Scene(root);
       telaHome.setScene(scene);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      telaHome.getIcons().add(icon);
+      telaHome.setTitle("HOME PAGE");
       telaHome.show();
       if (stageLogin != null) {
         stageLogin.close();

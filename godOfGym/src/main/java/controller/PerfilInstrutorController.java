@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.AulaDAO;
 import model.Instrutor;
@@ -90,6 +91,10 @@ public class PerfilInstrutorController {
             ic.setStage(instrutor);
             Scene scene = new Scene(root);
             instrutor.setScene(scene);
+            File fileIcon = new File("src/main/resources/imagens/icon.png");
+            Image icon = new Image(fileIcon.toURI().toString());
+            instrutor.getIcons().add(icon);
+            instrutor.setTitle("INSTRUTORES");
             instrutor.show();
             stage.close();
         }
@@ -105,6 +110,10 @@ public class PerfilInstrutorController {
         ic.setStage(instrutor);
         Scene scene = new Scene(root);
         instrutor.setScene(scene);
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        instrutor.getIcons().add(icon);
+        instrutor.setTitle("INSTRUTORES");
         instrutor.show();
         stage.close();
     }
@@ -119,6 +128,10 @@ public class PerfilInstrutorController {
         eic.setStage(editar, instrutor);
         Scene scene = new Scene(root);
         editar.setScene(scene);
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        editar.getIcons().add(icon);
+        editar.setTitle("adicionar atendente");
         editar.show();
         stage.close();
     }

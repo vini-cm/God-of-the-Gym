@@ -21,6 +21,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.UserDAO;
 import model.Usuario;
@@ -51,6 +52,10 @@ public class AtendentesController  {
       AddAtendentesController ac = loader.getController();
       ac.setStage(adicionar);
       Scene scene = new Scene(root);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      adicionar.getIcons().add(icon);
+      adicionar.setTitle("ADICIONAR ATENDENTE");
       adicionar.setScene(scene);
       adicionar.show();
     }
@@ -112,7 +117,7 @@ public class AtendentesController  {
                         try {
                             acessarPerfil(usuarioSelecionado);
                         } catch (IOException | SQLException ex) {
-                            Logger.getLogger(ClientsController.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(ClientesController.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                 });
@@ -136,6 +141,10 @@ public class AtendentesController  {
         pac.setStage(telaPerfil, user);
         Scene scene = new Scene(root);
         telaPerfil.setScene(scene);
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        telaPerfil.getIcons().add(icon);
+        telaPerfil.setTitle("PERFIL ATENDEENTE");
         telaPerfil.show();
         stageAtendentes.close();
     }
@@ -150,6 +159,10 @@ public class AtendentesController  {
       hc.setStage(home);
       Scene scene = new Scene(root);
       home.setScene(scene);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      home.getIcons().add(icon);
+      home.setTitle("HOME PAGE");
       home.show();
       stageAtendentes.close();
     }

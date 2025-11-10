@@ -21,14 +21,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Cliente;
 import model.UserDAO;
 import model.Usuario;
 
-public class ClientsController {
+public class ClientesController {
 
-    Stage stageClients;
+    Stage stageClientes;
     Cliente cliente;
 
     @FXML
@@ -47,7 +48,7 @@ public class ClientsController {
     private TextField tfPesquisa;
 
     public void setStage(Stage stage) throws SQLException {
-        this.stageClients = stage;
+        this.stageClientes = stage;
         ajustarTabela();
     }
 
@@ -62,7 +63,11 @@ public class ClientsController {
         Scene scene = new Scene(root);
         home.setScene(scene);
         home.show();
-        stageClients.close();
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        home.getIcons().add(icon);
+        home.setTitle("HOME PAGE");
+        stageClientes.close();
     }
 
     @FXML
@@ -75,6 +80,10 @@ public class ClientsController {
         acc.setStage(telaAddClientes);
         Scene scene = new Scene(root);
         telaAddClientes.setScene(scene);
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        telaAddClientes.getIcons().add(icon);
+        telaAddClientes.setTitle("ADICIONAR CLIENTE");
         telaAddClientes.show();
     }
 
@@ -130,7 +139,7 @@ public class ClientsController {
                         try {
                             acessarPerfil(usuarioSelecionado);
                         } catch (IOException | SQLException ex) {
-                            Logger.getLogger(ClientsController.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(ClientesController.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                 });
@@ -153,7 +162,11 @@ public class ClientsController {
         pcc.setStage(telaPerfil, user);
         Scene scene = new Scene(root);
         telaPerfil.setScene(scene);
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        telaPerfil.getIcons().add(icon);
+        telaPerfil.setTitle("PERFIL CLIENTE");
         telaPerfil.show();
-        stageClients.close();
+        stageClientes.close();
     }
 }

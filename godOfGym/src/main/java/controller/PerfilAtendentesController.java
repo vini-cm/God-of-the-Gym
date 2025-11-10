@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Atendente;
 import model.AtendenteDAO;
@@ -86,6 +87,10 @@ public class PerfilAtendentesController  {
             ac.setStage(atendente);
             Scene scene = new Scene(root);
             atendente.setScene(scene);
+            File fileIcon = new File("src/main/resources/imagens/icon.png");
+            Image icon = new Image(fileIcon.toURI().toString());
+            atendente.getIcons().add(icon);
+            atendente.setTitle("ATENDENTES");
             atendente.show();
             stage.close();
         }
@@ -101,6 +106,10 @@ public class PerfilAtendentesController  {
         ac.setStage(atendentes);
         Scene scene = new Scene(root);
         atendentes.setScene(scene);
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        atendentes.getIcons().add(icon);
+        atendentes.setTitle("ATENDENTES");
         atendentes.show();
         stage.close();
     }
@@ -115,6 +124,10 @@ public class PerfilAtendentesController  {
         ic.setStage(editar,atendente);
         Scene scene = new Scene(root);
         editar.setScene(scene);
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        editar.getIcons().add(icon);
+        editar.setTitle("EDITAR ATENDENTES");
         editar.show();
     }
     

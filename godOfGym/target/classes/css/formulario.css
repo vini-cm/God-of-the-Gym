@@ -9,6 +9,7 @@
     -fx-background-radius:10px;
     -fx-text-fill:#2b2d42;
     -fx-font-size: 20px;
+    
 }
 
 .anchorPane{
@@ -16,7 +17,7 @@
 }
 
 .textField {
-    -fx-background-radius:10px;
+    -fx-background-radius:20px;
     -fx-background-color: #2b2d42;
     -fx-border-color: #d90429;
     -fx-border-width: 3px;
@@ -24,6 +25,18 @@
     -fx-prompt-text-fill: #d90429;
     -fx-border-radius:10px;
     -fx-control-inner-background:#2b2d42;
+    -fx-font-size: 15px;
+}
+.textArea {
+    -fx-background-radius:20px;
+    -fx-background-color: #2b2d42;
+    -fx-border-color: #d90429;
+    -fx-border-width: 3px;
+    -fx-text-fill: #d90429;
+    -fx-prompt-text-fill: #d90429;
+    -fx-border-radius:10px;
+    -fx-control-inner-background:#2b2d42;
+    -fx-font-size: 15px;
 }
 
 .choice-box{
@@ -55,7 +68,88 @@
     -fx-text-fill:#2b2d42;
 }
 
+.choice-box .arrow {
+    -fx-background-color: #cc0033;
+}
+
+/*date picker*/
 .date-picker {
-    -fx-background-color:#d90429;
+    -fx-background-color:#cc0033;
+    -fx-background-radius:10px;
+    -fx-border-radius:10px;
+    -fx-border-width: 2px;
+}
+
+.date-picker .arrow-button {
+	-fx-background-color: #cc0033;
+	-fx-background-radius:10px;
+        -fx-border-radius:10px;
+}
+
+.date-picker .cell {
+    -fx-background-color: #2b2d42;
+    -fx-text-fill: #d90429;
+    -fx-border-color: #2b2d42;
+}
+
+.date-picker .selected {
+	-fx-background-color: #d90429;
+	-fx-text-fill: #2b2d42;
+}
+
+.date-picker-popup .month-year-pane {
+	-fx-background-color: #2b2d42;
+}
+
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+	-fx-background-color: #2b2d42;
+}
+
+.date-picker .text-field {
+    -fx-background-color: #2b2d42;
+    -fx-background-radius:10px;
+    -fx-border-color: #cc0033;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-text-fill:#cc0033;
+    -fx-prompt-text-fill: #d90429;
+}
+
+/*radio-button*/
+
+
+.radio-button {
+    -fx-text-fill: #d90429;
+}
+
+.radio-button .radio {
+    -fx-border-width: 3px;
+    -fx-border-color: #cc0033;
+    -fx-background-color: #2b2d42;
+    -fx-border-radius: 15px;
+    -fx-padding: 3px;
+}
+
+.radio-button:selected .dot {
+    -fx-background-color:#cc0033;
+}
+
+/* check-box*/
+
+.check-box {
+    -fx-text-fill: #cc0033;
     
+}
+
+.check-box .box {
+    -fx-background-color: #2b2d42;
+    -fx-border-color: #cc0033;
+    -fx-border-width:3px;
+    -fx-background-radius: 3px;
+    -fx-border-radius:3px;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #cc0033;
 }
