@@ -15,7 +15,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </TextField>
-      <DatePicker fx:id="dpDataAula" layoutX="11.0" layoutY="121.0" prefHeight="30.0" prefWidth="200.0" promptText="Data da Aula" style="-fx-background-radius: 10;" stylesheets="@../../resources/css/addatendente.css" />
+      <DatePicker fx:id="dpDataAula" layoutX="11.0" layoutY="121.0" prefHeight="30.0" prefWidth="200.0" promptText="Data da Aula" style="-fx-background-radius: 10px;" stylesheets="@../../resources/css/formulario.css" />
       <Button fx:id="btnCadastrar" layoutX="118.0" layoutY="214.0" mnemonicParsing="false" onAction="#adicionarAula" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #d90429; -fx-background-radius: 20;" text="CADASTRAR" textFill="#2b2d42">
          <font>
             <Font name="Arial Bold" size="20.0" />

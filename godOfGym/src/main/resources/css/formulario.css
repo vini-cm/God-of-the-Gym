@@ -67,3 +67,58 @@
 .choice-box .menu-item:focused > .label {
     -fx-text-fill:#2b2d42;
 }
+
+.choice-box .arrow {
+    -fx-background-color: #cc0033;
+}
+
+/*date picker*/
+.date-picker {
+    -fx-background-color:#cc0033;
+    -fx-background-radius:10px;
+    -fx-border-radius:10px;
+    -fx-border-width: 2px;
+}
+
+.date-picker .arrow-button {
+	-fx-background-color: #cc0033;
+	-fx-background-radius:10px;
+        -fx-border-radius:10px;
+}
+
+.date-picker .cell {
+    -fx-background-color: #2b2d42;
+    -fx-text-fill: #d90429;
+    -fx-border-color: #2b2d42;
+}
+
+.date-picker .selected {
+	-fx-background-color: #d90429;
+	-fx-text-fill: #2b2d42;
+}
+
+.date-picker-popup .month-year-pane {
+	-fx-background-color: #2b2d42;
+}
+
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+	-fx-background-color: #2b2d42;
+}
+
+.date-picker .text-field {
+    -fx-background-color: #2b2d42;
+    -fx-background-radius:10px;
+    -fx-border-color: #cc0033;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-text-fill:#cc0033;
+    -fx-prompt-text-fill: #d90429;
+}
+
+.radio-button .radio {
+    -fx-background-color: lightgray;
+    -fx-border-color: gray;
+    -fx-border-radius: 50%; /* Makes it circular */
+    -fx-padding: 4px; /* Adjust spacing around the dot */
+}
