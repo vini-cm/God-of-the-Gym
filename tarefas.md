@@ -1,7 +1,7 @@
 - \[x] deletar planos (deletar primeiro, id_professor default null, e oferever substituir)
 - \[X] corrigir deletar instrutores porque eles estão na tabela aulas (default null)
-- \[ ] alterar clientes
-- \[ ] alterar instrutores
+- \[x] alterar clientes
+- \[x] alterar instrutores
 - \[x] alterar planos
 - \[x] alterar atendentes
 - \[x] por icone e titulo nas telas
