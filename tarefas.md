@@ -10,7 +10,7 @@
 - \[ ] fazer o css dos instrutores o geral para todas as paginas de listagem
 - \[ ] estilizar alertas
 - \[ ] mudar o css de quando algo é digitado errado
-- \[ ] fazer as coisas pararem de diminuir quando o mouse clica
+- \[X] fazer as coisas pararem de diminuir quando o mouse clica
 - \[ ] impor limite de cararctere no textfield e textarea
 - \[ ] formatar textfield para telefone, email, cpf e salario
 - \[ ] recarregar tabela quando algo é adicionado
