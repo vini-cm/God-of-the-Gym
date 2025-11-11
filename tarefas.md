@@ -8,7 +8,7 @@
 - \[ ] alterar os formularios e perfis para o novo estilo
 - \[ ] terminar css dos formularios
 - \[ ] fazer o css dos instrutores o geral para todas as paginas de listagem
-- \[ ] estilizar alertas
+- \[x] estilizar alertas
 - \[ ] mudar o css de quando algo é digitado errado
 - \[x] fazer as coisas pararem de diminuir quando o mouse clica
 - \[ ] impor limite de cararctere no textfield e textarea
