@@ -97,6 +97,96 @@ public class AddClienteController {
     float altura;
     float imc;
     float porcentagem;
+    
+    private final int maxCaracteres = 20;
+    private final int maxCPF = 11;
+    private final int maxEmail = 60;
+    private final int maxSenha = 8;
+    private final int maxTxtArea = 250 ;
+        
+    /////////////////////////////////////////////////////////////////////////
+    public void initialize() {
+        tfNome.setTextFormatter(new TextFormatter<String>(change -> {
+            if (change.getControlNewText().length() <= maxCaracteres) {
+                return change; //se tiver certo
+            } else {
+                return null;//se tiver errado
+            }
+        }));
+        tfSobrenome.setTextFormatter(new TextFormatter<String>(change -> {
+            if (change.getControlNewText().length() <= maxCaracteres) {
+                return change; //se tiver certo
+            } else {
+                return null;//se tiver errado
+            }
+        }));
+        tfEmail.setTextFormatter(new TextFormatter<String>(change -> {
+            if (change.getControlNewText().length() <= maxEmail) {
+                return change; //se tiver certo
+            } else {
+                return null;//se tiver errado
+            }
+        }));
+        tfSenha.setTextFormatter(new TextFormatter<String>(change -> {
+            if (change.getControlNewText().length() <= maxSenha) {
+                return change; //se tiver certo
+            } else {
+                return null;//se tiver errado
+            }
+        }));
+        taMedicacoes.setTextFormatter(new TextFormatter<String>(change -> {
+            if (change.getControlNewText().length() <= maxTxtArea) {
+                return change; //se tiver certo
+            } else {
+                return null;//se tiver errado
+            }
+        }));
+        taLimitacoes.setTextFormatter(new TextFormatter<String>(change -> {
+            if (change.getControlNewText().length() <= maxTxtArea) {
+                return change; //se tiver certo
+            } else {
+                return null;//se tiver errado
+            }
+        }));
+
+        TextFormatter<String> TelefoneFormatter = new TextFormatter<>(change -> {
+        String newText = change.getControlNewText();
+
+        // permite só números, ponto e vírgula
+        if (!newText.matches("[0-9()+\\-\\s]*")) {
+            return null; // rejeita caractere inválido
+        }
+
+        return change;
+    });
+
+        tfTelefone.setTextFormatter(TelefoneFormatter);
+        
+        TextFormatter<String> PesoFormatter = new TextFormatter<>(change -> {
+        String newText = change.getControlNewText();
+
+        // permite só números, ponto e vírgula
+        if (!newText.matches("[0-9,%]*")) {
+            return null; // rejeita caractere inválido
+        }
+
+        return change;
+    });
+        tfgordura.setTextFormatter(PesoFormatter);
+        
+                TextFormatter<String> CPFFormatter = new TextFormatter<>(change -> {
+        String newText = change.getControlNewText();
+
+        // permite só números, ponto e vírgula
+        if (!newText.matches("\\d{0," + maxCPF + "}")) {
+            return null; // rejeita caractere inválido
+        }
+
+        return change;
+    });
+        tfCPF.setTextFormatter(CPFFormatter);
+    }
+    /////////////////////////////////////////////////////////////////////////
 
     public void setStage(Stage stage) throws SQLException {
         this.stageAddCliente = stage;

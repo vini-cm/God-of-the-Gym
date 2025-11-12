@@ -37,6 +37,7 @@ public class LoginController {
     @FXML
     private TextField tfNome;
     
+    
     @FXML
     void onClickLogar(ActionEvent event) throws IOException, SQLException {
         processarLogin();
