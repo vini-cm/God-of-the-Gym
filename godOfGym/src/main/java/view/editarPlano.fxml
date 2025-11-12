@@ -8,24 +8,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="202.0" prefWidth="350.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.EditarPlanoController">
+<AnchorPane id="AnchorPane" prefHeight="275.0" prefWidth="350.0" styleClass="anchorPane" stylesheets="@../../resources/css/formulario.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditarPlanoController">
    <children>
-      <Label layoutX="74.0" layoutY="14.0" text="O QUE VOCE DEJSEJA EDITAR?">
+      <Label layoutX="54.0" layoutY="14.0" prefHeight="50.0" prefWidth="230.0" text="O QUE VOCE DEJSEJA EDITAR?" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btnEditar" layoutX="142.0" layoutY="153.0" mnemonicParsing="false" onAction="#editarPlano" text="EDITAR">
+      <Button fx:id="btnEditar" layoutX="119.0" layoutY="216.0" mnemonicParsing="false" onAction="#editarPlano" text="EDITAR">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <CheckBox fx:id="cNome" layoutX="14.0" layoutY="46.0" mnemonicParsing="false" text="Nome" />
-      <CheckBox fx:id="cTipo" layoutX="14.0" layoutY="79.0" mnemonicParsing="false" text="Tipo" />
-      <CheckBox fx:id="cValor" layoutX="14.0" layoutY="117.0" mnemonicParsing="false" text="Valor" />
-      <TextField fx:id="tfNome" layoutX="175.0" layoutY="42.0" promptText="Nome" visible="false" />
-      <ChoiceBox fx:id="cbTipo" layoutX="175.0" layoutY="75.0" prefWidth="150.0" visible="false" />
-      <TextField fx:id="tfValor" layoutX="176.0" layoutY="113.0" promptText="Valor" visible="false" />
+      <CheckBox fx:id="cNome" layoutX="23.0" layoutY="82.0" mnemonicParsing="false" text="Nome" />
+      <CheckBox fx:id="cTipo" layoutX="23.0" layoutY="123.0" mnemonicParsing="false" text="Tipo" />
+      <CheckBox fx:id="cValor" layoutX="23.0" layoutY="164.0" mnemonicParsing="false" text="Valor" />
+      <TextField fx:id="tfNome" layoutX="135.0" layoutY="75.0" prefHeight="23.0" prefWidth="204.0" promptText="Nome" styleClass="textField" visible="false" />
+      <ChoiceBox fx:id="cbTipo" layoutX="135.0" layoutY="116.0" prefHeight="35.0" prefWidth="204.0" visible="false" />
+      <TextField fx:id="tfValor" layoutX="135.0" layoutY="159.0" prefHeight="35.0" prefWidth="204.0" promptText="Valor" styleClass="textField" visible="false" />
    </children>
 </AnchorPane>

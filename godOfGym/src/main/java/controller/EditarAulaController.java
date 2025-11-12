@@ -17,12 +17,14 @@ import model.Aula;
 import model.AulaDAO;
 import model.UserDAO;
 import model.Usuario;
+import util.Alerta;
 import util.Visibilidade;
 
 public class EditarAulaController {
     
     Stage stage;
     Aula aula;
+    PerfilAulaController controller;
     AulaDAO dao = new AulaDAO();
     UserDAO uDao = new UserDAO();
     
@@ -68,9 +70,10 @@ public class EditarAulaController {
     @FXML
     private CheckBox cbTipo;
 
-    public void setStage(Stage stage, Aula aula) throws SQLException{
+    public void setStage(Stage stage, Aula aula, PerfilAulaController controller) throws SQLException{
         this.stage = stage;
         this.aula = aula;
+        this.controller = controller;
         ObservableList<Usuario> instrutores = uDao.PesquisarUsuariosPorTipo("instrutor");
         cbProfessor.setItems(instrutores);
         configurarVisibilidade();
@@ -97,8 +100,15 @@ public class EditarAulaController {
             aula.setComeco(LocalTime.parse(tfComeco.getText()));
             aula.setFim(LocalTime.parse(tfFinal.getText()));
         }
-        
+        try{
         dao.editar(aula);
+        if(controller!=null){
+            controller.ajustarTela();
+        }
+        stage.close();
+        }catch(SQLException e){
+            Alerta.mostrarErro("ERROR", e.getMessage());
+        }
     }
     
     private void campos(String valor, String tipo){

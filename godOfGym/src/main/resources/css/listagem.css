@@ -17,7 +17,7 @@
        -fx-background-color: #2b2d42;      /* fundo da tabela (preto azulado) */
        -fx-background-radius: 10;         /* bordas arredondadas */
        -fx-border-radius: 10;
-       -fx-border-color: #2b2d42;         /* mesma cor da borda */
+       -fx-border-color: #2b2d42;
    }
 
    /* Estiliza o cabeçalho das colunas */
@@ -49,6 +49,12 @@
    /* Remove linhas brancas entre colunas */
    .table-view .filler {
        -fx-background-color: #1a1a1a;
+   }
+   
+   .table-view .table-cell{
+       -fx-text-fill: #cc0033;
+       -fx-background-color: null;
+       -fx-border-color: #2b2d42;
    }
 
 .btn {

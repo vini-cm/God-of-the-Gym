@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Planos;
 import model.PlanosDAO;
+import util.Alerta;
 import util.Visibilidade;
 
 public class EditarPlanoController  {
@@ -17,6 +18,7 @@ public class EditarPlanoController  {
     Stage stage;
     Planos plano;
     PlanosDAO dao = new PlanosDAO();
+    PerfilPlanoController controller;
 
     @FXML
     private Button btnEditar;
@@ -39,9 +41,10 @@ public class EditarPlanoController  {
     @FXML
     private TextField tfValor;
     
-    public void setStage(Stage stage, Planos plano){
+    public void setStage(Stage stage, Planos plano, PerfilPlanoController controller){
         this.stage = stage;
         this.plano = plano;
+        this.controller = controller;
         cbTipo.getItems().addAll("Semanal","Mensal","Bimestral","Trimestral","Quadrimestal","Semestral","Anual");
         configurarTela();
     }
@@ -57,7 +60,16 @@ public class EditarPlanoController  {
         if (cValor.isSelected()){
             plano.setPreco(Float.parseFloat(tfValor.getText()));
         }
+        
+        try{
         dao.editar(plano);
+        if(controller!=null){
+            controller.ajustarTela();
+        }
+        stage.close();
+        }catch(SQLException e){
+            Alerta.mostrarErro("ERROR", e.getMessage());
+        }
     }
     
     public void configurarTela(){

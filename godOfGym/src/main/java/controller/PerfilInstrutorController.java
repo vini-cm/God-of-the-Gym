@@ -125,7 +125,7 @@ public class PerfilInstrutorController {
         Parent root = loader.load();
         Stage editar = new Stage();
         EditarInstrutorController eic = loader.getController();
-        eic.setStage(editar, instrutor);
+        eic.setStage(editar, instrutor,this);
         Scene scene = new Scene(root);
         editar.setScene(scene);
         File fileIcon = new File("src/main/resources/imagens/icon.png");
@@ -133,7 +133,6 @@ public class PerfilInstrutorController {
         editar.getIcons().add(icon);
         editar.setTitle("adicionar atendente");
         editar.show();
-        stage.close();
     }
     
     public void setStage(Stage stage, Usuario user) throws SQLException {
@@ -144,6 +143,7 @@ public class PerfilInstrutorController {
     }
     
     public void configurarTela() throws SQLException{
+        user = userDAO.selecionarUsuario(user.getCPF());
         lbNome.setText(user.getNome() + " " + user.getSobrenome());
         lbCPF.setText(user.getCPF());
         lbTelefone.setText(user.getTelefone());

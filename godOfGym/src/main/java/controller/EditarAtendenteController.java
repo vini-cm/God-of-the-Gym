@@ -21,6 +21,7 @@ import model.Atendente;
 import model.AtendenteDAO;
 import model.UserDAO;
 import model.Usuario;
+import util.Alerta;
 import util.Visibilidade;
 
 public class EditarAtendenteController {
@@ -29,6 +30,7 @@ public class EditarAtendenteController {
     AtendenteDAO dao = new AtendenteDAO();
     UserDAO uDAO = new UserDAO();
     Atendente atendente;
+    PerfilAtendentesController controller;
     Usuario user;
     String genero;
     
@@ -95,9 +97,10 @@ public class EditarAtendenteController {
     @FXML
     private TextField tfTelefone;
     
-    public void setStage(Stage stage, Atendente atendente) throws SQLException{
+    public void setStage(Stage stage, Atendente atendente, PerfilAtendentesController controller) throws SQLException{
         this.stage = stage;
         this.atendente = atendente;
+        this.controller = controller;
         this.user = uDAO.selecionarUsuario(atendente.getCPF());
         configuracaoVisibilidade();
         
@@ -156,8 +159,17 @@ public class EditarAtendenteController {
         if(cGenero.isSelected()){
             user.setGenero(genero);
         }
+        
+        try{
         uDAO.editar(user);
         dao.editar(atendente);
+        if(controller != null){
+            controller.configurarTela();
+        }
+        stage.close();
+        }catch(SQLException e){
+            Alerta.mostrarErro("ERROR", e.getMessage());
+        }
     }
     
     void campos(String valor, String tipo){

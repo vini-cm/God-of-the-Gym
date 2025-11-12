@@ -16,6 +16,7 @@ public class AddPlanoController  {
    Stage stage = new Stage();
    Planos plano;
    PlanosDAO dao = new PlanosDAO();
+   PlanosController controller;
    
    @FXML
    private Button btnAdicionar;
@@ -29,8 +30,9 @@ public class AddPlanoController  {
    @FXML
     private TextField tfNome;
    
-   public void setStage(Stage stage){
+   public void setStage(Stage stage, PlanosController controller){
        this.stage = stage;
+       this.controller = controller;
        cbTipo.getItems().addAll("Semanal","Mensal","Bimestral","Trimestral","Quadrimestal","Semestral","Anual");
    }
    
@@ -40,10 +42,15 @@ public class AddPlanoController  {
                !tfPreco.getText().isEmpty() && tfPreco.getText() != null &&
                !tfNome.getText().isEmpty() && tfNome.getText() != null){
            plano = new Planos(tfNome.getText(),cbTipo.getValue(), Float.parseFloat(tfPreco.getText()));
+           try{
            dao.salvar(plano);
-           if (dao.selecionarPlano(tfNome.getText()) != null){
-               Alerta.mostrarConfirmacao("PLANO ADICIONADO", "plano adicionado com sucesso");
-               stage.close();
+           if(controller!=null){
+               controller.carregarTabela();
+           }
+            Alerta.mostrarConfirmacao("PLANO ADICIONADO", "plano adicionado com sucesso");
+            stage.close();
+           } catch(SQLException e){
+               Alerta.mostrarErro("ERROR", e.getMessage());
            }
        } else { 
             Alerta.mostrarErro("ERROR", "Preencha todas as informações!");

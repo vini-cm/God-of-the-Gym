@@ -12,6 +12,11 @@
     
 }
 
+.voltar{
+    -fx-background-color: #2b2d42;
+    -fx-background-radius:100px;
+}
+
 .anchorPane{
     -fx-background-color:#2b2d42;
 }

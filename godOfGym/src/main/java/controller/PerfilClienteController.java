@@ -110,6 +110,7 @@ public class PerfilClienteController {
     }
     
     public void configurarTela() throws SQLException{
+        user = userDAO.selecionarUsuario(user.getCPF());
         Planos plano = planosDAO.selecionarPlanoPorId(c.getIdPlano());
         lbNome.setText(user.getNome() + " " + user.getSobrenome());
         lbCPF.setText(user.getCPF());
@@ -180,7 +181,7 @@ public class PerfilClienteController {
         Parent root = loader.load();
         Stage cliente = new Stage();
         EditarClienteController ecc = loader.getController();
-        ecc.setStage(cliente, c);
+        ecc.setStage(cliente, c,this);
         Scene scene = new Scene(root);
         cliente.setScene(scene);
         File fileIcon = new File("src/main/resources/imagens/icon.png");
@@ -188,6 +189,5 @@ public class PerfilClienteController {
         cliente.getIcons().add(icon);
         cliente.setTitle("EDITAR CLIENTE");
         cliente.show();
-        stage.close();
     }
 }

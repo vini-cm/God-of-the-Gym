@@ -27,6 +27,7 @@ public class AddInstrutorController {
     Stage stage;
     InstrutorDAO dao = new InstrutorDAO();
     Instrutor instrutor = new Instrutor();
+    InstrutoresController controller;
     Usuario user = new Usuario();
     UserDAO userDAO = new UserDAO();
     String genero;
@@ -77,7 +78,7 @@ public class AddInstrutorController {
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:mm");
 
-    public void setStage(Stage stage) throws SQLException {
+    public void setStage(Stage stage, InstrutoresController controller) throws SQLException {
         this.stage = stage;
         rdFeminino.setOnAction(e -> HandleRadioButton(rdFeminino, rdMasculino));
         rdMasculino.setOnAction(e -> HandleRadioButton(rdMasculino, rdFeminino));
@@ -122,22 +123,23 @@ public class AddInstrutorController {
                 && !tfTelefone.getText().isBlank() && tfTelefone.getText() != null) {
             entrada = LocalTime.parse(tfEntrada.getText(),formatter);
             saida = LocalTime.parse(tfSaida.getText(), formatter);
-            if (dao.selecionarInstrutor(tfCPF.getText()) == null) {
                 Date nascimento = Date.valueOf(dpNascimento.getValue());
                 user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), 
-                        nascimento, tfSenha.getText(), tfEmail.getText(), genero, tfTelefone.getText(), "instrutor");
-                userDAO.salvar(user);
-                
-                if (userDAO.selecionarUsuario(tfCPF.getText()) != null) {
-                    instrutor = new Instrutor(tfCPF.getText(), Float.parseFloat(tfSalario.getText()), 
-                            taFormacao.getText(), entrada, saida);
+                nascimento, tfSenha.getText(), tfEmail.getText(), genero, tfTelefone.getText(), "instrutor");
+                instrutor = new Instrutor(tfCPF.getText(), Float.parseFloat(tfSalario.getText()), 
+                taFormacao.getText(), entrada, saida);  
+                try{
+                    userDAO.salvar(user);
                     dao.salvar(instrutor);
-                } else {
-                    Alerta.mostrarErro("ERROR", "ERRO EM CADASTRAR INSTRUTOR");
+                    if(controller != null){
+                        controller.listarInstrutores();
+                        controller.carregarTabela();
+                    }
+                    stage.close();
+                }catch(SQLException e){
+                    Alerta.mostrarErro("ERROR", e.getMessage());
                 }
-            } else {
-                Alerta.mostrarErro("ERROR", "ESSE USUARIO JÁ EXISTE!");
-            }
+                  
         }
     }
 

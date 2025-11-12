@@ -75,7 +75,7 @@ public class PlanosController{
       Parent root = loader.load();
       Stage telaAddPlano = new Stage();
       AddPlanoController acc = loader.getController();
-      acc.setStage(telaAddPlano);
+      acc.setStage(telaAddPlano,this);
       Scene scene = new Scene(root);
       File fileIcon = new File("src/main/resources/imagens/icon.png");
       Image icon = new Image(fileIcon.toURI().toString());

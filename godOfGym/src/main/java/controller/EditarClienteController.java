@@ -19,6 +19,7 @@ import model.Planos;
 import model.PlanosDAO;
 import model.UserDAO;
 import model.Usuario;
+import util.Alerta;
 import util.Visibilidade;
 
 
@@ -27,6 +28,7 @@ public class EditarClienteController {
     Stage stage;
     Cliente cliente;
     Usuario user;
+    PerfilClienteController controller;
     UserDAO uDAO = new UserDAO();
     ClienteDAO cDAO = new ClienteDAO();
     PlanosDAO pDAO = new PlanosDAO();
@@ -122,9 +124,10 @@ public class EditarClienteController {
     @FXML
     private TextField tfTelefone;
     
-    public void setStage(Stage stage, Cliente cliente) throws SQLException{
+    public void setStage(Stage stage, Cliente cliente, PerfilClienteController controller) throws SQLException{
         this.stage = stage;
         this.cliente = cliente;
+        this.controller = controller;
         user = uDAO.selecionarUsuario(cliente.getCPF());
         configurarVisibilidade();
         cbExperiencia.getItems().addAll("Iniciante","Intermediario","Experiente","Profissional");
@@ -184,9 +187,16 @@ public class EditarClienteController {
         if(cExperiencia.isSelected()){
             cliente.setExperiencia(cbExperiencia.getValue());
         }
-        
+        try{
         uDAO.editar(user);
         cDAO.editar(cliente);
+        if(controller!= null){
+            controller.configurarTela();
+        }
+        stage.close();
+        }catch(SQLException e){
+            Alerta.mostrarErro("ERROR", e.getMessage());
+        }
     }
     
     void campos(String valor, String tipo){

@@ -22,6 +22,7 @@ import model.Instrutor;
 import model.InstrutorDAO;
 import model.UserDAO;
 import model.Usuario;
+import util.Alerta;
 import util.Visibilidade;
 
 
@@ -29,6 +30,7 @@ public class EditarInstrutorController  {
     
     Stage stage;
     InstrutorDAO dao = new InstrutorDAO();
+    PerfilInstrutorController controller;
     UserDAO uDAO = new UserDAO();
     Instrutor instrutor;
     Usuario user;
@@ -103,10 +105,11 @@ public class EditarInstrutorController  {
     @FXML
     private TextField tfTelefone;
     
-    public void setStage(Stage stage, Instrutor i) throws SQLException{
+    public void setStage(Stage stage, Instrutor i, PerfilInstrutorController controller) throws SQLException{
         this.stage = stage;
         this.instrutor = i;
         this.user = uDAO.selecionarUsuario(i.getCPF());
+        this.controller = controller;
         configuracaoVisibilidade();
         
         rFeminino.setOnAction(e -> HandleRadioButton(rFeminino, rMasculino));
@@ -167,9 +170,16 @@ public class EditarInstrutorController  {
         if(cGenero.isSelected()){
             user.setGenero(genero);
         }
-        
+        try{
         uDAO.editar(user);
         dao.editar(instrutor);
+        if(controller != null){
+            controller.configurarTela();
+        }
+        stage.close();
+        }catch(SQLException e){
+            Alerta.mostrarErro("ERROR", e.getMessage());
+        }
     }
     
     void campos(String valor, String tipo){

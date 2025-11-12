@@ -86,11 +86,10 @@ public class PerfilAulaController {
       Parent root = loader.load();
       Stage aulas = new Stage();
       EditarAulaController eac = loader.getController();
-      eac.setStage(aulas,aula);
+      eac.setStage(aulas,aula,this);
       Scene scene = new Scene(root);
       aulas.setScene(scene);
       aulas.show();
-      stage.close();
     }
 
     @FXML

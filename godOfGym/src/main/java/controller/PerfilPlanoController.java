@@ -74,7 +74,7 @@ public class PerfilPlanoController {
       Parent root = loader.load();
       Stage planos = new Stage();
       EditarPlanoController pc = loader.getController();
-      pc.setStage(planos,plano);
+      pc.setStage(planos,plano,this);
       Scene scene = new Scene(root);
       planos.setScene(scene);
       File fileIcon = new File("src/main/resources/imagens/icon.png");

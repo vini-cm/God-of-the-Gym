@@ -74,7 +74,7 @@ public class InstrutoresController {
       Parent root = loader.load();
       Stage telaAddInstrutor = new Stage();
       AddInstrutorController aic = loader.getController();
-      aic.setStage(telaAddInstrutor);
+      aic.setStage(telaAddInstrutor,this);
       Scene scene = new Scene(root);
       telaAddInstrutor.setScene(scene);
       File fileIcon = new File("src/main/resources/imagens/icon.png");
@@ -142,7 +142,7 @@ public class InstrutoresController {
         }
     }
 
-    private ObservableList<Usuario> listarInstrutores() throws SQLException {
+    public ObservableList<Usuario> listarInstrutores() throws SQLException {
         UserDAO dao = new UserDAO();
         return dao.PesquisarUsuariosPorTipo("instrutor");
     }
