@@ -94,10 +94,7 @@ public class InstrutoresController {
         if (!lista.isEmpty()) {
             tabela.getColumns().clear();
             TableColumn<Usuario, String> colunaNome = new TableColumn<>("Nome");
-            colunaNome.setCellValueFactory(u -> new SimpleStringProperty(u.getValue().getNome()));
-
-            TableColumn<Usuario, String> colunaSobrenome = new TableColumn<>("Sobrenome");
-            colunaSobrenome.setCellValueFactory(u -> new SimpleStringProperty(u.getValue().getSobrenome()));
+            colunaNome.setCellValueFactory(u -> new SimpleStringProperty(u.getValue().getNome() + " " + u.getValue().getSobrenome()));
 
             TableColumn<Usuario, String> colunaTelefone = new TableColumn<>("Telefone");
             colunaTelefone.setCellValueFactory(u -> new SimpleStringProperty(u.getValue().getTelefone()));
@@ -105,9 +102,9 @@ public class InstrutoresController {
             TableColumn<Usuario, String> colunaCPF = new TableColumn<>("CPF");
             colunaCPF.setCellValueFactory(u -> new SimpleStringProperty(u.getValue().getCPF()));
 
-            tabela.getColumns().addAll(colunaNome, colunaSobrenome, colunaTelefone, colunaCPF);
+            tabela.getColumns().addAll(colunaNome, colunaTelefone, colunaCPF);
             tabela.getColumns().forEach(e -> {
-                e.setPrefWidth(168);
+                e.setPrefWidth(220);
             });
 
             //tabela.setItems(lista);

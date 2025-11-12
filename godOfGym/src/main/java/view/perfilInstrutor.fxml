@@ -46,7 +46,7 @@
             <DropShadow blurType="ONE_PASS_BOX" height="5.0" offsetX="1.0" radius="2.0" width="5.0" />
          </effect>
       </Label>
-      <Button fx:id="btnVoltar" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#voltarInstrutor" styleClass="voltar" stylesheets="@../../resources/css/perfil.css">
+      <Button fx:id="btnVoltar" layoutX="3.0" layoutY="6.0" mnemonicParsing="false" onAction="#voltarInstrutor" styleClass="voltar" stylesheets="@../../resources/css/perfil.css">
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                <image>

@@ -102,7 +102,7 @@ public class AulasController {
 
             tabela.getColumns().addAll(colunaNome,colunaTipo,colunaData,colunaHorario);
             tabela.getColumns().forEach(e -> {
-                e.setPrefWidth(135);
+                e.setPrefWidth(165);
             });
 
             FilteredList<Aula> listaFiltrada = new FilteredList<>(Lista, p -> true);

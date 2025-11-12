@@ -7,7 +7,7 @@
 - \[x] por icone e titulo nas telas
 - \[ ] alterar os formularios e perfis para o novo estilo
 - \[ ] terminar css dos formularios
-- \[ ] fazer o css dos instrutores o geral para todas as paginas de listagem
+- \[x] fazer o css dos instrutores o geral para todas as paginas de listagem
 - \[x] estilizar alertas
 - \[ ] mudar o css de quando algo é digitado errado
 - \[x] fazer as coisas pararem de diminuir quando o mouse clica
@@ -15,4 +15,4 @@
 - \[ ] formatar textfield para telefone, email, cpf e salario
 - \[ ] recarregar tabela quando algo é adicionado
 - \[ ] fechar formulario e gerar aviso quando algo é cadastrado
-- \[ ] mudar o icone de voltar
+- \[x] mudar o icone de voltar

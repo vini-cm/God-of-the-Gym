@@ -11,54 +11,53 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: gray;" stylesheets="@../../resources/css/instrutores.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InstrutoresController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" styleClass="anchorPane" stylesheets="@../../resources/css/listagem.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InstrutoresController">
    <children>
-      <AnchorPane layoutX="5.0" layoutY="5.0" prefHeight="590.0" prefWidth="690.0" style="-fx-background-color: #666666; -fx-background-radius: 15;">
+      <AnchorPane layoutX="5.0" layoutY="5.0" prefHeight="590.0" prefWidth="690.0" styleClass="page" stylesheets="@../../resources/css/listagem.css">
          <children>
-            <AnchorPane layoutX="13.0" layoutY="38.0" prefHeight="136.0" prefWidth="665.0" style="-fx-background-color: #2B2D42; -fx-background-radius: 25;">
+            <AnchorPane layoutX="13.0" layoutY="38.0" prefHeight="136.0" prefWidth="660.0" style="-fx-background-color: #2B2D42; -fx-background-radius: 25;">
                <children>
-                  <Label layoutX="181.0" layoutY="21.0" text="ADICIONAR INSTRUTOR ?" textFill="#d90429">
+                  <Label layoutX="181.0" layoutY="21.0" text="ADICIONAR INSTRUTOR ?" textFill="#cc0033">
                      <font>
                         <Font name="Arial Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnAdicionar" layoutX="231.0" layoutY="68.0" mnemonicParsing="false" onAction="#abrirAddInstrutor" prefHeight="39.0" prefWidth="204.0" style="-fx-background-color: d90429; -fx-background-radius: 25;" text="SIM" textFill="#2b2d42">
+                  <Button fx:id="btnAdicionar" layoutX="231.0" layoutY="68.0" mnemonicParsing="false" onAction="#abrirAddInstrutor" prefHeight="39.0" prefWidth="204.0" styleClass="btn" text="SIM" textFill="#2b2d42">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <TableView fx:id="tabela" layoutX="14.0" layoutY="264.0" prefHeight="320.0" prefWidth="665.0" stylesheets="@../../resources/css/intrutores.css">
+            <TableView fx:id="tabela" layoutX="14.0" layoutY="264.0" prefHeight="320.0" prefWidth="660.0" stylesheets="@../../resources/css/intrutores.css">
               <columns>
-                <TableColumn minWidth="0.0" prefWidth="168.0" text="Nome" />
-                <TableColumn prefWidth="168.0" text="Sobrenome" />
-                  <TableColumn prefWidth="168.0" text="Telefone" />
-                  <TableColumn prefWidth="168.0" text="CPF" />
+                <TableColumn minWidth="0.0" prefWidth="220.0" text="Nome" />
+                  <TableColumn prefWidth="220.0" text="Telefone" />
+                  <TableColumn prefWidth="220.0" text="CPF" />
               </columns>
             </TableView>
-            <Label layoutX="14.0" layoutY="174.0" text="INSTRUTORES" textFill="#d90429">
+            <Label layoutX="15.0" layoutY="177.0" text="INSTRUTORES" textFill="#cc0033">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="tfPesquisa" layoutX="14.0" layoutY="208.0" prefHeight="44.0" prefWidth="665.0" style="-fx-background-radius: 15; -fx-background-color: #2B2D42;" />
+            <TextField fx:id="tfPesquisa" layoutX="14.0" layoutY="208.0" prefHeight="44.0" prefWidth="660.0" style="-fx-background-radius: 15; -fx-background-color: #2B2D42;" />
             <Button accessibleRole="IMAGE_VIEW" layoutX="604.0" layoutY="209.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 25; -fx-background-color: #2B2D42;" />
             <ImageView fitHeight="30.0" fitWidth="35.0" layoutX="639.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@LUPAiCON.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnHome" mnemonicParsing="false" onAction="#voltarHome" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 100; -fx-background-color: #666666;" stylesheets="@../Documents/God-of-the-Gym/godOfGym/src/main/resources/css/planos.css">
+            <Button fx:id="btnHome" mnemonicParsing="false" onAction="#voltarHome" prefHeight="30.0" prefWidth="35.0" style="-fx-background-radius: 100; -fx-background-color: #666666;" stylesheets="@../Documents/God-of-the-Gym/godOfGym/src/main/resources/css/planos.css">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/imagens/SetaVermelha%20.png" />
+                        <Image url="@../../resources/imagens/voltar.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <ImageView fitHeight="30.0" fitWidth="35.0" layoutX="641.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="35.0" layoutX="638.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../resources/imagens/LUPAiCON.png" />
                </image>

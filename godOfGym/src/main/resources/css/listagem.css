@@ -1,6 +1,19 @@
-.mainFxmlClass {
-    /* Define bordas arredondadas e cor de fundo da tabela */
-   .table-view {
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700&display=swap');
+
+* {
+    -fx-font-family: "Inter", sans-serif;
+}
+
+.anchorPane{
+    -fx-background-color:grey;
+}
+
+.page {
+    -fx-background-color:#666666;
+    -fx-background-radius:15px;
+}
+
+.table-view {
        -fx-background-color: #2b2d42;      /* fundo da tabela (preto azulado) */
        -fx-background-radius: 10;         /* bordas arredondadas */
        -fx-border-radius: 10;
@@ -19,7 +32,7 @@
    }
 
    .table-view .label {
-       -fx-text-fill: #d90429;             /* letras vermelhas */
+       -fx-text-fill: #cc0033;             /* letras vermelhas */
        -fx-font-weight: bold;
    }
 
@@ -37,8 +50,10 @@
    .table-view .filler {
        -fx-background-color: #1a1a1a;
    }
-}
-.button {
+
+.btn {
     -fx-font-size: 18px;
-    
+    -fx-background-color:#cc0033;
+    -fx-background-radius:25px;
 }
+
