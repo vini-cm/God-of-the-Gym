@@ -17,6 +17,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 import model.Aula;
 import model.AulaDAO;
@@ -62,6 +63,42 @@ public class AddAulaController  {
     @FXML
     private TextField tfcomeco;
     
+    private final int maxCaracteres = 20;
+    private final int maxTxtArea = 250 ;
+
+    /////////////////////////////////////////////////////////////////////////
+    public void initialize(){
+        tfNome.setTextFormatter(new TextFormatter<String>(change -> {
+            if (change.getControlNewText().length() <= maxCaracteres) {
+                return change; //se tiver certo
+            } else {
+                return null;//se tiver errado
+            }
+        }));
+        tfTipo.setTextFormatter(new TextFormatter<String>(change -> {
+            if (change.getControlNewText().length() <= maxCaracteres) {
+                return change; //se tiver certo
+            } else {
+                return null;//se tiver errado
+            }
+        }));
+        tfVagas.setTextFormatter(new TextFormatter<String>(change -> {
+            if (change.getControlNewText().length() <= maxCaracteres) {
+                return change; //se tiver certo
+            } else {
+                return null;//se tiver errado
+            }
+        }));
+        taDescricao.setTextFormatter(new TextFormatter<String>(change -> {
+            if (change.getControlNewText().length() <= maxTxtArea) {
+                return change; //se tiver certo
+            } else {
+                return null;//se tiver errado
+            }
+        }));
+        
+    }
+    /////////////////////////////////////////////////////////////////////////
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
     
     public void setStage(Stage stage) throws SQLException{
