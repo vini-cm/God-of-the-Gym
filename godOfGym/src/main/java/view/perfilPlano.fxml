@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" stylesheets="@../../resources/css/perfil.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.PerfilPlanoController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" stylesheets="@../../resources/css/perfil.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PerfilPlanoController">
    <children>
       <AnchorPane layoutX="329.0" layoutY="108.0" prefHeight="204.0" prefWidth="343.0" styleClass="container" stylesheets="@../../resources/css/perfil.css">
          <effect>
@@ -38,7 +37,7 @@
             <DropShadow blurType="ONE_PASS_BOX" height="5.0" offsetX="1.0" radius="2.0" width="5.0" />
          </effect>
       </Label>
-      <Button fx:id="btnVoltar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltarPlanos" styleClass="voltar" stylesheets="@../../resources/css/perfil.css">
+      <Button fx:id="btnVoltar" layoutX="3.0" layoutY="6.0" mnemonicParsing="false" onAction="#voltarPlanos" styleClass="voltar" stylesheets="@../../resources/css/perfil.css">
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
