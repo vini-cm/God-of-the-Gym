@@ -13,6 +13,6 @@
 - \[x] fazer as coisas pararem de diminuir quando o mouse clica
 - \[x] impor limite de cararctere no textfield e textarea
 - \[x] formatar textfield para telefone, email, cpf e salario
-- \[ ] recarregar tabela quando algo é adicionado
+- \[x] recarregar tabela quando algo é adicionado
 - \[ ] fechar formulario e gerar aviso quando algo é cadastrado
 - \[x] mudar o icone de voltar
