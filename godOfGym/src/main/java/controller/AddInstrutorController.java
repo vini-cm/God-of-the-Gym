@@ -84,7 +84,7 @@ public class AddInstrutorController {
     private final int maxTxtArea = 250 ;
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:mm");
-        /////////////////////////////////////////////////////////////////////////
+    
     public void initialize() {
         tfNome.setTextFormatter(new TextFormatter<String>(change -> {
             if (change.getControlNewText().length() <= maxCaracteres) {
@@ -160,10 +160,10 @@ public class AddInstrutorController {
     });
         tfCPF.setTextFormatter(CPFFormatter);
     }
-    /////////////////////////////////////////////////////////////////////////
 
     public void setStage(Stage stage, InstrutoresController controller) throws SQLException {
         this.stage = stage;
+        this.controller = controller;
         rdFeminino.setOnAction(e -> HandleRadioButton(rdFeminino, rdMasculino));
         rdMasculino.setOnAction(e -> HandleRadioButton(rdMasculino, rdFeminino));
         tfEntrada.textProperty().addListener(new ChangeListener<String>() {

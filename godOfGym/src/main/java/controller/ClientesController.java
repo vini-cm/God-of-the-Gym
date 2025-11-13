@@ -77,7 +77,7 @@ public class ClientesController {
         Parent root = loader.load();
         Stage telaAddClientes = new Stage();
         AddClienteController acc = loader.getController();
-        acc.setStage(telaAddClientes);
+        acc.setStage(telaAddClientes,this);
         Scene scene = new Scene(root);
         telaAddClientes.setScene(scene);
         File fileIcon = new File("src/main/resources/imagens/icon.png");

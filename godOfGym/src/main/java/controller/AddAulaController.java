@@ -31,6 +31,7 @@ public class AddAulaController  {
     UserDAO uDao = new UserDAO();
     AulaDAO dao = new AulaDAO();
     Aula aula = new Aula();
+    AulasController controller;
     LocalDateTime data;
     LocalTime entrada;
     LocalTime saida;
@@ -66,7 +67,7 @@ public class AddAulaController  {
     private final int maxCaracteres = 20;
     private final int maxTxtArea = 250 ;
 
-    /////////////////////////////////////////////////////////////////////////
+
     public void initialize(){
         tfNome.setTextFormatter(new TextFormatter<String>(change -> {
             if (change.getControlNewText().length() <= maxCaracteres) {
@@ -98,11 +99,12 @@ public class AddAulaController  {
         }));
         
     }
-    /////////////////////////////////////////////////////////////////////////
+
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
     
-    public void setStage(Stage stage) throws SQLException{
+    public void setStage(Stage stage, AulasController controller) throws SQLException{
         this.stage = stage;
+        this.controller = controller;
         ObservableList<Usuario> instrutores = uDao.PesquisarUsuariosPorTipo("instrutor");
         cbProfessor.setItems(instrutores);
         
@@ -138,11 +140,16 @@ public class AddAulaController  {
             vagas = Integer.parseInt(tfVagas.getText());
             aula = new Aula(tfNome.getText(), taDescricao.getText(), tfTipo.getText(),cbProfessor.getValue().getCPF(),
                     vagas, dpDataAula.getValue(),entrada,saida);
+            try{
             dao.salvar(aula);
-            if (dao.selecionarAula(aula.getNome()) != null){
-                Alerta.mostrarAviso("SUCESSO", "AULA ADCIONADA COM SUCESSO");
-                stage.close();
+            if(controller!=null){
+                controller.carregarTabela();
             }
+            stage.close();
+            }catch(SQLException e){
+                Alerta.mostrarErro("ERROR", e.getMessage());
+            }
+            
         } else {
             Alerta.mostrarErro("ERROR", "PREENCHA TODAS AS INFORMAÇÕES");
         }

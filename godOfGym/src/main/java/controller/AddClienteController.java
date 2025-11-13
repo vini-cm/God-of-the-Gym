@@ -32,6 +32,7 @@ public class AddClienteController {
     ClienteDAO clientedao = new ClienteDAO();
     Cliente cliente;
     PlanosDAO planos = new PlanosDAO();
+    ClientesController controller;
 
     @FXML
     private Button btnCadastro;
@@ -104,7 +105,7 @@ public class AddClienteController {
     private final int maxSenha = 8;
     private final int maxTxtArea = 250 ;
         
-    /////////////////////////////////////////////////////////////////////////
+
     public void initialize() {
         tfNome.setTextFormatter(new TextFormatter<String>(change -> {
             if (change.getControlNewText().length() <= maxCaracteres) {
@@ -186,10 +187,11 @@ public class AddClienteController {
     });
         tfCPF.setTextFormatter(CPFFormatter);
     }
-    /////////////////////////////////////////////////////////////////////////
 
-    public void setStage(Stage stage) throws SQLException {
+
+    public void setStage(Stage stage, ClientesController controller) throws SQLException {
         this.stageAddCliente = stage;
+        this.controller = controller;
         aplicarPeso(tfPeso);
         aplicarAltura(tfAltura);
         taLimitacoes.setVisible(false);
@@ -229,22 +231,23 @@ public class AddClienteController {
                 peso = Float.parseFloat(tfPeso.getText());
                 porcentagem = Float.parseFloat(tfgordura.getText());
                 imc = peso/(altura*altura);
-            user = new Usuario(tfCPF.getText(), tfNome.getText(),tfSobrenome.getText(),nascimento,
-                    tfSenha.getText(),tfEmail.getText(),genero,tfTelefone.getText(), "cliente");
-            dao.salvar(user);
-            
-            if (dao.selecionarUsuario(tfCPF.getText()) != null) {
+                    
+                    try{
+                    user = new Usuario(tfCPF.getText(), tfNome.getText(),tfSobrenome.getText(),nascimento,
+                            tfSenha.getText(),tfEmail.getText(),genero,tfTelefone.getText(), "cliente");
                     cliente = new Cliente(tfCPF.getText(), cbPlano.getValue().getIdPlano(),peso,altura,porcentagem,
                             imc,cbExperiencia.getValue(),taMedicacoes.getText(),taLimitacoes.getText());
+                    dao.salvar(user);
                     clientedao.salvar(cliente);
-                } else {
-                    Alerta.mostrarErro("ERROR", "ERRO EM CADASTRAR INSTRUTOR");
-                }
+                    if(controller != null){
+                        controller.carregarTabela();
+                    }
+                    stageAddCliente.close();
+                    }catch (SQLException e){
+                    Alerta.mostrarErro("ERROR", e.getMessage());
+                    };
             
-            if (clientedao.selecionarCliente(tfCPF.getText()) != null){
-                Alerta.mostrarConfirmacao("SUCESSO", "PERFIL ADICIONADO COM SUCESSO");
-                stageAddCliente.close();
-            }
+            
             }
             else {
                 Alerta.mostrarErro("ERROR", "ESSE USUARIO JÁ EXISTE!");

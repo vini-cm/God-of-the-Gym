@@ -50,7 +50,7 @@ public class AtendentesController  {
       Parent root = loader.load();
       Stage adicionar = new Stage();
       AddAtendentesController ac = loader.getController();
-      ac.setStage(adicionar);
+      ac.setStage(adicionar,this);
       Scene scene = new Scene(root);
       File fileIcon = new File("src/main/resources/imagens/icon.png");
       Image icon = new Image(fileIcon.toURI().toString());

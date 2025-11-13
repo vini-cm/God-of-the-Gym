@@ -76,7 +76,7 @@ public class AulasController {
       Parent root = loader.load();
       Stage adicionar = new Stage();
       AddAulaController aa = loader.getController();
-      aa.setStage(adicionar);
+      aa.setStage(adicionar,this);
       Scene scene = new Scene(root);
       adicionar.setScene(scene);
       adicionar.show();

@@ -27,6 +27,7 @@ public class AddAtendentesController {
     Stage stage;
     AtendenteDAO dao = new AtendenteDAO();
     Atendente atendente = new Atendente();
+    AtendentesController controller;
     Usuario user = new Usuario();
     UserDAO userDAO = new UserDAO();
     String genero;
@@ -78,7 +79,7 @@ public class AddAtendentesController {
     private final int maxSenha = 8;
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-    /////////////////////////////////////////////////////////////////////////
+
     public void initialize() {
         tfNome.setTextFormatter(new TextFormatter<String>(change -> {
             if (change.getControlNewText().length() <= maxCaracteres) {
@@ -147,9 +148,10 @@ public class AddAtendentesController {
         tfCPF.setTextFormatter(CPFFormatter);
     }
     
-    /////////////////////////////////////////////////////////////////////////
-    public void setStage(Stage stage) throws SQLException {
+
+    public void setStage(Stage stage, AtendentesController controller) throws SQLException {
         this.stage = stage;
+        this.controller = controller;
         rdFeminino.setOnAction(e -> HandleRadioButton(rdFeminino, rdMasculino));
         rdMasculino.setOnAction(e -> HandleRadioButton(rdMasculino, rdFeminino));
         tfEntrada.textProperty().addListener(new ChangeListener<String>() {
@@ -195,22 +197,22 @@ public class AddAtendentesController {
             Date nascimento = Date.valueOf(dpNascimento.getValue());
             entrada = LocalTime.parse(tfEntrada.getText(), formatter);
             saida = LocalTime.parse(tfSaida.getText(), formatter);
-            if (dao.selecionarAtendente(tfCPF.getText()) == null) {
+            
+                try{
                 user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), nascimento,
                         tfSenha.getText(), tfEmail.getText(), genero, tfTelefone.getText(), "atendente");
                 userDAO.salvar(user);
-
-                if (userDAO.selecionarUsuario(tfCPF.getText()) != null) {
                     atendente = new Atendente(tfCPF.getText(), Float.parseFloat(tfSalario.getText()),
                         entrada, saida);
                     dao.salvar(atendente);
-                } else {
-                    Alerta.mostrarErro("ERROR", "ERRO EM CADASTRAR ATENDENTE");
+                    if(controller != null){
+                        controller.carregarTabela();
+                    }
+                    stage.close();
+                } catch(SQLException e){
+                    Alerta.mostrarErro("ERROR", e.getMessage());
                 }
-
-            } else {
-                Alerta.mostrarErro("ERROR", "ESSE USUARIO JÁ EXISTE!");
-            }
+                
         }
     }
 
