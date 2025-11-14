@@ -221,6 +221,7 @@ public class AddInstrutorController {
                         controller.listarInstrutores();
                         controller.carregarTabela();
                     }
+                    Alerta.mostrarInformacao("SUCESS", "INSTRUTOR ADICIONADO COM SUCESSO!");
                     stage.close();
                 }catch(SQLException e){
                     Alerta.mostrarErro("ERROR", e.getMessage());

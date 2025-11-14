@@ -166,6 +166,7 @@ public class EditarAtendenteController {
         if(controller != null){
             controller.configurarTela();
         }
+        Alerta.mostrarInformacao("SUCESS", "ATENDENTE EDITADO COM SUCESSO!");
         stage.close();
         }catch(SQLException e){
             Alerta.mostrarErro("ERROR", e.getMessage());

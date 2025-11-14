@@ -75,7 +75,7 @@ public class AddPlanoController  {
            if(controller!=null){
                controller.carregarTabela();
            }
-            Alerta.mostrarConfirmacao("PLANO ADICIONADO", "plano adicionado com sucesso");
+            Alerta.mostrarConfirmacao("PLANO ADICIONADO", "PLANO ADICIONADO COM SUCESSO");
             stage.close();
            } catch(SQLException e){
                Alerta.mostrarErro("ERROR", e.getMessage());

@@ -8,6 +8,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 public class Alerta {
   private static Scene cenaAlerta;
@@ -28,6 +29,8 @@ public class Alerta {
         alerta.setContentText(mgs);
         aplicarEstilo(alerta);
         ImageView imgV = new ImageView(img);
+        Stage stage = (Stage) alerta.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(img);
         alerta.setGraphic(imgV);
         alerta.showAndWait();
     }
@@ -58,6 +61,7 @@ public class Alerta {
         File arquivo = new File("src/main/resources/imagens/alerta/conf.png");
         Image img = new Image(arquivo.toURI().toString());
         ImageView imgV = new ImageView(img);
+        alerta.setGraphic(imgV);
         aplicarEstilo(alerta);
         return alerta.showAndWait();
     }

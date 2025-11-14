@@ -242,6 +242,7 @@ public class AddClienteController {
                     if(controller != null){
                         controller.carregarTabela();
                     }
+                    Alerta.mostrarInformacao("SUCESS", "CLIENTE ADCIONADO COM SUCESSO!");
                     stageAddCliente.close();
                     }catch (SQLException e){
                     Alerta.mostrarErro("ERROR", e.getMessage());
