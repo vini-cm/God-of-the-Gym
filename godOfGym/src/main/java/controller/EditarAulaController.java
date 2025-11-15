@@ -105,6 +105,7 @@ public class EditarAulaController {
         if(controller!=null){
             controller.ajustarTela();
         }
+        Alerta.mostrarInformacao("SUCESS", "AULA EDITADA COM SUCESSO!");
         stage.close();
         }catch(SQLException e){
             Alerta.mostrarErro("ERROR", e.getMessage());

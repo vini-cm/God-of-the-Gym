@@ -12,7 +12,7 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <Button fx:id="btnAdicionar" layoutX="20.0" layoutY="141.0" mnemonicParsing="false" onAction="#adicionarPlano" prefHeight="40.0" prefWidth="180.0" stylesheets="@../../resources/css/formulario.css" text="Adicionar" textFill="#d90429">
+      <Button fx:id="btnAdicionar" layoutX="20.0" layoutY="141.0" mnemonicParsing="false" onAction="#adicionarPlano" prefHeight="40.0" prefWidth="180.0" styleClass="btn" stylesheets="@../../resources/css/formulario.css" text="Adicionar" textFill="#d90429">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font></Button>

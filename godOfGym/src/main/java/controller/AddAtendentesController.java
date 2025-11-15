@@ -208,6 +208,7 @@ public class AddAtendentesController {
                     if(controller != null){
                         controller.carregarTabela();
                     }
+                    Alerta.mostrarInformacao("SUCESS", "ATENDENTE ADICIONAOD COM SUCESSO!");
                     stage.close();
                 } catch(SQLException e){
                     Alerta.mostrarErro("ERROR", e.getMessage());

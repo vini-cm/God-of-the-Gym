@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="450.0" styleClass="anchorPane" stylesheets="@../../resources/css/formulario.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddAtendentesController">
+<AnchorPane id="AnchorPane" prefHeight="308.0" prefWidth="460.0" styleClass="anchorPane" stylesheets="@../../resources/css/formulario.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddAtendentesController">
    <children>
       <TextField fx:id="tfCPF" layoutX="13.0" layoutY="111.0" promptText="CPF" style="-fx-background-radius: 10;" styleClass="textField">
          <font>
@@ -26,35 +26,35 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <TextField fx:id="tfEmail" layoutX="13.0" layoutY="240.0" promptText="Email" style="-fx-background-radius: 10;" styleClass="textField">
+      <TextField fx:id="tfEmail" layoutX="235.0" layoutY="25.0" promptText="Email" style="-fx-background-radius: 10;" styleClass="textField">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <RadioButton fx:id="rdFeminino" layoutX="10.0" layoutY="282.0" mnemonicParsing="false" styleClass="label" text="Feminino">
+      <RadioButton fx:id="rdFeminino" layoutX="244.0" layoutY="75.0" mnemonicParsing="false" styleClass="label" text="Feminino">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></RadioButton>
-      <RadioButton fx:id="rdMasculino" layoutX="105.0" layoutY="282.0" mnemonicParsing="false" styleClass="label" stylesheets="@../../resources/css/formulario.css" text="Masculino">
+      <RadioButton fx:id="rdMasculino" layoutX="345.0" layoutY="75.0" mnemonicParsing="false" styleClass="label" stylesheets="@../../resources/css/formulario.css" text="Masculino">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></RadioButton>
-      <TextField fx:id="tfSalario" layoutX="13.0" layoutY="318.0" promptText="Salario" style="-fx-background-radius: 10;" styleClass="textField">
+      <TextField fx:id="tfSalario" layoutX="235.0" layoutY="111.0" promptText="Salario" style="-fx-background-radius: 10;" styleClass="textField">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <Button fx:id="btnCadastrar" layoutX="242.0" layoutY="240.0" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="180.0" style="-fx-background-radius: 20;" stylesheets="@../../resources/css/formulario.css" text="CADASTRAR" textFill="#d90429">
+      <Button fx:id="btnCadastrar" layoutX="135.0" layoutY="251.0" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="180.0" styleClass="btn" stylesheets="@../../resources/css/formulario.css" text="CADASTRAR" textFill="#d90429">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font></Button>
-      <TextField fx:id="tfEntrada" layoutX="234.0" layoutY="25.0" prefHeight="35.0" prefWidth="100.0" promptText="Inicio" style="-fx-background-radius: 10;" styleClass="textField">
+      <TextField fx:id="tfEntrada" layoutX="235.0" layoutY="152.0" prefHeight="35.0" prefWidth="100.0" promptText="Inicio" style="-fx-background-radius: 10;" styleClass="textField">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <TextField fx:id="tfSaida" layoutX="340.0" layoutY="25.0" prefHeight="35.0" prefWidth="100.0" promptText="Fim" style="-fx-background-radius: 10;" styleClass="textField">
+      <TextField fx:id="tfSaida" layoutX="341.0" layoutY="152.0" prefHeight="35.0" prefWidth="106.0" promptText="Fim" style="-fx-background-radius: 10;" styleClass="textField">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <TextField fx:id="tfTelefone" layoutX="235.0" layoutY="68.0" promptText="Telefone" style="-fx-background-radius: 10;" styleClass="textField">
+      <TextField fx:id="tfTelefone" layoutX="235.0" layoutY="197.0" promptText="Telefone" style="-fx-background-radius: 10;" styleClass="textField">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>

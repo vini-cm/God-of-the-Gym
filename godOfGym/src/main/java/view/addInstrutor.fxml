@@ -22,7 +22,7 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <DatePicker fx:id="dpNascimento" layoutX="22.0" layoutY="150.0" prefHeight="31.0" prefWidth="199.0" promptText="Data Nascimento" stylesheets="@../../resources/css/addatendente.css" />
+      <DatePicker fx:id="dpNascimento" layoutX="22.0" layoutY="150.0" prefHeight="31.0" prefWidth="211.0" promptText="Data Nascimento" stylesheets="@../../resources/css/addatendente.css" />
       <TextField fx:id="tfSenha" layoutX="22.0" layoutY="193.0" promptText="Senha" styleClass="textField" stylesheets="@../../resources/css/formulario.css">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -47,7 +47,7 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextArea>
-      <Button fx:id="bntCadastrar" layoutX="144.0" layoutY="329.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="180.0" stylesheets="@../../resources/css/formulario.css" text="CADASTRAR" textFill="#d90429">
+      <Button fx:id="bntCadastrar" layoutX="144.0" layoutY="329.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="180.0" styleClass="btn" stylesheets="@../../resources/css/formulario.css" text="CADASTRAR" textFill="#d90429">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font></Button>

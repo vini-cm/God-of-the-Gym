@@ -24,7 +24,7 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <DatePicker fx:id="dpNascimento" layoutX="14.0" layoutY="145.0" prefHeight="31.0" prefWidth="205.0" promptText="Data Nascimento" stylesheets="@../../resources/css/addatendente.css" />
+      <DatePicker fx:id="dpNascimento" layoutX="14.0" layoutY="146.0" prefHeight="31.0" prefWidth="211.0" promptText="Data Nascimento" stylesheets="@../../resources/css/addatendente.css" />
       <TextField fx:id="tfSenha" layoutX="14.0" layoutY="188.0" promptText="Senha" style="-fx-background-radius: 10;" styleClass="textField">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -33,19 +33,19 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextField>
-      <RadioButton fx:id="rdFeminino" layoutX="15.0" layoutY="266.0" mnemonicParsing="false" text="Feminino" textFill="#d90429">
+      <RadioButton fx:id="rdFeminino" layoutX="15.0" layoutY="269.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Feminino" textFill="#d90429">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></RadioButton>
-      <RadioButton fx:id="rdMasculino" layoutX="122.0" layoutY="266.0" mnemonicParsing="false" text="Masculino" textFill="#d90429">
+      <RadioButton fx:id="rdMasculino" layoutX="122.0" layoutY="269.0" mnemonicParsing="false" text="Masculino" textFill="#d90429">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></RadioButton>
-      <Button fx:id="btnCadastro" layoutX="27.0" layoutY="342.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="180.0" style="-fx-background-radius: 20; -fx-background-color: #d90429;" text="CADASTRAR" textFill="#2b2d42">
+      <Button fx:id="btnCadastro" layoutX="27.0" layoutY="342.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="180.0" styleClass="btn" text="CADASTRAR" textFill="#2b2d42">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font></Button>
-      <ChoiceBox fx:id="cbPlano" layoutX="15.0" layoutY="295.0" prefHeight="29.0" prefWidth="199.0" style="-fx-background-radius: 10;" stylesheets="@../../resources/css/formulario.css" />
+      <ChoiceBox fx:id="cbPlano" layoutX="15.0" layoutY="297.0" prefHeight="29.0" prefWidth="199.0" style="-fx-background-radius: 10;" stylesheets="@../../resources/css/formulario.css" />
       <TextField fx:id="tfTelefone" layoutX="230.0" layoutY="25.0" promptText="Telefone" style="-fx-background-radius: 10;" styleClass="textField">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -63,7 +63,7 @@
             <Font name="System Bold" size="15.0" />
          </font></TextField>
       <ChoiceBox fx:id="cbExperiencia" layoutX="233.0" layoutY="187.0" prefHeight="29.0" prefWidth="199.0" style="-fx-background-radius: 10;" />
-      <CheckBox fx:id="checkbMedicamentos" layoutX="236.0" layoutY="228.0" mnemonicParsing="false" text="Medicamentos" textFill="#d90429">
+      <CheckBox fx:id="checkbMedicamentos" layoutX="236.0" layoutY="222.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Medicamentos" textFill="#d90429">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></CheckBox>

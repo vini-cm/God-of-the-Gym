@@ -193,6 +193,7 @@ public class EditarClienteController {
         if(controller!= null){
             controller.configurarTela();
         }
+        Alerta.mostrarInformacao("SUCESS", "CLIENTE EDITADO COM SUCESSO!");
         stage.close();
         }catch(SQLException e){
             Alerta.mostrarErro("ERROR", e.getMessage());
