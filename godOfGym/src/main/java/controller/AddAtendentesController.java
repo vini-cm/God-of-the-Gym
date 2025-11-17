@@ -109,39 +109,7 @@ public class AddAtendentesController {
                 return null;//se tiver errado
             }
         }));
-        TextFormatter<String> TelefoneFormatter = new TextFormatter<>(change -> {
-        String newText = change.getControlNewText();
-
-        // permite só números, ponto e vírgula
-        if (!newText.matches("[0-9()+\\-\\s]*")) {
-            return null; // rejeita caractere inválido
-        }
-
-        return change;
-    });
-
-        tfTelefone.setTextFormatter(TelefoneFormatter);
-        
-        TextFormatter<String> precoFormatter = new TextFormatter<>(change -> {
-        String newText = change.getControlNewText();
-
-        // permite só números, ponto e vírgula
-        if (!newText.matches("\\d*(\\.|,)?\\d{0,2}")) {
-            return null; // rejeita caractere inválido
-        }
-
-        return change;
-    });
-
-        tfSalario.setTextFormatter(precoFormatter);
-        
-        TextFormatter<String> CPFFormatter = new TextFormatter<>(change -> {
-        String newText = change.getControlNewText();
-
-
-        return change;
-    });
-        tfCPF.setTextFormatter(CPFFormatter);
+       
     }
     
 
@@ -226,6 +194,7 @@ public class AddAtendentesController {
     
     public void formatar(){
         Formatar.formatarCPF(tfCPF);
+        Formatar.formatarTelefone(tfTelefone);
     }
 
     private void HandleRadioButton(RadioButton select, RadioButton... others) {

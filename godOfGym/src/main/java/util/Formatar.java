@@ -41,4 +41,37 @@ public class Formatar {
         TextFormatter<String> formatter = new TextFormatter<>(filter);
         tf.setTextFormatter(formatter);
     }
+    
+    public static void formatarTelefone(TextField tf){
+        Pattern padrao = Pattern.compile("\\d*");
+        UnaryOperator<TextFormatter.Change> filter = change -> {
+            String newText = change.getControlNewText();
+            if (!padrao.matcher(newText.replaceAll("[^\\d]", "")).matches() || newText.length()>13){
+                return null;
+            }
+            
+            StringBuilder formatterTelefone = new StringBuilder();
+            String telefonePuro = newText.replaceAll("[^\\d]", "");
+            formatterTelefone.append("(");
+            for(int i = 0; i < telefonePuro.length(); i++){
+                formatterTelefone.append(telefonePuro.charAt(i));
+                if (i == 1){
+                    formatterTelefone.append(")");
+                } else if (i == 5){
+                    formatterTelefone.append("-");
+                }
+            }
+            
+            change.setText(formatterTelefone.toString());
+            change.setRange(0, change.getControlText().length());
+            int caretPosition = Math.min(formatterTelefone.length(), change.getCaretPosition());
+            change.setCaretPosition(caretPosition);
+            change.setAnchor(caretPosition);
+            return change;
+        };
+        TextFormatter<String> formatter = new TextFormatter<>(filter);
+        tf.setTextFormatter(formatter);
+    }
+    
+    
 }
