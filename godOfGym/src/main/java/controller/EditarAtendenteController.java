@@ -196,7 +196,7 @@ public class EditarAtendenteController {
         Visibilidade.visibilidadeTexto(cNome, tfNome);
         Visibilidade.visibilidadeTexto(cSobrenome, tfSobrenome);
         Visibilidade.visibilidadeTexto(cSenha, pfSenha);
-        Visibilidade.visibilidadeGenero(cGenero, rFeminino, rFeminino);
+        Visibilidade.visibilidadeGenero(cGenero, rFeminino, rMasculino);
         Visibilidade.visibilidadeHorario(cHorario, tfInicio, tfFinal);
         Visibilidade.visibilidadeTexto(cSalario, tfSalario);
         Visibilidade.visibilidadeTexto(cEmail, tfEmail);

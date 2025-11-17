@@ -19,6 +19,7 @@ model\Atendente.class
 controller\ClientesController.class
 controller\AddAulaController$1.class
 controller\AddInstrutorController$1.class
+controller\AddAtendentesController$3.class
 controller\EditarAtendenteController$1.class
 model\PlanosDAO.class
 controller\EditarInstrutorController$2.class
@@ -42,6 +43,7 @@ util\Alerta.class
 controller\EditarAulaController.class
 controller\InstrutoresController.class
 controller\AtendentesController.class
+util\Formatar.class
 dal\Conn.class
 controller\AddAtendentesController$1.class
 principal\App.class

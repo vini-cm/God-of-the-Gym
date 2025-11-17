@@ -21,6 +21,7 @@ import model.AtendenteDAO;
 import model.UserDAO;
 import model.Usuario;
 import util.Alerta;
+import util.Formatar;
 
 public class AddAtendentesController {
 
@@ -74,7 +75,6 @@ public class AddAtendentesController {
     private TextField tfTelefone;
     
     private final int maxCaracteres = 20;
-    private final int maxCPF = 11;
     private final int maxEmail = 60;
     private final int maxSenha = 8;
 
@@ -138,10 +138,6 @@ public class AddAtendentesController {
         TextFormatter<String> CPFFormatter = new TextFormatter<>(change -> {
         String newText = change.getControlNewText();
 
-        // permite só números, ponto e vírgula
-        if (!newText.matches("\\d{0," + maxCPF + "}")) {
-            return null; // rejeita caractere inválido
-        }
 
         return change;
     });
@@ -154,11 +150,12 @@ public class AddAtendentesController {
         this.controller = controller;
         rdFeminino.setOnAction(e -> HandleRadioButton(rdFeminino, rdMasculino));
         rdMasculino.setOnAction(e -> HandleRadioButton(rdMasculino, rdFeminino));
+        formatar();
         tfEntrada.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!formatoHorario(newValue)) {
-                    tfEntrada.setStyle("-fx-border-color:red");
+                    tfEntrada.setStyle("-fx-border-color:yellow; -fx-text-fill:yellow");
                 } else {
                     tfEntrada.setStyle("");
                 }
@@ -169,13 +166,23 @@ public class AddAtendentesController {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!formatoHorario(newValue)) {
-                    tfSaida.setStyle("-fx-border-color:red");
+                    tfSaida.setStyle("-fx-border-color:yellow; -fx-text-fill:yellow");
                 } else {
                     tfSaida.setStyle("");
                 }
             }
         });
-
+        
+        tfEmail.textProperty().addListener(new ChangeListener<String>(){
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
+                if(!formatoEmail(newValue)){
+                    tfEmail.setStyle("-fx-border-color:yellow; -fx-text-fill:yellow");
+                }else {
+                    tfEmail.setStyle("");
+                }
+            }
+        });
     }
 
     @FXML
@@ -216,6 +223,10 @@ public class AddAtendentesController {
                 
         }
     }
+    
+    public void formatar(){
+        Formatar.formatarCPF(tfCPF);
+    }
 
     private void HandleRadioButton(RadioButton select, RadioButton... others) {
         for (RadioButton button : others) {
@@ -223,6 +234,13 @@ public class AddAtendentesController {
                 button.setSelected(false);
             }
         }
+    }
+    
+    private boolean formatoEmail(String email){
+        String emailPadrao = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        Pattern padrao = Pattern.compile(emailPadrao);
+        Matcher matcher = padrao.matcher(email);
+        return matcher.matches();
     }
 
     private boolean formatoHorario(String hora) {
