@@ -1,6 +1,5 @@
 controller\HomeController.class
 controller\AddAulaController.class
-controller\EditarPlanoController.class
 controller\AddAtendentesController$2.class
 controller\EditarClienteController.class
 model\Instrutor.class
@@ -35,17 +34,14 @@ controller\EditarInstrutorController.class
 controller\LoginController.class
 controller\PerfilAulaController.class
 model\LoginDAO.class
-module-info.class
 controller\AddInstrutorController$2.class
 controller\PerfilPlanoController.class
 util\Alerta.class
 controller\EditarAulaController.class
 controller\InstrutoresController.class
 controller\AtendentesController.class
-dal\Conn.class
 controller\AddAtendentesController$1.class
 principal\App.class
 controller\PerfilInstrutorController.class
-model\Planos.class
 controller\AddInstrutorController.class
 controller\PerfilAtendentesController.class
