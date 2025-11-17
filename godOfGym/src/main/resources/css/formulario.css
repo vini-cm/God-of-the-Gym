@@ -161,8 +161,14 @@
     -fx-border-width:3px;
     -fx-background-radius: 3px;
     -fx-border-radius:3px;
+    -fx-font-size: 14px;
 }
 
 .check-box:selected .mark {
     -fx-background-color: #cc0033;
+    -fx-font-size: 14px;
+}
+.check-box .label{
+    -fx-font-size: 14px;
+    
 }
