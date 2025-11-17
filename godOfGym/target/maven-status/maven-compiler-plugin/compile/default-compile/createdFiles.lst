@@ -1,10 +1,9 @@
 controller\HomeController.class
 controller\AddAulaController.class
-controller\AddAtendentesController$2.class
+controller\EditarPlanoController.class
 controller\EditarClienteController.class
 model\Instrutor.class
 controller\AddClienteController.class
-util\Formatar$1.class
 model\Cliente.class
 model\InstrutorDAO.class
 model\ClienteDAO.class
@@ -35,19 +34,17 @@ controller\EditarInstrutorController.class
 controller\LoginController.class
 controller\PerfilAulaController.class
 model\LoginDAO.class
+module-info.class
 controller\AddInstrutorController$2.class
 controller\PerfilPlanoController.class
 util\Alerta.class
 controller\EditarAulaController.class
 controller\InstrutoresController.class
 controller\AtendentesController.class
-<<<<<<< HEAD
-=======
 util\Formatar.class
 dal\Conn.class
->>>>>>> main
-controller\AddAtendentesController$1.class
 principal\App.class
 controller\PerfilInstrutorController.class
+model\Planos.class
 controller\AddInstrutorController.class
 controller\PerfilAtendentesController.class

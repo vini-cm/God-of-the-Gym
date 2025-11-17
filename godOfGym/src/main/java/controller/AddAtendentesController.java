@@ -74,83 +74,16 @@ public class AddAtendentesController {
     @FXML
     private TextField tfTelefone;
     
-    private final int maxCaracteres = 20;
-    private final int maxEmail = 60;
-    private final int maxSenha = 8;
-
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-
-    public void initialize() {
-        tfNome.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() <= maxCaracteres) {
-                return change; //se tiver certo
-            } else {
-                return null;//se tiver errado
-            }
-        }));
-        tfSobrenome.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() <= maxCaracteres) {
-                return change; //se tiver certo
-            } else {
-                return null;//se tiver errado
-            }
-        }));
-        tfEmail.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() <= maxEmail) {
-                return change; //se tiver certo
-            } else {
-                return null;//se tiver errado
-            }
-        }));
-        tfSenha.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() <= maxSenha) {
-                return change; //se tiver certo
-            } else {
-                return null;//se tiver errado
-            }
-        }));
-       
-    }
     
 
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+    
     public void setStage(Stage stage, AtendentesController controller) throws SQLException {
         this.stage = stage;
         this.controller = controller;
         rdFeminino.setOnAction(e -> HandleRadioButton(rdFeminino, rdMasculino));
         rdMasculino.setOnAction(e -> HandleRadioButton(rdMasculino, rdFeminino));
         formatar();
-        tfEntrada.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!formatoHorario(newValue)) {
-                    tfEntrada.setStyle("-fx-border-color:yellow; -fx-text-fill:yellow");
-                } else {
-                    tfEntrada.setStyle("");
-                }
-            }
-        });
-
-        tfSaida.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!formatoHorario(newValue)) {
-                    tfSaida.setStyle("-fx-border-color:yellow; -fx-text-fill:yellow");
-                } else {
-                    tfSaida.setStyle("");
-                }
-            }
-        });
-        
-        tfEmail.textProperty().addListener(new ChangeListener<String>(){
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
-                if(!formatoEmail(newValue)){
-                    tfEmail.setStyle("-fx-border-color:yellow; -fx-text-fill:yellow");
-                }else {
-                    tfEmail.setStyle("");
-                }
-            }
-        });
     }
 
     @FXML
@@ -195,6 +128,9 @@ public class AddAtendentesController {
     public void formatar(){
         Formatar.formatarCPF(tfCPF);
         Formatar.formatarTelefone(tfTelefone);
+        Formatar.formatarDinheiro(tfSalario);
+        Formatar.formatarHorario(tfEntrada);
+        Formatar.formatarHorario(tfSaida);
     }
 
     private void HandleRadioButton(RadioButton select, RadioButton... others) {
@@ -205,16 +141,4 @@ public class AddAtendentesController {
         }
     }
     
-    private boolean formatoEmail(String email){
-        String emailPadrao = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
-        Pattern padrao = Pattern.compile(emailPadrao);
-        Matcher matcher = padrao.matcher(email);
-        return matcher.matches();
     }
-
-    private boolean formatoHorario(String hora) {
-        Pattern padrao = Pattern.compile("(^[01]?[0-9]|2[0-3]):([0-5]?[0-9])$");
-        Matcher matcher = padrao.matcher(hora);
-        return matcher.matches();
-    }
-}
