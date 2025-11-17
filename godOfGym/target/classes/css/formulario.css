@@ -151,6 +151,10 @@
     
 }
 
+.check-box .label {
+    -fx-font-size: 18px;
+}
+
 .check-box .box {
     -fx-background-color: #2b2d42;
     -fx-border-color: #cc0033;

@@ -170,7 +170,7 @@ public class AddInstrutorController {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!formatoHorario(newValue)) {
-                    tfEntrada.setStyle("-fx-border-color:red");
+                    tfEntrada.setStyle("-fx-border-color:yellow; -fx-text-fill:yellow");
                 } else {
                     tfEntrada.setStyle("");
                 }
@@ -181,7 +181,7 @@ public class AddInstrutorController {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!formatoHorario(newValue)) {
-                    tfSaida.setStyle("-fx-border-color:red");
+                    tfSaida.setStyle("-fx-border-color:yellow; -fx-text-fill:yellow");
                 } else {
                     tfSaida.setStyle("");
                 }

@@ -112,7 +112,7 @@ public class AddAulaController  {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!formatoHorario(newValue)) {
-                    tfcomeco.setStyle("-fx-border-color:red");
+                    tfcomeco.setStyle("-fx-border-color:yellow; -fx-text-fill:yellow");
                 } else {
                     tfcomeco.setStyle("");
                 }
@@ -123,7 +123,7 @@ public class AddAulaController  {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!formatoHorario(newValue)) {
-                    tfFim.setStyle("-fx-border-color:red");
+                    tfFim.setStyle("-fx-border-color:yellow; -fx-text-fill:yellow");
                 } else {
                     tfFim.setStyle("");
                 }
