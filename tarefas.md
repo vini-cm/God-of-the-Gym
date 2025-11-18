@@ -1,1 +1,2 @@
-- \[x] formatter do peso e altura
+- \[ ] formatter do peso e altura
+- \[ ] logout
