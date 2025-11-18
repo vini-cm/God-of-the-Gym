@@ -1,2 +1,3 @@
 - \[ ] formatter do peso e altura
 - \[ ] logout
+- \[ ] sistema de vagas da aula
