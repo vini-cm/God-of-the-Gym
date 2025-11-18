@@ -2,9 +2,6 @@ package controller;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.function.UnaryOperator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,7 +11,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 import model.Cliente;
 import model.ClienteDAO;
@@ -23,6 +19,7 @@ import model.PlanosDAO;
 import model.UserDAO;
 import model.Usuario;
 import util.Alerta;
+import util.Formatar;
 
 public class AddClienteController {
     Stage stageAddCliente;
@@ -91,109 +88,17 @@ public class AddClienteController {
     @FXML
     private TextArea taLimitacoes;
     
-    private Pattern padraoPeso = Pattern.compile("\\d{0,2}(\\.\\d{0,1})?");
-    private Pattern padraoAltura = Pattern.compile("\\d{0,1}(\\.\\d{0,2})?");
     
     float peso;
     float altura;
     float imc;
     float porcentagem;
     
-    private final int maxCaracteres = 20;
-    private final int maxCPF = 11;
-    private final int maxEmail = 60;
-    private final int maxSenha = 8;
-    private final int maxTxtArea = 250 ;
-        
-
-    public void initialize() {
-        tfNome.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() <= maxCaracteres) {
-                return change; //se tiver certo
-            } else {
-                return null;//se tiver errado
-            }
-        }));
-        tfSobrenome.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() <= maxCaracteres) {
-                return change; //se tiver certo
-            } else {
-                return null;//se tiver errado
-            }
-        }));
-        tfEmail.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() <= maxEmail) {
-                return change; //se tiver certo
-            } else {
-                return null;//se tiver errado
-            }
-        }));
-        tfSenha.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() <= maxSenha) {
-                return change; //se tiver certo
-            } else {
-                return null;//se tiver errado
-            }
-        }));
-        taMedicacoes.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() <= maxTxtArea) {
-                return change; //se tiver certo
-            } else {
-                return null;//se tiver errado
-            }
-        }));
-        taLimitacoes.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() <= maxTxtArea) {
-                return change; //se tiver certo
-            } else {
-                return null;//se tiver errado
-            }
-        }));
-
-        TextFormatter<String> TelefoneFormatter = new TextFormatter<>(change -> {
-        String newText = change.getControlNewText();
-
-        // permite só números, ponto e vírgula
-        if (!newText.matches("[0-9()+\\-\\s]*")) {
-            return null; // rejeita caractere inválido
-        }
-
-        return change;
-    });
-
-        tfTelefone.setTextFormatter(TelefoneFormatter);
-        
-        TextFormatter<String> PesoFormatter = new TextFormatter<>(change -> {
-        String newText = change.getControlNewText();
-
-        // permite só números, ponto e vírgula
-        if (!newText.matches("[0-9,%]*")) {
-            return null; // rejeita caractere inválido
-        }
-
-        return change;
-    });
-        tfgordura.setTextFormatter(PesoFormatter);
-        
-                TextFormatter<String> CPFFormatter = new TextFormatter<>(change -> {
-        String newText = change.getControlNewText();
-
-        // permite só números, ponto e vírgula
-        if (!newText.matches("\\d{0," + maxCPF + "}")) {
-            return null; // rejeita caractere inválido
-        }
-
-        return change;
-    });
-        tfCPF.setTextFormatter(CPFFormatter);
-    }
 
 
     public void setStage(Stage stage, ClientesController controller) throws SQLException {
         this.stageAddCliente = stage;
         this.controller = controller;
-        aplicarPeso(tfPeso);
-        aplicarAltura(tfAltura);
         taLimitacoes.setVisible(false);
         taMedicacoes.setVisible(false);
         rdFeminino.setOnAction(e -> HandleRadioButton(rdFeminino, rdMasculino));
@@ -266,43 +171,14 @@ public class AddClienteController {
         }
     }
     
-    private void aplicarPeso(TextField tf){
-        UnaryOperator<TextFormatter.Change> filtro = change -> {
-            String texto = change.getControlNewText();
-            
-            if (texto.isEmpty()){
-                return change;
-            }
-            
-            Matcher matcher = padraoPeso.matcher(texto);
-            if(matcher.matches()){
-                return change;
-            } else {
-                return null;
-            }
-    };
-        tf.setTextFormatter(new TextFormatter<>(filtro));
-    }
-    
-    private void aplicarAltura(TextField tf){
-        UnaryOperator<TextFormatter.Change> filtro = change -> {
-            String texto = change.getControlNewText();
-            
-            if (texto.isEmpty()){
-                return change;
-            }
-            
-            if(texto.length()>3){
-                texto = texto.substring(0, 3);
-            }
-            
-            Matcher matcher = padraoAltura.matcher(texto);
-            if(matcher.matches()){
-                return change;
-            } else {
-                return null;
-            }
-    };
-        tf.setTextFormatter(new TextFormatter<>(filtro));
+    public void formatar(){
+        Formatar.apenasLetras(tfNome);
+        Formatar.apenasLetras(tfSobrenome);
+        Formatar.formatarCPF(tfCPF);
+        Formatar.formatarTelefone(tfTelefone);
+        Formatar.formatarEmail(tfEmail);
+        Formatar.apenasNumero(tfgordura);
+        Formatar.apenasNumero(tfPeso);
+        Formatar.apenasNumero(tfAltura);
     }
 }

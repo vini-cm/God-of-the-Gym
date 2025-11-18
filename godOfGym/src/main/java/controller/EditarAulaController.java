@@ -18,6 +18,7 @@ import model.AulaDAO;
 import model.UserDAO;
 import model.Usuario;
 import util.Alerta;
+import util.Formatar;
 import util.Visibilidade;
 
 public class EditarAulaController {
@@ -133,5 +134,10 @@ public class EditarAulaController {
         Visibilidade.visibilidadeTextArea(cbDescricao, taDescrisao);
         Visibilidade.visibilidadeHorario(cbHorario, tfComeco, tfFinal);
         Visibilidade.visibilidadeDatePicker(cbData, dpData);
+    }
+    
+    void formatador(){
+        Formatar.formatarHorario(tfComeco);
+        Formatar.formatarHorario(tfFinal);
     }
 }

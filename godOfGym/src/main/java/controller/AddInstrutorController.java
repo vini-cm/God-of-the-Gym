@@ -4,10 +4,6 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -15,13 +11,13 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 import model.Instrutor;
 import model.InstrutorDAO;
 import model.UserDAO;
 import model.Usuario;
 import util.Alerta;
+import util.Formatar;
 
 public class AddInstrutorController {
 
@@ -76,117 +72,15 @@ public class AddInstrutorController {
 
     @FXML
     private TextField tfTelefone;
-    
-    private final int maxCaracteres = 20;
-    private final int maxCPF = 11;
-    private final int maxEmail = 60;
-    private final int maxSenha = 8;
-    private final int maxTxtArea = 250 ;
+
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:mm");
-    
-    public void initialize() {
-        tfNome.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() <= maxCaracteres) {
-                return change; //se tiver certo
-            } else {
-                return null;//se tiver errado
-            }
-        }));
-        tfSobrenome.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() <= maxCaracteres) {
-                return change; //se tiver certo
-            } else {
-                return null;//se tiver errado
-            }
-        }));
-        tfEmail.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() <= maxEmail) {
-                return change; //se tiver certo
-            } else {
-                return null;//se tiver errado
-            }
-        }));
-        tfSenha.setTextFormatter(new TextFormatter<String>(change -> {
-            if (change.getControlNewText().length() <= maxSenha) {
-                return change; //se tiver certo
-            } else {
-                return null;//se tiver errado
-            }
-        }));
-        taFormacao.setTextFormatter(new TextFormatter<String>(change ->{
-            if(change.getControlNewText().length() <= maxTxtArea){
-                return change;
-            }
-            else{
-                return null;
-            }
-        }));
-        TextFormatter<String> TelefoneFormatter = new TextFormatter<>(change -> {
-        String newText = change.getControlNewText();
-
-        // permite só números, ponto e vírgula
-        if (!newText.matches("[0-9()+\\-\\s]*")) {
-            return null; // rejeita caractere inválido
-        }
-
-        return change;
-    });
-
-        tfTelefone.setTextFormatter(TelefoneFormatter);
-        
-        TextFormatter<String> precoFormatter = new TextFormatter<>(change -> {
-        String newText = change.getControlNewText();
-
-        // permite só números, ponto e vírgula
-        if (!newText.matches("\\d*(\\.|,)?\\d{0,2}")) {
-            return null; // rejeita caractere inválido
-        }
-
-        return change;
-    });
-
-        tfSalario.setTextFormatter(precoFormatter);
-        
-                TextFormatter<String> CPFFormatter = new TextFormatter<>(change -> {
-        String newText = change.getControlNewText();
-
-        // permite só números, ponto e vírgula
-        if (!newText.matches("\\d{0," + maxCPF + "}")) {
-            return null; // rejeita caractere inválido
-        }
-
-        return change;
-    });
-        tfCPF.setTextFormatter(CPFFormatter);
-    }
-
+   
     public void setStage(Stage stage, InstrutoresController controller) throws SQLException {
         this.stage = stage;
         this.controller = controller;
         rdFeminino.setOnAction(e -> HandleRadioButton(rdFeminino, rdMasculino));
         rdMasculino.setOnAction(e -> HandleRadioButton(rdMasculino, rdFeminino));
-        tfEntrada.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!formatoHorario(newValue)) {
-                    tfEntrada.setStyle("-fx-border-color:yellow; -fx-text-fill:yellow");
-                } else {
-                    tfEntrada.setStyle("");
-                }
-            }
-        });
-
-        tfSaida.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!formatoHorario(newValue)) {
-                    tfSaida.setStyle("-fx-border-color:yellow; -fx-text-fill:yellow");
-                } else {
-                    tfSaida.setStyle("");
-                }
-            }
-        });
     }
 
     @FXML
@@ -237,10 +131,16 @@ public class AddInstrutorController {
             }
         }
     }
-
-    private boolean formatoHorario(String hora) {
-        Pattern padrao = Pattern.compile("(^[01]?[0-9]|2[0-3]):([0-5]?[0-9])$");
-        Matcher matcher = padrao.matcher(hora);
-        return matcher.matches();
+    
+     public void formatar(){
+        Formatar.apenasLetras(tfNome);
+        Formatar.apenasLetras(tfSobrenome);
+        Formatar.formatarCPF(tfCPF);
+        Formatar.formatarTelefone(tfTelefone);
+        Formatar.formatarDinheiro(tfSalario);
+        Formatar.formatarHorario(tfEntrada);
+        Formatar.formatarHorario(tfSaida);
+        Formatar.formatarEmail(tfEmail);
     }
+
 }

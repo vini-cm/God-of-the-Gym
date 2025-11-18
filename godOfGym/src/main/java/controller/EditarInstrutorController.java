@@ -23,6 +23,7 @@ import model.InstrutorDAO;
 import model.UserDAO;
 import model.Usuario;
 import util.Alerta;
+import util.Formatar;
 import util.Visibilidade;
 
 
@@ -111,30 +112,9 @@ public class EditarInstrutorController  {
         this.user = uDAO.selecionarUsuario(i.getCPF());
         this.controller = controller;
         configuracaoVisibilidade();
-        
+        formatar();
         rFeminino.setOnAction(e -> HandleRadioButton(rFeminino, rMasculino));
         rMasculino.setOnAction(e -> HandleRadioButton(rMasculino, rFeminino));
-        tfInicio.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!formatoHorario(newValue)) {
-                    tfInicio.setStyle("-fx-border-color:red");
-                } else {
-                    tfInicio.setStyle("");
-                }
-            }
-        });
-
-        tfFinal.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!formatoHorario(newValue)) {
-                    tfFinal.setStyle("-fx-border-color:red");
-                } else {
-                    tfFinal.setStyle("");
-                }
-            }
-        });
     }
 
     @FXML
@@ -226,11 +206,14 @@ public class EditarInstrutorController  {
             }
         }
     }
-
-    private boolean formatoHorario(String hora) {
-        Pattern padrao = Pattern.compile("(^[01]?[0-9]|2[0-3]):([0-5]?[0-9])$");
-        Matcher matcher = padrao.matcher(hora);
-        return matcher.matches();
-    }
     
+    public void formatar(){
+        Formatar.apenasLetras(tfNome);
+        Formatar.apenasLetras(tfSobrenome);
+        Formatar.formatarTelefone(tfTelefone);
+        Formatar.formatarDinheiro(tfSalario);
+        Formatar.formatarHorario(tfInicio);
+        Formatar.formatarHorario(tfFinal);
+        Formatar.formatarEmail(tfEmail);
+    }
 }

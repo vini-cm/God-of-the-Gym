@@ -4,6 +4,7 @@ controller\EditarPlanoController.class
 controller\EditarClienteController.class
 model\Instrutor.class
 controller\AddClienteController.class
+util\Formatar$1.class
 model\Cliente.class
 model\InstrutorDAO.class
 model\ClienteDAO.class
@@ -16,7 +17,6 @@ model\genericoDAO.class
 util\Visibilidade.class
 model\Atendente.class
 controller\ClientesController.class
-controller\AddAulaController$1.class
 controller\AddInstrutorController$1.class
 controller\EditarAtendenteController$1.class
 model\PlanosDAO.class
@@ -29,7 +29,6 @@ controller\AddAtendentesController.class
 controller\EditarInstrutorController$1.class
 controller\EditarAtendenteController$2.class
 model\Usuario.class
-controller\AddAulaController$2.class
 controller\EditarInstrutorController.class
 controller\LoginController.class
 controller\PerfilAulaController.class

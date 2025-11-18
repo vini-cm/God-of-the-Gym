@@ -1,20 +1,20 @@
 package util;
 
 import java.util.function.UnaryOperator;
-import java.util.regex.Pattern;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 
 public class Formatar {
 
     public static void formatarCPF(TextField tf) {
-        Pattern padrao = Pattern.compile("\\d*");
         UnaryOperator<TextFormatter.Change> filter = change -> {
             
             String newText = change.getControlNewText();
             String cpfPuro = newText.replaceAll("[^\\d]", "");
             
-            if (!padrao.matcher(cpfPuro).matches() || newText.length() > 14) {
+            if (!cpfPuro.matches("\\d*") || newText.length() > 14) {
                 return null;
             }
 
@@ -35,7 +35,6 @@ public class Formatar {
     }
 
     public static void formatarTelefone(TextField tf) {
-        Pattern padrao = Pattern.compile("\\d*");
         
         UnaryOperator<TextFormatter.Change> filter = change -> {
             String newText = change.getControlNewText();
@@ -61,8 +60,6 @@ public class Formatar {
     }
     
     public static void formatarDinheiro(TextField tf){
-        Pattern padrao = Pattern.compile("\\d*");
-        
         UnaryOperator<TextFormatter.Change> filter = change -> {
             String newText = change.getControlNewText();
             String salarioPuro = newText.replaceAll("[^\\d]", "");
@@ -107,7 +104,6 @@ public class Formatar {
     }
     
     public static void formatarHorario(TextField tf){
-        Pattern padrao = Pattern.compile("\\d*");
         
         UnaryOperator<TextFormatter.Change> filter = change -> {
             String newText = change.getControlNewText();
@@ -130,5 +126,45 @@ public class Formatar {
         };
         TextFormatter<String> formatter = new TextFormatter<>(filter);
         tf.setTextFormatter(formatter);
+    }
+    
+    public static void formatarEmail(TextField tf) {
+        tf.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!emailValido(newValue)) {
+                    tf.setStyle("-fx-border-color:yellow; -fx-text-fill:yellow");
+                } else {
+                    tf.setStyle("");
+                }
+            }
+        });
+    }
+
+    private static boolean emailValido(String email) {
+        String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        return email.matches(emailRegex);
+    }
+    
+    public static void apenasNumero(TextField tf){
+        TextFormatter<String> numeroFormatter = new TextFormatter<> (change -> {
+            String texto = change.getControlNewText();
+            if(!texto.matches("\\d*")){
+                return null;
+            }
+            return change;
+        });
+        tf.setTextFormatter(numeroFormatter);
+    }
+                
+    public static void apenasLetras(TextField tf){
+        TextFormatter<String> letrasFormatter = new TextFormatter<> (change -> {
+            String texto = change.getControlNewText();
+            if(texto.matches("\\d*")){
+                return null;
+            }
+            return change;
+        });
+        tf.setTextFormatter(letrasFormatter);
     }
 }

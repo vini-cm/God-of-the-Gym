@@ -22,6 +22,7 @@ import model.AtendenteDAO;
 import model.UserDAO;
 import model.Usuario;
 import util.Alerta;
+import util.Formatar;
 import util.Visibilidade;
 
 public class EditarAtendenteController {
@@ -103,30 +104,9 @@ public class EditarAtendenteController {
         this.controller = controller;
         this.user = uDAO.selecionarUsuario(atendente.getCPF());
         configuracaoVisibilidade();
-        
+        formatar();
         rFeminino.setOnAction(e -> HandleRadioButton(rFeminino, rMasculino));
         rMasculino.setOnAction(e -> HandleRadioButton(rMasculino, rFeminino));
-        tfInicio.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!formatoHorario(newValue)) {
-                    tfInicio.setStyle("-fx-border-color:red");
-                } else {
-                    tfInicio.setStyle("");
-                }
-            }
-        });
-
-        tfFinal.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!formatoHorario(newValue)) {
-                    tfFinal.setStyle("-fx-border-color:red");
-                } else {
-                    tfFinal.setStyle("");
-                }
-            }
-        });
     }
 
     @FXML
@@ -204,6 +184,14 @@ public class EditarAtendenteController {
         Visibilidade.visibilidadeDatePicker(cNascimento, dpNascimento);
     }
     
+    public void formatar(){
+        Formatar.formatarTelefone(tfTelefone);
+        Formatar.formatarDinheiro(tfSalario);
+        Formatar.formatarHorario(tfInicio);
+        Formatar.formatarHorario(tfFinal);
+        Formatar.formatarEmail(tfEmail);
+    }
+    
     private void HandleRadioButton(RadioButton select, RadioButton... others) {
         for (RadioButton button : others) {
             if (button != select) {
@@ -212,9 +200,4 @@ public class EditarAtendenteController {
         }
     }
 
-    private boolean formatoHorario(String hora) {
-        Pattern padrao = Pattern.compile("(^[01]?[0-9]|2[0-3]):([0-5]?[0-9])$");
-        Matcher matcher = padrao.matcher(hora);
-        return matcher.matches();
-    }
 }

@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import model.Planos;
 import model.PlanosDAO;
 import util.Alerta;
+import util.Formatar;
 import util.Visibilidade;
 
 public class EditarPlanoController  {
@@ -47,6 +48,7 @@ public class EditarPlanoController  {
         this.controller = controller;
         cbTipo.getItems().addAll("Semanal","Mensal","Bimestral","Trimestral","Quadrimestal","Semestral","Anual");
         configurarTela();
+        formatar();
     }
 
     @FXML
@@ -78,4 +80,7 @@ public class EditarPlanoController  {
         Visibilidade.visibilidadeTexto(cValor, tfValor);
     }
     
+    void formatar(){
+       Formatar.formatarDinheiro(tfValor);
+   }
 }

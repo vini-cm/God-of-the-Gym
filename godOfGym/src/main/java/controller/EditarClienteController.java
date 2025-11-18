@@ -20,6 +20,7 @@ import model.PlanosDAO;
 import model.UserDAO;
 import model.Usuario;
 import util.Alerta;
+import util.Formatar;
 import util.Visibilidade;
 
 
@@ -130,6 +131,7 @@ public class EditarClienteController {
         this.controller = controller;
         user = uDAO.selecionarUsuario(cliente.getCPF());
         configurarVisibilidade();
+        formatar();
         cbExperiencia.getItems().addAll("Iniciante","Intermediario","Experiente","Profissional");
         rFeminino.setOnAction(e -> HandleRadioButton(rFeminino, rMasculino));
         rMasculino.setOnAction(e -> HandleRadioButton(rMasculino, rFeminino));
@@ -241,6 +243,16 @@ public class EditarClienteController {
         Visibilidade.visibilidadeTextArea(cLimitacões, taLimitacoes);
         Visibilidade.visibilidadeChoiceBox(cPlano, cbPlano);
         Visibilidade.visibilidadeChoiceBox(cExperiencia, cbExperiencia);
+    }
+    
+    public void formatar(){
+        Formatar.apenasLetras(tfNome);
+        Formatar.apenasLetras(tfSobrenome);
+        Formatar.formatarTelefone(tfTelefone);
+        Formatar.formatarEmail(tfEmail);
+        Formatar.apenasNumero(tfGordura);
+        Formatar.apenasNumero(tfPeso);
+        Formatar.apenasNumero(tfAltura);
     }
     
     private void HandleRadioButton(RadioButton select, RadioButton... others) {

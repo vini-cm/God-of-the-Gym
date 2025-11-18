@@ -4,17 +4,12 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 import model.Atendente;
 import model.AtendenteDAO;
@@ -131,6 +126,7 @@ public class AddAtendentesController {
         Formatar.formatarDinheiro(tfSalario);
         Formatar.formatarHorario(tfEntrada);
         Formatar.formatarHorario(tfSaida);
+        Formatar.formatarEmail(tfEmail);
     }
 
     private void HandleRadioButton(RadioButton select, RadioButton... others) {
@@ -140,5 +136,6 @@ public class AddAtendentesController {
             }
         }
     }
+    
     
     }
