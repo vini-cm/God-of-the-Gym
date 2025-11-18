@@ -5,11 +5,11 @@
 - \[x] alterar planos
 - \[x] alterar atendentes
 - \[x] por icone e titulo nas telas
-- \[ ] alterar os formularios e perfis para o novo estilo
-- \[ ] terminar css dos formularios
+- \[x] alterar os formularios e perfis para o novo estilo
+- \[x] terminar css dos formularios
 - \[x] fazer o css dos instrutores o geral para todas as paginas de listagem
 - \[x] estilizar alertas
-- \[ ] mudar o css de quando algo é digitado errado
+- \[x] mudar o css de quando algo é digitado errado
 - \[x] fazer as coisas pararem de diminuir quando o mouse clica
 - \[x] impor limite de cararctere no textfield e textarea
 - \[x] formatar textfield para telefone, email, cpf e salario
