@@ -138,10 +138,14 @@
     -fx-background-color: #2b2d42;
     -fx-border-radius: 15px;
     -fx-padding: 3px;
+    -fx-background-color: #2b2d42;
+    -fx-background-radius: 3px;
+    -fx-font-size: 14px;
 }
 
 .radio-button:selected .dot {
     -fx-background-color:#cc0033;
+    -fx-font-size: 14px;
 }
 
 /* check-box*/

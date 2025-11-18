@@ -35,11 +35,11 @@
          </font></TextField>
       <RadioButton fx:id="rdFeminino" layoutX="15.0" layoutY="269.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Feminino" textFill="#d90429">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="12.0" />
          </font></RadioButton>
       <RadioButton fx:id="rdMasculino" layoutX="122.0" layoutY="269.0" mnemonicParsing="false" text="Masculino" textFill="#d90429">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="12.0" />
          </font></RadioButton>
       <Button fx:id="btnCadastro" layoutX="27.0" layoutY="342.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="180.0" styleClass="btn" text="CADASTRAR" textFill="#2b2d42">
          <font>
@@ -65,11 +65,11 @@
       <ChoiceBox fx:id="cbExperiencia" layoutX="233.0" layoutY="187.0" prefHeight="29.0" prefWidth="199.0" style="-fx-background-radius: 10;" />
       <CheckBox fx:id="checkbMedicamentos" layoutX="236.0" layoutY="222.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="25.0" minWidth="135.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Medicamentos" textFill="#d90429">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="12.0" />
          </font></CheckBox>
       <CheckBox fx:id="checkbLimitações" layoutX="236.0" layoutY="251.0" maxHeight="25.0" maxWidth="135.0" minHeight="25.0" minWidth="135.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" stylesheets="@../../resources/css/formulario.css" text="Limitações" textFill="#d90429">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="12.0" />
          </font></CheckBox>
       <TextArea fx:id="taMedicacoes" layoutX="238.0" layoutY="280.0" prefHeight="52.0" prefWidth="190.0" promptText="Medicações" styleClass="textArea" text=" ">
          <font>
