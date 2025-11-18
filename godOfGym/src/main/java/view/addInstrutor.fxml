@@ -33,11 +33,11 @@
          </font></TextField>
       <RadioButton fx:id="rdFeminino" layoutX="242.0" layoutY="284.0" mnemonicParsing="false" styleClass="label" stylesheets="@../../resources/css/formulario.css" text="Feminino">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="12.0" />
          </font></RadioButton>
       <RadioButton fx:id="rdMasculino" layoutX="342.0" layoutY="284.0" mnemonicParsing="false" styleClass="label" stylesheets="@../../resources/css/formulario.css" text="Masculino">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="12.0" />
          </font></RadioButton>
       <TextField fx:id="tfSalario" layoutX="241.0" layoutY="25.0" prefHeight="31.0" prefWidth="199.0" promptText="Salario" styleClass="textField" stylesheets="@../../resources/css/formulario.css">
          <font>

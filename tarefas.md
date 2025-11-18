@@ -1,18 +1,3 @@
-- \[x] deletar planos (deletar primeiro, id_professor default null, e oferever substituir)
-- \[X] corrigir deletar instrutores porque eles estão na tabela aulas (default null)
-- \[x] alterar clientes
-- \[x] alterar instrutores
-- \[x] alterar planos
-- \[x] alterar atendentes
-- \[x] por icone e titulo nas telas
-- \[ ] alterar os formularios e perfis para o novo estilo
-- \[ ] terminar css dos formularios
-- \[x] fazer o css dos instrutores o geral para todas as paginas de listagem
-- \[x] estilizar alertas
-- \[ ] mudar o css de quando algo é digitado errado
-- \[x] fazer as coisas pararem de diminuir quando o mouse clica
-- \[x] impor limite de cararctere no textfield e textarea
-- \[x] formatar textfield para telefone, email, cpf e salario
-- \[x] recarregar tabela quando algo é adicionado
-- \[x] fechar formulario e gerar aviso quando algo é cadastrado
-- \[x] mudar o icone de voltar
+- \[ ] formatter do peso e altura
+- \[ ] logout
+- \[ ] sistema de vagas da aula

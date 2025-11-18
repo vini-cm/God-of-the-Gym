@@ -11,39 +11,39 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditarInstrutorController">
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #2b2d42;" stylesheets="@../../resources/css/formulario.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditarInstrutorController">
    <children>
-      <Label layoutX="187.0" layoutY="24.0" text="O QUE VOCÊ DESEJA EDITAR?">
+      <Label layoutX="91.0" layoutY="14.0" text="O QUE VOCÊ DESEJA EDITAR?">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <CheckBox fx:id="cNome" layoutX="114.0" layoutY="51.0" mnemonicParsing="false" text="Nome" />
-      <CheckBox fx:id="cSobrenome" layoutX="114.0" layoutY="79.0" mnemonicParsing="false" text="Sobrenome" />
-      <CheckBox fx:id="cNascimento" layoutX="114.0" layoutY="106.0" mnemonicParsing="false" text="Data de nascimento" />
-      <CheckBox fx:id="cGenero" layoutX="114.0" layoutY="135.0" mnemonicParsing="false" text="Genero" />
-      <CheckBox fx:id="cEmail" layoutX="114.0" layoutY="161.0" mnemonicParsing="false" text="Email" />
-      <CheckBox fx:id="cSenha" layoutX="113.0" layoutY="189.0" mnemonicParsing="false" text="Senha" />
-      <CheckBox fx:id="cSalario" layoutX="113.0" layoutY="214.0" mnemonicParsing="false" text="Salario" />
-      <CheckBox fx:id="cHorario" layoutX="111.0" layoutY="238.0" mnemonicParsing="false" text="Horario" />
-      <CheckBox fx:id="cTelefone" layoutX="111.0" layoutY="259.0" mnemonicParsing="false" text="Telefone" />
-      <TextField fx:id="tfNome" layoutX="338.0" layoutY="47.0" promptText="Nome" visible="false" />
-      <TextField fx:id="tfSobrenome" layoutX="338.0" layoutY="75.0" promptText="Sobrenome" visible="false" />
-      <DatePicker fx:id="dpNascimento" layoutX="338.0" layoutY="106.0" prefHeight="25.0" prefWidth="149.0" visible="false" />
-      <RadioButton fx:id="rFeminino" layoutX="338.0" layoutY="135.0" mnemonicParsing="false" text="feminino" visible="false" />
-      <RadioButton fx:id="rMasculino" layoutX="413.0" layoutY="135.0" mnemonicParsing="false" text="masculino" visible="false" />
-      <TextField fx:id="tfEmail" layoutX="338.0" layoutY="157.0" promptText="Email" visible="false" />
-      <PasswordField fx:id="pfSenha" layoutX="339.0" layoutY="186.0" promptText="Senha" visible="false" />
-      <TextField fx:id="tfSalario" layoutX="339.0" layoutY="220.0" promptText="Salario" visible="false" />
-      <TextField fx:id="tfInicio" layoutX="338.0" layoutY="256.0" prefHeight="25.0" prefWidth="75.0" promptText="Inicio" visible="false" />
-      <TextField fx:id="tfFinal" layoutX="422.0" layoutY="256.0" prefHeight="25.0" prefWidth="68.0" promptText="Final" visible="false" />
-      <TextField fx:id="tfTelefone" layoutX="339.0" layoutY="289.0" promptText="Telefone" visible="false" />
-      <Button fx:id="btnEditar" layoutX="268.0" layoutY="402.0" mnemonicParsing="false" onAction="#editarInstrutor" text="EDITAR">
+      <CheckBox fx:id="cNome" layoutX="34.0" layoutY="73.0" mnemonicParsing="false" text="Nome" />
+      <CheckBox fx:id="cSobrenome" layoutX="34.0" layoutY="112.0" mnemonicParsing="false" text="Sobrenome" />
+      <CheckBox fx:id="cNascimento" layoutX="34.0" layoutY="151.0" mnemonicParsing="false" text="Data de nascimento" />
+      <CheckBox fx:id="cGenero" layoutX="34.0" layoutY="192.0" mnemonicParsing="false" text="Genero" />
+      <CheckBox fx:id="cEmail" layoutX="34.0" layoutY="232.0" mnemonicParsing="false" text="Email" />
+      <CheckBox fx:id="cSenha" layoutX="34.0" layoutY="271.0" mnemonicParsing="false" text="Senha" />
+      <CheckBox fx:id="cSalario" layoutX="34.0" layoutY="310.0" mnemonicParsing="false" text="Salario" />
+      <CheckBox fx:id="cHorario" layoutX="34.0" layoutY="349.0" mnemonicParsing="false" text="Horario" />
+      <CheckBox fx:id="cTelefone" layoutX="34.0" layoutY="387.0" mnemonicParsing="false" text="Telefone" />
+      <TextField fx:id="tfNome" layoutX="214.0" layoutY="68.0" promptText="Nome" styleClass="textField" visible="false" />
+      <TextField fx:id="tfSobrenome" layoutX="214.0" layoutY="107.0" promptText="Sobrenome" styleClass="textField" visible="false" />
+      <DatePicker fx:id="dpNascimento" layoutX="214.0" layoutY="146.0" prefHeight="35.0" prefWidth="211.0" visible="false" />
+      <RadioButton fx:id="rFeminino" layoutX="214.0" layoutY="195.0" mnemonicParsing="false" text="feminino" visible="false" />
+      <RadioButton fx:id="rMasculino" layoutX="339.0" layoutY="195.0" mnemonicParsing="false" text="masculino" visible="false" />
+      <TextField fx:id="tfEmail" layoutX="214.0" layoutY="227.0" promptText="Email" styleClass="textField" visible="false" />
+      <PasswordField fx:id="pfSenha" layoutX="214.0" layoutY="266.0" promptText="Senha" styleClass="textField" visible="false" />
+      <TextField fx:id="tfSalario" layoutX="214.0" layoutY="305.0" promptText="Salario" styleClass="textField" visible="false" />
+      <TextField fx:id="tfInicio" layoutX="214.0" layoutY="344.0" prefHeight="25.0" prefWidth="75.0" promptText="Inicio" styleClass="textField" visible="false" />
+      <TextField fx:id="tfFinal" layoutX="357.0" layoutY="344.0" prefHeight="25.0" prefWidth="68.0" promptText="Final" styleClass="textField" visible="false" />
+      <TextField fx:id="tfTelefone" layoutX="214.0" layoutY="382.0" promptText="Telefone" styleClass="textField" visible="false" />
+      <Button fx:id="btnEditar" layoutX="113.0" layoutY="495.0" mnemonicParsing="false" onAction="#editarInstrutor" styleClass="btn" text="EDITAR">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <CheckBox fx:id="cFormacao" layoutX="112.0" layoutY="283.0" mnemonicParsing="false" text="Formação" />
-      <TextArea fx:id="taFormacao" layoutX="338.0" layoutY="328.0" prefHeight="74.0" prefWidth="149.0" visible="false" />
+      <CheckBox fx:id="cFormacao" layoutX="34.0" layoutY="423.0" mnemonicParsing="false" text="Formação" />
+      <TextArea fx:id="taFormacao" layoutX="214.0" layoutY="421.0" prefHeight="74.0" prefWidth="211.0" styleClass="textField" visible="false" />
    </children>
 </AnchorPane>
