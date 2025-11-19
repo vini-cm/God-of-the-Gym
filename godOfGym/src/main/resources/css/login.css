@@ -1,14 +1,28 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700&display=swap');
 
-#AnchorPane{
-    -fx-background-color: #cc0033;
-    -fx-background-radius:15px;
+.anchorPane{
+    -fx-background-color: #2b2d42;
 }
 * {
     -fx-font-family: "Inter", sans-serif;
 }
 
+.textField {
+    -fx-background-radius:25px;
+    -fx-background-color: #2b2d42;
+    -fx-border-color: #d90429;
+    -fx-border-width: 4px;
+    -fx-text-fill: #cc0033;
+    -fx-prompt-text-fill: #cc0033;
+    -fx-border-radius:25px;
+    -fx-control-inner-background:#2b2d42;
+    -fx-font-size: 15px;
+}
+
 .btnEntrar{
-    -fx-font-size:18px;
+    -fx-background-color:#cc0033;
+    -fx-background-radius:25px;
+    -fx-text-fill:#2b2d42;
+    -fx-font-size:20px;
 }

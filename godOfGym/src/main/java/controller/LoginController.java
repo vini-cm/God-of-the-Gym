@@ -25,8 +25,6 @@ public class LoginController {
     private ArrayList<String> listaDados;
     private final LoginDAO dao = new LoginDAO();
     
-    @FXML
-    private ImageView Imagem;
     
     @FXML
     private Button bntEntrar;
@@ -49,18 +47,6 @@ public class LoginController {
     public void setStage (Stage stage){
         this.stageLogin = stage;
     }  
-    
-    public void verificarBanco(){
-        if (dao.bancoOnline()){
-            File arquivo = new File("src/main/resources/imagens/warning.png");
-            Image img = new Image(arquivo.toURI().toString());
-            Imagem.setImage(img);
-        } else {
-             File arquivo = new File("src/main/resources/imagens/avatar.png");
-            Image img = new Image(arquivo.toURI().toString());
-            Imagem.setImage(img);
-        }
-    }
     
     public void processarLogin() throws IOException, SQLException{
         if (dao.bancoOnline()){
@@ -102,7 +88,6 @@ public class LoginController {
     
     public void abrirJanela(){
         bntEntrar.setDefaultButton(true);
-        verificarBanco();
     }
     
     public void abrirHomePage() throws IOException{

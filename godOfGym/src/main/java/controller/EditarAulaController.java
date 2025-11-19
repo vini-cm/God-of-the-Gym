@@ -78,6 +78,7 @@ public class EditarAulaController {
         ObservableList<Usuario> instrutores = uDao.PesquisarUsuariosPorTipo("instrutor");
         cbProfessor.setItems(instrutores);
         configurarVisibilidade();
+        formatador();
     }
     
     @FXML

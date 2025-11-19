@@ -65,7 +65,7 @@ public class AddAulaController  {
         this.controller = controller;
         ObservableList<Usuario> instrutores = uDao.PesquisarUsuariosPorTipo("instrutor");
         cbProfessor.setItems(instrutores);
-        
+        formatador();
     }
     
      @FXML

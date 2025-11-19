@@ -99,6 +99,7 @@ public class AddClienteController {
     public void setStage(Stage stage, ClientesController controller) throws SQLException {
         this.stageAddCliente = stage;
         this.controller = controller;
+        formatar();
         taLimitacoes.setVisible(false);
         taMedicacoes.setVisible(false);
         rdFeminino.setOnAction(e -> HandleRadioButton(rdFeminino, rdMasculino));
@@ -178,7 +179,7 @@ public class AddClienteController {
         Formatar.formatarTelefone(tfTelefone);
         Formatar.formatarEmail(tfEmail);
         Formatar.apenasNumero(tfgordura);
-        Formatar.apenasNumero(tfPeso);
-        Formatar.apenasNumero(tfAltura);
+        Formatar.formatarAltura(tfAltura);
+        Formatar.formatarPeso(tfPeso);
     }
 }

@@ -81,6 +81,7 @@ public class AddInstrutorController {
         this.controller = controller;
         rdFeminino.setOnAction(e -> HandleRadioButton(rdFeminino, rdMasculino));
         rdMasculino.setOnAction(e -> HandleRadioButton(rdMasculino, rdFeminino));
+        formatar();
     }
 
     @FXML

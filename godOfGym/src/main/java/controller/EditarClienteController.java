@@ -251,8 +251,8 @@ public class EditarClienteController {
         Formatar.formatarTelefone(tfTelefone);
         Formatar.formatarEmail(tfEmail);
         Formatar.apenasNumero(tfGordura);
-        Formatar.apenasNumero(tfPeso);
-        Formatar.apenasNumero(tfAltura);
+        Formatar.formatarAltura(tfAltura);
+        Formatar.formatarPeso(tfPeso);
     }
     
     private void HandleRadioButton(RadioButton select, RadioButton... others) {
