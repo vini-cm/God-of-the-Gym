@@ -3,3 +3,4 @@
 - \[x] tabela sem barra
 - \[ ] alinhar telas
 - \[ ] formatar a tela de perfil
+- \[ ] arrumar a data nas tabelas
