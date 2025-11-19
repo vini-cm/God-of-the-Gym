@@ -104,7 +104,7 @@ public class InstrutoresController {
 
             tabela.getColumns().addAll(colunaNome, colunaTelefone, colunaCPF);
             tabela.getColumns().forEach(e -> {
-                e.setPrefWidth(220);
+                e.setPrefWidth(218);
             });
 
             //tabela.setItems(lista);

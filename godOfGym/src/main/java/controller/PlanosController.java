@@ -101,7 +101,7 @@ public class PlanosController{
 
             tabela.getColumns().addAll(colunaNome,colunaTipo,colunaPreco);
             tabela.getColumns().forEach(e -> {
-                e.setPrefWidth(225);
+                e.setPrefWidth(218);
             });
 
             FilteredList<Planos> listaFiltrada = new FilteredList<>(Lista, p -> true);
