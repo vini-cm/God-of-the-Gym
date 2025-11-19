@@ -1,3 +1,5 @@
-- \[ ] formatter do peso e altura
-- \[ ] logout
-- \[ ] sistema de vagas da aula
+- \[x] formatter do peso e altura
+- \[x] logout
+- \[ ] tabela sem barra
+- \[ ] alinhar telas
+- \[ ] formatar a tela de perfil
