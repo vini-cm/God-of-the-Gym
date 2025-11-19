@@ -1,5 +1,5 @@
 - \[x] formatter do peso e altura
 - \[x] logout
-- \[ ] tabela sem barra
+- \[x] tabela sem barra
 - \[ ] alinhar telas
 - \[ ] formatar a tela de perfil
