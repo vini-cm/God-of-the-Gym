@@ -5,12 +5,12 @@ public class Planos {
     private int idPlano;
     private String nome;
     private String tipo;
-    private float preco;
+    private String preco;
 
     public Planos() {
     }
 
-    public Planos(String nome, String tipo, float preco) {
+    public Planos(String nome, String tipo, String preco) {
         this.nome = nome;
         this.tipo = tipo;
         this.preco = preco;
@@ -41,11 +41,11 @@ public class Planos {
         this.tipo = tipo;
     }
 
-    public float getPreco() {
+    public String getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(String preco) {
         this.preco = preco;
     }
 

@@ -60,7 +60,7 @@ public class EditarPlanoController  {
             plano.setTipo(cbTipo.getValue());
         }
         if (cValor.isSelected()){
-            plano.setPreco(Float.parseFloat(tfValor.getText()));
+            plano.setPreco(tfValor.getText());
         }
         
         try{

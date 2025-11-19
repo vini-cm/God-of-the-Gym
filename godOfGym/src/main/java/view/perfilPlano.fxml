@@ -51,7 +51,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="cbPlanos" layoutX="444.0" layoutY="398.0" prefWidth="150.0" visible="false" />
+      <ChoiceBox fx:id="cbPlanos" layoutX="444.0" layoutY="398.0" prefWidth="150.0" stylesheets="@../../resources/css/formulario.css" visible="false" />
       <Button fx:id="btnSubstituir" layoutX="453.0" layoutY="443.0" mnemonicParsing="false" onAction="#substituirPlanos" styleClass="btn" stylesheets="@../../resources/css/perfil.css" text="SUBSTITUIR" visible="false" />
    </children>
 </AnchorPane>

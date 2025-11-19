@@ -199,7 +199,7 @@ public class Formatar {
                     conta++;
                 }
 
-                String pesoFormatado = quilosBuilder.toString() + "," + mili;
+                String pesoFormatado = quilosBuilder.toString() + "." + mili;
 
                 change.setText(pesoFormatado);
                 change.setRange(0, change.getControlText().length());
@@ -239,7 +239,7 @@ public class Formatar {
                     conta++;
                 }
 
-                String alturaFormatado = metroBuilder.toString() + "," + cm;
+                String alturaFormatado = metroBuilder.toString() + "." + cm;
 
                 change.setText(alturaFormatado);
                 change.setRange(0, change.getControlText().length());

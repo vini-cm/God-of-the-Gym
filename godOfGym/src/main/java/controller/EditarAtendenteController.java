@@ -123,7 +123,7 @@ public class EditarAtendenteController {
             campos(tfTelefone.getText(), "telefone");
         }
         if(cSalario.isSelected()){
-            atendente.setSalario(Float.valueOf(tfSalario.getText()));
+            atendente.setSalario(tfSalario.getText());
         }
         if(cNascimento.isSelected()){
             user.setDataNascimento(Date.valueOf(dpNascimento.getValue()));

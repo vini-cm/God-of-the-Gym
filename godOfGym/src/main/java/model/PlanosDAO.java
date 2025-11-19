@@ -15,7 +15,7 @@ public class PlanosDAO extends genericoDAO{
     
     public void editar(Planos plano) throws SQLException{
         String update = "update planos set nome='" + plano.getNome()+ "',tipo='"+plano.getTipo()+
-                "', preco="+ plano.getPreco() + "where id=?";
+                "', preco='"+ plano.getPreco() + "' where id=?";
         editar(update,plano.getIdPlano());
     }
     
@@ -39,7 +39,7 @@ public class PlanosDAO extends genericoDAO{
             plano.setIdPlano(rs.getInt("id"));
             plano.setNome(rs.getString("nome"));
             plano.setTipo(rs.getString("tipo"));
-            plano.setPreco(rs.getFloat("preco"));
+            plano.setPreco(rs.getString("preco"));
             
             lista.add(plano);
         }
@@ -59,7 +59,7 @@ public class PlanosDAO extends genericoDAO{
             plano.setIdPlano(rs.getInt("id"));
             plano.setNome(rs.getString("nome"));
             plano.setTipo(rs.getString("tipo"));
-            plano.setPreco(rs.getFloat("preco"));
+            plano.setPreco(rs.getString("preco"));
             
             return plano;
         } else {
@@ -77,7 +77,7 @@ public class PlanosDAO extends genericoDAO{
             plano.setIdPlano(rs.getInt("id"));
             plano.setNome(rs.getString("nome"));
             plano.setTipo(rs.getString("tipo"));
-            plano.setPreco(rs.getFloat("preco"));
+            plano.setPreco(rs.getString("preco"));
             
             return plano;
         } else {

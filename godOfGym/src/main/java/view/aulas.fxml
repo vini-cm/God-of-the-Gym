@@ -42,7 +42,7 @@
                   </Button>
                </children>
             </AnchorPane>
-            <TextField fx:id="tfPesquisa" layoutX="13.0" layoutY="210.0" prefHeight="44.0" prefWidth="660.0" style="-fx-background-radius: 15; -fx-background-color: #2B2D42;" styleClass="text-field" stylesheets="@../../resources/css/clients.css" />
+            <TextField fx:id="tfPesquisa" layoutX="13.0" layoutY="210.0" prefHeight="44.0" prefWidth="660.0" styleClass="text-field" stylesheets="@../../resources/css/clients.css" />
             <Button accessibleRole="IMAGE_VIEW" layoutX="622.0" layoutY="213.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 25; -fx-background-color: #2B2D42;">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">

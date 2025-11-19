@@ -41,7 +41,7 @@
                   <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="tfPesquisa" layoutX="14.0" layoutY="208.0" prefHeight="44.0" prefWidth="660.0" style="-fx-background-radius: 15; -fx-background-color: #2B2D42;" styleClass="text-field" stylesheets="@../../resources/css/clients.css" />
+            <TextField fx:id="tfPesquisa" layoutX="14.0" layoutY="208.0" prefHeight="44.0" prefWidth="660.0" styleClass="text-field" stylesheets="@../../resources/css/clients.css" />
             <Button accessibleRole="IMAGE_VIEW" layoutX="604.0" layoutY="209.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 25; -fx-background-color: #2B2D42;" />
             <Button fx:id="btnHome" layoutX="4.0" layoutY="1.0" mnemonicParsing="false" onAction="#voltarHome" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 100; -fx-background-color: #666666;" stylesheets="@../Documents/God-of-the-Gym/godOfGym/src/main/java/Documents/God-of-the-Gym/godOfGym/src/main/resources/css/planos.css">
                <graphic>

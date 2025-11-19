@@ -16,7 +16,7 @@ public class InstrutorDAO extends genericoDAO{
     }
     
     public void editar(Instrutor instrutor) throws SQLException{
-        String editar="update instrutores set salario = "+ instrutor.getSalario() +", formacao = '"+ instrutor.getFormacao() +
+        String editar="update instrutores set salario = '"+ instrutor.getSalario() +"', formacao = '"+ instrutor.getFormacao() +
                 "', entrada = '"+ instrutor.getEntrada().toString() +"', saida = '"+ instrutor.getSaida().toString() +"' where CPF = ?";
         editar(editar,instrutor.getCPF());
     }
@@ -38,7 +38,7 @@ public class InstrutorDAO extends genericoDAO{
             instrutor.setFormacao(rs.getString("formacao"));
             instrutor.setEntrada(rs.getTime("saida").toLocalTime());
             instrutor.setSaida(rs.getTime("saida").toLocalTime());
-            instrutor.setSalario(rs.getFloat("salario"));
+            instrutor.setSalario(rs.getString("salario"));
             lista.add(instrutor);
         }   
         rs.close();
@@ -59,7 +59,7 @@ public class InstrutorDAO extends genericoDAO{
             instrutor.setFormacao(rs.getString("formacao"));
             instrutor.setEntrada(rs.getTime("entrada").toLocalTime());
             instrutor.setSaida(rs.getTime("saida").toLocalTime());
-            instrutor.setSalario(rs.getFloat("salario"));
+            instrutor.setSalario(rs.getString("salario"));
             rs.close();
             stmt.close();
             conectarConn().close();

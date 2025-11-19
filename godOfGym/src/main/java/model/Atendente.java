@@ -6,14 +6,14 @@ import java.time.LocalTime;
 public class Atendente {
    private int id;
    private String CPF;
-   private float salario;
+   private String salario;
    private LocalTime entrada;
    private LocalTime saida;
    
    public Atendente(){
    }
 
-    public Atendente(String CPF, float salario, LocalTime entrada, LocalTime saida) {
+    public Atendente(String CPF, String salario, LocalTime entrada, LocalTime saida) {
         this.CPF = CPF;
         this.salario = salario;
         this.entrada = entrada;
@@ -38,11 +38,11 @@ public class Atendente {
         this.CPF = CPF;
     }   
 
-    public float getSalario() {
+    public String getSalario() {
         return salario;
     }
 
-    public void setSalario(float salario) {
+    public void setSalario(String salario) {
         this.salario = salario;
     }
 

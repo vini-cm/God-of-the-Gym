@@ -134,7 +134,7 @@ public class EditarInstrutorController  {
             campos(tfTelefone.getText(), "telefone");
         }
         if(cSalario.isSelected()){
-            instrutor.setSalario(Float.valueOf(tfSalario.getText()));
+            instrutor.setSalario(tfSalario.getText());
         }
         if(cNascimento.isSelected()){
             user.setDataNascimento(Date.valueOf(dpNascimento.getValue()));

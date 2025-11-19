@@ -14,7 +14,7 @@ public class AtendenteDAO extends genericoDAO {
     }
 
     public void editar(Atendente atendente) throws SQLException {
-        String editar = "update atendentes set salario =" + atendente.getSalario() + ", entrada = '" + atendente.getEntrada()
+        String editar = "update atendentes set salario ='" + atendente.getSalario() + "', entrada = '" + atendente.getEntrada()
                 + "', saida = '" + atendente.getSaida() + "' where cpf = ?";
         editar(editar, atendente.getCPF());
     }
@@ -35,7 +35,7 @@ public class AtendenteDAO extends genericoDAO {
             atendente.setCPF(rs.getString("CPF"));
             atendente.setEntrada(rs.getTime("saida").toLocalTime());
             atendente.setSaida(rs.getTime("saida").toLocalTime());
-            atendente.setSalario(rs.getFloat("salario"));
+            atendente.setSalario(rs.getString("salario"));
             lista.add(atendente);
         }
         rs.close();
@@ -55,7 +55,7 @@ public class AtendenteDAO extends genericoDAO {
                 atendente.setCPF(rs.getString("CPF"));
                 atendente.setEntrada(rs.getTime("entrada").toLocalTime());
                 atendente.setSaida(rs.getTime("saida").toLocalTime());
-                atendente.setSalario(rs.getFloat("salario"));
+                atendente.setSalario(rs.getString("salario"));
                 return atendente;
             } else {
                 return null;

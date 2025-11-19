@@ -47,13 +47,13 @@ public class AddPlanoController  {
        if (!cbTipo.getValue().isEmpty() && cbTipo.getValue() != null && 
                !tfPreco.getText().isEmpty() && tfPreco.getText() != null &&
                !tfNome.getText().isEmpty() && tfNome.getText() != null){
-           plano = new Planos(tfNome.getText(),cbTipo.getValue(), Float.parseFloat(tfPreco.getText()));
+           plano = new Planos(tfNome.getText(),cbTipo.getValue(), tfPreco.getText());
            try{
            dao.salvar(plano);
            if(controller!=null){
                controller.carregarTabela();
            }
-            Alerta.mostrarConfirmacao("PLANO ADICIONADO", "PLANO ADICIONADO COM SUCESSO");
+            Alerta.mostrarInformacao("PLANO ADICIONADO", "PLANO ADICIONADO COM SUCESSO");
             stage.close();
            } catch(SQLException e){
                Alerta.mostrarErro("ERROR", e.getMessage());

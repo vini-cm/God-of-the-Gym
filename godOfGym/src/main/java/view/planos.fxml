@@ -42,7 +42,7 @@
                   <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="tfPesquisa" layoutX="14.0" layoutY="208.0" prefHeight="44.0" prefWidth="660.0" style="-fx-background-radius: 15; -fx-background-color: #2B2D42;" />
+            <TextField fx:id="tfPesquisa" layoutX="14.0" layoutY="208.0" prefHeight="44.0" prefWidth="660.0" styleClass="text-field" />
             <Button accessibleRole="IMAGE_VIEW" layoutX="604.0" layoutY="209.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 25; -fx-background-color: #2B2D42;" />
             <ImageView fitHeight="30.0" fitWidth="35.0" layoutX="636.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
                <image>
