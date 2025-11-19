@@ -167,4 +167,88 @@ public class Formatar {
         });
         tf.setTextFormatter(letrasFormatter);
     }
+    
+    public static void formatarPeso(TextField tf) {
+        UnaryOperator<TextFormatter.Change> filter = change -> {
+            String newText = change.getControlNewText();
+            String pesoPuro = newText.replaceAll("[^\\d]", "");
+
+            if (!pesoPuro.matches("\\d*") || pesoPuro.length() > 4) {
+                return null;
+            }
+
+            if (!pesoPuro.isEmpty()) {
+                while (pesoPuro.length() < 3) {
+                    pesoPuro = "0" + pesoPuro;
+                }
+                
+
+                String quilos = pesoPuro.substring(0, pesoPuro.length() - 2);
+                String mili = pesoPuro.substring(pesoPuro.length() - 2);
+                
+                quilos = quilos.replaceFirst("^0+(?!$)", "");
+                
+                StringBuilder quilosBuilder = new StringBuilder();
+                int conta = 0;
+
+                for (int i = quilos.length() - 1; i >= 0; i--) {
+                    if (conta > 0 && conta % 3 == 0) {
+                        quilosBuilder.insert(0, ".");
+                    }
+                    quilosBuilder.insert(0, quilos.charAt(i));
+                    conta++;
+                }
+
+                String pesoFormatado = quilosBuilder.toString() + "," + mili;
+
+                change.setText(pesoFormatado);
+                change.setRange(0, change.getControlText().length());
+                change.setCaretPosition(pesoFormatado.length());
+                change.setAnchor(pesoFormatado.length());
+            }
+            return change;
+        };
+        TextFormatter<String> formatter = new TextFormatter<>(filter);
+        tf.setTextFormatter(formatter);
+    }
+    
+    public static void formatarAltura(TextField tf) {
+        UnaryOperator<TextFormatter.Change> filter = change -> {
+            String newText = change.getControlNewText();
+            String alturaPuro = newText.replaceAll("[^\\d]", "");
+
+            if (!alturaPuro.matches("\\d*") || alturaPuro.length() > 3) {
+                return null;
+            }
+
+            if (alturaPuro.length() > 2) {
+
+                String metro = alturaPuro.substring(0, alturaPuro.length() - 2);
+                String cm = alturaPuro.substring(alturaPuro.length() - 2);
+                
+                metro = metro.replaceFirst("^0+(?!$)", "");
+                
+                StringBuilder metroBuilder = new StringBuilder();
+                int conta = 0;
+
+                for (int i = metro.length() - 1; i >= 0; i--) {
+                    if (conta > 0 && conta % 3 == 0) {
+                        metroBuilder.insert(0, ".");
+                    }
+                    metroBuilder.insert(0, metro.charAt(i));
+                    conta++;
+                }
+
+                String alturaFormatado = metroBuilder.toString() + "," + cm;
+
+                change.setText(alturaFormatado);
+                change.setRange(0, change.getControlText().length());
+                change.setCaretPosition(alturaFormatado.length());
+                change.setAnchor(alturaFormatado.length());
+            }
+            return change;
+        };
+        TextFormatter<String> formatter = new TextFormatter<>(filter);
+        tf.setTextFormatter(formatter);
+    }
 }

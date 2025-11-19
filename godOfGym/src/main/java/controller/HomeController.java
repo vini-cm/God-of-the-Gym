@@ -16,6 +16,23 @@ public class HomeController  {
     Stage HomeStage = new Stage();
     
     @FXML
+    void deslogar(ActionEvent event) throws IOException {
+        URL url = new File("src/main/java/view/login.fxml").toURI().toURL();
+        FXMLLoader loader = new FXMLLoader(url);
+        Parent root = loader.load();
+        Stage telaLogin = new Stage();
+        LoginController lc = loader.getController();
+        lc.setStage(telaLogin);
+        Scene scene = new Scene(root);
+        telaLogin.setScene(scene);
+        File fileIcon = new File("src/main/resources/imagens/icon.png");
+        Image icon = new Image(fileIcon.toURI().toString());
+        telaLogin.getIcons().add(icon);
+        telaLogin.show();
+        HomeStage.close();
+    }
+    
+    @FXML
     void openAtendentesPage(ActionEvent event) throws IOException, SQLException {
       URL url = new File ("src/main/java/view/atendentes.fxml").toURI().toURL();
       FXMLLoader loader = new FXMLLoader(url);
