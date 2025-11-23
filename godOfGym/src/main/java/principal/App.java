@@ -12,9 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import javafx.scene.image.Image;
 
-/**
- * JavaFX App
- */
+
 public class App extends Application {
 
     @Override

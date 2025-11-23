@@ -69,3 +69,12 @@
     -fx-text-fill:white;
 }
 
+.choice-box{
+    -fx-background-radius:10px;
+    -fx-background-color: #2b2d42;
+    -fx-border-color: #cc0033;
+    -fx-border-width: 3px;
+    -fx-border-radius:10px;
+    -fx-text-fill: #cc0033;
+}
+

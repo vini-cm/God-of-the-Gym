@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700&display=swap');
+
+* {
+    -fx-font-family: "Inter", sans-serif;
+}
+
+.anchorPane{
+    -fx-background-color:#2b2d42;
+}
+
+.btnPesquisar {
+    -fx-background-color:#2b2d42;
+}
+
+.text-field {
+    -fx-background-radius:20px;
+    -fx-background-color: #2b2d42;
+    -fx-border-color: #d90429;
+    -fx-border-width: 3px;
+    -fx-text-fill: #cc0033;
+    -fx-prompt-text-fill: #cc0033;
+    -fx-border-radius:10px;
+    -fx-control-inner-background:#2b2d42;
+    -fx-font-size: 15px;
+}
+
+.choice-box{
+    -fx-background-radius:10px;
+    -fx-background-color: #2b2d42;
+    -fx-border-color: #cc0033;
+    -fx-border-width: 3px;
+    -fx-border-radius:10px;
+    -fx-text-fill: #cc0033;
+}
+
+.choice-box .context-menu {
+    -fx-background-color: #2b2d42;
+    -fx-background-radius:10px;
+    -fx-border-color: #cc0033;
+    -fx-border-width: 3px;
+    -fx-border-radius:10px;
+}
+
+.choice-box .menu-item:focused {
+    -fx-background-color: #cc0033; 
+}
+
+.choice-box .menu-item:focused > .label {
+    -fx-text-fill:#2b2d42;
+}
+
+.choice-box .arrow {
+    -fx-background-color: #cc0033;
+}

@@ -133,5 +133,21 @@ public class PerfilAulaController {
       stage.close();
     }
     
-    
+    @FXML
+    void abrirParticipantes(ActionEvent event) throws IOException {
+      URL url = new File ("src/main/java/view/participantes.fxml").toURI().toURL();
+      FXMLLoader loader = new FXMLLoader(url);
+      Parent root = loader.load();
+      Stage participantes = new Stage();
+      ParticipantesController pc = loader.getController();
+      pc.setStage(participantes,aula.getId());
+      Scene scene = new Scene(root);
+      participantes.setScene(scene);
+      File fileIcon = new File("src/main/resources/imagens/icon.png");
+      Image icon = new Image(fileIcon.toURI().toString());
+      participantes.getIcons().add(icon);
+      participantes.setTitle("PARTICIPANTES");
+      participantes.show();
+      stage.close();
+    }
 }

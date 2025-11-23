@@ -107,8 +107,7 @@ public class AddInstrutorController {
                 Date nascimento = Date.valueOf(dpNascimento.getValue());
                 user = new Usuario(tfCPF.getText(), tfNome.getText(), tfSobrenome.getText(), 
                 nascimento, tfSenha.getText(), tfEmail.getText(), genero, tfTelefone.getText(), "instrutor");
-                instrutor = new Instrutor(tfCPF.getText(), tfSalario.getText(), 
-                taFormacao.getText(), entrada, saida);  
+                instrutor = new Instrutor(tfCPF.getText(), tfSalario.getText(), taFormacao.getText(), entrada, saida);  
                 try{
                     userDAO.salvar(user);
                     dao.salvar(instrutor);

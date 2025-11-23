@@ -1,4 +1,5 @@
 controller\HomeController.class
+controller\ParticipantesController.class
 controller\AddAulaController.class
 controller\EditarPlanoController.class
 controller\EditarClienteController.class
@@ -10,6 +11,7 @@ model\InstrutorDAO.class
 model\ClienteDAO.class
 controller\AddPlanoController.class
 model\AtendenteDAO.class
+model\ParticipantesDAO.class
 model\Aula.class
 controller\PerfilClienteController.class
 model\AulaDAO.class
@@ -18,6 +20,7 @@ util\Visibilidade.class
 model\Atendente.class
 controller\ClientesController.class
 model\PlanosDAO.class
+model\Participantes.class
 controller\AulasController.class
 controller\EditarAtendenteController.class
 controller\PlanosController.class
