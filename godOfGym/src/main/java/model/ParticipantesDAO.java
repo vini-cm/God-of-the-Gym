@@ -20,18 +20,50 @@ public class ParticipantesDAO extends genericoDAO{
         deletar(delete,p.getCpf_participante());
     }
     
-    public ObservableList<Participantes> listarParticipantes(int id) throws SQLException{
-        ObservableList<Participantes> lista = FXCollections.observableArrayList();
-        String sql = "select * from aula_alunos where id_aula = ?";
+    public ObservableList<Usuario> listarParticipantes(int id) throws SQLException{
+        ObservableList<Usuario> lista = FXCollections.observableArrayList();
+        String sql = "SELECT u.* FROM usuarios u INNER JOIN aula_aluno a ON u.cpf = a.id_aluno WHERE a.id_aula = ?;";
         PreparedStatement stmt = conectarConn().prepareStatement(sql);
-        stmt.setInt(0, id);
+        stmt.setInt(1, id);
         ResultSet rs = stmt.executeQuery();
         while (rs.next()){
-            Participantes p = new Participantes();
-            p.setId(rs.getInt("id"));
-            p.setId_aula(rs.getInt("id_aula"));
-            p.setCpf_participante(rs.getString("id_aluno"));
-            lista.add(p);
+            Usuario user = new Usuario();
+            user.setCPF(rs.getString("CPF"));
+            user.setNome(rs.getString("Nome"));
+            user.setSobrenome(rs.getString("Sobrenome"));
+            user.setDataNascimento(rs.getDate("dataNascimento"));
+            user.setEmail(rs.getString("Email"));
+            user.setSenha(rs.getString("Senha"));
+            user.setGenero(rs.getString("genero"));
+            user.setTelefone(rs.getString("telefone"));
+            user.setTipo(rs.getString("tipo"));
+            lista.add(user);
+        }
+        rs.close();
+        stmt.close();
+        conectarConn().close();
+        return lista;
+    }
+    
+    public ObservableList<Usuario> listarClientes(int id) throws SQLException{
+        ObservableList<Usuario> lista = FXCollections.observableArrayList();
+        String sql = "SELECT u.* FROM usuarios u LEFT JOIN aula_aluno a ON u.cpf = a.id_aluno AND a.id_aula = ? "
+                     + "WHERE a.id_aluno IS NULL AND u.tipo = 'cliente'";
+        PreparedStatement stmt = conectarConn().prepareStatement(sql);
+        stmt.setInt(1, id);
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()){
+            Usuario user = new Usuario();
+            user.setCPF(rs.getString("CPF"));
+            user.setNome(rs.getString("Nome"));
+            user.setSobrenome(rs.getString("Sobrenome"));
+            user.setDataNascimento(rs.getDate("dataNascimento"));
+            user.setEmail(rs.getString("Email"));
+            user.setSenha(rs.getString("Senha"));
+            user.setGenero(rs.getString("genero"));
+            user.setTelefone(rs.getString("telefone"));
+            user.setTipo(rs.getString("tipo"));
+            lista.add(user);
         }
         rs.close();
         stmt.close();

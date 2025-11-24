@@ -134,7 +134,7 @@ public class PerfilAulaController {
     }
     
     @FXML
-    void abrirParticipantes(ActionEvent event) throws IOException {
+    void abrirParticipantes(ActionEvent event) throws IOException, SQLException {
       URL url = new File ("src/main/java/view/participantes.fxml").toURI().toURL();
       FXMLLoader loader = new FXMLLoader(url);
       Parent root = loader.load();

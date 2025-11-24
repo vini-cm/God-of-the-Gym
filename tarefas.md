@@ -1,6 +1,11 @@
-- \[x] formatter do peso e altura
-- \[x] logout
-- \[x] tabela sem barra
 - \[ ] alinhar telas
 - \[ ] formatar a tela de perfil
 - \[ ] arrumar a data nas tabelas
+- \[ ] adicionar participantes nas aulas
+- \[ ] deletar participantes nas aulas
+- \[ ] quando clicar duas vezes ir até o perfil do participantes
+- \[ ] quando clicar duas vezes no professor nas aulas ir até o perfil do professor
+- \[ ] editar numero de vagas das aulas
+- \[ ] caso o numeor for editado para um numero menor do que participantes escritos dar a opção de retirar participantes
+- \[ ] mostrar numero de participantes do lado do numero das vagas ex:. (45/36)
+- \[ ] limitar numero de participantes

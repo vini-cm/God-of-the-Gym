@@ -26,6 +26,11 @@ public class AulaDAO extends genericoDAO {
         editar(update,aula.getId());
     }
     
+    public void diminuirVaga(Aula aula) throws SQLException{
+        String diminuir = "update aula set vaga = ? where id = ?";
+        editar(diminuir, aula.getVagas()-1,aula.getId());
+    }
+    
     public void deletar(int id) throws SQLException{
         String delete = "delete from aulas where id = ?";
         deletar(delete, id);
