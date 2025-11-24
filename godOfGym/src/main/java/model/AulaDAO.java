@@ -86,4 +86,26 @@ public class AulaDAO extends genericoDAO {
         return null; }
         }
     }
+    
+    public Aula selecionarAulaPorId(int id) throws SQLException{
+        String sql = "select * from aulas where id=?";
+        PreparedStatement stmt = conectarConn().prepareStatement(sql);
+        stmt.setInt(1, id);
+        try(ResultSet rs = stmt.executeQuery()){
+        if (rs.next()){
+            Aula aula = new Aula();
+            aula.setId(rs.getInt("id"));
+            aula.setNome(rs.getString("nome"));
+            aula.setTipo(rs.getString("Tipo"));
+            aula.setDescricao(rs.getString("Descricao"));
+            aula.setProfessor(rs.getString("cpf_professor"));
+            aula.setVagas(rs.getInt("Vagas"));
+            aula.setData(LocalDate.parse(rs.getString("data")));
+            aula.setComeco(LocalTime.parse(rs.getString("comeco")));
+            aula.setFim(LocalTime.parse(rs.getString("fim")));
+            return aula;
+        } else {
+        return null; }
+        }
+    }
 }

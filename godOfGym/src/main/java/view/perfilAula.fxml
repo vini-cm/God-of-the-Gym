@@ -33,7 +33,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button layoutX="158.0" layoutY="228.0" mnemonicParsing="false" onAction="#abrirParticipantes" prefHeight="28.0" prefWidth="141.0" styleClass="btn" text="PARTICIPANTES">
+            <Button layoutX="158.0" layoutY="224.0" mnemonicParsing="false" onAction="#abrirParticipantes" prefHeight="35.0" prefWidth="175.0" styleClass="btn" text="PARTICIPANTES">
                <font>
                   <Font size="14.0" />
                </font>
