@@ -24,7 +24,7 @@
 .textField {
     -fx-background-radius:20px;
     -fx-background-color: #2b2d42;
-    -fx-border-color: #d90429;
+    -fx-border-color: #cc0033;
     -fx-border-width: 3px;
     -fx-text-fill: #cc0033;
     -fx-prompt-text-fill: #cc0033;

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="pane" fx:id="pane" prefHeight="600.0" prefWidth="700.0" stylesheets="@../../resources/css/home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+<AnchorPane id="anchorPane" fx:id="pane" prefHeight="600.0" prefWidth="700.0" styleClass="anchorPane" stylesheets="@../../resources/css/home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
    <children>
       <AnchorPane id="container" layoutX="69.0" layoutY="100.0" prefHeight="200.0" prefWidth="160.0" styleClass="container" stylesheets="@../../resources/css/home.css">
          <children>
@@ -20,13 +20,22 @@
                      </image>
                   </ImageView>
                </graphic>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
-            <Label layoutX="46.0" layoutY="150.0" stylesheets="@../../resources/css/home.css" text="CLIENTES" textFill="WHITE">
+            <Label layoutX="36.0" layoutY="150.0" stylesheets="@../../resources/css/home.css" text="CLIENTES" textFill="#cc0033">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Label>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
       <AnchorPane id="container" layoutX="264.0" layoutY="100.0" prefHeight="200.0" prefWidth="160.0" styleClass="container" stylesheets="@../../resources/css/home.css">
          <children>
@@ -38,13 +47,22 @@
                      </image>
                   </ImageView>
                </graphic>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
-            <Label layoutX="39.0" layoutY="149.0" text="INSTRUTOR" textFill="WHITE">
+            <Label layoutX="27.0" layoutY="150.0" text="INSTRUTOR" textFill="#cc0033">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Label>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
       <AnchorPane id="container" layoutX="461.0" layoutY="106.0" prefHeight="200.0" prefWidth="160.0" styleClass="container" stylesheets="@../../resources/css/home.css">
          <children>
@@ -56,13 +74,22 @@
                      </image>
                   </ImageView>
                </graphic>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
-            <Label layoutX="32.0" layoutY="147.0" text="ATENDENTES" textFill="WHITE">
+            <Label layoutX="21.0" layoutY="150.0" text="ATENDENTES" textFill="#cc0033">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Label>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
       <AnchorPane id="container" layoutX="161.0" layoutY="317.0" prefHeight="200.0" prefWidth="160.0" styleClass="container" stylesheets="@../../resources/css/home.css">
          <children>
@@ -74,13 +101,22 @@
                      </image>
                   </ImageView>
                </graphic>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
-            <Label layoutX="51.0" layoutY="144.0" text="PLANOS" textFill="WHITE">
+            <Label layoutX="43.0" layoutY="144.0" text="PLANOS" textFill="#cc0033">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Label>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
       <AnchorPane id="container" layoutX="356.0" layoutY="317.0" prefHeight="200.0" prefWidth="160.0" styleClass="container" stylesheets="@../../resources/css/home.css">
          <children>
@@ -92,13 +128,22 @@
                      </image>
                   </ImageView>
                </graphic>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Button>
-            <Label layoutX="56.0" layoutY="147.0" text="AULAS" textFill="WHITE">
+            <Label layoutX="49.0" layoutY="147.0" text="AULAS" textFill="#cc0033">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Label>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
       <Button fx:id="btnLogout" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#deslogar" prefHeight="50.0" prefWidth="50.0" styleClass="btn" stylesheets="@../../resources/css/home.css">
          <graphic>
