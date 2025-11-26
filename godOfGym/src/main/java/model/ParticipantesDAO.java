@@ -16,8 +16,25 @@ public class ParticipantesDAO extends genericoDAO{
     
     
     public void deletar(Participantes p) throws SQLException{
-        String delete = "delete from planos where id_aluno =?";
+        String delete = "delete from aula_aluno where id_aluno =?";
         deletar(delete,p.getCpf_participante());
+    }
+    
+    public Participantes pesquisarParticipante(String cpf) throws SQLException{
+        String sql = "SELECT * FROM aula_aluno WHERE id_aluno = ?";
+        PreparedStatement stmt = conectarConn().prepareStatement(sql);
+        stmt.setString(1, cpf);
+        try(ResultSet rs = stmt.executeQuery()){
+        if(rs.next()){
+            Participantes participante = new Participantes();
+            participante.setId(rs.getInt("id"));
+            participante.setId_aula(rs.getInt("id_aula"));
+            participante.setCpf_participante(rs.getString("id_aluno"));
+            return participante;
+        }else {
+            return null;
+        }
+        }  
     }
     
     public ObservableList<Usuario> listarParticipantes(int id) throws SQLException{

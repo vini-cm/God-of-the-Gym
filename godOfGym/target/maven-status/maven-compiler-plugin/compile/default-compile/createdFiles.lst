@@ -39,6 +39,7 @@ controller\InstrutoresController.class
 controller\AtendentesController.class
 util\Formatar.class
 dal\Conn.class
+controller\ParticipantesController$1.class
 principal\App.class
 controller\PerfilInstrutorController.class
 model\Planos.class
